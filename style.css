@@ -44,6 +44,7 @@ body {
     -webkit-font-smoothing: antialiased;
     perspective: 2000px;
     perspective-origin: center center;
+    position: relative;
 }
 
 h1,
@@ -1194,11 +1195,11 @@ body:not(.aiero-theme) .aiero-theme-btn {
 
 /* Hero Section Elements */
 body:not(.aiero-theme) .aiero-slide-title {
-    color: #03030b;
+    color: white;
 }
 
 body:not(.aiero-theme) .aiero-slide-desc {
-    color: #555566;
+    color: white;
 }
 
 .aiero-slide-title,
@@ -1275,6 +1276,7 @@ body:not(.aiero-theme) .aiero-footer {
         radial-gradient(circle at 90% 80%, rgba(0, 150, 200, 0.25) 0%, transparent 60%),
         radial-gradient(circle at 50% 50%, rgba(10, 8, 30, 1) 0%, rgba(3, 3, 8, 1) 100%);
     overflow: hidden;
+    pointer-events: none;
 }
 
 .aiero-bg-wave {
@@ -1802,6 +1804,8 @@ body.aiero-theme .aiero-logo img {
     grid-template-columns: 1fr 1fr;
     gap: 4.5rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .aiero-about-content {
@@ -1942,15 +1946,27 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes phoneRingPeriodic {
-    0%, 35%, 100% {
+
+    0%,
+    35%,
+    100% {
         transform: scale(1) rotate(0deg);
     }
-    40%, 50%, 60%, 70% {
+
+    40%,
+    50%,
+    60%,
+    70% {
         transform: scale(1.15) rotate(-10deg);
     }
-    45%, 55%, 65%, 75% {
+
+    45%,
+    55%,
+    65%,
+    75% {
         transform: scale(1.15) rotate(10deg);
     }
+
     80% {
         transform: scale(1) rotate(0deg);
     }
@@ -1960,16 +1976,20 @@ body.aiero-theme .aiero-phone-num {
     0% {
         background-position: 0% center;
     }
+
     100% {
         background-position: -200% center;
     }
 }
 
 @keyframes phonePulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(0, 160, 255, 0.25);
     }
+
     50% {
         transform: scale(1.08);
         box-shadow: 0 0 15px 5px rgba(0, 160, 255, 0.45);
@@ -2168,10 +2188,13 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes cardFloat3D1 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotateX(4deg) rotateY(-5deg) rotateZ(-0.5deg);
         box-shadow: -5px 25px 50px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         transform: translateY(-12px) rotateX(-4deg) rotateY(5deg) rotateZ(0.5deg);
         box-shadow: 5px 30px 60px rgba(0, 160, 255, 0.12);
@@ -2179,10 +2202,13 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes cardFloat3D2 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotateX(-5deg) rotateY(4deg) rotateZ(0.5deg);
         box-shadow: 5px 25px 50px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         transform: translateY(12px) rotateX(5deg) rotateY(-4deg) rotateZ(-0.5deg);
         box-shadow: -5px 30px 60px rgba(0, 160, 255, 0.12);
@@ -2190,10 +2216,13 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes cardFloat3D3 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotateX(4deg) rotateY(5deg) rotateZ(-0.5deg);
         box-shadow: 5px 25px 50px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         transform: translateY(-10px) rotateX(-4deg) rotateY(-5deg) rotateZ(0.5deg);
         box-shadow: -5px 30px 60px rgba(0, 160, 255, 0.12);
@@ -2233,27 +2262,36 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes kenBurnsSlow1 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) translate(0, 0);
     }
+
     50% {
         transform: scale(1.08) translate(-1.5%, -1%);
     }
 }
 
 @keyframes kenBurnsSlow2 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) translate(0, 0);
     }
+
     50% {
         transform: scale(1.08) translate(1.5%, 1%);
     }
 }
 
 @keyframes kenBurnsSlow3 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) translate(0, 0);
     }
+
     50% {
         transform: scale(1.08) translate(-1%, 1.5%);
     }
@@ -2694,6 +2732,8 @@ body:not(.aiero-theme) .aiero-services-section {
     grid-template-columns: 0.95fr 1.05fr;
     gap: 5rem;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 /* Left Side: Premium Text Block */
@@ -3027,5 +3067,1278 @@ body:not(.aiero-theme) .aiero-services-dot {
 
     .aiero-service-card {
         width: 290px;
+    }
+}
+
+/* ==========================================================================
+   PORTAL EXPANSION UPGRADE STYLES
+   ========================================================================== */
+
+/* 1. Glassmorphic Portfolio Number Counters Section */
+.aiero-counters-section {
+    position: relative;
+    padding: 4.5rem 8%;
+    z-index: 10;
+    background: transparent;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body:not(.aiero-theme) .aiero-counters-section {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.aiero-counters-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 991px) {
+    .aiero-counters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aiero-counters-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.aiero-counter-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
+    padding: 2.2rem 1.8rem;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+body:not(.aiero-theme) .aiero-counter-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.aiero-counter-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 160, 255, 0.4);
+}
+
+.aiero-counter-number {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    font-weight: 800;
+    color: #e5c158;
+    line-height: 1;
+    filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.25));
+}
+
+body:not(.aiero-theme) .aiero-counter-number {
+    color: #00a0ff;
+    filter: drop-shadow(0 0 10px rgba(0, 160, 255, 0.15));
+}
+
+.aiero-counter-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+body:not(.aiero-theme) .aiero-counter-label {
+    color: #555566;
+}
+
+/* 2. Infinite Sliding Collaboration Marquee */
+.aiero-marquee-section {
+    position: relative;
+    padding: 5rem 0;
+    z-index: 10;
+    overflow: hidden;
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body:not(.aiero-theme) .aiero-marquee-section {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.aiero-marquee-container {
+    max-width: 1400px;
+    margin: 0 auto 2.5rem;
+    padding: 0 8%;
+    text-align: center;
+}
+
+.aiero-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeSlide 30s linear infinite;
+}
+
+.aiero-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeSlide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.aiero-marquee-item {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.25);
+    padding: 0 4rem;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    letter-spacing: 0.08em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-marquee-item {
+    color: rgba(3, 3, 11, 0.2);
+}
+
+.aiero-marquee-item:hover {
+    color: #e5c158;
+    transform: scale(1.05);
+}
+
+body:not(.aiero-theme) .aiero-marquee-item:hover {
+    color: #00a0ff;
+}
+
+.aiero-marquee-item i {
+    font-size: 1.1rem;
+    opacity: 0.6;
+}
+
+/* 3. Luxury FAQ Collapsible Accordions */
+.aiero-faq-section {
+    position: relative;
+    padding: 7rem 8%;
+    z-index: 10;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body:not(.aiero-theme) .aiero-faq-section {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.aiero-faq-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.aiero-faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: background 0.4s, border-color 0.4s;
+}
+
+body:not(.aiero-theme) .aiero-faq-item {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.aiero-faq-item:hover {
+    border-color: rgba(0, 160, 255, 0.3);
+}
+
+.aiero-faq-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8rem 2.2rem;
+    text-align: left;
+    gap: 1.5rem;
+}
+
+.aiero-faq-question {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-faq-question {
+    color: #03030b;
+}
+
+.aiero-faq-trigger:hover .aiero-faq-question {
+    color: #e5c158;
+}
+
+body:not(.aiero-theme) .aiero-faq-trigger:hover .aiero-faq-question {
+    color: #00a0ff;
+}
+
+.aiero-faq-icon {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.4);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-faq-icon {
+    color: rgba(3, 3, 11, 0.4);
+}
+
+.aiero-faq-item.active .aiero-faq-icon {
+    transform: rotate(180deg);
+    color: #e5c158;
+}
+
+body:not(.aiero-theme) .aiero-faq-item.active .aiero-faq-icon {
+    color: #00a0ff;
+}
+
+.aiero-faq-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.aiero-faq-content {
+    padding: 0 2.2rem 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+body:not(.aiero-theme) .aiero-faq-content {
+    color: #555566;
+}
+
+/* 4. Interactive Timeline for Journey */
+.aiero-journey-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 4.5rem auto 1rem;
+    padding-left: 3rem;
+}
+
+.aiero-journey-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 1rem;
+    width: 2px;
+    background: linear-gradient(to bottom, #00a0ff, #e5c158, #e35a57, #00a0ff);
+    opacity: 0.3;
+}
+
+.aiero-timeline-node {
+    position: relative;
+    padding-bottom: 3.5rem;
+}
+
+.aiero-timeline-dot {
+    position: absolute;
+    left: -3rem;
+    top: 0.2rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: #0a0a14;
+    border: 3px solid #00a0ff;
+    box-shadow: 0 0 10px rgba(0, 160, 255, 0.5);
+    z-index: 5;
+    transition: background 0.4s, transform 0.4s;
+}
+
+body:not(.aiero-theme) .aiero-timeline-dot {
+    background: #fff;
+    border-color: #00a0ff;
+}
+
+.aiero-timeline-node:nth-child(even) .aiero-timeline-dot {
+    border-color: #e5c158;
+    box-shadow: 0 0 10px rgba(229, 193, 88, 0.5);
+}
+
+.aiero-timeline-node:hover .aiero-timeline-dot {
+    transform: scale(1.3);
+    background: #fff;
+}
+
+body:not(.aiero-theme) .aiero-timeline-node:hover .aiero-timeline-dot {
+    background: #00a0ff;
+}
+
+.aiero-timeline-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s;
+}
+
+body:not(.aiero-theme) .aiero-timeline-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.aiero-timeline-card:hover {
+    transform: translateX(8px);
+    border-color: rgba(0, 160, 255, 0.3);
+}
+
+.aiero-timeline-card:hover h4 {
+    color: #e5c158;
+}
+
+body:not(.aiero-theme) .aiero-timeline-card:hover h4 {
+    color: #00a0ff;
+}
+
+.aiero-timeline-year {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #00a0ff;
+    margin-bottom: 0.4rem;
+}
+
+.aiero-timeline-node:nth-child(even) .aiero-timeline-year {
+    color: #e5c158;
+}
+
+.aiero-timeline-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    transition: color 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-timeline-title {
+    color: #03030b;
+}
+
+.aiero-timeline-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body:not(.aiero-theme) .aiero-timeline-desc {
+    color: #555566;
+}
+
+/* 5. Minimalist Glassmorphic Breadcrumbs */
+.aiero-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    width: max-content;
+    margin: 0 auto 3rem;
+}
+
+body:not(.aiero-theme) .aiero-breadcrumbs {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.aiero-breadcrumb-item {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.aiero-breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-breadcrumb-item a {
+    color: #555566;
+}
+
+.aiero-breadcrumb-item a:hover {
+    color: #00a0ff;
+}
+
+.aiero-breadcrumb-item.active {
+    color: #e5c158;
+}
+
+body:not(.aiero-theme) .aiero-breadcrumb-item.active {
+    color: #00a0ff;
+}
+
+.aiero-breadcrumb-separator {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+body:not(.aiero-theme) .aiero-breadcrumb-separator {
+    color: rgba(0, 0, 0, 0.25);
+}
+
+/* 6. Dynamic Product Details Page Layout */
+.aiero-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5.5rem;
+    align-items: start;
+}
+
+@media (max-width: 991px) {
+    .aiero-details-grid {
+        grid-template-columns: 1fr;
+        gap: 4.5rem;
+    }
+}
+
+.aiero-details-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 100px;
+}
+
+.aiero-gallery-main {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.01);
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+body:not(.aiero-theme) .aiero-gallery-main {
+    border-color: rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.aiero-gallery-main img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.aiero-gallery-main:hover img {
+    transform: scale(1.05);
+}
+
+.aiero-gallery-thumbs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.aiero-gallery-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.01);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-gallery-thumb {
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.aiero-gallery-thumb.active {
+    border-color: #00a0ff;
+    transform: scale(1.05);
+}
+
+.aiero-gallery-thumb img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Technical Specification Table */
+.aiero-spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.aiero-spec-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body:not(.aiero-theme) .aiero-spec-table tr {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.aiero-spec-table th,
+.aiero-spec-table td {
+    padding: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.aiero-spec-table th {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    width: 35%;
+}
+
+body:not(.aiero-theme) .aiero-spec-table th {
+    color: #555566;
+}
+
+.aiero-spec-table td {
+    color: #fff;
+    font-weight: 600;
+}
+
+body:not(.aiero-theme) .aiero-spec-table td {
+    color: #03030b;
+}
+
+/* Interactive Tabs for Info Panels */
+.aiero-tabs-headers {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 2rem;
+    margin: 2.5rem 0 1.5rem;
+}
+
+body:not(.aiero-theme) .aiero-tabs-headers {
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.aiero-tab-header {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 0.8rem 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-tab-header {
+    color: #555566;
+}
+
+.aiero-tab-header.active {
+    color: #e5c158;
+}
+
+body:not(.aiero-theme) .aiero-tab-header.active {
+    color: #00a0ff;
+}
+
+.aiero-tab-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e5c158;
+    transition: width 0.3s;
+}
+
+body:not(.aiero-theme) .aiero-tab-header::after {
+    background: #00a0ff;
+}
+
+.aiero-tab-header.active::after {
+    width: 100%;
+}
+
+.aiero-tab-panel {
+    display: none;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+body:not(.aiero-theme) .aiero-tab-panel {
+    color: #555566;
+}
+
+.aiero-tab-panel.active {
+    display: block;
+    animation: tabFadeIn 0.5s ease-out;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVENESS OVERRIDES
+   ========================================================================== */
+
+/* 1. Mobile Menu Hamburger Toggle styles */
+.aiero-menu-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.15rem;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    outline: none;
+    z-index: 10000;
+}
+
+body:not(.aiero-theme) .aiero-menu-toggle {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #03030b;
+}
+
+.aiero-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #00a0ff;
+    transform: scale(1.05);
+}
+
+body:not(.aiero-theme) .aiero-menu-toggle:hover {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: #00a0ff;
+}
+
+/* 2. Media Query for Mobile Navigation & General Layouts */
+@media (max-width: 991px) {
+
+    /* Navigation Bar */
+    .aiero-menu-toggle {
+        display: flex;
+    }
+
+    .aiero-nav {
+        top: 1rem;
+        left: 4%;
+        width: 92%;
+        border-radius: 20px;
+        padding: 0.8rem 1.6rem;
+    }
+
+    .aiero-menu {
+        display: none;
+        /* Controlled by dynamic JS logic */
+        position: absolute;
+        top: 110%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 25, 0.96);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 2.2rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.6rem;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+        z-index: 9998;
+    }
+
+    body:not(.aiero-theme) .aiero-menu {
+        background: rgba(240, 240, 248, 0.98);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .aiero-right-controls {
+        display: none;
+        /* Collapsed on mobile */
+    }
+
+    .aiero-menu-link {
+        font-size: 0.92rem;
+        padding: 0.4rem 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .aiero-logo img {
+        height: 32px;
+    }
+
+    /* Hero Slide Content */
+    .aiero-slide-content {
+        margin-top: 24vh;
+        gap: 1.5rem;
+        padding: 0 6%;
+    }
+
+    .aiero-slide-title {
+        font-size: 2.2rem !important;
+        line-height: 1.15;
+    }
+
+    .aiero-slide-desc {
+        font-size: 0.9rem !important;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+
+    .aiero-video-card {
+        display: none !important;
+        /* Eliminate mobile overlap */
+    }
+
+    /* Slider Navigation adjustments */
+    .aiero-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 0.9rem;
+    }
+
+    .aiero-arrow.btn-prev {
+        left: 1.5rem;
+    }
+
+    .aiero-arrow.btn-next {
+        right: 1.5rem;
+    }
+
+    /* About Us section staggered images */
+    .aiero-about-images {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .aiero-about-img-wrapper {
+        width: 100% !important;
+        max-width: 450px;
+    }
+
+    .aiero-about-img-wrapper.shifted {
+        margin-top: 0;
+    }
+
+    .aiero-about-img-box {
+        height: 280px;
+    }
+
+    .aiero-about-phone {
+        justify-content: center;
+    }
+
+    /* Counter metrics row */
+    .aiero-counter-card {
+        padding: 1.8rem 1.2rem;
+    }
+
+    /* Milestone timeline adjustments */
+    .aiero-journey-timeline {
+        padding-left: 2rem;
+    }
+
+    .aiero-journey-timeline::before {
+        left: 0.6rem;
+    }
+
+    .aiero-timeline-dot {
+        left: -2.3rem;
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+
+    .aiero-timeline-card {
+        padding: 1.5rem 1.6rem;
+    }
+
+    .aiero-timeline-year {
+        font-size: 1.35rem;
+    }
+
+    .aiero-timeline-title {
+        font-size: 1.05rem;
+    }
+
+    /* Product Category Pages details */
+    .aiero-gallery-main {
+        height: 320px;
+    }
+
+    .aiero-spec-table th {
+        width: 45%;
+    }
+
+    .aiero-details-grid {
+        gap: 3.5rem;
+    }
+
+    /* Related grid */
+    .aiero-creations-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
+    }
+
+    .aiero-creation-card {
+        height: 360px !important;
+    }
+}
+
+/* 3. Extremely small phone screen adjustments */
+@media (max-width: 480px) {
+    .aiero-slide-title {
+        font-size: 1.8rem !important;
+    }
+
+    .aiero-slide-content {
+        margin-top: 20vh;
+    }
+
+    .aiero-about-title {
+        font-size: 28px !important;
+    }
+
+    .aiero-creations-title {
+        font-size: 28px !important;
+    }
+
+    .aiero-about-img-box {
+        height: 220px;
+    }
+
+    .aiero-counters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aiero-faq-question {
+        font-size: 1.02rem;
+    }
+}
+
+/* ==========================================================================
+   PREMIUM FLOATING BACKGROUND SHAPES
+   ========================================================================== */
+.aiero-floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.32;
+    pointer-events: none;
+    will-change: transform;
+    z-index: 2;
+}
+
+body:not(.aiero-theme) .aiero-floating-shape {
+    opacity: 0.15;
+    filter: blur(100px);
+}
+
+/* Shape 1: Vibrant Purple/Blue Blob (Right side) */
+.aiero-floating-shape.shape-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(123, 97, 255, 0.8) 0%, rgba(123, 97, 255, 0) 70%);
+    top: 15%;
+    right: -100px;
+    animation: floatBlob1 25s ease-in-out infinite alternate;
+}
+
+/* Shape 2: Soft Pink/Peach Blob (Bottom right) */
+.aiero-floating-shape.shape-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255, 180, 190, 0.7) 0%, rgba(255, 180, 190, 0) 70%);
+    bottom: -50px;
+    right: 10%;
+    animation: floatBlob2 20s ease-in-out infinite alternate;
+}
+
+/* Shape 3: Bright Gold/Yellow Blob (Top left) */
+.aiero-floating-shape.shape-3 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.45) 0%, rgba(255, 215, 0, 0) 70%);
+    top: -100px;
+    left: -100px;
+    animation: floatBlob3 30s ease-in-out infinite alternate;
+}
+
+/* Shape 4: Premium 3D Glossy Fluid Spiral (Center Left / Drift) */
+.aiero-floating-shape.shape-4 {
+    width: 400px;
+    height: 400px;
+    background: url('assets/fluid_spiral_3d.png') no-repeat center;
+    background-size: contain;
+    filter: none;
+    opacity: 0.65;
+    mix-blend-mode: screen;
+    top: 40%;
+    left: 15%;
+    animation: floatSpiral 18s ease-in-out infinite alternate;
+}
+
+body:not(.aiero-theme) .aiero-floating-shape.shape-4 {
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Keyframe Animations for Natural Floating and Drifting */
+@keyframes floatBlob1 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-60px, 40px) scale(1.1) rotate(45deg);
+    }
+
+    100% {
+        transform: translate(40px, -60px) scale(0.9) rotate(90deg);
+    }
+}
+
+@keyframes floatBlob2 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(50px, -50px) scale(0.9) rotate(-60deg);
+    }
+
+    100% {
+        transform: translate(-30px, 30px) scale(1.15) rotate(60deg);
+    }
+}
+
+@keyframes floatBlob3 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(40px, 80px) scale(1.05);
+    }
+
+    100% {
+        transform: translate(-20px, -40px) scale(0.95);
+    }
+}
+
+@keyframes floatSpiral {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, -40px) rotate(15deg) scale(1.05);
+    }
+
+    100% {
+        transform: translate(-30px, 30px) rotate(-15deg) scale(0.95);
+    }
+}
+
+/* ==========================================================================
+   PREMIUM GEOMETRIC & 3D FLOATING SHAPES — PER SECTION
+   ========================================================================== */
+
+/* Base class for all shapes — positioned inside their parent section */
+.aiero-geom-shape {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform;
+    z-index: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+}
+
+/* ---- COUNTERS SECTION shapes ---- */
+/* Gold Sector — top left corner, partially clipped */
+.aiero-counters-section .aiero-geom-shape.shape-gold-sector {
+    width: 340px;
+    height: 340px;
+    background-image: url('assets/shape_gold_sector.png');
+    top: -80px;
+    left: -80px;
+    animation: floatGeom3 28s ease-in-out infinite alternate;
+}
+
+/* 3D Spiral Helix — right side, partially clipped */
+.aiero-faq-section .aiero-geom-shape.shape-spiral-helix {
+    width: 380px;
+    height: 380px;
+    background-image: url('assets/shape_3d_spiral_helix.png');
+    top: 50%;
+    left: 97%;
+    transform: translateY(-50%);
+    animation: floatGeomSpiral 18s ease-in-out infinite alternate;
+}
+
+/* ---- ABOUT SECTION shapes ---- */
+/* Purple Semi-Circle — right edge, large and bold */
+.aiero-about .aiero-geom-shape.shape-purple {
+    width: 580px;
+    height: 580px;
+    background-image: url('assets/shape_purple.png');
+    top: 50%;
+    right: -180px;
+    transform: translateY(-50%);
+    animation: fadeInOut 18s ease-in-out infinite;
+    ;
+}
+
+/* Pink Circle — bottom-right, partially clipped */
+.aiero-about .aiero-geom-shape.shape-pink-circle {
+    width: 300px;
+    height: 300px;
+    background-image: url('assets/shape_pink_circle.png');
+    bottom: -80px;
+    right: 8%;
+    animation: floatGeom2 18s ease-in-out infinite alternate;
+}
+
+/* ---- SERVICES SECTION shapes ---- */
+/* Pink Semicircle Sector — left edge */
+.aiero-services-section .aiero-geom-shape.shape-pink-sector {
+    width: 320px;
+    height: 320px;
+    background-image: url('assets/shape_pink_sector.png');
+    top: -60px;
+    left: -80px;
+    animation: floatGeom6 26s ease-in-out infinite alternate;
+}
+
+/* Yellow Cone — bottom-left corner */
+.aiero-services-section .aiero-geom-shape.shape-yellow-cone {
+    width: 260px;
+    height: 260px;
+    background-image: url('assets/shape_yellow_cone.png');
+    top: 0px;
+    left: 40%;
+    animation: floatGeom5 20s ease-in-out infinite alternate;
+}
+
+/* Pink 3D Cube — right side, floating */
+.aiero-services-section .aiero-geom-shape.shape-pink-cube {
+    width: 200px;
+    height: 200px;
+    background-image: url('assets/shape_pink_cube.png');
+    top: 30%;
+    right: 3%;
+    animation: floatGeomCube 15s ease-in-out infinite alternate;
+}
+
+/* ---- FAQ SECTION shapes ---- */
+/* Dark Node — bottom-left area */
+.aiero-geom-shape.shape-dark-node {
+    width: 360px;
+    height: 360px;
+    background-image: url('assets/shape_3d_dark_node.png');
+    bottom: -185px;
+    right: 0;
+    animation: floatGeomNode 22s ease-in-out infinite alternate;
+}
+
+/* Light Theme — keep shapes visible at slightly reduced opacity */
+body:not(.aiero-theme) .aiero-geom-shape {
+    opacity: 0.85;
+}
+
+/* GPU-Accelerated Floating / Rotation Keyframes */
+@keyframes floatGeom1 {
+    0% {
+        transform: translateY(-50%) translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-50%) translate(-30px, 20px) scale(1.05) rotate(12deg);
+    }
+
+    100% {
+        transform: translateY(-50%) translate(20px, -30px) scale(0.96) rotate(25deg);
+    }
+}
+
+@keyframes floatGeom2 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(25px, -40px) scale(0.93) rotate(-18deg);
+    }
+
+    100% {
+        transform: translate(-15px, 15px) scale(1.08) rotate(18deg);
+    }
+}
+
+@keyframes floatGeomCube {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translate(-20px, 30px) rotate(40deg) scale(1.06);
+    }
+
+    100% {
+        transform: translate(20px, -25px) rotate(80deg) scale(0.94);
+    }
+}
+
+@keyframes floatGeom3 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(20px, 25px) scale(1.04) rotate(-8deg);
+    }
+
+    100% {
+        transform: translate(-10px, -15px) scale(0.98) rotate(8deg);
+    }
+}
+
+@keyframes floatGeom5 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-22px, 22px) scale(1.05) rotate(-12deg);
+    }
+
+    100% {
+        transform: translate(15px, -15px) scale(0.96) rotate(12deg);
+    }
+}
+
+@keyframes floatGeom6 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(22px, -30px) scale(0.97) rotate(15deg);
+    }
+
+    100% {
+        transform: translate(-15px, 15px) scale(1.03) rotate(-15deg);
+    }
+}
+
+@keyframes floatGeomSpiral {
+    0% {
+        transform: translateY(-50%) translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-50%) translate(30px, -25px) scale(1.04) rotate(20deg);
+    }
+
+    100% {
+        transform: translateY(-50%) translate(-30px, 25px) scale(0.96) rotate(-20deg);
+    }
+}
+
+@keyframes floatGeomNode {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-25px, 25px) scale(1.06) rotate(-15deg);
+    }
+
+    100% {
+        transform: translate(25px, -25px) scale(0.94) rotate(15deg);
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
