@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoverables = document.querySelectorAll('a, button, .aiero-nav-dot, .aiero-video-thumbnail, .aiero-tab-icon');
     hoverables.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            gsap.to(cursorRing, { width: 55, height: 55, borderColor: '#00a0ff', backgroundColor: 'rgba(0, 160, 255, 0.08)' });
+            gsap.to(cursorRing, { width: 55, height: 55, borderColor: '#FFC229', backgroundColor: 'rgba(255, 194, 41, 0.08)' });
         });
         el.addEventListener('mouseleave', () => {
             gsap.to(cursorRing, { width: 40, height: 40, borderColor: 'var(--color-primary)', backgroundColor: 'transparent' });
@@ -181,20 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.querySelector('.aiero-theme-btn');
     const body = document.body;
 
-    // Load theme from localStorage
-    const savedTheme = localStorage.getItem('site-theme');
+    // Load theme from localStorage (Defaults to 'light' to ensure a light background)
+    const savedTheme = localStorage.getItem('site-theme') || 'light';
     if (savedTheme === 'dark') {
         body.classList.add('aiero-theme');
         if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    } else if (savedTheme === 'light') {
+    } else {
         body.classList.remove('aiero-theme');
         if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        localStorage.setItem('site-theme', 'light');
     }
 
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
             body.classList.toggle('aiero-theme');
-            
+
             // Dynamically update the icon inside the button and save choice
             if (body.classList.contains('aiero-theme')) {
                 // Dark theme active -> show Moon icon to switch/indicate state
@@ -222,6 +223,72 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 5b. Product Categories Dynamic Word Split & ScrollTrigger Animation Setup
+    const categoriesTitle = document.querySelector('.aiero-categories-title');
+    if (categoriesTitle) {
+        const lines = categoriesTitle.innerHTML.split(/<br\s*\/?>/i);
+        categoriesTitle.innerHTML = lines.map(line => {
+            const words = line.trim().split(/\s+/);
+            const lineContent = words.map(word => {
+                return `<span class="reveal-wrapper"><span class="reveal-inner">${word}</span></span>`;
+            }).join(' ');
+            return `<div class="reveal-line-box">${lineContent}</div>`;
+        }).join('');
+    }
+
+    const categoriesTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.aiero-categories-section',
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    categoriesTl.fromTo('.aiero-categories-tagline', {
+        opacity: 0,
+        x: -25
+    }, {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+    });
+
+    categoriesTl.to('.aiero-categories-title .reveal-inner', {
+        y: '0%',
+        duration: 0.85,
+        stagger: 0.05,
+        ease: 'power3.out'
+    }, "-=0.5");
+
+    categoriesTl.fromTo('.aiero-category-card', {
+        opacity: 0,
+        y: 50,
+        scale: 0.95
+    }, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.95,
+        stagger: 0.1,
+        ease: 'power3.out'
+    }, "-=0.6");
+
+    // Add dynamic cursor hover states for category cards
+    const categoryCards = document.querySelectorAll('.aiero-category-card');
+    categoryCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            if (typeof cursorRing !== 'undefined') {
+                gsap.to(cursorRing, { width: 55, height: 55, borderColor: '#FFC229', backgroundColor: 'rgba(255, 194, 41, 0.08)' });
+            }
+        });
+        card.addEventListener('mouseleave', () => {
+            if (typeof cursorRing !== 'undefined') {
+                gsap.to(cursorRing, { width: 40, height: 40, borderColor: 'var(--color-primary)', backgroundColor: 'transparent' });
+            }
+        });
+    });
+
     // 6. About Us Dynamic Word Split & ScrollTrigger Animation Setup
     gsap.registerPlugin(ScrollTrigger);
 
@@ -241,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-about',
             start: 'top 75%',
-            toggleActions: 'play reset play reset'
+            toggleActions: 'play none none none'
         }
     });
 
@@ -349,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-creations',
             start: 'top 75%',
-            toggleActions: 'play reset play reset'
+            toggleActions: 'play none none none'
         }
     });
 
@@ -399,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-footer',
             start: 'top 85%',
-            toggleActions: 'play reset play reset'
+            toggleActions: 'play none none none'
         }
     });
 
@@ -463,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-services-section',
             start: 'top 75%',
-            toggleActions: 'play reset play reset'
+            toggleActions: 'play none none none'
         }
     });
 
@@ -644,7 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
     servicesHoverables.forEach(el => {
         el.addEventListener('mouseenter', () => {
             if (typeof cursorRing !== 'undefined') {
-                gsap.to(cursorRing, { width: 55, height: 55, borderColor: '#e5c158', backgroundColor: 'rgba(229, 193, 88, 0.08)' });
+                gsap.to(cursorRing, { width: 55, height: 55, borderColor: '#FFC229', backgroundColor: 'rgba(255, 194, 41, 0.08)' });
             }
         });
         el.addEventListener('mouseleave', () => {
@@ -663,10 +730,10 @@ document.addEventListener('DOMContentLoaded', () => {
     faqItems.forEach(item => {
         const trigger = item.querySelector('.aiero-faq-trigger');
         const panel = item.querySelector('.aiero-faq-panel');
-        
+
         trigger.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
+
             // Close other FAQ items
             faqItems.forEach(otherItem => {
                 if (otherItem !== item) {
@@ -679,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle current FAQ item
             item.classList.toggle('active', !isActive);
             trigger.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
-            
+
             if (!isActive) {
                 panel.style.maxHeight = panel.scrollHeight + "px";
             } else {
@@ -688,12 +755,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. GSAP ScrollTrigger Statistic Counter Numbers
+    // 2. Counter Cards — Staggered Scale-Grow Entrance Animation
+    const counterCards = document.querySelectorAll('.aiero-counter-card');
+    if (counterCards.length > 0) {
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.aiero-counter-card');
+                    cards.forEach((card, i) => {
+                        // Staggered grow-in with 150ms per card
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+
+                            // Icon bounces in after card grows
+                            const icon = card.querySelector('.aiero-counter-icon');
+                            if (icon) {
+                                gsap.fromTo(icon,
+                                    { scale: 0, opacity: 0, rotation: -20 },
+                                    {
+                                        scale: 1, opacity: 1, rotation: 0,
+                                        duration: 0.55, ease: 'back.out(2.5)', delay: 0.25
+                                    }
+                                );
+                            }
+
+                            // Number underline slides in after card settles
+                            const num = card.querySelector('.aiero-counter-number');
+                            if (num) {
+                                setTimeout(() => num.classList.add('underline-ready'), 500);
+                            }
+                        }, i * 150);
+                    });
+                    cardObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.15 });
+
+        const grid = document.querySelector('.aiero-counters-grid');
+        if (grid) cardObserver.observe(grid);
+    }
+
+    // 2b. GSAP ScrollTrigger Statistic Counter Numbers
     const counterNumbers = document.querySelectorAll('.aiero-counter-number');
     if (counterNumbers.length > 0) {
         counterNumbers.forEach(counter => {
             const targetVal = parseInt(counter.getAttribute('data-target'), 10);
-            
+
             gsap.fromTo(counter, {
                 textContent: 0
             }, {
@@ -706,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     start: 'top 90%',
                     toggleActions: 'play none none none'
                 },
-                onUpdate: function() {
+                onUpdate: function () {
                     // Append formatting labels
                     if (targetVal === 15000) {
                         counter.textContent = Math.floor(counter.textContent).toLocaleString() + "+";
@@ -867,7 +974,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryPage: "category-beds.html",
             categoryLabel: "Metal Beds"
         },
-        
+
         // Hospital Division
         "icu-bed": {
             title: "ICU FOWLER BED KH-01",
@@ -1339,26 +1446,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes("product-details.html")) {
         const urlParams = new URLSearchParams(window.location.search);
         let productId = urlParams.get("id");
-        
+
         // Fallback default
         if (!productId || !productDatabase[productId]) {
             productId = "bed7201";
         }
-        
+
         const data = productDatabase[productId];
-        
+
         // 1. Populate text and titles
         document.title = `${data.title} | Khodiyar Steel`;
         const categoryTag = document.getElementById("details-category-tagline");
         const productTitle = document.getElementById("details-product-title");
         const shortDesc = document.getElementById("details-short-desc");
         const heroTitle = document.getElementById("details-hero-title");
-        
+
         if (categoryTag) categoryTag.textContent = data.category.toUpperCase();
         if (productTitle) productTitle.textContent = data.title;
         if (shortDesc) shortDesc.textContent = data.shortDesc;
         if (heroTitle) heroTitle.textContent = data.title;
-        
+
         // 2. Populate Breadcrumbs
         const breadcrumbs = document.getElementById("details-breadcrumbs");
         if (breadcrumbs) {
@@ -1374,9 +1481,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. Populate Gallery & Thumbs
         const mainImg = document.getElementById("details-main-img");
         const thumbsRow = document.getElementById("details-thumbs-row");
-        
+
         if (mainImg) mainImg.setAttribute("src", data.mainImg);
-        
+
         if (thumbsRow) {
             thumbsRow.innerHTML = data.thumbs.map((thumbSrc, index) => {
                 const activeClass = index === 0 ? "active" : "";
@@ -1386,7 +1493,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             }).join('');
-            
+
             // Attach thumbnail click handlers
             const thumbs = thumbsRow.querySelectorAll('.aiero-gallery-thumb');
             thumbs.forEach(thumb => {
@@ -1425,7 +1532,7 @@ document.addEventListener('DOMContentLoaded', () => {
             featuresList.innerHTML = data.features.map(feat => {
                 return `
                     <li style="display: flex; gap: 0.8rem; align-items: flex-start;">
-                        <i class="fa-solid fa-circle-check" style="color: #00a0ff; margin-top: 0.2rem; font-size: 0.9rem;"></i>
+                        <i class="fa-solid fa-circle-check" style="color: #FFC229; margin-top: 0.2rem; font-size: 0.9rem;"></i>
                         <span>${feat}</span>
                     </li>
                 `;
@@ -1435,21 +1542,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // 6. Hook up Download and Inquire buttons
         const inquireBtn = document.getElementById("details-inquire-btn");
         const downloadBtn = document.getElementById("details-download-btn");
-        
+
         if (inquireBtn) inquireBtn.setAttribute("href", `contact.html?product=${encodeURIComponent(data.title)}`);
         if (downloadBtn) downloadBtn.setAttribute("href", data.pdf);
 
         // 7. Tab Headers click switching handler
         const tabHeaders = document.querySelectorAll('.aiero-tab-header');
         const tabPanels = document.querySelectorAll('.aiero-tab-panel');
-        
+
         tabHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 const targetTab = header.getAttribute('data-tab');
-                
+
                 tabHeaders.forEach(h => h.classList.remove('active'));
                 tabPanels.forEach(p => p.classList.remove('active'));
-                
+
                 header.classList.add('active');
                 document.getElementById(targetTab).classList.add('active');
             });
@@ -1462,7 +1569,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const siblings = Object.entries(productDatabase)
                 .filter(([id, sibling]) => sibling.category === data.category && id !== productId)
                 .slice(0, 3);
-                
+
             // Fallback to random products if siblings are sparse
             if (siblings.length < 3) {
                 const extras = Object.entries(productDatabase)
@@ -1470,7 +1577,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .slice(0, 3 - siblings.length);
                 siblings.push(...extras);
             }
-            
+
             relatedGrid.innerHTML = siblings.map(([id, sib], index) => {
                 const floatClass = `card-float-${(index % 3) + 1}`;
                 return `
@@ -1493,16 +1600,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes("contact.html")) {
         const urlParams = new URLSearchParams(window.location.search);
         const selectedProduct = urlParams.get("product");
-        
+
         if (selectedProduct) {
             const categorySelect = document.getElementById("category");
             const messageArea = document.getElementById("message");
-            
+
             // Set message prompt text
             if (messageArea) {
                 messageArea.value = `Hello Khodiyar Steel team,\n\nI am inquiring regarding the "${selectedProduct}". I would like to request custom sizing parameters, available coloring boards, and bulk shipping pricing estimates to our location.\n\nThank you!`;
             }
-            
+
             // Match select options based on product type
             if (categorySelect) {
                 const prodLower = selectedProduct.toLowerCase();
@@ -1530,12 +1637,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.aiero-menu-toggle');
     const nav = document.querySelector('.aiero-nav');
     const menu = document.querySelector('.aiero-menu');
-    
+
     if (menuToggle && nav && menu) {
         menuToggle.addEventListener('click', () => {
             const isActive = nav.classList.contains('mobile-menu-active');
             nav.classList.toggle('mobile-menu-active', !isActive);
-            
+
             // Toggle icon
             const toggleIcon = menuToggle.querySelector('i');
             if (toggleIcon) {
@@ -1545,7 +1652,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     toggleIcon.className = 'fa-solid fa-bars';
                 }
             }
-            
+
             // Animate menu drawer height and opacity
             if (!isActive) {
                 gsap.fromTo(menu, {
@@ -1579,7 +1686,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     nav.classList.remove('mobile-menu-active');
                     const toggleIcon = menuToggle.querySelector('i');
                     if (toggleIcon) toggleIcon.className = 'fa-solid fa-bars';
-                    
+
                     gsap.to(menu, {
                         opacity: 0,
                         y: -20,
@@ -1592,6 +1699,121 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    }
+
+    // 7.6 Premium Product Sticky Stacking Cards Scroll Listener
+    const showcaseCards = document.querySelectorAll('.showcase-card');
+
+    if (showcaseCards.length > 0) {
+        const handleCardStacking = () => {
+            const viewportHeight = window.innerHeight;
+
+            showcaseCards.forEach((card, index) => {
+                const nextCard = showcaseCards[index + 1];
+                const contentCol = card.querySelector('.card-content-overlay');
+
+                // Helper to update progress ring SVG of a card
+                const updateProgressRing = (progressVal) => {
+                    const indicator = card.querySelector('.card-scroll-indicator');
+                    if (indicator) {
+                        const ring = indicator.querySelector('.progress-ring__circle');
+                        const textVal = indicator.querySelector('.progress-val');
+                        if (ring && textVal) {
+                            const percent = Math.round(progressVal * 100);
+                            const circumference = 150.79; // 2 * pi * 24
+                            const offset = circumference - (progressVal * circumference);
+                            ring.style.strokeDashoffset = offset;
+                            textVal.textContent = `${percent}%`;
+                        }
+                    }
+                };
+
+                if (nextCard) {
+                    const nextRect = nextCard.getBoundingClientRect();
+                    const stickyPoint = 0; // matching top: 0
+                    const overlapStart = viewportHeight;
+                    const overlapEnd = stickyPoint;
+
+                    if (nextRect.top < overlapStart && nextRect.top > overlapEnd) {
+                        const progress = (overlapStart - nextRect.top) / (overlapStart - overlapEnd);
+                        const scale = 1.0 - (progress * 0.40); // Scale from 1.0 down to 0.60
+                        const translateY = progress * -50;   // Translate up to -50px for optimal stacking depth
+                        const opacity = 1.0 - (progress * 0.60);  // Slowly lowers opacity down to 0.40
+
+                        card.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                        card.style.opacity = opacity;
+
+                        // Fade out the text overlay completely as next card slides over
+                        if (contentCol) {
+                            contentCol.style.opacity = 1 - progress;
+                            contentCol.style.transform = `translateY(${progress * -15}px)`;
+                        }
+
+                        // As card is being overlapped, its own scroll progress has finished (stays at 100%)
+                        updateProgressRing(1);
+
+                    } else if (nextRect.top <= overlapEnd) {
+                        card.style.transform = `scale(0.60) translateY(-50px)`;
+                        card.style.opacity = 0.40;
+                        if (contentCol) {
+                            contentCol.style.opacity = 0;
+                            contentCol.style.transform = 'translateY(-15px)';
+                        }
+                        updateProgressRing(1);
+                    } else {
+                        card.style.transform = `scale(1) translateY(0)`;
+                        card.style.opacity = 1;
+                        if (contentCol) {
+                            contentCol.style.opacity = 1;
+                            contentCol.style.transform = 'translateY(0)';
+                        }
+
+                        // If it's not being overlapped, let's calculate its own entry progress!
+                        const rect = card.getBoundingClientRect();
+                        if (index > 0) {
+                            if (rect.top < overlapStart && rect.top > overlapEnd) {
+                                const entryProgress = (overlapStart - rect.top) / (overlapStart - overlapEnd);
+                                updateProgressRing(entryProgress);
+                            } else if (rect.top <= overlapEnd) {
+                                updateProgressRing(1);
+                            } else {
+                                updateProgressRing(0);
+                            }
+                        } else {
+                            // First card is always 100% until it starts being covered by Card 2
+                            updateProgressRing(1);
+                        }
+                    }
+                } else {
+                    // The last card (Card 4)
+                    card.style.transform = `scale(1) translateY(0)`;
+                    card.style.opacity = 1;
+                    if (contentCol) {
+                        contentCol.style.opacity = 1;
+                        contentCol.style.transform = 'translateY(0)';
+                    }
+
+                    // Update progress ring for the last card as it scrolls into its sticky position
+                    const rect = card.getBoundingClientRect();
+                    const stickyPoint = 0; // matching top: 0
+                    const overlapStart = viewportHeight;
+                    const overlapEnd = stickyPoint;
+
+                    if (rect.top < overlapStart && rect.top > overlapEnd) {
+                        const entryProgress = (overlapStart - rect.top) / (overlapStart - overlapEnd);
+                        updateProgressRing(entryProgress);
+                    } else if (rect.top <= overlapEnd) {
+                        updateProgressRing(1);
+                    } else {
+                        updateProgressRing(0);
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleCardStacking);
+        handleCardStacking();
+        window.addEventListener('resize', handleCardStacking);
     }
 
 });
