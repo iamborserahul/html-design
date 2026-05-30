@@ -1086,6 +1086,183 @@ body.aiero-theme {
     overflow-x: hidden;
 }
 
+/* ==========================================
+   AIERO LIGHT THEME DECLARATIVE STYLES
+   ========================================== */
+
+/* Base Light Theme Setup */
+body:not(.aiero-theme) {
+    background-color: #f4f5f8;
+    color: #03030b;
+}
+
+body {
+    transition: background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1), color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Premium Light Background Gradient */
+body:not(.aiero-theme) .aiero-bg-glow {
+    background:
+        radial-gradient(circle at 10% 20%, rgba(0, 160, 255, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 90% 80%, rgba(229, 193, 88, 0.04) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(240, 240, 248, 1) 0%, rgba(244, 245, 248, 1) 100%);
+}
+
+body:not(.aiero-theme) .aiero-bg-wave {
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+}
+
+/* Light Theme Spotlight Glow */
+body:not(.aiero-theme) .aiero-spotlight {
+    background: radial-gradient(circle, rgba(0, 160, 255, 0.04) 0%, rgba(244, 245, 248, 0) 70%);
+}
+
+/* Light Theme Glassmorphic Capsule Nav */
+body:not(.aiero-theme) .aiero-nav {
+    background: rgba(240, 240, 248, 0.7);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.aiero-nav {
+    transition: background 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body:not(.aiero-theme) .aiero-logo {
+    color: #03030b;
+}
+
+.aiero-logo {
+    transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body:not(.aiero-theme) .aiero-menu-link {
+    color: #555566;
+}
+
+body:not(.aiero-theme) .aiero-menu-link:hover,
+body:not(.aiero-theme) .aiero-menu-link.active {
+    color: #00a0ff;
+}
+
+body:not(.aiero-theme) .aiero-menu-link i {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+body:not(.aiero-theme) .aiero-menu-link:hover i {
+    color: #00a0ff;
+}
+
+body:not(.aiero-theme) .aiero-search-login {
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .aiero-search-btn {
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .aiero-search-btn:hover {
+    color: #00a0ff;
+}
+
+body:not(.aiero-theme) .aiero-btn-capsule {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .aiero-btn-capsule:hover {
+    border-color: #00a0ff;
+    color: #fff;
+}
+
+.aiero-menu-link,
+.aiero-search-login,
+.aiero-search-btn,
+.aiero-btn-capsule {
+    transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Floating Capsule Toggle Button */
+body:not(.aiero-theme) .aiero-theme-btn {
+    background: #00a0ff;
+    color: #fff;
+}
+
+.aiero-theme-btn {
+    transition: background 0.5s cubic-bezier(0.25, 1, 0.5, 1), color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hero Section Elements */
+body:not(.aiero-theme) .aiero-slide-title {
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .aiero-slide-desc {
+    color: #555566;
+}
+
+.aiero-slide-title,
+.aiero-slide-desc {
+    transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* About Us Section Elements */
+body:not(.aiero-theme) .aiero-about-title {
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .aiero-about-desc p {
+    color: #555566;
+}
+
+body:not(.aiero-theme) .aiero-phone-label {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.aiero-about-title,
+.aiero-about-desc p,
+.aiero-phone-label {
+    transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Creations Section Elements */
+body:not(.aiero-theme) .aiero-creations-title {
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .aiero-creation-desc {
+    color: #555566;
+}
+
+body:not(.aiero-theme) .aiero-creation-view-more {
+    color: #03030b;
+    border-color: rgba(3, 3, 11, 0.4);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+body:not(.aiero-theme) .aiero-creation-card:hover .aiero-creation-view-more {
+    background: #00a0ff;
+    border-color: #00a0ff;
+    color: #fff;
+}
+
+.aiero-creations-title,
+.aiero-creation-desc,
+.aiero-creation-view-more {
+    transition: color 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1), background 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Footer Container Base Background */
+body:not(.aiero-theme) .aiero-footer {
+    background: #f4f5f8;
+    border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.aiero-footer {
+    transition: background 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
 /* Abstract Organic Wavy Background Layer */
 .aiero-bg-glow {
     position: fixed;
@@ -1170,6 +1347,23 @@ body.aiero-theme {
 
 .aiero-logo span {
     color: var(--color-primary);
+}
+
+/* AIERO Nav Logo Image Styling */
+.aiero-logo img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+}
+
+.aiero-logo:hover img {
+    transform: scale(1.04);
+}
+
+/* Smart color filter: Invert dark text to white, but keep yellow accents yellow in Dark Mode */
+body.aiero-theme .aiero-logo img {
+    filter: invert(1) hue-rotate(180deg) saturate(1.2);
 }
 
 .aiero-menu {
@@ -1605,8 +1799,8 @@ body.aiero-theme {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 6rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
     align-items: center;
 }
 
@@ -1687,13 +1881,25 @@ body.aiero-theme {
     align-items: center;
     justify-content: center;
     font-size: 1.35rem;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s, color 0.4s;
+    animation: phonePulse 3s ease-in-out infinite;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s, color 0.4s, box-shadow 0.4s;
+}
+
+.aiero-phone-icon i {
+    display: inline-block;
+    animation: phoneRingPeriodic 3.8s ease-in-out infinite;
 }
 
 .aiero-about-phone:hover .aiero-phone-icon {
-    transform: scale(1.1) rotate(15deg);
+    animation: none;
+    transform: scale(1.15) rotate(15deg);
     background: #00a0ff;
     color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 160, 255, 0.35);
+}
+
+.aiero-about-phone:hover .aiero-phone-icon i {
+    animation: none;
 }
 
 .aiero-phone-details {
@@ -1713,15 +1919,61 @@ body.aiero-theme {
 .aiero-phone-num {
     font-size: 1.95rem;
     font-weight: 700;
-    color: #e5c158;
     letter-spacing: 0.03em;
     font-family: 'Outfit', sans-serif;
     text-decoration: none;
-    transition: color 0.3s;
+    background: linear-gradient(90deg, #03030b 0%, #00a0ff 50%, #03030b 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerGold 4s linear infinite;
+    transition: filter 0.3s;
+}
+
+body.aiero-theme .aiero-phone-num {
+    background: linear-gradient(90deg, #e5c158 0%, #fff 50%, #e5c158 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .aiero-phone-num:hover {
-    color: #fff;
+    filter: brightness(1.2);
+}
+
+@keyframes phoneRingPeriodic {
+    0%, 35%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    40%, 50%, 60%, 70% {
+        transform: scale(1.15) rotate(-10deg);
+    }
+    45%, 55%, 65%, 75% {
+        transform: scale(1.15) rotate(10deg);
+    }
+    80% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes shimmerGold {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+@keyframes phonePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 160, 255, 0.25);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 15px 5px rgba(0, 160, 255, 0.45);
+    }
 }
 
 /* Overlapping / staggered visual grid on the right */
@@ -1732,6 +1984,17 @@ body.aiero-theme {
     align-items: start;
 }
 
+.aiero-about-img-wrapper {
+    position: relative;
+    width: 100%;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.aiero-about-img-wrapper.shifted {
+    margin-top: 4.5rem;
+}
+
 .aiero-about-img-box {
     position: relative;
     border-radius: 16px;
@@ -1739,10 +2002,46 @@ body.aiero-theme {
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
     will-change: transform;
+    transform-style: preserve-3d;
 }
 
-.aiero-about-img-box.shifted {
-    margin-top: 4.5rem;
+/* 3D Volumetric Floating & Swiveling Animations */
+.aiero-float-left {
+    animation: float3DLeft 9s ease-in-out infinite;
+}
+
+.aiero-float-right {
+    animation: float3DRight 9s ease-in-out infinite;
+    animation-delay: -4.5s;
+    /* Perfect anti-phase stagger */
+}
+
+@keyframes float3DLeft {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateX(10deg) rotateY(-14deg) rotateZ(-1.5deg);
+        box-shadow: -15px 40px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    50% {
+        transform: translateY(-20px) rotateX(-10deg) rotateY(14deg) rotateZ(1.5deg);
+        box-shadow: 15px 45px 90px rgba(0, 0, 0, 0.35);
+    }
+}
+
+@keyframes float3DRight {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateX(-10deg) rotateY(14deg) rotateZ(1.5deg);
+        box-shadow: 15px 40px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    50% {
+        transform: translateY(20px) rotateX(10deg) rotateY(-14deg) rotateZ(-1.5deg);
+        box-shadow: -15px 45px 90px rgba(0, 0, 0, 0.35);
+    }
 }
 
 .aiero-about-img-box img {
@@ -1764,7 +2063,7 @@ body.aiero-theme {
         gap: 5rem;
     }
 
-    .aiero-about-img-box.shifted {
+    .aiero-about-img-wrapper.shifted {
         margin-top: 0;
     }
 
@@ -1814,6 +2113,7 @@ body.aiero-theme {
     line-height: 1.2;
     color: #fff;
     letter-spacing: 0.02em;
+    font-size: 40px;
 }
 
 .aiero-creations-grid {
@@ -1821,6 +2121,15 @@ body.aiero-theme {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.2rem;
     width: 100%;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+
+.aiero-creation-card-wrapper {
+    position: relative;
+    width: 100%;
+    perspective: 1200px;
+    transform-style: preserve-3d;
 }
 
 .aiero-creation-card {
@@ -1833,6 +2142,62 @@ body.aiero-theme {
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     will-change: transform, opacity;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+}
+
+.aiero-creation-card:hover {
+    transform: scale(1.03) translateZ(15px) !important;
+    box-shadow: 0 35px 70px rgba(0, 160, 255, 0.25) !important;
+    z-index: 10;
+}
+
+/* Creations Cards 3D Staggered Floating Keyframes */
+.card-float-1 {
+    animation: cardFloat3D1 10s ease-in-out infinite;
+}
+
+.card-float-2 {
+    animation: cardFloat3D2 11s ease-in-out infinite;
+    animation-delay: -3.5s;
+}
+
+.card-float-3 {
+    animation: cardFloat3D3 10.5s ease-in-out infinite;
+    animation-delay: -7s;
+}
+
+@keyframes cardFloat3D1 {
+    0%, 100% {
+        transform: translateY(0) rotateX(4deg) rotateY(-5deg) rotateZ(-0.5deg);
+        box-shadow: -5px 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-12px) rotateX(-4deg) rotateY(5deg) rotateZ(0.5deg);
+        box-shadow: 5px 30px 60px rgba(0, 160, 255, 0.12);
+    }
+}
+
+@keyframes cardFloat3D2 {
+    0%, 100% {
+        transform: translateY(0) rotateX(-5deg) rotateY(4deg) rotateZ(0.5deg);
+        box-shadow: 5px 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(12px) rotateX(5deg) rotateY(-4deg) rotateZ(-0.5deg);
+        box-shadow: -5px 30px 60px rgba(0, 160, 255, 0.12);
+    }
+}
+
+@keyframes cardFloat3D3 {
+    0%, 100% {
+        transform: translateY(0) rotateX(4deg) rotateY(5deg) rotateZ(-0.5deg);
+        box-shadow: 5px 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-10px) rotateX(-4deg) rotateY(-5deg) rotateZ(0.5deg);
+        box-shadow: -5px 30px 60px rgba(0, 160, 255, 0.12);
+    }
 }
 
 .aiero-creation-img {
@@ -1848,8 +2213,50 @@ body.aiero-theme {
 }
 
 .aiero-creation-card:hover .aiero-creation-img {
-    transform: scale(1.12);
+    transform: scale(1.12) !important;
     filter: brightness(0.35) contrast(1.15);
+}
+
+/* Staggered Pro Ken Burns Animations for Creations Images */
+.aiero-creation-card:nth-child(3n+1) .aiero-creation-img {
+    animation: kenBurnsSlow1 22s ease-in-out infinite;
+}
+
+.aiero-creation-card:nth-child(3n+2) .aiero-creation-img {
+    animation: kenBurnsSlow2 26s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+.aiero-creation-card:nth-child(3n+3) .aiero-creation-img {
+    animation: kenBurnsSlow3 24s ease-in-out infinite;
+    animation-delay: -10s;
+}
+
+@keyframes kenBurnsSlow1 {
+    0%, 100% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.08) translate(-1.5%, -1%);
+    }
+}
+
+@keyframes kenBurnsSlow2 {
+    0%, 100% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.08) translate(1.5%, 1%);
+    }
+}
+
+@keyframes kenBurnsSlow3 {
+    0%, 100% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.08) translate(-1%, 1.5%);
+    }
 }
 
 /* View More vertical tag */

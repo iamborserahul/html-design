@@ -181,77 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.querySelector('.aiero-theme-btn');
     themeBtn.addEventListener('click', () => {
         const body = document.body;
+        body.classList.toggle('aiero-theme');
+        
+        // Dynamically update the icon inside the button
         if (body.classList.contains('aiero-theme')) {
-            body.classList.remove('aiero-theme');
-            body.style.background = '#f4f5f8';
-            body.style.color = '#03030b';
-            document.querySelector('.aiero-logo').style.color = '#03030b';
-            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
-            themeBtn.style.background = '#00a0ff';
-            themeBtn.style.color = '#fff';
-
-            // Dark theme overlays
-            document.querySelectorAll('.aiero-slide-title').forEach(el => el.style.color = '#03030b');
-            document.querySelectorAll('.aiero-slide-desc').forEach(el => el.style.color = '#555566');
-            document.querySelector('.aiero-nav').style.background = 'rgba(240, 240, 248, 0.7)';
-            document.querySelector('.aiero-nav').style.borderColor = 'rgba(0, 0, 0, 0.08)';
-            document.querySelectorAll('.aiero-menu-link').forEach(el => el.style.color = '#555566');
-
-            // About section overrides
-            document.querySelectorAll('.aiero-about-title').forEach(el => el.style.color = '#03030b');
-            document.querySelectorAll('.aiero-about-desc p').forEach(el => el.style.color = '#555566');
-            document.querySelectorAll('.aiero-phone-label').forEach(el => el.style.color = 'rgba(0, 0, 0, 0.5)');
-
-            // Creations section overrides
-            document.querySelectorAll('.aiero-creations-title').forEach(el => el.style.color = '#03030b');
-            document.querySelectorAll('.aiero-creation-desc').forEach(el => el.style.color = '#555566');
-            document.querySelectorAll('.aiero-creation-view-more').forEach(el => {
-                el.style.color = '#03030b';
-                el.style.borderColor = 'rgba(3, 3, 11, 0.4)';
-                el.style.background = 'rgba(255, 255, 255, 0.8)';
-            });
-
-            // Footer overrides
-            document.querySelectorAll('.aiero-footer').forEach(el => el.style.background = '#f4f5f8');
-            document.querySelectorAll('.aiero-footer-col-title').forEach(el => el.style.color = '#03030b');
-            document.querySelectorAll('.aiero-footer-about-text, .aiero-footer-link, .aiero-footer-contact-item').forEach(el => el.style.color = '#555566');
-            document.querySelectorAll('.aiero-footer-copy').forEach(el => el.style.color = 'rgba(3, 3, 11, 0.5)');
-        } else {
-            body.classList.add('aiero-theme');
-            body.style.background = '#03030b';
-            body.style.color = '#fff';
-            document.querySelector('.aiero-logo').style.color = '#fff';
+            // Dark theme active -> show Moon icon to switch/indicate state
             themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
-            themeBtn.style.background = '#03030b';
-            themeBtn.style.color = '#fff';
-
-            // Light theme overlays
-            document.querySelectorAll('.aiero-slide-title').forEach(el => el.style.color = '#fff');
-            document.querySelectorAll('.aiero-slide-desc').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.6)');
-            document.querySelector('.aiero-nav').style.background = 'rgba(10, 10, 25, 0.35)';
-            document.querySelector('.aiero-nav').style.borderColor = 'rgba(255, 255, 255, 0.08)';
-            document.querySelectorAll('.aiero-menu-link').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.8)');
-
-            // About section overrides
-            document.querySelectorAll('.aiero-about-title').forEach(el => el.style.color = '#fff');
-            document.querySelectorAll('.aiero-about-desc p').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.6)');
-            document.querySelectorAll('.aiero-phone-label').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.4)');
-
-            // Creations section overrides
-            document.querySelectorAll('.aiero-creations-title').forEach(el => el.style.color = '#fff');
-            document.querySelectorAll('.aiero-creation-desc').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.5)');
-            document.querySelectorAll('.aiero-creation-view-more').forEach(el => {
-                el.style.color = '#fff';
-                el.style.borderColor = 'rgba(255, 255, 255, 0.35)';
-                el.style.background = 'rgba(10, 10, 25, 0.25)';
-            });
-
-            // Footer overrides
-            document.querySelectorAll('.aiero-footer').forEach(el => el.style.background = 'rgba(3, 3, 11, 0.95)');
-            document.querySelectorAll('.aiero-footer-col-title').forEach(el => el.style.color = '#fff');
-            document.querySelectorAll('.aiero-footer-about-text, .aiero-footer-contact-item').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.5)');
-            document.querySelectorAll('.aiero-footer-link').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.6)');
-            document.querySelectorAll('.aiero-footer-copy').forEach(el => el.style.color = 'rgba(255, 255, 255, 0.4)');
+        } else {
+            // Light theme active -> show Sun icon to switch/indicate state
+            themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
         }
     });
 
@@ -288,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-about',
             start: 'top 75%',
-            toggleActions: 'play none none none'
+            toggleActions: 'play reset play reset'
         }
     });
 
@@ -396,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-creations',
             start: 'top 75%',
-            toggleActions: 'play none none none'
+            toggleActions: 'play reset play reset'
         }
     });
 
@@ -420,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, "-=0.5");
 
     // Grid cards stagger reveal
-    creationsTl.fromTo('.aiero-creation-card', {
+    creationsTl.fromTo('.aiero-creation-card-wrapper', {
         opacity: 0,
         y: 60,
         scale: 0.95
@@ -446,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-footer',
             start: 'top 85%',
-            toggleActions: 'play none none none'
+            toggleActions: 'play reset play reset'
         }
     });
 
@@ -510,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: '.aiero-services-section',
             start: 'top 75%',
-            toggleActions: 'play none none none'
+            toggleActions: 'play reset play reset'
         }
     });
 
