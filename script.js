@@ -957,7 +957,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Bedframe.pdf",
-            categoryPage: "category-beds.html",
+            categoryPage: "category-beds.php",
             categoryLabel: "Metal Beds"
         },
         "bed7202": {
@@ -981,7 +981,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Bedframe.pdf",
-            categoryPage: "category-beds.html",
+            categoryPage: "category-beds.php",
             categoryLabel: "Metal Beds"
         },
         "bunk6115": {
@@ -1005,7 +1005,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds.html",
+            categoryPage: "category-beds.php",
             categoryLabel: "Metal Beds"
         },
         "bunk6114": {
@@ -1029,7 +1029,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds.html",
+            categoryPage: "category-beds.php",
             categoryLabel: "Metal Beds"
         },
         "sofabunk6094": {
@@ -1053,7 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds.html",
+            categoryPage: "category-beds.php",
             categoryLabel: "Metal Beds"
         },
         "bunk6095": {
@@ -1077,7 +1077,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds.html",
+            categoryPage: "category-beds.php",
             categoryLabel: "Metal Beds"
         },
 
@@ -1103,7 +1103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/hero.jpg",
             thumbs: ["assets/hero.jpg", "assets/project1.jpg"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital.html",
+            categoryPage: "category-hospital.php",
             categoryLabel: "Hospital Beds"
         },
         "semi-fowler": {
@@ -1127,7 +1127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital.html",
+            categoryPage: "category-hospital.php",
             categoryLabel: "Hospital Beds"
         },
         "ward-bed": {
@@ -1151,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital.html",
+            categoryPage: "category-hospital.php",
             categoryLabel: "Hospital Beds"
         },
         "bedside-locker": {
@@ -1175,7 +1175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/hero.jpg",
             thumbs: ["assets/hero.jpg", "assets/project1.jpg"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital.html",
+            categoryPage: "category-hospital.php",
             categoryLabel: "Hospital Beds"
         },
         "saline-stand": {
@@ -1199,7 +1199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital.html",
+            categoryPage: "category-hospital.php",
             categoryLabel: "Hospital Beds"
         },
         "stretcher": {
@@ -1223,7 +1223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital.html",
+            categoryPage: "category-hospital.php",
             categoryLabel: "Hospital Beds"
         },
 
@@ -1249,7 +1249,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project2.jpg",
             thumbs: ["assets/project2.jpg", "assets/project5.jpg"],
             pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards.html",
+            categoryPage: "category-cupboards.php",
             categoryLabel: "Storage Cabinets"
         },
         "sliding-almirah": {
@@ -1273,7 +1273,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project5.jpg",
             thumbs: ["assets/project5.jpg", "assets/project2.jpg"],
             pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards.html",
+            categoryPage: "category-cupboards.php",
             categoryLabel: "Storage Cabinets"
         },
         "office-locker": {
@@ -1297,7 +1297,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project2.jpg",
             thumbs: ["assets/project2.jpg", "assets/project5.jpg"],
             pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards.html",
+            categoryPage: "category-cupboards.php",
             categoryLabel: "Storage Cabinets"
         },
         "tool-cabinet": {
@@ -1321,7 +1321,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project5.jpg",
             thumbs: ["assets/project5.jpg", "assets/project2.jpg"],
             pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards.html",
+            categoryPage: "category-cupboards.php",
             categoryLabel: "Storage Cabinets"
         },
 
@@ -1347,7 +1347,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project3.jpg",
             thumbs: ["assets/project3.jpg", "assets/project1.jpg"],
             pdf: "ksi/Door.pdf",
-            categoryPage: "category-doors.html",
+            categoryPage: "category-doors.php",
             categoryLabel: "Metal Doors"
         },
         "entrance-gate": {
@@ -1371,7 +1371,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Door.pdf",
-            categoryPage: "category-doors.html",
+            categoryPage: "category-doors.php",
             categoryLabel: "Metal Doors"
         },
         "structural-frame": {
@@ -1395,7 +1395,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Door.pdf",
-            categoryPage: "category-doors.html",
+            categoryPage: "category-doors.php",
             categoryLabel: "Metal Doors"
         },
 
@@ -1421,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Dinning Set.pdf",
-            categoryPage: "category-dining-bathroom.html",
+            categoryPage: "category-dining-bathroom.php",
             categoryLabel: "Dining & Bathroom"
         },
         "vanity-cabinet": {
@@ -1445,7 +1445,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Bathroom Cabinet.pdf",
-            categoryPage: "category-dining-bathroom.html",
+            categoryPage: "category-dining-bathroom.php",
             categoryLabel: "Dining & Bathroom"
         },
         "mirror-frame": {
@@ -1469,7 +1469,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Bathroom Cabinet.pdf",
-            categoryPage: "category-dining-bathroom.html",
+            categoryPage: "category-dining-bathroom.php",
             categoryLabel: "Dining & Bathroom"
         },
 
@@ -1495,7 +1495,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project5.jpg",
             thumbs: ["assets/project5.jpg", "assets/project1.jpg"],
             pdf: "ksi/Gazebo.pdf",
-            categoryPage: "category-outdoor.html",
+            categoryPage: "category-outdoor.php",
             categoryLabel: "Outdoor Structures"
         },
         "poolside-recliner": {
@@ -1519,7 +1519,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project1.jpg",
             thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
             pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
-            categoryPage: "category-outdoor.html",
+            categoryPage: "category-outdoor.php",
             categoryLabel: "Outdoor Structures"
         },
         "outdoor-swing": {
@@ -1543,13 +1543,13 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/project4.jpg",
             thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
             pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
-            categoryPage: "category-outdoor.html",
+            categoryPage: "category-outdoor.php",
             categoryLabel: "Outdoor Structures"
         }
     };
 
     // Router execution logic
-    if (window.location.pathname.includes("product-details.html")) {
+    if (window.location.pathname.includes("product-details.php")) {
         const urlParams = new URLSearchParams(window.location.search);
         let productId = urlParams.get("id");
 
@@ -1576,7 +1576,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const breadcrumbs = document.getElementById("details-breadcrumbs");
         if (breadcrumbs) {
             breadcrumbs.innerHTML = `
-                <li class="aiero-breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="aiero-breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="aiero-breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
                 <li class="aiero-breadcrumb-item"><a href="${data.categoryPage}">${data.categoryLabel}</a></li>
                 <li class="aiero-breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
@@ -1649,7 +1649,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const inquireBtn = document.getElementById("details-inquire-btn");
         const downloadBtn = document.getElementById("details-download-btn");
 
-        if (inquireBtn) inquireBtn.setAttribute("href", `contact.html?product=${encodeURIComponent(data.title)}`);
+        if (inquireBtn) inquireBtn.setAttribute("href", `contact.php?product=${encodeURIComponent(data.title)}`);
         if (downloadBtn) downloadBtn.setAttribute("href", data.pdf);
 
         // 7. Tab Headers click switching handler
@@ -1688,7 +1688,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const floatClass = `card-float-${(index % 3) + 1}`;
                 return `
                     <div class="aiero-creation-card-wrapper">
-                        <a href="product-details.html?id=${id}" class="aiero-creation-card ${floatClass}" style="display: block; height: 380px;">
+                        <a href="product-details.php?id=${id}" class="aiero-creation-card ${floatClass}" style="display: block; height: 380px;">
                             <div class="aiero-creation-img" style="background-image: url('${sib.mainImg}');"></div>
                             <div class="aiero-creation-view-more">VIEW DETAILS</div>
                             <div class="aiero-creation-content" style="background: none; padding: 2rem;">
@@ -1703,7 +1703,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Contact Page Auto-fill Logic
-    if (window.location.pathname.includes("contact.html")) {
+    if (window.location.pathname.includes("contact.php")) {
         const urlParams = new URLSearchParams(window.location.search);
         const selectedProduct = urlParams.get("product");
 

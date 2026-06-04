@@ -1,73 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$title = "About Us | Khodiyar Steel – Manufacturing Excellence Since 1998";
+$description = "Read the story, journey, mission, and certifications of Khodiyar Steel, Surat's premier high-end luxury steel furniture and structural metal fabrication manufacturer.";
+$page = "about";
+include 'header.php';
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Khodiyar Steel – Manufacturing Excellence Since 1998</title>
-    <meta name="description"
-        content="Read the story, journey, mission, and certifications of Khodiyar Steel, Surat's premier high-end luxury steel furniture and structural metal fabrication manufacturer.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;800&family=Cinzel:wght@600;700&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome Premium Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS Style Sheets -->
-    <link rel="stylesheet" href="style.css?v=1.1">
-</head>
-
-<body>
-
-    <!-- Abstract Wavy Background Gradient -->
-    <div class="aiero-bg-glow">
-        <div class="aiero-bg-wave"></div>
-        <div class="aiero-floating-shape shape-1"></div>
-        <div class="aiero-floating-shape shape-2"></div>
-        <div class="aiero-floating-shape shape-3"></div>
-        <div class="aiero-floating-shape shape-4"></div>
-    </div>
-
-    <!-- Mouse follow Spotlight light -->
-    <div class="aiero-spotlight"></div>
-
-    <!-- Custom Cursor -->
-    <div class="luxury-cursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-ring"></div>
-    </div>
-
-    <!-- AIERO Glassmorphic Capsule Header Nav -->
-    <nav class="aiero-nav">
-        <div class="aiero-nav-container">
-            <a href="index.html" class="aiero-logo">
-                <img src="assets/logo.png" alt="Khodiyar Steel Industries">
-            </a>
-            <ul class="aiero-menu">
-                <li><a href="index.html" class="aiero-menu-link">Home</a></li>
-                <li><a href="about.html" class="aiero-menu-link active">About Us</a></li>
-                <li><a href="products.html" class="aiero-menu-link">Products</a></li>
-                <li><a href="gallery.html" class="aiero-menu-link">Gallery</a></li>
-                <li><a href="index.html#services" class="aiero-menu-link">Services</a></li>
-                <li><a href="contact.html" class="aiero-menu-link">Contact</a></li>
-            </ul>
-            <button class="aiero-menu-toggle" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="aiero-right-controls">
-                <div class="aiero-search-login">
-                    <button class="aiero-search-btn" aria-label="Search"><i
-                            class="fa-solid fa-magnifying-glass"></i></button>
-                    <a href="#" class="aiero-login-link"><i class="fa-regular fa-user"></i> Login</a>
-                </div>
-                <a href="contact.html" class="aiero-btn-capsule">Get in Touch</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Subpage Hero Section -->
+<!-- Subpage Hero Section -->
     <section class="aiero-hero subpage-hero"
         style="height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center;">
         <div class="aiero-slide-content"
@@ -368,91 +306,6 @@
         </div>
     </section>
 
-    <!-- Premium Styled & Unique Footer Section -->
-    <footer class="aiero-footer" id="footer">
-        <div class="aiero-footer-bg-text">KHODIYAR</div>
-        <div class="aiero-footer-glow"></div>
-
-        <div class="aiero-footer-container">
-            <div class="aiero-footer-grid">
-                <!-- Column 1: About -->
-                <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">About Khodiyar Steel</span>
-                    <p class="aiero-footer-about-text">Khodiyar Steel - manufacturing excellence in high-end luxury
-                        steel furniture, modern storage solutions, and precision structural metal fabrication since
-                        1998.</p>
-                    <div class="aiero-lang-selector">
-                        <i class="fa-solid fa-globe"></i>
-                        <span>English</span>
-                        <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; opacity: 0.6;"></i>
-                    </div>
-                </div>
-
-                <!-- Column 2: Explore -->
-                <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">Explore</span>
-                    <ul class="aiero-footer-links">
-                        <li><a href="index.html" class="aiero-footer-link">Home</a></li>
-                        <li><a href="about.html" class="aiero-footer-link">About Us</a></li>
-                        <li><a href="products.html" class="aiero-footer-link">Products</a></li>
-                        <li><a href="gallery.html" class="aiero-footer-link">Gallery</a></li>
-                        <li><a href="index.html#services" class="aiero-footer-link">Services</a></li>
-                        <li><a href="contact.html" class="aiero-footer-link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Contact & Socials -->
-                <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">Contact</span>
-                    <div class="aiero-footer-contact-items">
-                        <div class="aiero-footer-contact-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Surat, Gujarat, India</span>
-                        </div>
-                        <div class="aiero-footer-contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>855 100 4444</span>
-                        </div>
-                    </div>
-                    <div class="aiero-footer-socials">
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Instagram"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Twitter X"><i
-                                class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="YouTube"><i
-                                class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Facebook"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="TikTok"><i
-                                class="fa-brands fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="aiero-footer-line"></div>
-
-            <div class="aiero-footer-bottom">
-                <span class="aiero-footer-copy">© Copyright 2026 by Khodiyar Steel. All Rights Reserved.</span>
-                <button class="aiero-back-to-top" aria-label="Back to top" title="Back to Top">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Side Floating Tab -->
-    <div class="aiero-floating-tab">
-        <i class="fa-solid fa-compress aiero-tab-icon" title="Toggle Fullscreen"></i>
-        <div class="aiero-theme-btn aiero-tab-icon" title="Toggle Theme">
-            <i class="fa-solid fa-sun"></i>
-        </div>
-    </div>
-
-    <!-- Core GSAP, ScrollTrigger & Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script src="script.js"></script>
-</body>
-
-</html>
+<?php
+include 'footer.php';
+?>

@@ -1,64 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$title = "Khodiyar Steel – High-End Luxury Steel & Precision Metal Fabrication";
+$description = "Transforming spaces with high-end luxury steel furniture, premium storage solutions, and state-of-the-art structural metal fabrication.";
+$page = "home";
+include 'header.php';
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khodiyar Steel – High-End Luxury Steel & Precision Metal Fabrication</title>
-    <meta name="description"
-        content="Transforming spaces with high-end luxury steel furniture, premium storage solutions, and state-of-the-art structural metal fabrication.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600;700;800&family=Cinzel:wght@600;700&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome Premium Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS Style Sheets -->
-    <link rel="stylesheet" href="style.css?v=1.1">
-</head>
-
-<body>
-
-    <!-- Abstract Wavy Background Gradient (Fixed) -->
-    <div class="aiero-bg-glow">
-        <div class="aiero-bg-wave"></div>
-    </div>
-
-    <!-- Mouse follow Spotlight light -->
-    <div class="aiero-spotlight"></div>
-
-    <!-- Custom Cursor -->
-    <div class="luxury-cursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-ring"></div>
-    </div>
-
-    <!-- AIERO Glassmorphic Capsule Header Nav -->
-    <nav class="aiero-nav">
-        <div class="aiero-nav-container">
-            <a href="#" class="aiero-logo">
-                <img src="assets/logo.png" alt="Khodiyar Steel Industries">
-            </a>
-            <ul class="aiero-menu">
-                <li><a href="index.html" class="aiero-menu-link active">Home</a></li>
-                <li><a href="about.html" class="aiero-menu-link">About Us</a></li>
-                <li><a href="products.html" class="aiero-menu-link">Products</a></li>
-                <li><a href="gallery.html" class="aiero-menu-link">Gallery</a></li>
-                <li><a href="index.html#services" class="aiero-menu-link">Services</a></li>
-                <li><a href="contact.html" class="aiero-menu-link">Contact</a></li>
-            </ul>
-            <button class="aiero-menu-toggle" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="aiero-right-controls">
-                <a href="#contact" class="aiero-btn-capsule">Get in Touch</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Full-Width 2D Image Slider Hero -->
+<!-- Full-Width 2D Image Slider Hero -->
     <section class="aiero-hero">
         <div class="aiero-slider-2d-container">
 
@@ -268,7 +215,7 @@
 
             <div class="aiero-categories-grid">
                 <!-- Category 1 -->
-                <a href="category-beds.html" class="aiero-category-card">
+                <a href="category-beds.php" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-couch"></i></div>
                     <h3 class="aiero-category-card-title">Metal Beds & Bunks</h3>
@@ -279,7 +226,7 @@
                 </a>
 
                 <!-- Category 2 -->
-                <a href="category-cupboards.html" class="aiero-category-card">
+                <a href="category-cupboards.php" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-vault"></i></div>
                     <h3 class="aiero-category-card-title">Steel Cupboards</h3>
@@ -290,7 +237,7 @@
                 </a>
 
                 <!-- Category 3 -->
-                <a href="category-dining-bathroom.html" class="aiero-category-card">
+                <a href="category-dining-bathroom.php" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-utensils"></i></div>
                     <h3 class="aiero-category-card-title">Dining & Bathroom</h3>
@@ -301,7 +248,7 @@
                 </a>
 
                 <!-- Category 4 -->
-                <a href="category-doors.html" class="aiero-category-card">
+                <a href="category-doors.php" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-door-closed"></i></div>
                     <h3 class="aiero-category-card-title">Doors & Fabrication</h3>
@@ -312,7 +259,7 @@
                 </a>
 
                 <!-- Category 5 -->
-                <a href="category-hospital.html" class="aiero-category-card">
+                <a href="category-hospital.php" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-hospital-user"></i></div>
                     <h3 class="aiero-category-card-title">Hospital Equipment</h3>
@@ -323,7 +270,7 @@
                 </a>
 
                 <!-- Category 6 -->
-                <a href="category-outdoor.html" class="aiero-category-card">
+                <a href="category-outdoor.php" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-umbrella"></i></div>
                     <h3 class="aiero-category-card-title">Outdoor Furniture</h3>
@@ -483,9 +430,9 @@
                             <div class="card-footer-row">
                                 <div class="card-price">$2,499</div>
                                 <div class="card-actions">
-                                    <a href="contact.html?product=Aurelia%20Penthouse%20Bedstead"
+                                    <a href="contact.php?product=Aurelia%20Penthouse%20Bedstead"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-beds.html" class="btn-view-details">View Details</a>
+                                    <a href="category-beds.php" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -530,9 +477,9 @@
                             <div class="card-footer-row">
                                 <div class="card-price">$5,850</div>
                                 <div class="card-actions">
-                                    <a href="contact.html?product=Obsidian%20Culinary%20Island"
+                                    <a href="contact.php?product=Obsidian%20Culinary%20Island"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-dining-bathroom.html" class="btn-view-details">View Details</a>
+                                    <a href="category-dining-bathroom.php" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -577,9 +524,9 @@
                             <div class="card-footer-row">
                                 <div class="card-price">$3,200</div>
                                 <div class="card-actions">
-                                    <a href="contact.html?product=Chronos%20Security%20Portal" class="btn-shop-now">Shop
+                                    <a href="contact.php?product=Chronos%20Security%20Portal" class="btn-shop-now">Shop
                                         Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-doors.html" class="btn-view-details">View Details</a>
+                                    <a href="category-doors.php" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -624,9 +571,9 @@
                             <div class="card-footer-row">
                                 <div class="card-price">$1,850</div>
                                 <div class="card-actions">
-                                    <a href="contact.html?product=Sanctuary%20Almirah%20Wardrobe"
+                                    <a href="contact.php?product=Sanctuary%20Almirah%20Wardrobe"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-cupboards.html" class="btn-view-details">View Details</a>
+                                    <a href="category-cupboards.php" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -1099,101 +1046,6 @@
         </div>
     </section>
 
-    <!-- Premium Styled & Unique Footer Section -->
-    <footer class="aiero-footer" id="footer">
-        <!-- Giant outline background watermark -->
-        <div class="aiero-footer-bg-text">KHODIYAR</div>
-        <!-- Ambient corner glow -->
-        <div class="aiero-footer-glow"></div>
-
-        <div class="aiero-footer-container">
-            <div class="aiero-footer-grid">
-
-                <!-- Column 1: About -->
-                <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">About Khodiyar Steel</span>
-                    <p class="aiero-footer-about-text">Khodiyar Steel - manufacturing excellence in high-end luxury
-                        steel furniture, modern storage solutions, and precision structural metal fabrication since
-                        1998.</p>
-                    <div class="aiero-lang-selector">
-                        <i class="fa-solid fa-globe"></i>
-                        <span>English</span>
-                        <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; opacity: 0.6;"></i>
-                    </div>
-                </div>
-
-                <!-- Column 2: Explore -->
-                <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">Explore</span>
-                    <ul class="aiero-footer-links">
-                        <li><a href="index.html" class="aiero-footer-link">Home</a></li>
-                        <li><a href="about.html" class="aiero-footer-link">About Us</a></li>
-                        <li><a href="products.html" class="aiero-footer-link">Products</a></li>
-                        <li><a href="gallery.html" class="aiero-footer-link">Gallery</a></li>
-                        <li><a href="index.html#services" class="aiero-footer-link">Services</a></li>
-                        <li><a href="contact.html" class="aiero-footer-link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Contact & Socials -->
-                <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">Contact</span>
-                    <div class="aiero-footer-contact-items">
-                        <div class="aiero-footer-contact-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Address not available<br>Gujarat, India</span>
-                        </div>
-                        <div class="aiero-footer-contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>855 100 4444</span>
-                        </div>
-                    </div>
-                    <!-- Premium social icon rows -->
-                    <div class="aiero-footer-socials">
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Instagram"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Twitter X"><i
-                                class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="YouTube"><i
-                                class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Facebook"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="TikTok"><i
-                                class="fa-brands fa-tiktok"></i></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Separator gradient line -->
-            <div class="aiero-footer-line"></div>
-
-            <!-- Bottom Row: Copyright & Back to Top -->
-            <div class="aiero-footer-bottom">
-                <span class="aiero-footer-copy">© Copyright 2026 by Khodiyar Steel. All Rights Reserved.</span>
-                <button class="aiero-back-to-top" aria-label="Back to top" title="Back to Top">
-                    <i class="fa-solid fa-arrow-up"></i>
-                </button>
-            </div>
-            <div class="aiero-geom-shape shape-dark-node"></div>
-
-        </div>
-    </footer>
-
-    <!-- Side Floating Tab (Dark Mode capsule & expander) -->
-    <div class="aiero-floating-tab">
-        <i class="fa-solid fa-compress aiero-tab-icon" title="Toggle Fullscreen"></i>
-        <div class="aiero-theme-btn aiero-tab-icon" title="Toggle Theme">
-            <i class="fa-solid fa-sun"></i>
-        </div>
-    </div>
-
-    <!-- Core GSAP, ScrollTrigger & Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script src="script.js"></script>
-</body>
-
-</html>
+<?php
+include 'footer.php';
+?>
