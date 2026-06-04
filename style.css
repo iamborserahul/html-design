@@ -27,14 +27,8 @@
 
 html {
     scroll-behavior: auto;
-    /* Managed by Lenis smooth scroll */
-    scrollbar-width: none;
     background-color: var(--color-bg);
     overflow-x: hidden;
-}
-
-html::-webkit-scrollbar {
-    display: none;
 }
 
 body {
@@ -2667,7 +2661,9 @@ body:not(.aiero-theme) .aiero-footer-copy {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(18, 18, 18, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
     display: flex;
@@ -2679,7 +2675,7 @@ body:not(.aiero-theme) .aiero-footer-copy {
 }
 
 body:not(.aiero-theme) .aiero-back-to-top {
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.75);
     border-color: rgba(0, 0, 0, 0.1);
     color: #03030b;
 }

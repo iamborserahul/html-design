@@ -61,7 +61,7 @@ include 'header.php';
             <div class="aiero-creations-grid" style="grid-template-columns: repeat(3, 1fr);">
                 <!-- Card 1 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=safety-door" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                    <a href="product-details?id=safety-door" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project3.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
@@ -73,7 +73,7 @@ include 'header.php';
 
                 <!-- Card 2 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=entrance-gate" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                    <a href="product-details?id=entrance-gate" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
@@ -85,7 +85,7 @@ include 'header.php';
 
                 <!-- Card 3 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=structural-frame" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                    <a href="product-details?id=structural-frame" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">

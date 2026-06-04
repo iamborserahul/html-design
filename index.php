@@ -215,7 +215,7 @@ include 'header.php';
 
             <div class="aiero-categories-grid">
                 <!-- Category 1 -->
-                <a href="category-beds.php" class="aiero-category-card">
+                <a href="category-beds" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-couch"></i></div>
                     <h3 class="aiero-category-card-title">Metal Beds & Bunks</h3>
@@ -226,7 +226,7 @@ include 'header.php';
                 </a>
 
                 <!-- Category 2 -->
-                <a href="category-cupboards.php" class="aiero-category-card">
+                <a href="category-cupboards" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-vault"></i></div>
                     <h3 class="aiero-category-card-title">Steel Cupboards</h3>
@@ -237,7 +237,7 @@ include 'header.php';
                 </a>
 
                 <!-- Category 3 -->
-                <a href="category-dining-bathroom.php" class="aiero-category-card">
+                <a href="category-dining-bathroom" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-utensils"></i></div>
                     <h3 class="aiero-category-card-title">Dining & Bathroom</h3>
@@ -248,7 +248,7 @@ include 'header.php';
                 </a>
 
                 <!-- Category 4 -->
-                <a href="category-doors.php" class="aiero-category-card">
+                <a href="category-doors" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-door-closed"></i></div>
                     <h3 class="aiero-category-card-title">Doors & Fabrication</h3>
@@ -259,7 +259,7 @@ include 'header.php';
                 </a>
 
                 <!-- Category 5 -->
-                <a href="category-hospital.php" class="aiero-category-card">
+                <a href="category-hospital" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-hospital-user"></i></div>
                     <h3 class="aiero-category-card-title">Hospital Equipment</h3>
@@ -270,7 +270,7 @@ include 'header.php';
                 </a>
 
                 <!-- Category 6 -->
-                <a href="category-outdoor.php" class="aiero-category-card">
+                <a href="category-outdoor" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-umbrella"></i></div>
                     <h3 class="aiero-category-card-title">Outdoor Furniture</h3>
@@ -430,9 +430,9 @@ include 'header.php';
                             <div class="card-footer-row">
                                 <div class="card-price">$2,499</div>
                                 <div class="card-actions">
-                                    <a href="contact.php?product=Aurelia%20Penthouse%20Bedstead"
+                                    <a href="contact?product=Aurelia%20Penthouse%20Bedstead"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-beds.php" class="btn-view-details">View Details</a>
+                                    <a href="category-beds" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -477,9 +477,9 @@ include 'header.php';
                             <div class="card-footer-row">
                                 <div class="card-price">$5,850</div>
                                 <div class="card-actions">
-                                    <a href="contact.php?product=Obsidian%20Culinary%20Island"
+                                    <a href="contact?product=Obsidian%20Culinary%20Island"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-dining-bathroom.php" class="btn-view-details">View Details</a>
+                                    <a href="category-dining-bathroom" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -524,9 +524,9 @@ include 'header.php';
                             <div class="card-footer-row">
                                 <div class="card-price">$3,200</div>
                                 <div class="card-actions">
-                                    <a href="contact.php?product=Chronos%20Security%20Portal" class="btn-shop-now">Shop
+                                    <a href="contact?product=Chronos%20Security%20Portal" class="btn-shop-now">Shop
                                         Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-doors.php" class="btn-view-details">View Details</a>
+                                    <a href="category-doors" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -571,9 +571,9 @@ include 'header.php';
                             <div class="card-footer-row">
                                 <div class="card-price">$1,850</div>
                                 <div class="card-actions">
-                                    <a href="contact.php?product=Sanctuary%20Almirah%20Wardrobe"
+                                    <a href="contact?product=Sanctuary%20Almirah%20Wardrobe"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-cupboards.php" class="btn-view-details">View Details</a>
+                                    <a href="category-cupboards" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>

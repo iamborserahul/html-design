@@ -21,7 +21,7 @@ include 'header.php';
 
                 <!-- Category 1: Beds -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-beds.php" class="aiero-creation-card card-float-1" style="display: block;">
+                    <a href="category-beds" class="aiero-creation-card card-float-1" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
@@ -33,7 +33,7 @@ include 'header.php';
 
                 <!-- Category 2: Hospital Beds -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-hospital.php" class="aiero-creation-card card-float-2" style="display: block;">
+                    <a href="category-hospital" class="aiero-creation-card card-float-2" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
@@ -45,7 +45,7 @@ include 'header.php';
 
                 <!-- Category 3: Cupboards -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-cupboards.php" class="aiero-creation-card card-float-3" style="display: block;">
+                    <a href="category-cupboards" class="aiero-creation-card card-float-3" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
@@ -57,7 +57,7 @@ include 'header.php';
 
                 <!-- Category 4: Doors -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-doors.php" class="aiero-creation-card card-float-1" style="display: block;">
+                    <a href="category-doors" class="aiero-creation-card card-float-1" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project3.jpg');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
@@ -69,7 +69,7 @@ include 'header.php';
 
                 <!-- Category 5: Dining & Bathroom -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-dining-bathroom.php" class="aiero-creation-card card-float-2" style="display: block;">
+                    <a href="category-dining-bathroom" class="aiero-creation-card card-float-2" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
@@ -81,7 +81,7 @@ include 'header.php';
 
                 <!-- Category 6: Outdoor -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-outdoor.php" class="aiero-creation-card card-float-3" style="display: block;">
+                    <a href="category-outdoor" class="aiero-creation-card card-float-3" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">

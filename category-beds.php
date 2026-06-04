@@ -85,7 +85,7 @@ include 'header.php';
             <div class="aiero-creations-grid">
                 <!-- Card 1 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=bed7201" class="aiero-creation-card card-float-1"
+                    <a href="product-details?id=bed7201" class="aiero-creation-card card-float-1"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
@@ -99,7 +99,7 @@ include 'header.php';
 
                 <!-- Card 2 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=bed7202" class="aiero-creation-card card-float-2"
+                    <a href="product-details?id=bed7202" class="aiero-creation-card card-float-2"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
@@ -113,7 +113,7 @@ include 'header.php';
 
                 <!-- Card 3 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=bunk6115" class="aiero-creation-card card-float-3"
+                    <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-3"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
@@ -127,7 +127,7 @@ include 'header.php';
 
                 <!-- Card 4 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=bunk6114" class="aiero-creation-card card-float-1"
+                    <a href="product-details?id=bunk6114" class="aiero-creation-card card-float-1"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
@@ -141,7 +141,7 @@ include 'header.php';
 
                 <!-- Card 5 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=sofabunk6094" class="aiero-creation-card card-float-2"
+                    <a href="product-details?id=sofabunk6094" class="aiero-creation-card card-float-2"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
@@ -155,7 +155,7 @@ include 'header.php';
 
                 <!-- Card 6 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details.php?id=bunk6095" class="aiero-creation-card card-float-3"
+                    <a href="product-details?id=bunk6095" class="aiero-creation-card card-float-3"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
