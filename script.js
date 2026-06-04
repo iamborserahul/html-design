@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
 
     // 1. Cursor Follow
     const cursorDot = document.querySelector('.cursor-dot');
@@ -34,148 +35,155 @@ document.addEventListener('DOMContentLoaded', () => {
     let progressTween = null;
     let isAnimating = false;
 
-    // Pre-set all non-active slides to scale 1.15 and invisible
-    slides.forEach((slide, idx) => {
-        if (idx !== 0) {
-            gsap.set(slide, { opacity: 0, visibility: 'hidden' });
-            gsap.set(slide.querySelector('.aiero-slide-img'), { scale: 1.15 });
-        } else {
-            gsap.set(slide, { opacity: 1, visibility: 'visible' });
-            gsap.set(slide.querySelector('.aiero-slide-img'), { scale: 1 });
-        }
-    });
-
-    // On initial load, animate first slide content
-    gsap.fromTo(slides[0].querySelectorAll('.aiero-slide-title, .aiero-slide-desc, .aiero-btn-discover, .aiero-video-card'), {
-        y: 60,
-        opacity: 0
-    }, {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        stagger: 0.08,
-        ease: 'power3.out',
-        delay: 0.3
-    });
-
-    function goToSlide(index) {
-        if (index === currentIndex || isAnimating) return;
-        isAnimating = true;
-
-        // Stop progress timeline immediately
-        if (progressTween) progressTween.kill();
-        gsap.set(progressBar, { width: '0%' });
-
-        const activeSlide = slides[currentIndex];
-        const nextSlide = slides[index];
-        currentIndex = index;
-
-        // Update navigation dots active indicators
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === index);
-        });
-
-        const tl = gsap.timeline({
-            onComplete: () => {
-                activeSlide.classList.remove('active');
-                gsap.set(activeSlide, { visibility: 'hidden', opacity: 0 });
-                nextSlide.classList.add('active');
-                isAnimating = false;
-                startProgressBar(); // Restart progress bar only after animation finishes
+    if (slides.length > 0) {
+        // Pre-set all non-active slides to scale 1.15 and invisible
+        slides.forEach((slide, idx) => {
+            if (idx !== 0) {
+                gsap.set(slide, { opacity: 0, visibility: 'hidden' });
+                gsap.set(slide.querySelector('.aiero-slide-img'), { scale: 1.15 });
+            } else {
+                gsap.set(slide, { opacity: 1, visibility: 'visible' });
+                gsap.set(slide.querySelector('.aiero-slide-img'), { scale: 1 });
             }
         });
 
-        // 1. Outgoing slide animations
-        tl.to(activeSlide.querySelectorAll('.aiero-slide-title, .aiero-slide-desc, .aiero-btn-discover, .aiero-video-card'), {
-            y: -40,
-            opacity: 0,
-            duration: 0.5,
-            stagger: 0.05,
-            ease: 'power3.in'
-        });
-
-        // Zoom out active background slightly as it fades
-        tl.to(activeSlide.querySelector('.aiero-slide-img'), {
-            scale: 0.95,
-            duration: 0.8,
-            ease: 'power2.inOut'
-        }, "-=0.3");
-
-        // Crossfade slides
-        tl.set(nextSlide, { visibility: 'visible', opacity: 0 }, "-=0.2");
-
-        tl.to(activeSlide, {
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.inOut'
-        }, "-=0.8");
-
-        tl.to(nextSlide, {
-            opacity: 1,
-            duration: 0.8,
-            ease: 'power2.inOut'
-        }, "-=0.8");
-
-        // Zoom in incoming background
-        const nextImg = nextSlide.querySelector('.aiero-slide-img');
-        tl.fromTo(nextImg, {
-            scale: 1.15
-        }, {
-            scale: 1,
-            duration: 1.4,
-            ease: 'power2.out'
-        }, "-=0.8");
-
-        // 2. Incoming content animations
-        tl.fromTo(nextSlide.querySelectorAll('.aiero-slide-title, .aiero-slide-desc, .aiero-btn-discover, .aiero-video-card'), {
+        // On initial load, animate first slide content
+        gsap.fromTo(slides[0].querySelectorAll('.aiero-slide-title, .aiero-slide-desc, .aiero-btn-discover, .aiero-video-card'), {
             y: 60,
             opacity: 0
         }, {
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 1,
             stagger: 0.08,
-            ease: 'power3.out'
-        }, "-=0.8");
-    }
+            ease: 'power3.out',
+            delay: 0.3
+        });
 
-    // Progress timeline animations
-    function startProgressBar() {
-        gsap.set(progressBar, { width: '0%' });
-        progressTween = gsap.to(progressBar, {
-            width: '100%',
-            duration: slideDuration / 1000,
-            ease: 'none',
-            onComplete: () => {
+        function goToSlide(index) {
+            if (index === currentIndex || isAnimating) return;
+            isAnimating = true;
+
+            // Stop progress timeline immediately
+            if (progressTween) progressTween.kill();
+            gsap.set(progressBar, { width: '0%' });
+
+            const activeSlide = slides[currentIndex];
+            const nextSlide = slides[index];
+            currentIndex = index;
+
+            // Update navigation dots active indicators
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === index);
+            });
+
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    activeSlide.classList.remove('active');
+                    gsap.set(activeSlide, { visibility: 'hidden', opacity: 0 });
+                    nextSlide.classList.add('active');
+                    isAnimating = false;
+                    startProgressBar(); // Restart progress bar only after animation finishes
+                }
+            });
+
+            // 1. Outgoing slide animations
+            tl.to(activeSlide.querySelectorAll('.aiero-slide-title, .aiero-slide-desc, .aiero-btn-discover, .aiero-video-card'), {
+                y: -40,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.05,
+                ease: 'power3.in'
+            });
+
+            // Zoom out active background slightly as it fades
+            tl.to(activeSlide.querySelector('.aiero-slide-img'), {
+                scale: 0.95,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            }, "-=0.3");
+
+            // Crossfade slides
+            tl.set(nextSlide, { visibility: 'visible', opacity: 0 }, "-=0.2");
+
+            tl.to(activeSlide, {
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            }, "-=0.8");
+
+            tl.to(nextSlide, {
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            }, "-=0.8");
+
+            // Zoom in incoming background
+            const nextImg = nextSlide.querySelector('.aiero-slide-img');
+            tl.fromTo(nextImg, {
+                scale: 1.15
+            }, {
+                scale: 1,
+                duration: 1.4,
+                ease: 'power2.out'
+            }, "-=0.8");
+
+            // 2. Incoming content animations
+            tl.fromTo(nextSlide.querySelectorAll('.aiero-slide-title, .aiero-slide-desc, .aiero-btn-discover, .aiero-video-card'), {
+                y: 60,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.08,
+                ease: 'power3.out'
+            }, "-=0.8");
+        }
+
+        // Progress timeline animations
+        function startProgressBar() {
+            if (!progressBar) return;
+            gsap.set(progressBar, { width: '0%' });
+            progressTween = gsap.to(progressBar, {
+                width: '100%',
+                duration: slideDuration / 1000,
+                ease: 'none',
+                onComplete: () => {
+                    const nextIdx = (currentIndex + 1) % slides.length;
+                    goToSlide(nextIdx);
+                }
+            });
+        }
+
+        // Bind click events to navigation dots
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                goToSlide(idx);
+            });
+        });
+
+        // Bind click events to navigation arrows
+        const prevArrow = document.querySelector('.aiero-arrow.btn-prev');
+        const nextArrow = document.querySelector('.aiero-arrow.btn-next');
+
+        if (prevArrow) {
+            prevArrow.addEventListener('click', () => {
+                const prevIdx = (currentIndex - 1 + slides.length) % slides.length;
+                goToSlide(prevIdx);
+            });
+        }
+
+        if (nextArrow) {
+            nextArrow.addEventListener('click', () => {
                 const nextIdx = (currentIndex + 1) % slides.length;
                 goToSlide(nextIdx);
-            }
-        });
+            });
+        }
+
+        // Start first slide progression
+        startProgressBar();
     }
-
-    // Bind click events to navigation dots
-    dots.forEach((dot, idx) => {
-        dot.addEventListener('click', () => {
-            goToSlide(idx);
-        });
-    });
-
-    // Bind click events to navigation arrows
-    const prevArrow = document.querySelector('.aiero-arrow.btn-prev');
-    const nextArrow = document.querySelector('.aiero-arrow.btn-next');
-
-    prevArrow.addEventListener('click', () => {
-        const prevIdx = (currentIndex - 1 + slides.length) % slides.length;
-        goToSlide(prevIdx);
-    });
-
-    nextArrow.addEventListener('click', () => {
-        const nextIdx = (currentIndex + 1) % slides.length;
-        goToSlide(nextIdx);
-    });
-
-    // Start first slide progression
-    startProgressBar();
 
     // 4. Custom Dark/Light theme toggle matching capsule button in screenshot
     const themeBtn = document.querySelector('.aiero-theme-btn');
@@ -616,7 +624,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDesktop = window.innerWidth > 1100;
         const cardsPerPage = isDesktop ? 2 : 1;
         const cardWidth = servicesCards[0].offsetWidth;
-        const gap = 32; // 2rem gap
+        const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) || 
+                    parseFloat(window.getComputedStyle(servicesTrack).gap) || 
+                    32;
 
         const slideAmount = pageIndex * cardsPerPage * (cardWidth + gap);
 
@@ -681,9 +691,101 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. 3D Tilt Card Interaction
+    // 3. Swipe/Drag interaction using Pointer Events
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let trackStartX = 0;
+    const servicesSliderCol = document.querySelector('.aiero-services-slider-col');
+
+    if (servicesSliderCol && servicesTrack && servicesCards.length > 0) {
+        // Prevent default browser image dragging
+        servicesTrack.querySelectorAll('.aiero-service-card-img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        const startDrag = (e) => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            isDragging = true;
+            startX = e.clientX;
+            currentX = e.clientX;
+            trackStartX = gsap.getProperty(servicesTrack, "x") || 0;
+
+            servicesTrack.style.cursor = 'grabbing';
+            servicesCards.forEach(card => card.style.cursor = 'grabbing');
+        };
+
+        const moveDrag = (e) => {
+            if (!isDragging) return;
+            currentX = e.clientX;
+            const diffX = currentX - startX;
+            let targetX = trackStartX + diffX;
+
+            const isDesktop = window.innerWidth > 1100;
+            const totalPages = isDesktop ? 2 : 4;
+            const cardsPerPage = isDesktop ? 2 : 1;
+            const cardWidth = servicesCards[0].offsetWidth;
+            const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) || 
+                        parseFloat(window.getComputedStyle(servicesTrack).gap) || 
+                        32;
+            const maxSlide = (totalPages - 1) * cardsPerPage * (cardWidth + gap);
+
+            // Bounds constraints with elastic boundary resistance
+            if (targetX > 0) {
+                targetX = targetX * 0.35;
+            } else if (targetX < -maxSlide) {
+                const overflow = targetX + maxSlide;
+                targetX = -maxSlide + overflow * 0.35;
+            }
+
+            gsap.set(servicesTrack, { x: targetX });
+
+            // Premium drag horizontal skew/tilt micro-interaction
+            const tilt = Math.min(Math.max(diffX * 0.04, -4), 4);
+            servicesCards.forEach(card => {
+                card.style.transform = `perspective(1000px) rotateY(${tilt}deg)`;
+            });
+        };
+
+        const endDrag = (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+
+            servicesTrack.style.cursor = '';
+            servicesCards.forEach(card => {
+                card.style.cursor = 'grab';
+                card.style.transform = '';
+            });
+
+            const isDesktop = window.innerWidth > 1100;
+            const totalPages = isDesktop ? 2 : 4;
+            const diffX = currentX - startX;
+            const threshold = 50;
+
+            let targetPage = servicesCurrentPage;
+            if (diffX > threshold && servicesCurrentPage > 0) {
+                targetPage = servicesCurrentPage - 1;
+            } else if (diffX < -threshold && servicesCurrentPage < totalPages - 1) {
+                targetPage = servicesCurrentPage + 1;
+            }
+
+            goToServicesPage(targetPage);
+        };
+
+        // Attach listeners
+        servicesSliderCol.addEventListener('pointerdown', startDrag);
+        window.addEventListener('pointermove', moveDrag);
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
+        
+        // Let the browser handle vertical touch scroll, handle horizontal swipes natively
+        servicesSliderCol.style.touchAction = 'pan-y';
+    }
+
+    // 4. 3D Hover Tilt Card Interaction
     servicesCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
+            if (isDragging) return;
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -691,13 +793,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = (centerY - y) / 15; // horizontal tilt
-            const rotateY = (x - centerX) / 15; // vertical tilt
+            const rotateX = (centerY - y) / 15;
+            const rotateY = (x - centerX) / 15;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         });
 
         card.addEventListener('mouseleave', () => {
+            if (isDragging) return;
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
         });
     });
@@ -1701,12 +1804,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 7.5 Showcase Section Header Reveal Animation
+    const showcaseTitle = document.querySelector('.showcase-title');
+    if (showcaseTitle) {
+        const words = showcaseTitle.innerText.trim().split(/\s+/);
+        showcaseTitle.innerHTML = words.map(word => {
+            return `<span class="reveal-wrapper"><span class="reveal-inner">${word}</span></span>`;
+        }).join(' ');
+    }
+
+    const showcaseTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.showcase-section',
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    showcaseTl.fromTo('.showcase-subtitle', {
+        opacity: 0,
+        x: -25
+    }, {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+    });
+
+    showcaseTl.to('.showcase-title .reveal-inner', {
+        y: '0%',
+        duration: 0.85,
+        stagger: 0.06,
+        ease: 'power3.out'
+    }, "-=0.5");
+
+    showcaseTl.fromTo('.showcase-desc-text', {
+        opacity: 0,
+        y: 30
+    }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    }, "-=0.6");
+
     // 7.6 Premium Product Sticky Stacking Cards Scroll Listener
     const showcaseCards = document.querySelectorAll('.showcase-card');
+    const showcaseStack = document.querySelector('.showcase-stack');
 
-    if (showcaseCards.length > 0) {
+    if (showcaseCards.length > 0 && showcaseStack) {
         const handleCardStacking = () => {
             const viewportHeight = window.innerHeight;
+            const stackRect = showcaseStack.getBoundingClientRect();
 
             showcaseCards.forEach((card, index) => {
                 const nextCard = showcaseCards[index + 1];
@@ -1728,20 +1877,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 };
 
-                if (nextCard) {
-                    const nextRect = nextCard.getBoundingClientRect();
-                    const stickyPoint = 0; // matching top: 0
-                    const overlapStart = viewportHeight;
-                    const overlapEnd = stickyPoint;
+                // Use mathematically stable untransformed coordinates relative to stack parent
+                // This prevents CSS scale transform shifts from feeding wrong values back into the bounding client rect top!
+                const cardTop = stackRect.top + (index * viewportHeight);
+                const nextCardTop = stackRect.top + ((index + 1) * viewportHeight);
+                const stickyPoint = 10; // matching top: 10px buffer for subpixel scrolling
+                const overlapStart = viewportHeight;
+                const overlapEnd = stickyPoint;
 
-                    if (nextRect.top < overlapStart && nextRect.top > overlapEnd) {
-                        const progress = (overlapStart - nextRect.top) / (overlapStart - overlapEnd);
+                if (nextCard) {
+                    if (nextCardTop < overlapStart && nextCardTop > overlapEnd) {
+                        const progress = (overlapStart - nextCardTop) / (overlapStart - overlapEnd);
                         const scale = 1.0 - (progress * 0.40); // Scale from 1.0 down to 0.60
-                        const translateY = progress * -50;   // Translate up to -50px for optimal stacking depth
+                        const translateY = progress * -50;   // Translate up up to -50px for optimal stacking depth
                         const opacity = 1.0 - (progress * 0.60);  // Slowly lowers opacity down to 0.40
 
                         card.style.transform = `scale(${scale}) translateY(${translateY}px)`;
                         card.style.opacity = opacity;
+                        card.style.pointerEvents = 'auto';
 
                         // Fade out the text overlay completely as next card slides over
                         if (contentCol) {
@@ -1752,9 +1905,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         // As card is being overlapped, its own scroll progress has finished (stays at 100%)
                         updateProgressRing(1);
 
-                    } else if (nextRect.top <= overlapEnd) {
+                    } else if (nextCardTop <= overlapEnd) {
                         card.style.transform = `scale(0.60) translateY(-50px)`;
-                        card.style.opacity = 0.40;
+                        card.style.opacity = 0; // Hide completely once fully covered to prevent visual layering conflicts
+                        card.style.pointerEvents = 'none';
+                        
                         if (contentCol) {
                             contentCol.style.opacity = 0;
                             contentCol.style.transform = 'translateY(-15px)';
@@ -1763,18 +1918,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         card.style.transform = `scale(1) translateY(0)`;
                         card.style.opacity = 1;
+                        card.style.pointerEvents = 'auto';
                         if (contentCol) {
                             contentCol.style.opacity = 1;
                             contentCol.style.transform = 'translateY(0)';
                         }
 
                         // If it's not being overlapped, let's calculate its own entry progress!
-                        const rect = card.getBoundingClientRect();
                         if (index > 0) {
-                            if (rect.top < overlapStart && rect.top > overlapEnd) {
-                                const entryProgress = (overlapStart - rect.top) / (overlapStart - overlapEnd);
+                            if (cardTop < overlapStart && cardTop > overlapEnd) {
+                                const entryProgress = (overlapStart - cardTop) / (overlapStart - overlapEnd);
                                 updateProgressRing(entryProgress);
-                            } else if (rect.top <= overlapEnd) {
+                            } else if (cardTop <= overlapEnd) {
                                 updateProgressRing(1);
                             } else {
                                 updateProgressRing(0);
@@ -1788,21 +1943,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     // The last card (Card 4)
                     card.style.transform = `scale(1) translateY(0)`;
                     card.style.opacity = 1;
+                    card.style.pointerEvents = 'auto';
                     if (contentCol) {
                         contentCol.style.opacity = 1;
                         contentCol.style.transform = 'translateY(0)';
                     }
 
                     // Update progress ring for the last card as it scrolls into its sticky position
-                    const rect = card.getBoundingClientRect();
-                    const stickyPoint = 0; // matching top: 0
-                    const overlapStart = viewportHeight;
-                    const overlapEnd = stickyPoint;
-
-                    if (rect.top < overlapStart && rect.top > overlapEnd) {
-                        const entryProgress = (overlapStart - rect.top) / (overlapStart - overlapEnd);
+                    if (cardTop < overlapStart && cardTop > overlapEnd) {
+                        const entryProgress = (overlapStart - cardTop) / (overlapStart - overlapEnd);
                         updateProgressRing(entryProgress);
-                    } else if (rect.top <= overlapEnd) {
+                    } else if (cardTop <= overlapEnd) {
                         updateProgressRing(1);
                     } else {
                         updateProgressRing(0);
@@ -1816,5 +1967,110 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', handleCardStacking);
     }
 
-});
+    // 8. Gallery Section Header Reveal Animation
+    const galleryTitle = document.querySelector('.aiero-gallery-title');
+    if (galleryTitle) {
+        const words = galleryTitle.innerText.trim().split(/\s+/);
+        galleryTitle.innerHTML = words.map(word => {
+            return `<span class="reveal-wrapper"><span class="reveal-inner">${word}</span></span>`;
+        }).join(' ');
+    }
 
+    const galleryTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.aiero-gallery-section',
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    galleryTl.fromTo('.aiero-gallery-subtitle', {
+        opacity: 0,
+        x: -25
+    }, {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+    });
+
+    galleryTl.to('.aiero-gallery-title .reveal-inner', {
+        y: '0%',
+        duration: 0.85,
+        stagger: 0.06,
+        ease: 'power3.out'
+    }, "-=0.5");
+
+    galleryTl.fromTo('.aiero-gallery-desc', {
+        opacity: 0,
+        y: 30
+    }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    }, "-=0.6");
+
+    // 8.5 Gallery Section — dual-row horizontal sliding
+    const galleryTopTrack = document.querySelector('.aiero-gallery-track--top');
+    const galleryBottomTrack = document.querySelector('.aiero-gallery-track--bottom');
+
+    if (galleryTopTrack && galleryBottomTrack) {
+        const gallerySpeed = 35;
+
+        const galleryTopTween = gsap.to(galleryTopTrack, {
+            xPercent: -50,
+            ease: 'none',
+            duration: gallerySpeed,
+            repeat: -1,
+            paused: true
+        });
+
+        const galleryBottomTween = gsap.fromTo(galleryBottomTrack,
+            { xPercent: -50 },
+            {
+                xPercent: 0,
+                ease: 'none',
+                duration: gallerySpeed,
+                repeat: -1,
+                paused: true
+            }
+        );
+
+        const galleryRows = document.querySelectorAll('.aiero-gallery-row');
+        galleryRows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                galleryTopTween.timeScale(0);
+                galleryBottomTween.timeScale(0);
+            });
+            row.addEventListener('mouseleave', () => {
+                galleryTopTween.timeScale(1);
+                galleryBottomTween.timeScale(1);
+            });
+        });
+
+        ScrollTrigger.create({
+            trigger: '.aiero-gallery-section',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+            onEnter: () => {
+                galleryTopTween.play();
+                galleryBottomTween.play();
+            },
+            onLeave: () => {
+                galleryTopTween.pause();
+                galleryBottomTween.pause();
+            },
+            onEnterBack: () => {
+                galleryTopTween.play();
+                galleryBottomTween.pause();
+                galleryBottomTween.play();
+            },
+            onLeaveBack: () => {
+                galleryTopTween.pause();
+                galleryBottomTween.pause();
+            }
+        });
+    }
+
+});

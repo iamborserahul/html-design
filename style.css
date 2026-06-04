@@ -30,6 +30,7 @@ html {
     /* Managed by Lenis smooth scroll */
     scrollbar-width: none;
     background-color: var(--color-bg);
+    overflow-x: hidden;
 }
 
 html::-webkit-scrollbar {
@@ -1121,7 +1122,7 @@ body:not(.aiero-theme) .aiero-spotlight {
 
 /* Light Theme Glassmorphic Capsule Nav */
 body:not(.aiero-theme) .aiero-nav {
-    background: rgba(240, 240, 248, 0.7);
+    background: white;
     border-color: rgba(0, 0, 0, 0.08);
 }
 
@@ -1194,12 +1195,21 @@ body:not(.aiero-theme) .aiero-theme-btn {
 }
 
 /* Hero Section Elements */
-body:not(.aiero-theme) .aiero-slide-title {
+body:not(.aiero-theme) .aiero-slide-2d .aiero-slide-title {
     color: white;
 }
 
-body:not(.aiero-theme) .aiero-slide-desc {
+body:not(.aiero-theme) .aiero-slide-2d .aiero-slide-desc {
     color: white;
+}
+
+/* Subpage Hero text colors for light theme readability */
+body:not(.aiero-theme) .subpage-hero .aiero-slide-title {
+    color: #03030b;
+}
+
+body:not(.aiero-theme) .subpage-hero .aiero-slide-desc {
+    color: #555566;
 }
 
 .aiero-slide-title,
@@ -1212,6 +1222,7 @@ body:not(.aiero-theme) .aiero-about-title {
     color: #03030b;
 }
 
+body:not(.aiero-theme) .aiero-about-desc,
 body:not(.aiero-theme) .aiero-about-desc p {
     color: #555566;
 }
@@ -1232,7 +1243,7 @@ body:not(.aiero-theme) .aiero-creations-title {
 }
 
 body:not(.aiero-theme) .aiero-creation-desc {
-    color: #555566;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 body:not(.aiero-theme) .aiero-creation-view-more {
@@ -2079,8 +2090,8 @@ body.aiero-theme .aiero-phone-num {
 
 @media (max-width: 991px) {
     .aiero-about-container {
-        grid-template-columns: 1fr;
-        gap: 5rem;
+        grid-template-columns: 1fr !important;
+        gap: 3.5rem !important;
     }
 
     .aiero-about-img-wrapper.shifted {
@@ -2866,6 +2877,7 @@ body:not(.aiero-theme) .aiero-services-contact-num:hover {
 /* Premium Cards Design */
 .aiero-service-card {
     width: 320px;
+    max-width: 85vw;
     background: rgba(13, 13, 24, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
@@ -3067,6 +3079,74 @@ body:not(.aiero-theme) .aiero-services-dot {
 
     .aiero-service-card {
         width: 290px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aiero-services-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .aiero-services-container {
+        gap: 3rem;
+    }
+
+    .aiero-services-title {
+        font-size: 2.2rem;
+    }
+
+    .aiero-services-contact-num {
+        font-size: 1.65rem;
+    }
+
+    .aiero-services-slider-track {
+        gap: 1.5rem;
+    }
+
+    .aiero-service-card {
+        width: 280px;
+        max-width: 85vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .aiero-services-section {
+        padding: 3rem 1rem;
+    }
+
+    .aiero-services-container {
+        gap: 2.5rem;
+    }
+
+    .aiero-services-title {
+        font-size: 1.85rem;
+    }
+
+    .aiero-services-desc {
+        font-size: 0.95rem;
+        gap: 1rem;
+    }
+
+    .aiero-services-contact {
+        gap: 1rem;
+    }
+
+    .aiero-services-contact-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    .aiero-services-contact-num {
+        font-size: 1.45rem;
+    }
+
+    .aiero-services-slider-track {
+        gap: 1rem;
+    }
+
+    .aiero-service-card {
+        max-width: 88vw;
     }
 }
 
@@ -4101,26 +4181,117 @@ body:not(.aiero-theme) .aiero-menu-toggle:hover {
 
     /* About Us section staggered images */
     .aiero-about-images {
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+        width: 100% !important;
+        max-width: 500px;
+        margin: 0 auto;
     }
 
     .aiero-about-img-wrapper {
         width: 100% !important;
-        max-width: 450px;
+        max-width: 450px !important;
+        margin: 0 auto !important;
     }
 
     .aiero-about-img-wrapper.shifted {
-        margin-top: 0;
+        margin-top: 0 !important;
     }
 
     .aiero-about-img-box {
-        height: 280px;
+        height: 280px !important;
+        /* Simplify 3D floats on mobile to prevent layout overflow */
+        animation: floatFlatLeft 6s ease-in-out infinite !important;
+    }
+
+    .aiero-about-img-wrapper.shifted .aiero-about-img-box {
+        animation: floatFlatRight 6s ease-in-out infinite !important;
+        animation-delay: -3s !important;
+    }
+
+    /* Force about section content visibility on mobile to bypass ScrollTrigger/GSAP issues */
+    .aiero-about-tagline,
+    .aiero-about-title,
+    .aiero-about-desc,
+    .aiero-about-desc p,
+    .aiero-about-phone,
+    .reveal-inner,
+    .animate-img-left,
+    .animate-img-right {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    .reveal-wrapper {
+        overflow: visible !important;
+    }
+
+    .aiero-about-content {
+        text-align: center !important;
+        align-items: center !important;
+        gap: 1.8rem !important;
+    }
+
+    .aiero-about-title {
+        font-size: 2.2rem !important;
+        line-height: 1.25 !important;
+        text-align: center !important;
+    }
+
+    .aiero-about-desc {
+        gap: 1.2rem !important;
+        font-size: 0.95rem !important;
+        line-height: 1.7 !important;
+        text-align: center !important;
     }
 
     .aiero-about-phone {
-        justify-content: center;
+        margin-top: 1.5rem !important;
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .aiero-phone-details {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .aiero-phone-num {
+        font-size: 1.8rem !important;
+    }
+
+    a[href^="tel"] {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+
+    @keyframes floatFlatLeft {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes floatFlatRight {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(10px);
+        }
     }
 
     /* Counter metrics row */
@@ -4190,7 +4361,7 @@ body:not(.aiero-theme) .aiero-menu-toggle:hover {
     }
 
     .aiero-about-title {
-        font-size: 28px !important;
+        font-size: 1.8rem !important;
     }
 
     .aiero-creations-title {
@@ -4198,7 +4369,7 @@ body:not(.aiero-theme) .aiero-menu-toggle:hover {
     }
 
     .aiero-about-img-box {
-        height: 220px;
+        height: 220px !important;
     }
 
     .aiero-counters-grid {
@@ -5129,6 +5300,13 @@ body:not(.aiero-theme) .showcase-card {
     .card-tags-overlay {
         top: 1.5rem;
         left: 2rem;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .card-pill-tag {
+        padding: 0.45rem 1rem;
+        font-size: 0.65rem;
     }
 
     .card-scroll-indicator {
@@ -5149,5 +5327,526 @@ body:not(.aiero-theme) .showcase-card {
         flex-direction: column;
         align-items: flex-start;
         gap: 1.5rem;
+        width: 100%;
     }
+
+    .card-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .btn-shop-now,
+    .btn-view-details {
+        width: 100%;
+        justify-content: center;
+        padding: 0.85rem 1.8rem;
+    }
+}
+
+/* ==========================================
+   GALLERY SECTION — dual-row horizontal slider
+   ========================================== */
+.aiero-gallery-section {
+    position: relative;
+    padding: 7rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 10;
+}
+
+body:not(.aiero-theme) .aiero-gallery-section {
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.aiero-gallery-container {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    padding: 0 8%;
+}
+
+.aiero-gallery-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aiero-gallery-subtitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: galleryFadeIn 0.8s 0.2s forwards;
+}
+
+.aiero-gallery-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+body.aiero-theme .aiero-gallery-title {
+    color: #ffffff;
+}
+
+body:not(.aiero-theme) .aiero-gallery-title {
+    color: #03030b;
+}
+
+.aiero-gallery-desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+.aiero-gallery-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aiero-gallery-row {
+    overflow: hidden;
+    position: relative;
+}
+
+.aiero-gallery-track {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+    will-change: transform;
+}
+
+.aiero-gallery-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+body:not(.aiero-theme) .aiero-gallery-card {
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.aiero-gallery-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 12px 40px rgba(255, 178, 0, 0.12);
+}
+
+.aiero-gallery-card--sm {
+    width: 200px;
+    height: 220px;
+}
+
+.aiero-gallery-card--md {
+    width: 280px;
+    height: 260px;
+}
+
+.aiero-gallery-card--lg {
+    width: 360px;
+    height: 300px;
+}
+
+.aiero-gallery-card-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.aiero-gallery-card:hover .aiero-gallery-card-img {
+    transform: scale(1.08);
+}
+
+.aiero-gallery-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s, transform 0.4s;
+}
+
+.aiero-gallery-card:hover .aiero-gallery-card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aiero-gallery-card-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Gallery floating shapes */
+.aiero-gallery-section .shape-gold-sector {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 178, 0, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.aiero-gallery-section .shape-pink-circle {
+    position: absolute;
+    bottom: -8%;
+    left: -4%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes galleryFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Gallery Responsive */
+@media (max-width: 991px) {
+    .aiero-gallery-section {
+        padding: 5rem 0;
+    }
+
+    .aiero-gallery-header {
+        margin-bottom: 3rem;
+    }
+
+    .aiero-gallery-card--sm {
+        width: 160px;
+        height: 180px;
+    }
+
+    .aiero-gallery-card--md {
+        width: 220px;
+        height: 210px;
+    }
+
+    .aiero-gallery-card--lg {
+        width: 280px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .aiero-about,
+    .aiero-counters-section,
+    .aiero-categories-section,
+    .aiero-creations,
+    .aiero-services-section,
+    .aiero-faq-section {
+        padding: 4rem 1.5rem !important;
+    }
+
+    .aiero-gallery-section {
+        padding: 4rem 0 !important;
+    }
+
+    .aiero-marquee-section {
+        padding: 2.5rem 0 !important;
+    }
+
+    .showcase-section {
+        padding: 4rem 1.5rem 0 !important;
+    }
+
+    /* Internal container gaps and margins */
+    .aiero-about-container,
+    .aiero-creations-container,
+    .aiero-categories-container,
+    .aiero-services-container,
+    .aiero-faq-wrapper {
+        gap: 2rem !important;
+    }
+
+    .aiero-about-content,
+    .aiero-creations-header,
+    .aiero-categories-header,
+    .aiero-services-text-col {
+        gap: 1.2rem !important;
+    }
+
+    .aiero-gallery-container {
+        margin-bottom: 2rem !important;
+        padding: 0 1.5rem !important;
+    }
+
+    .aiero-gallery-header {
+        margin-bottom: 2rem !important;
+    }
+
+    .showcase-header {
+        margin-bottom: 2rem !important;
+    }
+
+    .showcase-stack {
+        margin-top: 2rem !important;
+        gap: 1.5rem !important;
+    }
+
+    .card-content-overlay {
+        padding: 2rem 1.5rem !important;
+        gap: 0.8rem !important;
+    }
+
+    .card-footer-row {
+        gap: 1rem !important;
+    }
+
+    .aiero-services-nav-controls {
+        margin-top: 1.5rem !important;
+    }
+
+    .aiero-marquee-container {
+        margin-bottom: 1.5rem !important;
+    }
+
+    #map {
+        padding: 0 1.5rem 3rem !important;
+    }
+
+    .aiero-gallery-card--sm {
+        width: 140px;
+        height: 160px;
+    }
+
+    .aiero-gallery-card--md {
+        width: 180px;
+        height: 180px;
+    }
+
+    .aiero-gallery-card--lg {
+        width: 230px;
+        height: 200px;
+    }
+
+    .aiero-gallery-track {
+        gap: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .aiero-about,
+    .aiero-counters-section,
+    .aiero-categories-section,
+    .aiero-creations,
+    .aiero-services-section,
+    .aiero-faq-section {
+        padding: 3rem 1rem !important;
+    }
+
+    .aiero-gallery-section {
+        padding: 3rem 0 !important;
+    }
+
+    .aiero-marquee-section {
+        padding: 2rem 0 !important;
+    }
+
+    .showcase-section {
+        padding: 3rem 1rem 0 !important;
+    }
+
+    .aiero-about-container,
+    .aiero-creations-container,
+    .aiero-categories-container,
+    .aiero-services-container,
+    .aiero-faq-wrapper {
+        gap: 1.5rem !important;
+    }
+
+    .aiero-gallery-container {
+        padding: 0 1rem !important;
+    }
+
+    .card-content-overlay {
+        padding: 1.5rem 1rem !important;
+    }
+
+    #map {
+        padding: 0 1rem 2rem !important;
+    }
+}
+
+/* ==========================================================================
+   CONTACT PAGE CUSTOM MOBILE RESPONSIVENESS
+   ========================================================================== */
+.aiero-contact-form-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 3rem;
+    width: 100%;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+}
+
+.aiero-contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.aiero-contact-info-card {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.8rem;
+    border-radius: 16px;
+    text-align: left;
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .aiero-about-container {
+        grid-template-columns: 1fr !important;
+        gap: 3.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .aiero-contact-form-card {
+        padding: 1.8rem;
+        border-radius: 16px;
+    }
+
+    #map>div {
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .aiero-contact-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .aiero-contact-info-card {
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+}
+
+/* ==========================================================================
+   AIERO FOUNDER CARD STYLING (ABOUT PAGE)
+   ========================================================================== */
+.aiero-founder-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 194, 41, 0.15);
+    /* Gold-tinted border */
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+body:not(.aiero-theme) .aiero-founder-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 194, 41, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.aiero-founder-card:hover {
+    transform: translateY(-8px);
+    border-color: #FFC229;
+}
+
+.aiero-founder-img-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.8rem;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, #FFC229 0%, rgba(255, 194, 41, 0.2) 100%);
+    box-shadow: 0 15px 35px rgba(255, 194, 41, 0.2);
+    overflow: hidden;
+}
+
+.aiero-founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    background: #0d0c1d;
+    /* Fallback dark background */
+}
+
+.aiero-founder-card:hover .aiero-founder-img {
+    transform: scale(1.08);
+}
+
+.aiero-founder-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.aiero-founder-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #FFC229;
+    text-transform: uppercase;
+}
+
+.aiero-founder-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.4rem;
+}
+
+body:not(.aiero-theme) .aiero-founder-name {
+    color: #03030b;
+}
+
+.aiero-founder-quote {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-top: 0.4rem;
+}
+
+.text-center {
+    text-align: center;
 }
