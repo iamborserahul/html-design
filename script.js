@@ -219,17 +219,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Fullscreen Toggle
     const compressIcon = document.querySelector('.fa-compress');
-    compressIcon.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-            compressIcon.className = 'fa-solid fa-expand aiero-tab-icon';
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-                compressIcon.className = 'fa-solid fa-compress aiero-tab-icon';
+    if (compressIcon) {
+        compressIcon.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+                compressIcon.className = 'fa-solid fa-expand aiero-tab-icon';
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    compressIcon.className = 'fa-solid fa-compress aiero-tab-icon';
+                }
             }
-        }
-    });
+        });
+    }
 
     // 5b. Product Categories Dynamic Word Split & ScrollTrigger Animation Setup
     const categoriesTitle = document.querySelector('.aiero-categories-title');
@@ -315,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutTl = gsap.timeline({
         scrollTrigger: {
             trigger: '.aiero-about',
-            start: 'top 75%',
+            start: 'top 95%',
             toggleActions: 'play none none none'
         }
     });
@@ -602,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function buildServicesDots() {
         if (!servicesDotsContainer) return;
         const isDesktop = window.innerWidth > 1100;
-        const totalPages = isDesktop ? 2 : 4;
+        const totalPages = isDesktop ? Math.ceil(servicesCards.length / 2) : servicesCards.length;
 
         servicesDotsContainer.innerHTML = '';
         for (let i = 0; i < totalPages; i++) {
@@ -628,7 +630,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     parseFloat(window.getComputedStyle(servicesTrack).gap) || 
                     32;
 
-        const slideAmount = pageIndex * cardsPerPage * (cardWidth + gap);
+        const maxSlide = Math.max(0, (servicesCards.length - cardsPerPage) * (cardWidth + gap));
+        const slideAmount = Math.min(pageIndex * cardsPerPage * (cardWidth + gap), maxSlide);
 
         // Active dot update
         const serviceDots = document.querySelectorAll('.aiero-services-dot');
@@ -722,13 +725,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let targetX = trackStartX + diffX;
 
             const isDesktop = window.innerWidth > 1100;
-            const totalPages = isDesktop ? 2 : 4;
+            const totalPages = isDesktop ? Math.ceil(servicesCards.length / 2) : servicesCards.length;
             const cardsPerPage = isDesktop ? 2 : 1;
             const cardWidth = servicesCards[0].offsetWidth;
             const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) || 
                         parseFloat(window.getComputedStyle(servicesTrack).gap) || 
                         32;
-            const maxSlide = (totalPages - 1) * cardsPerPage * (cardWidth + gap);
+            const maxSlide = Math.max(0, (servicesCards.length - cardsPerPage) * (cardWidth + gap));
 
             // Bounds constraints with elastic boundary resistance
             if (targetX > 0) {
@@ -758,7 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const isDesktop = window.innerWidth > 1100;
-            const totalPages = isDesktop ? 2 : 4;
+            const totalPages = isDesktop ? Math.ceil(servicesCards.length / 2) : servicesCards.length;
             const diffX = currentX - startX;
             const threshold = 50;
 
@@ -2073,4 +2076,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+});
+
+window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
 });

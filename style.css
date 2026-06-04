@@ -3308,11 +3308,7 @@ body:not(.aiero-theme) .aiero-services-dot {
     position: absolute;
     inset: -1px;
     border-radius: 25px;
-    background: linear-gradient(135deg,
-            rgba(255, 150, 80, 0.6),
-            rgba(255, 200, 100, 0.4),
-            rgba(255, 120, 60, 0.3));
-    opacity: 0;
+    background: linear-gradient(135deg, rgb(243 230 222 / 60%), rgb(230 206 162 / 40%), rgb(245 245 245 / 30%));
     transition: opacity 0.4s ease;
     z-index: -1;
 }
