@@ -34,19 +34,9 @@ include 'header.php';
                     </li>
                 </ul>
             </div>
-            
-            <!-- Download Catalogue Panel -->
-            <div class="aiero-about-content" style="justify-content: center; gap: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 3rem; border-radius: 20px; text-align: center; align-items: center;">
-                <i class="fa-solid fa-file-pdf" style="font-size: 4rem; color: #ff3333; filter: drop-shadow(0 0 15px rgba(255,51,51,0.2));"></i>
-                <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--color-text);">Download Catalogues</h3>
-                <p style="opacity: 0.6; font-size: 0.92rem; line-height: 1.6; max-width: 320px;">Download our official drafted PDF specification catalog containing door profiles, gate designs, and fabrication tolerances.</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 1.2rem; width: 100%; max-width: 340px;">
-                    <a href="ksi/Door.pdf" download class="aiero-btn-discover" style="transform: none; opacity: 1; margin: 0 auto; width: 100%; justify-content: center; background: #FFC229; box-shadow: 0 10px 20px rgba(255, 194, 41, 0.25);">
-                        <i class="fa-solid fa-download"></i> Safety Door Catalogue PDF
-                    </a>
-                </div>
-            </div>
+
+            <!-- Category Image Panel -->
+            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/project3.jpg') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
         </div>
     </section>
 
@@ -92,6 +82,23 @@ include 'header.php';
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">PRECISION METAL FRAME</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Custom structural iron grids, safety grilles, and building facade framing elements.</p>
                         </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Catalogues Section -->
+    <section class="aiero-about" style="padding: 4rem 8% 6rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <div style="display: flex; justify-content: center;">
+            <div class="aiero-about-content" style="justify-content: center; gap: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 3rem; border-radius: 20px; text-align: center; align-items: center;">
+                <i class="fa-solid fa-file-pdf" style="font-size: 4rem; color: #ff3333; filter: drop-shadow(0 0 15px rgba(255,51,51,0.2));"></i>
+                <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--color-text);">Download Catalogues</h3>
+                <p style="opacity: 0.6; font-size: 0.92rem; line-height: 1.6; max-width: 320px;">Download our official drafted PDF specification catalog containing door profiles, gate designs, and fabrication tolerances.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.2rem; width: 100%; max-width: 340px;">
+                    <a href="ksi/Door.pdf" download class="aiero-btn-discover" style="transform: none; opacity: 1; margin: 0 auto; width: 100%; justify-content: center; background: #FFC229; box-shadow: 0 10px 20px rgba(255, 194, 41, 0.25);">
+                        <i class="fa-solid fa-download"></i> Safety Door Catalogue PDF
                     </a>
                 </div>
             </div>

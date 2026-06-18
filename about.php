@@ -5,14 +5,18 @@ $page = "about";
 include 'header.php';
 ?>
 
-<!-- Subpage Hero Section -->
-    <section class="aiero-hero subpage-hero"
-        style="height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center;">
+<!-- Subpage Hero Section with Parallax Background -->
+    <section class="aiero-hero subpage-hero about-parallax-hero"
+        style="height: 100vh; min-height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: url('assets/about-us-bg.png') center center / cover no-repeat fixed;">
+        <!-- Dark Gradient Overlay -->
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 50%, rgba(10,10,10,0.8) 100%); z-index: 1;"></div>
+        <!-- Subtle animated grain texture -->
+        <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(255,194,41,0.08) 0%, transparent 60%); z-index: 2; pointer-events: none;"></div>
         <div class="aiero-slide-content"
-            style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
-            <span class="aiero-slide-tagline">ESTABLISHED 1998</span>
-            <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Our Story & Legacy</h1>
-            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Discover
+            style="position: relative; z-index: 3; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
+            <span class="aiero-slide-tagline" style="color: #FFC229; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">ESTABLISHED 1998</span>
+            <h1 class="aiero-slide-title" style="transform: none; opacity: 1; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.6);">Our Story & Legacy</h1>
+            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); text-shadow: 0 1px 8px rgba(0,0,0,0.5);">Discover
                 the values, precision engineering, and structural dedication that have fueled Surat’s leading luxury
                 metal manufacturer for over two decades.</p>
         </div>

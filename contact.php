@@ -1,7 +1,82 @@
 <?php
+session_start();
+
 $title = "Contact Us | Khodiyar Steel";
 $description = "Get in touch with Khodiyar Steel in Surat, Gujarat. Submit an inquiry for luxury metal wardrobes, custom steel safety doors, ICUs ward equipment, or structural swings.";
 $page = "contact";
+
+// ── PHPMailer includes ──
+require_once __DIR__ . '/phpmailer/Exception.php';
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_inquiry'])) {
+    $name     = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $email    = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $phone    = htmlspecialchars(trim($_POST['phone'] ?? ''));
+    $category = htmlspecialchars(trim($_POST['category'] ?? ''));
+    $message  = htmlspecialchars(trim($_POST['message'] ?? ''));
+
+    if (!empty($name) && !empty($email) && !empty($phone) && !empty($message)) {
+
+        $mail = new PHPMailer(true);
+
+        try {
+            // ── Gmail SMTP settings ──
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'akashvishwakarma1212@gmail.com';
+            $mail->Password   = 'wiqjmvooxxngbwap';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+
+            // ── Sender & Recipient ──
+            $mail->setFrom('akashvishwakarma1212@gmail.com', 'Khodiyar Steel Website');
+            $mail->addReplyTo($email, $name);
+            $mail->addAddress('shubhamg44391@gmail.com');            // Admin receives the email
+
+            // ── Email content ──
+            $mail->isHTML(false);
+            $mail->Subject = 'New Inquiry from Khodiyar Steel Website';
+            $mail->Body    = "You have received a new inquiry.\n\n"
+                           . "Name: $name\n"
+                           . "Email: $email\n"
+                           . "Phone: $phone\n"
+                           . "Category: $category\n"
+                           . "Message:\n$message\n";
+
+            $mail->send();
+
+            $_SESSION['statusMsg'] = "Thank you! Your inquiry has been sent successfully.";
+            $_SESSION['msgClass']  = "success";
+        } catch (Exception $e) {
+            $_SESSION['statusMsg'] = "Sorry, failed to send your inquiry. Error: " . $mail->ErrorInfo;
+            $_SESSION['msgClass']  = "error";
+        }
+
+    } else {
+        $_SESSION['statusMsg'] = "Please fill in all mandatory fields.";
+        $_SESSION['msgClass']  = "error";
+    }
+
+    // PRG: Redirect to the same page to prevent re-submit on refresh
+    header("Location: " . $_SERVER['REQUEST_URI']);
+    exit();
+}
+
+// Read flash message from session (shown only once)
+$statusMsg = '';
+$msgClass  = '';
+if (isset($_SESSION['statusMsg'])) {
+    $statusMsg = $_SESSION['statusMsg'];
+    $msgClass  = $_SESSION['msgClass'];
+    unset($_SESSION['statusMsg'], $_SESSION['msgClass']);
+}
+
 include 'header.php';
 ?>
 
@@ -61,43 +136,45 @@ include 'header.php';
                 <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--color-text); margin-bottom: 0.5rem; text-align: left;">Inquiry Form</h3>
                 <p style="opacity: 0.6; font-size: 0.9rem; line-height: 1.6; margin-bottom: 2rem; text-align: left;">Please fill out the details below. Our technical engineering division will respond to your blueprint or almirah layouts within 24 hours.</p>
                 
-                <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1.6rem; text-align: left;">
+
+
+                <form action="" method="POST" style="display: flex; flex-direction: column; gap: 1.6rem; text-align: left;">
                     <div class="aiero-contact-form-row">
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label for="name" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; font-weight: 600;">Full Name</label>
-                            <input type="text" id="name" required placeholder="e.g. Rahul Patel" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s;">
+                            <input type="text" id="name" name="name" required placeholder="e.g. Rahul Patel" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s;">
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label for="email" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; font-weight: 600;">Email Address</label>
-                            <input type="email" id="email" required placeholder="e.g. rahul@gmail.com" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s;">
+                            <input type="email" id="email" name="email" required placeholder="e.g. rahul@gmail.com" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s;">
                         </div>
                     </div>
 
                     <div class="aiero-contact-form-row">
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label for="phone" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; font-weight: 600;">Mobile Number</label>
-                            <input type="tel" id="phone" required placeholder="e.g. +91 92650 XXXXX" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s;">
+                            <input type="tel" id="phone" name="phone" required placeholder="e.g. +91 92650 XXXXX" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s;">
                         </div>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label for="category" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; font-weight: 600;">Product Category</label>
-                            <select id="category" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s; cursor: pointer; color-scheme: dark;">
-                                <option value="" disabled selected style="background:#111;">Select category...</option>
-                                <option value="beds" style="background:#111;">Metal & Adjustable Beds</option>
-                                <option value="hospital" style="background:#111;">Hospital Beds & Equipment</option>
-                                <option value="storage" style="background:#111;">Cupboards & Storage Almirahs</option>
-                                <option value="doors" style="background:#111;">Safety Doors & Fabrication</option>
-                                <option value="dining" style="background:#111;">Dining & Bathroom Units</option>
-                                <option value="outdoor" style="background:#111;">Outdoor Swings & Gazebos</option>
+                            <select id="category" name="category" style="background: #fff; border: 1px solid rgba(0,0,0,0.1); color: #333; padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s; cursor: pointer;">
+                                <option value="" disabled selected style="background:#fff; color:#999;">Select category...</option>
+                                <option value="beds" style="background:#fff; color:#333;">Metal &amp; Adjustable Beds</option>
+                                <option value="hospital" style="background:#fff; color:#333;">Hospital Beds &amp; Equipment</option>
+                                <option value="storage" style="background:#fff; color:#333;">Cupboards &amp; Storage Almirahs</option>
+                                <option value="doors" style="background:#fff; color:#333;">Safety Doors &amp; Fabrication</option>
+                                <option value="dining" style="background:#fff; color:#333;">Dining &amp; Bathroom Units</option>
+                                <option value="outdoor" style="background:#fff; color:#333;">Outdoor Swings &amp; Gazebos</option>
                             </select>
                         </div>
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                         <label for="message" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; font-weight: 600;">Blueprints or Custom Message</label>
-                        <textarea id="message" rows="4" required placeholder="Describe your dimensional custom sizing or cabinet requirements..." style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s; resize: none;"></textarea>
+                        <textarea id="message" name="message" rows="4" required placeholder="Describe your dimensional custom sizing or cabinet requirements..." style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--color-text); padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s; resize: none;"></textarea>
                     </div>
 
-                    <button type="submit" class="aiero-btn-discover" style="transform: none; opacity: 1; margin: 0.5rem 0 0; width: 100%; justify-content: center; background: #FFC229; box-shadow: 0 10px 20px rgba(255, 194, 41, 0.25);">
+                    <button type="submit" name="submit_inquiry" class="aiero-btn-discover" style="transform: none; opacity: 1; margin: 0.5rem 0 0; width: 100%; justify-content: center; background: #FFC229; box-shadow: 0 10px 20px rgba(255, 194, 41, 0.25);">
                         <i class="fa-solid fa-paper-plane"></i> Send Inquiry Details
                     </button>
                 </form>
@@ -159,6 +236,24 @@ include 'header.php';
             </div>
         </div>
     </section>
+
+<!-- SweetAlert2 library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if(!empty($statusMsg)) { ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+            icon: '<?php echo $msgClass; ?>',
+            title: '<?php echo ($msgClass == "success") ? "Success!" : "Oops..."; ?>',
+            text: '<?php echo $statusMsg; ?>',
+            confirmButtonColor: '#FFC229',
+            background: '#111',
+            color: '#fff'
+        });
+    });
+</script>
+<?php } ?>
 
 <?php
 include 'footer.php';

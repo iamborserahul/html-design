@@ -1198,6 +1198,10 @@ body:not(.aiero-theme) .aiero-slide-2d .aiero-slide-desc {
 }
 
 /* Subpage Hero text colors for light theme readability */
+.subpage-hero {
+    padding-top: 200px;
+}
+
 body:not(.aiero-theme) .subpage-hero .aiero-slide-title {
     color: #03030b;
 }
