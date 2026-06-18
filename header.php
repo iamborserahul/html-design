@@ -46,13 +46,13 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/proje
       "image": "<?php echo htmlspecialchars($og_image_url); ?>",
       "@id": "<?php echo htmlspecialchars($current_url); ?>",
       "url": "<?php echo htmlspecialchars($protocol . $_SERVER['HTTP_HOST'] . $project_dir); ?>",
-      "telephone": "+918551004444",
+      "telephone": "+919825186385",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Industrial Zone",
+        "streetAddress": "Block no 9, Rd Number 5, Udhana GIDC, Udhna Udhyog Nagar, Udhana",
         "addressLocality": "Surat",
         "addressRegion": "Gujarat",
-        "postalCode": "395003",
+        "postalCode": "394210",
         "addressCountry": "IN"
       },
       "geo": {
@@ -87,7 +87,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/proje
     <!-- FontAwesome Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS Style Sheets -->
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="style.css?v=1.3">
 </head>
 
 <body>
@@ -130,12 +130,6 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/proje
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="aiero-right-controls">
-                <?php if ($page !== 'home'): ?>
-                    <div class="aiero-search-login">
-                        <button class="aiero-search-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <a href="#" class="aiero-login-link"><i class="fa-regular fa-user"></i> Login</a>
-                    </div>
-                <?php endif; ?>
                 <a href="<?php echo ($page === 'home') ? '#contact' : 'contact'; ?>" class="aiero-btn-capsule">Get in Touch</a>
             </div>
         </div>

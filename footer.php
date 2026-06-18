@@ -40,11 +40,15 @@
                     <div class="aiero-footer-contact-items">
                         <div class="aiero-footer-contact-item">
                             <i class="fa-solid fa-location-dot"></i>
-                            <span>Surat, Gujarat, India</span>
+                            <span>Block no 9, Rd No. 5, Udhana GIDC, Surat, Gujarat 394210</span>
                         </div>
                         <div class="aiero-footer-contact-item">
                             <i class="fa-solid fa-phone"></i>
-                            <span>855 100 4444</span>
+                            <a href="tel:9825186385">98251 86385</a>
+                        </div>
+                         <div class="aiero-footer-contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:nayannitinpatel@gmail.com">nayannitinpatel@gmail.com</a>
                         </div>
                     </div>
                     <!-- Premium social icon rows -->
@@ -80,15 +84,6 @@
         </div>
     </footer>
 
-    <!-- Side Floating Tab (Dark Mode capsule & expander) -->
-    <!-- <div class="aiero-floating-tab">
-        <i class="fa-solid fa-compress aiero-tab-icon" title="Toggle Fullscreen"></i>
-        <div class="aiero-theme-btn aiero-tab-icon" title="Toggle Theme">
-            <i class="fa-solid fa-sun"></i>
-        </div>
-    </div> -->
-
-    <!-- Core GSAP, ScrollTrigger & Lenis Smooth Scroll -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>

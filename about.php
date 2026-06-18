@@ -49,22 +49,56 @@ include 'header.php';
                         consistency, and commitment to service.</p>
                 </div>
             </div>
-            <!-- Right Column: Founder Profile Card -->
-            <div class="aiero-about-img-wrapper shifted animate-img-right" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                <div class="aiero-founder-card text-center">
-                    <div class="aiero-founder-img-wrapper">
+            <!-- Right Column: Founder + CTO + COO stacked -->
+            <div class="aiero-about-img-wrapper shifted animate-img-right"
+                style="display: flex; flex-direction: column; gap: 1.8rem; justify-content: flex-start; align-items: center; width: 100%;">
+
+                <!-- Founder Card (Square) -->
+                <div class="aiero-founder-card text-center" style="width: 100%;">
+                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square">
                         <img src="assets/ceo.png" alt="Vimal Sakariya - Founder of Khodiyar Steel"
-                            class="aiero-founder-img">
+                            class="aiero-founder-img aiero-founder-img--square">
                     </div>
                     <div class="aiero-founder-details">
-                        <span class="aiero-founder-tag">FOUNDER & MD</span>
+                        <span class="aiero-founder-tag">FOUNDER &amp; MD</span>
                         <h3 class="aiero-founder-name">Vimal Sakariya</h3>
                         <p class="aiero-founder-quote">"Manufacturing Quality. Building Trust. Since 1998."</p>
                     </div>
                 </div>
+
+                <!-- CTO & COO row -->
+                <div style="display: flex; gap: 1.2rem; width: 100%; flex-wrap: wrap;">
+
+                    <!-- CTO Card (Circle) -->
+                    <div class="aiero-founder-card text-center" style="flex: 1; min-width: 180px; padding: 1.8rem 1.2rem;">
+                        <div class="aiero-founder-img-wrapper" style="width: 110px; height: 110px;">
+                            <img src="assets/manthan-sakariya-ceo.png" alt="CTO of Khodiyar Steel" class="aiero-founder-img">
+                        </div>
+                        <div class="aiero-founder-details">
+                            <span class="aiero-founder-tag" style="font-size: 0.62rem;">CTO</span>
+                            <h3 class="aiero-founder-name" style="font-size: 1.1rem;">Manthan Sakariya</h3>
+                            <p class="aiero-founder-quote" style="font-size: 0.8rem;">"Technology drives our precision."</p>
+                        </div>
+                    </div>
+
+                    <!-- COO Card (Circle) -->
+                    <div class="aiero-founder-card text-center" style="flex: 1; min-width: 180px; padding: 1.8rem 1.2rem;">
+                        <div class="aiero-founder-img-wrapper" style="width: 110px; height: 110px;">
+                            <img src="assets/nayan-patel-coo.png" alt="COO of Khodiyar Steel" class="aiero-founder-img">
+                        </div>
+                        <div class="aiero-founder-details">
+                            <span class="aiero-founder-tag" style="font-size: 0.62rem;">COO</span>
+                            <h3 class="aiero-founder-name" style="font-size: 1.1rem;">NAYAN PATEL</h3>
+                            <p class="aiero-founder-quote" style="font-size: 0.8rem;">"Excellence in every operation."</p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </section>
+
 
     <!-- Mission, Vision & Journey Block -->
     <section class="aiero-creations" id="mission"
@@ -203,6 +237,20 @@ include 'header.php';
                         <p class="aiero-timeline-desc">Reached a manufacturing capacity of 6,000–8,000 metal beds per
                             month, with full capabilities scaling up to 10,000 beds per month to serve distributors and
                             project buyers.</p>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="aiero-timeline-node aiero-timeline-node--active">
+                    <div class="aiero-timeline-dot aiero-timeline-dot--active"></div>
+                    <div class="aiero-timeline-card aiero-timeline-card--active">
+                        <div class="aiero-timeline-year" style="color: #FFC229;">2026</div>
+                        <h4 class="aiero-timeline-title">Digital Transformation &amp; New Verticals</h4>
+                        <p class="aiero-timeline-desc">Launched a full digital product catalogue and strengthened our
+                            online presence to connect directly with global buyers. Expanded our product range into
+                            premium hospital furniture, outdoor gazebos, and bespoke structural fabrication — positioning
+                            Khodiyar Steel for the next decade of growth.</p>
+                        <span style="display: inline-block; margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; color: #FFC229; text-transform: uppercase; background: rgba(255,194,41,0.1); border: 1px solid rgba(255,194,41,0.3); padding: 0.3rem 0.9rem; border-radius: 50px;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle; margin-right: 0.4rem; animation: pulse-gold 1.5s infinite;"></i> Present Day</span>
                     </div>
                 </div>
             </div>

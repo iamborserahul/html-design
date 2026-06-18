@@ -30,7 +30,7 @@ include 'header.php';
                         <i class="fa-solid fa-location-dot" style="font-size: 1.5rem; color: #FFC229; margin-top: 0.2rem;"></i>
                         <div>
                             <h4 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--color-text); margin-bottom: 0.4rem;">Corporate Address</h4>
-                            <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">Khodiyar Steel Industries<br>Industrial Zone, Surat, Gujarat, India</p>
+                            <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">Khodiyar Steel Industries<br>Block no 9, Rd Number 5, Udhana GIDC,<br>Udhna Udhyog Nagar, Udhana,<br>Surat, Gujarat 394210</p>
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@ include 'header.php';
                         <i class="fa-solid fa-envelope" style="font-size: 1.5rem; color: #FFC229; margin-top: 0.2rem;"></i>
                         <div>
                             <h4 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--color-text); margin-bottom: 0.4rem;">Digital Inquiries</h4>
-                            <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">support@khodiyarsteel.com<br>sales@khodiyarsteel.com</p>
+                            <a href="mailto:nayannitinpatel@gmail.com" style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">nayannitinpatel@gmail.com</a>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@ include 'header.php';
                         </div>
                         <div class="aiero-phone-details">
                             <span class="aiero-phone-label">Reservation / Sales</span>
-                            <a href="tel:8551004444" class="aiero-phone-num">855 100 4444</a>
+                            <a href="tel:9825186385" class="aiero-phone-num">98251 86385</a>
                         </div>
                     </div>
                 </div>
@@ -109,8 +109,8 @@ include 'header.php';
     <!-- Google Map Interactive Iframe Section -->
     <section id="map" style="padding: 0 8% 6rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
         <div style="max-width: 1400px; margin: 0 auto; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px rgba(0,0,0,0.3); height: 450px; background: rgba(255,255,255,0.01);">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.54583279147!2d72.73982361665609!3d21.159180210080608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938b042!2sSurat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1717056000000!5m2!1sen!2sin" 
-                width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391.07629854968985!2d72.84733935547972!3d21.16967374995095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f835b331f5b%3A0x7a3f94eaced756c1!2sKhodiyar%20Steel%20Industries!5e0!3m2!1sen!2sin!4v1781706553496!5m2!1sen!2sin" 
+                width="100%" height="100%"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0;"></iframe>
         </div>
     </section>
 
@@ -129,19 +129,19 @@ include 'header.php';
                 </button>
                 <div class="aiero-faq-panel">
                     <div class="aiero-faq-content">
-                        You can easily submit custom dimensions, quantities, or specific color requests through our Inquiry Form. Alternatively, email your layout drawings directly to sales@khodiyarsteel.com. Our pricing division will return a formal commercial quotation within 24 hours.
+                        You can easily submit custom dimensions, quantities, or specific color requests through our Inquiry Form. Alternatively, email your layout drawings directly to nayannitinpatel@gmail.com. Our pricing division will return a formal commercial quotation within 24 hours.
                     </div>
                 </div>
             </div>
 
             <div class="aiero-faq-item">
                 <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">Do you supply CAD shop drawings for construction or architectural approvals?</span>
+                    <span class="aiero-faq-question">Do you provide CAD shop drawings or architectural approval drawings?</span>
                     <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
                 </button>
                 <div class="aiero-faq-panel">
                     <div class="aiero-faq-content">
-                        Yes. Once the initial pricing estimate is agreed upon, our internal engineering division generates highly precise 2D CAD layouts or 3D PDF mockups to verify dimensions, clearances, and color configurations with your architect, interior designer, or project manager before manufacturing begins.
+                        No, we do not create or supply CAD shop drawings, architectural drawings, or engineering layouts. However, if you already have approved CAD drawings or design specifications from your architect, designer, or project consultant, we can review them and confirm whether the design is suitable for manufacturing and installation. This helps ensure the final product aligns with your project requirements, dimensions, and material specifications before production begins.
                     </div>
                 </div>
             </div>

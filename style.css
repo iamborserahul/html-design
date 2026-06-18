@@ -1796,7 +1796,7 @@ body.aiero-theme .aiero-logo img {
 /* About Us Section Styles */
 .aiero-about {
     position: relative;
-    padding: 8rem 8%;
+    padding: 8rem 4%;
     z-index: 10;
     background: transparent;
     overflow: hidden;
@@ -4425,7 +4425,6 @@ body:not(.aiero-theme) .aiero-floating-shape {
 .aiero-floating-shape.shape-4 {
     width: 400px;
     height: 400px;
-    background: url('assets/fluid_spiral_3d.png') no-repeat center;
     background-size: contain;
     filter: none;
     opacity: 0.65;
@@ -5791,6 +5790,15 @@ body:not(.aiero-theme) .aiero-founder-card {
     overflow: hidden;
 }
 
+/* Square variant for Founder card */
+.aiero-founder-img-wrapper--square {
+    border-radius: 16px !important;
+}
+
+.aiero-founder-img--square {
+    border-radius: 12px !important;
+}
+
 .aiero-founder-img {
     width: 100%;
     height: 100%;
@@ -5841,4 +5849,88 @@ body:not(.aiero-theme) .aiero-founder-name {
 
 .text-center {
     text-align: center;
+}
+
+/* =============================================
+   LEADER BADGE CHIPS
+   ============================================= */
+.aiero-leader-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FFC229;
+    background: rgba(255, 194, 41, 0.08);
+    border: 1px solid rgba(255, 194, 41, 0.25);
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.aiero-leader-badge:hover {
+    background: rgba(255, 194, 41, 0.15);
+    border-color: rgba(255, 194, 41, 0.5);
+}
+
+/* Wide founder card in leadership section */
+.aiero-leader-founder {
+    max-width: 680px;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    text-align: left;
+    padding: 2.8rem 3rem;
+}
+
+.aiero-leader-founder .aiero-founder-details {
+    flex: 1;
+}
+
+.aiero-leader-founder .aiero-founder-img-wrapper {
+    flex-shrink: 0;
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .aiero-leader-founder {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .aiero-leader-founder .aiero-founder-img-wrapper {
+        margin: 0 auto;
+    }
+}
+
+/* =============================================
+   ACTIVE (2026) TIMELINE NODE
+   ============================================= */
+.aiero-timeline-dot--active {
+    background: #FFC229 !important;
+    box-shadow: 0 0 0 6px rgba(255, 194, 41, 0.2), 0 0 20px rgba(255, 194, 41, 0.4) !important;
+    animation: pulse-gold 2s ease-in-out infinite;
+}
+
+.aiero-timeline-card--active {
+    border-color: rgba(255, 194, 41, 0.35) !important;
+    background: rgba(255, 194, 41, 0.04) !important;
+}
+
+@keyframes pulse-gold {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 6px rgba(255, 194, 41, 0.2), 0 0 20px rgba(255, 194, 41, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 194, 41, 0.08), 0 0 30px rgba(255, 194, 41, 0.6);
+    }
 }

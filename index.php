@@ -153,7 +153,7 @@ include 'header.php';
                     </div>
                     <div class="aiero-phone-details">
                         <span class="aiero-phone-label">Reservation</span>
-                        <a href="tel:8551004444" class="aiero-phone-num">855 100 4444</a>
+                        <a href="tel:9825186385" class="aiero-phone-num">98251 86385</a>
                     </div>
                 </div>
             </div>
@@ -784,17 +784,6 @@ include 'header.php';
                             <a href="tel:+919825186385" class="aiero-services-contact-num">+91 98251 86385</a>
                             <span class="aiero-services-contact-label"
                                 style="display: block; font-size: 0.75rem; opacity: 0.8; margin-top: 0.1rem; text-transform: lowercase;">nayannitinpatel@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <!-- Contact 2: Manthan Sakariya -->
-                    <div class="aiero-services-contact">
-                        <div class="aiero-services-contact-icon">
-                            <i class="fa-solid fa-phone-volume"></i>
-                        </div>
-                        <div class="aiero-services-contact-details">
-                            <span class="aiero-services-contact-label">Manthan Sakariya (Director)</span>
-                            <a href="tel:+917359840800" class="aiero-services-contact-num">+91 73598 40800</a>
                         </div>
                     </div>
                 </div>
