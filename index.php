@@ -9,6 +9,108 @@ include 'header.php';
     <section class="aiero-hero">
         <div class="aiero-slider-2d-container">
 
+            <div class="aiero-slide-2d active" data-index="0">
+                <div class="aiero-slide-img" style="background-image: url('assets/slider/bed-slider.png');"></div>
+                <div class="aiero-slide-content">
+                    <span class="aiero-slide-tagline">PREMIUM WOOD METAL BED COLLECTION</span>
+                    <h1 class="aiero-slide-title">Designed for Luxury, Built for Life</h1>
+                    <p class="aiero-slide-desc">Experience the perfect blend of elegant wood aesthetics and industrial-strength metal engineering. Designed to elevate contemporary bedrooms with unmatched durability, stability, and premium craftsmanship.</p>
+                    <a href="#contact" class="aiero-btn-discover">Discover <i
+                            class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <!-- VR Card Bottom-Right -->
+                <div class="aiero-video-card">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/project1.jpg');">
+                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="aiero-video-info">
+                        <span class="aiero-video-stat">150+</span>
+                        <span class="aiero-video-desc">Premium Wood Metal Bed Collection</span>
+                    </div>
+                </div>
+            </div>
+            <div class="aiero-slide-2d" data-index="1">
+                <div class="aiero-slide-img" style="background-image: url('assets/slider/bathroom-slider.png');"></div>
+                <div class="aiero-slide-content">
+                    <span class="aiero-slide-tagline">MODERN BATHROOM VANITIES</span>
+                    <h1 class="aiero-slide-title">Bathroom Vanities Designed for Every Style</h1>
+                    <p class="aiero-slide-desc">From statement floating vanities to smart storage solutions, our designs blend premium materials, water-resistant construction, and modern aesthetics to transform your bathroom into a space of comfort and elegance.</p>
+                    <a href="#contact" class="aiero-btn-discover">Discover <i
+                            class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <!-- VR Card Bottom-Right -->
+                <div class="aiero-video-card">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/bathroom-slider.png');">
+                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="aiero-video-info">
+                        <span class="aiero-video-stat">95+</span>
+                        <span class="aiero-video-desc">Modern Bathroom Vanities</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aiero-slide-2d" data-index="2">
+                <div class="aiero-slide-img" style="background-image: url('assets/slider/wardrobe-slider.png');"></div>
+                <div class="aiero-slide-content">
+                    <span class="aiero-slide-tagline">MODERN WARDROBES</span>
+                    <h1 class="aiero-slide-title">Wardrobes Designed for Every Style</h1>
+                    <p class="aiero-slide-desc">From sleek sliding doors to spacious hinged wardrobes, our collection combines premium aesthetics, smart organization, and durable construction to complement any bedroom style.</p>
+                    <a href="#contact" class="aiero-btn-discover">Discover <i
+                            class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <!-- VR Card Bottom-Right -->
+                <div class="aiero-video-card">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/wardrobe-slider.png');">
+                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="aiero-video-info">
+                        <span class="aiero-video-stat">80+</span>
+                        <span class="aiero-video-desc"> Wardrobes like never before</span>
+                    </div>
+                </div>
+            </div>
+            <div class="aiero-slide-2d" data-index="3">
+                <div class="aiero-slide-img" style="background-image: url('assets/slider/dining-slider.png');"></div>
+                <div class="aiero-slide-content">
+                    <span class="aiero-slide-tagline">MODERN DINING TABLES</span>
+                    <h1 class="aiero-slide-title">Dining Tables Designed for Every Style</h1>
+                    <p class="aiero-slide-desc">From extendable wooden tables to premium marble-top designs, our collection offers diverse styles, sizes, and finishes to perfectly match your space and elevate your dining experience.</p>
+                    <a href="#contact" class="aiero-btn-discover">Discover <i
+                            class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <!-- VR Card Bottom-Right -->
+                <div class="aiero-video-card">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/dining-slider.png');">
+                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="aiero-video-info">
+                        <span class="aiero-video-stat">120+</span>
+                        <span class="aiero-video-desc">Dining Tables For Every Home</span>
+                    </div>
+                </div>
+            </div>
+            <div class="aiero-slide-2d" data-index="4">
+                <div class="aiero-slide-img" style="background-image: url('assets/slider/gazebo-slider.png');"></div>
+                <div class="aiero-slide-content">
+                    <span class="aiero-slide-tagline">MODERN GAZEBOS</span>
+                    <h1 class="aiero-slide-title">Gazebos Designed for Every Style</h1>
+                    <p class="aiero-slide-desc">From stylish wooden gazebos to luxurious glass enclosures, our collection offers diverse styles, sizes, and finishes to perfectly match your space and elevate your outdoor living experience.</p>
+                    <a href="#contact" class="aiero-btn-discover">Discover <i
+                            class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <!-- VR Card Bottom-Right -->
+                <div class="aiero-video-card">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/gazebo-slider.png');">
+                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="aiero-video-info">
+                        <span class="aiero-video-stat">120+</span>
+                        <span class="aiero-video-desc"> Gazebos For Outdoor Living</span>
+                    </div>
+                </div>
+            </div>
+            <?php /*
             <!-- Slide 1 -->
             <div class="aiero-slide-2d active" data-index="0">
                 <div class="aiero-slide-img" style="background-image: url('assets/hero.jpg');"></div>
@@ -99,7 +201,7 @@ include 'header.php';
                         <span class="aiero-video-desc">Private master sanctuaries deployed globally</span>
                     </div>
                 </div>
-            </div>
+            </div>*/?>
 
         </div>
 
@@ -120,6 +222,7 @@ include 'header.php';
             <span class="aiero-nav-dot" data-slide="1"></span>
             <span class="aiero-nav-dot" data-slide="2"></span>
             <span class="aiero-nav-dot" data-slide="3"></span>
+            <span class="aiero-nav-dot" data-slide="4"></span>
         </div>
     </section>
 
