@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sql/
+
+Sitemap: https://www.veritebeauty.com/sitemap.xml
