@@ -12,9 +12,9 @@ include 'header.php';
             <div class="aiero-slide-2d active" data-index="0">
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/bed-slider.png');"></div>
                 <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">PREMIUM WOOD METAL BED COLLECTION</span>
-                    <h1 class="aiero-slide-title">Designed for Luxury, Built for Life</h1>
-                    <p class="aiero-slide-desc">Experience the perfect blend of elegant wood aesthetics and industrial-strength metal engineering. Designed to elevate contemporary bedrooms with unmatched durability, stability, and premium craftsmanship.</p>
+                    <span class="aiero-slide-tagline">PREMIUM WOOD & METAL BED COLLECTION</span>
+                    <h1 class="aiero-slide-title">Timeless Elegance. Unmatched Strength</h1>
+                    <p class="aiero-slide-desc">Engineered with premium materials and superior craftsmanship, these beds combine modern elegance with rock-solid strength to enhance every bedroom.</p>
                     <a href="#contact" class="aiero-btn-discover">Discover <i
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
@@ -25,7 +25,7 @@ include 'header.php';
                     </div>
                     <div class="aiero-video-info">
                         <span class="aiero-video-stat">150+</span>
-                        <span class="aiero-video-desc">Premium Wood Metal Bed Collection</span>
+                        <span class="aiero-video-desc">PREMIUM WOOD & METAL BED COLLECTION</span>
                     </div>
                 </div>
             </div>
@@ -33,8 +33,8 @@ include 'header.php';
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/bathroom-slider.png');"></div>
                 <div class="aiero-slide-content">
                     <span class="aiero-slide-tagline">MODERN BATHROOM VANITIES</span>
-                    <h1 class="aiero-slide-title">Bathroom Vanities Designed for Every Style</h1>
-                    <p class="aiero-slide-desc">From statement floating vanities to smart storage solutions, our designs blend premium materials, water-resistant construction, and modern aesthetics to transform your bathroom into a space of comfort and elegance.</p>
+                    <h1 class="aiero-slide-title">Designed for Beautiful Living</h1>
+                    <p class="aiero-slide-desc">Exquisitely crafted vanities that bring elegance, durability, and modern sophistication to your bathroom.</p>
                     <a href="#contact" class="aiero-btn-discover">Discover <i
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
@@ -45,13 +45,13 @@ include 'header.php';
                     </div>
                     <div class="aiero-video-info">
                         <span class="aiero-video-stat">95+</span>
-                        <span class="aiero-video-desc">Modern Bathroom Vanities</span>
+                        <span class="aiero-video-desc">Luxury You Can See. Strength You Can Trust.</span>
                     </div>
                 </div>
             </div>
 
             <div class="aiero-slide-2d" data-index="2">
-                <div class="aiero-slide-img" style="background-image: url('assets/slider/wardrobe-slider.png');"></div>
+                <div class="aiero-slide-img" style="background-image: url('assets/slider/fwardrobe-slider.png');"></div>
                 <div class="aiero-slide-content">
                     <span class="aiero-slide-tagline">MODERN WARDROBES</span>
                     <h1 class="aiero-slide-title">Wardrobes Designed for Every Style</h1>
@@ -61,12 +61,12 @@ include 'header.php';
                 </div>
                 <!-- VR Card Bottom-Right -->
                 <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/wardrobe-slider.png');">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/fwardrobe-slider.png');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
                     <div class="aiero-video-info">
                         <span class="aiero-video-stat">80+</span>
-                        <span class="aiero-video-desc"> Wardrobes like never before</span>
+                        <span class="aiero-video-desc"> Built to Last. Designed to Impress.</span>
                     </div>
                 </div>
             </div>
@@ -74,8 +74,8 @@ include 'header.php';
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/dining-slider.png');"></div>
                 <div class="aiero-slide-content">
                     <span class="aiero-slide-tagline">MODERN DINING TABLES</span>
-                    <h1 class="aiero-slide-title">Dining Tables Designed for Every Style</h1>
-                    <p class="aiero-slide-desc">From extendable wooden tables to premium marble-top designs, our collection offers diverse styles, sizes, and finishes to perfectly match your space and elevate your dining experience.</p>
+                    <h1 class="aiero-slide-title">Where Style Meets Smart Storage</h1>
+                    <p class="aiero-slide-desc">Expertly crafted wardrobes featuring elegant designs, intelligent organization, and lasting durability to elevate every bedroom.</p>
                     <a href="#contact" class="aiero-btn-discover">Discover <i
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
@@ -86,7 +86,7 @@ include 'header.php';
                     </div>
                     <div class="aiero-video-info">
                         <span class="aiero-video-stat">120+</span>
-                        <span class="aiero-video-desc">Dining Tables For Every Home</span>
+                        <span class="aiero-video-desc">Elegance Behind Every Door</span>
                     </div>
                 </div>
             </div>
@@ -94,8 +94,8 @@ include 'header.php';
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/gazebo-slider.png');"></div>
                 <div class="aiero-slide-content">
                     <span class="aiero-slide-tagline">MODERN GAZEBOS</span>
-                    <h1 class="aiero-slide-title">Gazebos Designed for Every Style</h1>
-                    <p class="aiero-slide-desc">From stylish wooden gazebos to luxurious glass enclosures, our collection offers diverse styles, sizes, and finishes to perfectly match your space and elevate your outdoor living experience.</p>
+                    <h1 class="aiero-slide-title">Where Comfort Meets Architectural Elegance</h1>
+                    <p class="aiero-slide-desc">Enhance your outdoor lifestyle with beautifully designed gazebos that offer style, shelter, and enduring performance.</p>
                     <a href="#contact" class="aiero-btn-discover">Discover <i
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
@@ -106,7 +106,7 @@ include 'header.php';
                     </div>
                     <div class="aiero-video-info">
                         <span class="aiero-video-stat">120+</span>
-                        <span class="aiero-video-desc"> Gazebos For Outdoor Living</span>
+                        <span class="aiero-video-desc"> Luxury Outdoor Living Redefined</span>
                     </div>
                 </div>
             </div>
