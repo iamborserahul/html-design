@@ -1,6 +1,6 @@
 <?php
-$title = "Khodiyar Steel – High-End Luxury Steel & Precision Metal Fabrication";
-$description = "Transforming spaces with high-end luxury steel furniture, premium storage solutions, and state-of-the-art structural metal fabrication.";
+$title = "Khodiyar Steel – High-End Steel Furniture & Precision Metal Products";
+$description = "Transforming spaces with high-end steel furniture and premium storage solutions.";
 $page = "home";
 include 'header.php';
 ?>
@@ -255,8 +255,8 @@ include 'header.php';
                         <i class="fa-solid fa-phone-volume"></i>
                     </div>
                     <div class="aiero-phone-details">
-                        <span class="aiero-phone-label">Reservation</span>
-                        <a href="tel:9825186385" class="aiero-phone-num">98251 86385</a>
+                        <span class="aiero-phone-label">Contact Us</span>
+                        <a href="tel:9099999266" class="aiero-phone-num">90999 99266</a>
                     </div>
                 </div>
             </div>
@@ -331,7 +331,51 @@ include 'header.php';
                 <!-- Category 2 -->
                 <a href="category-cupboards" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
-                    <div class="aiero-category-icon"><i class="fa-solid fa-vault"></i></div>
+                    <div class="aiero-category-icon"><svg xmlns="http://www.w3.org/2000/svg"
+     width="64"
+     height="64"
+     viewBox="0 0 64 64"
+     fill="none">
+
+    <!-- Cabinet Body -->
+    <rect x="14" y="10"
+          width="36"
+          height="40"
+          rx="2"
+          stroke="#F9B21D"
+          stroke-width="3"/>
+
+    <!-- Base -->
+    <line x1="18" y1="50" x2="46" y2="50"
+          stroke="#F9B21D"
+          stroke-width="3"/>
+
+    <!-- Legs -->
+    <line x1="18" y1="50" x2="18" y2="54"
+          stroke="#F9B21D"
+          stroke-width="3"/>
+
+    <line x1="46" y1="50" x2="46" y2="54"
+          stroke="#F9B21D"
+          stroke-width="3"/>
+
+    <!-- Divider -->
+    <line x1="32" y1="14" x2="32" y2="46"
+          stroke="#F9B21D"
+          stroke-width="3"/>
+
+    <!-- Left Handle -->
+    <line x1="26" y1="24" x2="26" y2="31"
+          stroke="#F9B21D"
+          stroke-width="3"
+          stroke-linecap="round"/>
+
+    <!-- Right Handle -->
+    <line x1="38" y1="24" x2="38" y2="31"
+          stroke="#F9B21D"
+          stroke-width="3"
+          stroke-linecap="round"/>
+</svg></div>
                     <h3 class="aiero-category-card-title">Steel Cupboards</h3>
                     <p class="aiero-category-card-desc">Secure modular almirahs, wardrobe lockers, and premium dynamic
                         storage cabinets.</p>
@@ -354,9 +398,9 @@ include 'header.php';
                 <a href="category-doors" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-door-closed"></i></div>
-                    <h3 class="aiero-category-card-title">Doors & Fabrication</h3>
+                    <h3 class="aiero-category-card-title">Doors &amp; Security Gates</h3>
                     <p class="aiero-category-card-desc">Bespoke heavy-gauge security safety gates, main entry doors, and
-                        structural metalwork.</p>
+                        secure metal frames.</p>
                     <span class="aiero-category-link-btn">EXPLORE CATALOG <i
                             class="fa-solid fa-chevron-right"></i></span>
                 </a>
@@ -400,7 +444,7 @@ include 'header.php';
                 <!-- Card 1 -->
                 <div class="aiero-creation-card-wrapper">
                     <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/images/bad.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Metal Beds & Adjustable Beds</span>
@@ -414,7 +458,7 @@ include 'header.php';
                 <!-- Card 2 -->
                 <div class="aiero-creation-card-wrapper">
                     <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/images/hospital-bed.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Hospital Beds</span>
@@ -428,7 +472,7 @@ include 'header.php';
                 <!-- Card 3 -->
                 <div class="aiero-creation-card-wrapper">
                     <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/images/cabinate.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Steel Cupboards & Storage Cabinets</span>
@@ -441,11 +485,11 @@ include 'header.php';
                 <!-- Card 4 -->
                 <div class="aiero-creation-card-wrapper">
                     <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project3.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/images/door.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Metal Doors & Fabrication Products</span>
-                            <p class="aiero-creation-desc">Custom metal doors and structural fabrication designed to
+                            <span class="aiero-creation-label">Metal Doors &amp; Security Gates</span>
+                            <p class="aiero-creation-desc">Custom metal doors and security gates designed to
                                 match
                                 specific size, safety, and architectural layout needs.</p>
                         </div>
@@ -455,7 +499,7 @@ include 'header.php';
                 <!-- Card 5 -->
                 <div class="aiero-creation-card-wrapper">
                     <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/images/dinning.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Dining Sets & Bathroom Furniture</span>
@@ -468,7 +512,7 @@ include 'header.php';
                 <!-- Card 6 -->
                 <div class="aiero-creation-card-wrapper">
                     <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/images/outdoor.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Outdoor Metal Furniture & Structures</span>
@@ -488,9 +532,9 @@ include 'header.php';
             <!-- Header -->
             <div class="showcase-header">
                 <span class="showcase-subtitle">SIGNATURE COLLECTION</span>
-                <h2 class="showcase-title">Luxury Steel Masterpieces</h2>
+                <h2 class="showcase-title">Premium Steel Masterpieces</h2>
                 <p class="showcase-desc-text">Explore our most premium creations, engineered with industrial-strength
-                    and designed for state-of-the-art visual luxury.</p>
+                    and designed for state-of-the-art visual aesthetics.</p>
             </div>
 
             <!-- Sticky Cards Stack -->
@@ -506,7 +550,7 @@ include 'header.php';
                         <!-- Top-Left Pill Tags -->
                         <div class="card-tags-overlay">
                             <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">LUXURY BEDSTEAD</span>
+                            <span class="card-pill-tag">PREMIUM BEDSTEAD</span>
                         </div>
 
                         <!-- Right Circular Scroll Progress Indicator -->
@@ -522,7 +566,7 @@ include 'header.php';
 
                         <!-- Bottom Content Overlay -->
                         <div class="card-content-overlay">
-                            <span class="card-category">LUXURY BEDS</span>
+                            <span class="card-category">PREMIUM BEDS</span>
                             <h3 class="card-title">The Aurelia Penthouse Bedstead</h3>
                             <div class="card-rating">
                                 <span class="stars">★★★★★</span>
@@ -531,7 +575,7 @@ include 'header.php';
                             <p class="card-desc">Custom gold-accented steel frame with integrated adjustable sensory
                                 base, engineered for optimal posture support and lifetime durability.</p>
                             <div class="card-footer-row">
-                                <div class="card-price">$2,499</div>
+                                <div class="card-price"></div>
                                 <div class="card-actions">
                                     <a href="contact?product=Aurelia%20Penthouse%20Bedstead"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
@@ -578,7 +622,7 @@ include 'header.php';
                             <p class="card-desc">Bespoke heavy-gauge marine stainless steel frame contrasted with
                                 luxurious slab marble, built-in components, and hidden structural elements.</p>
                             <div class="card-footer-row">
-                                <div class="card-price">$5,850</div>
+                                <div class="card-price"></div>
                                 <div class="card-actions">
                                     <a href="contact?product=Obsidian%20Culinary%20Island"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
@@ -625,7 +669,7 @@ include 'header.php';
                             <p class="card-desc">An elegant structural safety gate crafted with hand-welded art-deco
                                 bronze detailing and integrated biometric lock systems.</p>
                             <div class="card-footer-row">
-                                <div class="card-price">$3,200</div>
+                                <div class="card-price"></div>
                                 <div class="card-actions">
                                     <a href="contact?product=Chronos%20Security%20Portal" class="btn-shop-now">Shop
                                         Now <i class="fa-solid fa-arrow-right"></i></a>
@@ -672,7 +716,7 @@ include 'header.php';
                             <p class="card-desc">Ultra-secure steel wardrobe combining a heavy-gauge fire-resistant
                                 carcass, integrated biometric safe vaults, and velvet-lined compartments.</p>
                             <div class="card-footer-row">
-                                <div class="card-price">$1,850</div>
+                                <div class="card-price"></div>
                                 <div class="card-actions">
                                     <a href="contact?product=Sanctuary%20Almirah%20Wardrobe"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
@@ -877,16 +921,16 @@ include 'header.php';
                 </div>
                 <div class="aiero-services-contact-container"
                     style="display: flex; flex-direction: column; gap: 1.2rem;">
-                    <!-- Contact 1: Nayan Patel -->
+                    <!-- Contact 1: Mr. Vimalbhai Sakariya -->
                     <div class="aiero-services-contact">
                         <div class="aiero-services-contact-icon">
                             <i class="fa-solid fa-phone-volume"></i>
                         </div>
                         <div class="aiero-services-contact-details">
-                            <span class="aiero-services-contact-label">Nayan Patel (Assistant Director)</span>
-                            <a href="tel:+919825186385" class="aiero-services-contact-num">+91 98251 86385</a>
+                            <span class="aiero-services-contact-label">Mr. Manthan Sakariya (CEO)</span>
+                            <a href="tel:+917359840800" class="aiero-services-contact-num">+91 73598 40800</a>
                             <span class="aiero-services-contact-label"
-                                style="display: block; font-size: 0.75rem; opacity: 0.8; margin-top: 0.1rem; text-transform: lowercase;">nayannitinpatel@gmail.com</span>
+                                style="display: block; font-size: 0.75rem; opacity: 0.8; margin-top: 0.1rem; text-transform: lowercase;">info@khodiyarsteel.com</span>
                         </div>
                     </div>
                 </div>

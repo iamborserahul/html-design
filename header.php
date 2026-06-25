@@ -1,7 +1,7 @@
 <?php
 // Set default page variables if not defined
-$title = isset($title) ? $title : "Khodiyar Steel – High-End Luxury Steel & Precision Metal Fabrication";
-$description = isset($description) ? $description : "Transforming spaces with high-end luxury steel furniture, premium storage solutions, and state-of-the-art structural metal fabrication.";
+$title = isset($title) ? $title : "Khodiyar Steel – High-End Steel Furniture & Precision Metal Products";
+$description = isset($description) ? $description : "Transforming spaces with high-end steel furniture and premium storage solutions.";
 $page = isset($page) ? $page : "home";
 
 // Resolve dynamic URL helper variables for SEO tags
@@ -46,7 +46,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/proje
       "image": "<?php echo htmlspecialchars($og_image_url); ?>",
       "@id": "<?php echo htmlspecialchars($current_url); ?>",
       "url": "<?php echo htmlspecialchars($protocol . $_SERVER['HTTP_HOST'] . $project_dir); ?>",
-      "telephone": "+919825186385",
+      "telephone": "+919099999266",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Block no 9, Rd Number 5, Udhana GIDC, Udhna Udhyog Nagar, Udhana",
@@ -87,7 +87,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/proje
     <!-- FontAwesome Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS Style Sheets -->
-    <link rel="stylesheet" href="style.css?v=1.3">
+    <link rel="stylesheet" href="style.css?v=1.4">
 </head>
 
 <body>

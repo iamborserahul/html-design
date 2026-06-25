@@ -1,6 +1,6 @@
 <?php
 $title = "About Us | Khodiyar Steel – Manufacturing Excellence Since 1998";
-$description = "Read the story, journey, mission, and certifications of Khodiyar Steel, Surat's premier high-end luxury steel furniture and structural metal fabrication manufacturer.";
+$description = "Read the story, journey, mission, and certifications of Khodiyar Steel, Surat's premier high-end steel furniture manufacturer.";
 $page = "about";
 include 'header.php';
 ?>
@@ -17,15 +17,15 @@ include 'header.php';
             <span class="aiero-slide-tagline" style="color: #FFC229; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">ESTABLISHED 1998</span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1; color: #fff; text-shadow: 0 2px 15px rgba(0,0,0,0.6);">Our Story & Legacy</h1>
             <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto; color: rgba(255,255,255,0.9); text-shadow: 0 1px 8px rgba(0,0,0,0.5);">Discover
-                the values, precision engineering, and structural dedication that have fueled Surat’s leading luxury
+                the values, precision engineering, and structural dedication that have fueled India’s leading
                 metal manufacturer for over two decades.</p>
         </div>
     </section>
 
     <!-- Pinned Storytelling Section (Adapted from Landing Style) -->
     <section class="aiero-about" id="story" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 6rem;">
-        <div class="aiero-about-container" style="grid-template-columns: 1.1fr 0.9fr; gap: 4rem;">
-            <div class="aiero-about-content">
+        <div class="aiero-about-container" style="display: flex; flex-direction: column; gap: 4rem;">
+            <div class="aiero-about-content" style="max-width: 1000px; margin: 0 auto; width: 100%;">
                 <span class="aiero-about-tagline" style="color: #FFC229;">COMPANY HISTORY</span>
                 <h2 class="aiero-about-title" style="font-size: 38px;">About Khodiyar<br>Steel Industries</h2>
                 <div class="aiero-about-desc" style="font-size: 1.02rem; line-height: 1.8;">
@@ -36,8 +36,7 @@ include 'header.php';
                         early years, we focused on producing steel cupboards, metal beds, and other household furniture,
                         earning a reputation for quality workmanship, durability, and customer satisfaction.</p>
                     <p>As our capabilities expanded, so did our reach. In the early 2010s, Khodiyar Steel Industries
-                        entered international markets and began exporting to customers across the United States, Canada,
-                        and other global regions. This expansion strengthened our manufacturing processes and reinforced
+                        entered international markets and began exporting to customers across the United States, Canada, UAE, Saudi Arabia, and other global regions. This expansion strengthened our manufacturing processes and reinforced
                         our commitment to delivering products that meet international expectations for quality and
                         reliability.</p>
                     <p>Today, Khodiyar Steel Industries is a trusted manufacturing partner for distributors, importers,
@@ -53,50 +52,45 @@ include 'header.php';
                         consistency, and commitment to service.</p>
                 </div>
             </div>
-            <!-- Right Column: Founder + CTO + COO stacked -->
-            <div class="aiero-about-img-wrapper shifted animate-img-right"
-                style="display: flex; flex-direction: column; gap: 1.8rem; justify-content: flex-start; align-items: center; width: 100%;">
+            <!-- Founders & Team Row (Single Row) -->
+            <div class="aiero-about-img-wrapper animate-img-right"
+                style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; width: 100%; flex-wrap: wrap; margin-top: 2rem;">
 
-                <!-- Founder Card (Square) -->
-                <div class="aiero-founder-card text-center" style="width: 100%;">
-                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square">
-                        <img src="assets/ceo.png" alt="Vimal Sakariya - Founder of Khodiyar Steel"
-                            class="aiero-founder-img aiero-founder-img--square">
+                <!-- Founder Card -->
+                <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
+                    <div class="aiero-founder-img-wrapper" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
+                        <img src="assets/ceo.png" alt="Vimal Sakariya - Founder & MD of Khodiyar Steel"
+                            class="aiero-founder-img">
                     </div>
                     <div class="aiero-founder-details">
                         <span class="aiero-founder-tag">FOUNDER &amp; MD</span>
-                        <h3 class="aiero-founder-name">Vimal Sakariya</h3>
-                        <p class="aiero-founder-quote">"Manufacturing Quality. Building Trust. Since 1998."</p>
+                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;">Mr. Vimalbhai Sakariya</h3>
+                        <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Manufacturing Quality. Building Trust. Since 1998."</p>
                     </div>
                 </div>
 
-                <!-- CTO & COO row -->
-                <div style="display: flex; gap: 1.2rem; width: 100%; flex-wrap: wrap;">
-
-                    <!-- CTO Card (Circle) -->
-                    <div class="aiero-founder-card text-center" style="flex: 1; min-width: 180px; padding: 1.8rem 1.2rem;">
-                        <div class="aiero-founder-img-wrapper" style="width: 110px; height: 110px;">
-                            <img src="assets/manthan-sakariya-ceo.png" alt="CTO of Khodiyar Steel" class="aiero-founder-img">
-                        </div>
-                        <div class="aiero-founder-details">
-                            <span class="aiero-founder-tag" style="font-size: 0.62rem;">CTO</span>
-                            <h3 class="aiero-founder-name" style="font-size: 1.1rem;">Manthan Sakariya</h3>
-                            <p class="aiero-founder-quote" style="font-size: 0.8rem;">"Technology drives our precision."</p>
-                        </div>
+                <!-- CEO Card -->
+                <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
+                    <div class="aiero-founder-img-wrapper" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
+                        <img src="assets/manthan-sakariya-ceo.png" alt="CEO of Khodiyar Steel" class="aiero-founder-img">
                     </div>
-
-                    <!-- COO Card (Circle) -->
-                    <div class="aiero-founder-card text-center" style="flex: 1; min-width: 180px; padding: 1.8rem 1.2rem;">
-                        <div class="aiero-founder-img-wrapper" style="width: 110px; height: 110px;">
-                            <img src="assets/nayan-patel-coo.png" alt="COO of Khodiyar Steel" class="aiero-founder-img">
-                        </div>
-                        <div class="aiero-founder-details">
-                            <span class="aiero-founder-tag" style="font-size: 0.62rem;">COO</span>
-                            <h3 class="aiero-founder-name" style="font-size: 1.1rem;">NAYAN PATEL</h3>
-                            <p class="aiero-founder-quote" style="font-size: 0.8rem;">"Excellence in every operation."</p>
-                        </div>
+                    <div class="aiero-founder-details">
+                        <span class="aiero-founder-tag">CEO</span>
+                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;">Mr. Manthan Sakariya</h3>
+                        <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Technology drives our precision."</p>
                     </div>
+                </div>
 
+                <!-- COO Card -->
+                <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
+                    <div class="aiero-founder-img-wrapper" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
+                        <img src="assets/nayan-patel-coo.png" alt="COO of Khodiyar Steel" class="aiero-founder-img">
+                    </div>
+                    <div class="aiero-founder-details">
+                        <span class="aiero-founder-tag">COO</span>
+                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;">Mr. Nayan Patel</h3>
+                        <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Excellence in every operation."</p>
+                    </div>
                 </div>
 
             </div>
@@ -216,7 +210,7 @@ include 'header.php';
                         <div class="aiero-timeline-year">2012</div>
                         <h4 class="aiero-timeline-title">Global Market Expansion</h4>
                         <p class="aiero-timeline-desc">Entered international markets and began exporting products to
-                            buyers across the United States, Canada, and other global regions, solidifying international
+                            buyers across the United States, Canada, UAE, Saudi Arabia, and other global regions, solidifying international
                             expectations.</p>
                     </div>
                 </div>
@@ -252,7 +246,7 @@ include 'header.php';
                         <h4 class="aiero-timeline-title">Digital Transformation &amp; New Verticals</h4>
                         <p class="aiero-timeline-desc">Launched a full digital product catalogue and strengthened our
                             online presence to connect directly with global buyers. Expanded our product range into
-                            premium hospital furniture, outdoor gazebos, and bespoke structural fabrication — positioning
+                            premium hospital furniture, outdoor gazebos, and bespoke steel furniture — positioning
                             Khodiyar Steel for the next decade of growth.</p>
                         <span style="display: inline-block; margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; color: #FFC229; text-transform: uppercase; background: rgba(255,194,41,0.1); border: 1px solid rgba(255,194,41,0.3); padding: 0.3rem 0.9rem; border-radius: 50px;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle; margin-right: 0.4rem; animation: pulse-gold 1.5s infinite;"></i> Present Day</span>
                     </div>
@@ -278,12 +272,12 @@ include 'header.php';
                         </li>
                         <li style="display: flex; gap: 1rem; align-items: flex-start;">
                             <i class="fa-solid fa-circle-check" style="color: #FFC229; margin-top: 0.3rem;"></i>
-                            <span><strong>Certified Fabrication Standards</strong>: Advanced quality control protocols
+                            <span><strong>Certified Manufacturing Standards</strong>: Advanced quality control protocols
                                 ensure each cabinet and bedframe meets load-bearing limits.</span>
                         </li>
                         <li style="display: flex; gap: 1rem; align-items: flex-start;">
                             <i class="fa-solid fa-circle-check" style="color: #FFC229; margin-top: 0.3rem;"></i>
-                            <span><strong>Custom Architectural Outlines</strong>: We fabricate structures and swings in
+                            <span><strong>Custom Architectural Outlines</strong>: We manufacture outdoor products and swings in
                                 bespoke dimensional ratios for real estate developers.</span>
                         </li>
                     </ul>
@@ -294,7 +288,7 @@ include 'header.php';
                 <h2 class="aiero-about-title" style="font-size: 38px;">Certified Quality</h2>
                 <p style="opacity: 0.7; font-size: 1rem; line-height: 1.8;">Our manufacturing process adheres to strict
                     national standards. We hold standard industrial clearances for high-durability production, welding
-                    certifications, and architectural structural fabrication testing criteria, making our wardrobes,
+                    certifications, and architectural structural manufacturing criteria, making our wardrobes,
                     hospital equipment, and outdoor gazebos highly reliable.</p>
                 <div style="display: flex; gap: 2rem; align-items: center; margin-top: 1rem; flex-wrap: wrap;">
                     <div
@@ -316,47 +310,7 @@ include 'header.php';
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="aiero-services-section" id="faq"
-        style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 6rem 8%;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <div style="text-align: center; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3.5rem;">
-                <span class="aiero-services-subtitle">COMMON INQUIRIES</span>
-                <h2 class="aiero-services-title" style="font-size: 36px; text-align: center;">Frequently Asked Questions
-                </h2>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 1.8rem; text-align: left;">
-                <div
-                    style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 2rem;">
-                    <h3
-                        style="font-size: 1.25rem; font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--color-primary); margin-bottom: 0.6rem;">
-                        Do you support completely custom steel fabrication sizes?</h3>
-                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7;">Yes. We specialize in custom metal
-                        doors, structural safety gates, outdoor swings, and landscape gazebos fabricated to your exact
-                        dimensional layouts and structural specifications.</p>
-                </div>
-                <div
-                    style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 2rem;">
-                    <h3
-                        style="font-size: 1.25rem; font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--color-primary); margin-bottom: 0.6rem;">
-                        Are almirahs and cupboards rust-proofed?</h3>
-                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7;">Absolutely. Every cupboard, cabinet,
-                        and vanity frame undergoes strict rust-inhibiting phosphating and high-temperature oven-baked
-                        powder-coating finishes to survive humid Indian atmospheres.</p>
-                </div>
-                <div
-                    style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 2rem;">
-                    <h3
-                        style="font-size: 1.25rem; font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--color-primary); margin-bottom: 0.6rem;">
-                        Do you supply bulk institutional steel furniture for hospitals or colleges?</h3>
-                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7;">Yes, we serve bulk commercial
-                        distributors, OEM builders, hospital networks (for ICU/fowler beds), and large hostels with
-                        optimized factory prices and high-capacity manufacturing runs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
 <?php
 include 'footer.php';

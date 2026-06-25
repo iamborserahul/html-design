@@ -1,6 +1,6 @@
 <?php
 $title = "Outdoor Metal Furniture & Structures | Khodiyar Steel";
-$description = "Explore our high-end luxury garden gazebos, heavy structural poolside loungers, patio swings, and landscape metal fabrication manufactured by Khodiyar Steel.";
+$description = "Explore our high-end garden gazebos, heavy structural poolside loungers, patio swings, and landscape metal products manufactured by Khodiyar Steel.";
 $page = "products";
 include 'header.php';
 ?>
@@ -10,7 +10,7 @@ include 'header.php';
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline">CATEGORY PROFILE</span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Outdoor Metal Structures</h1>
-            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Luxury garden steel gazebos, heavy structural swings, poolside loungers, and custom outdoor architectural metal pavilions.</p>
+            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Premium garden steel gazebos, heavy structural swings, poolside loungers, and custom outdoor architectural metal pavilions.</p>
         </div>
     </section>
 
@@ -26,7 +26,7 @@ include 'header.php';
                 <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
                     <li style="display: flex; gap: 1rem; align-items: flex-start;">
                         <i class="fa-solid fa-umbrella" style="color: #FFC229; margin-top: 0.3rem;"></i>
-                        <span><strong>Garden Gazebos & Pavilions</strong>: Luxury structural steel gazebos with high wind resistance, custom roof contours, and columns.</span>
+                        <span><strong>Garden Gazebos & Pavilions</strong>: Premium structural steel gazebos with high wind resistance, custom roof contours, and columns.</span>
                     </li>
                     <li style="display: flex; gap: 1rem; align-items: flex-start;">
                         <i class="fa-solid fa-chair" style="color: #FFC229; margin-top: 0.3rem;"></i>

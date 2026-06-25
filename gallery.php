@@ -10,7 +10,7 @@ include 'header.php';
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline">VISUAL ARCHIVE</span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Product Gallery</h1>
-            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Browse through our high-end luxury fabrications, custom structural safety gates, ICU modular hospital beds, and modern almirahs.</p>
+            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Browse through our high-end steel furniture, custom security gates, ICU modular hospital beds, and modern almirahs.</p>
         </div>
     </section>
 
@@ -141,7 +141,7 @@ include 'header.php';
         <div style="margin-bottom: 5rem;">
             <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 3rem; padding-left: 0.5rem; border-left: 3px solid #FFC229;">
                 <span class="aiero-creations-tagline">CATEGORY</span>
-                <h2 class="aiero-creations-title" style="font-size: 32px;">Safety Doors &amp; Fabrication</h2>
+                <h2 class="aiero-creations-title" style="font-size: 32px;">Safety Doors &amp; Gates</h2>
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">

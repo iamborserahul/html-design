@@ -26,7 +26,7 @@ include 'header.php';
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Metal Beds & Adjustable Beds</span>
-                            <p class="aiero-creation-desc">Luxury bedroom furniture, customizable heavy-duty bedframes, and roadside poolside metal loungers.</p>
+                            <p class="aiero-creation-desc">Premium bedroom furniture, customizable heavy-duty bedframes, and roadside poolside metal loungers.</p>
                         </div>
                     </a>
                 </div>
@@ -62,7 +62,7 @@ include 'header.php';
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Metal Doors & Safety Gates</span>
-                            <p class="aiero-creation-desc">Custom entrance safety gates, double-plated fire doors, and precision structural metalwork.</p>
+                            <p class="aiero-creation-desc">Custom entrance safety gates, double-plated fire doors, and secure metal frames.</p>
                         </div>
                     </a>
                 </div>
@@ -86,7 +86,7 @@ include 'header.php';
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Outdoor Metal Structures</span>
-                            <p class="aiero-creation-desc">Luxury structural garden gazebos, premium poolside recliners, and outdoor structural swings.</p>
+                            <p class="aiero-creation-desc">Premium garden gazebos, poolside recliners, and outdoor swings.</p>
                         </div>
                     </a>
                 </div>

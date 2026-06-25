@@ -2,7 +2,7 @@
 session_start();
 
 $title = "Contact Us | Khodiyar Steel";
-$description = "Get in touch with Khodiyar Steel in Surat, Gujarat. Submit an inquiry for luxury metal wardrobes, custom steel safety doors, ICUs ward equipment, or structural swings.";
+$description = "Get in touch with Khodiyar Steel in Surat, Gujarat. Submit an inquiry for premium metal wardrobes, custom steel safety doors, ICU ward equipment, or outdoor swings.";
 $page = "contact";
 
 // ── PHPMailer includes ──
@@ -85,7 +85,7 @@ include 'header.php';
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline">GET IN TOUCH</span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Connect With Our Experts</h1>
-            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Connect with Khodiyar Steel today. Our specialized engineering division is standing by to assist with your residential, hospital, or commercial fabrication needs.</p>
+            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Connect with Khodiyar Steel today. Our specialized sales division is standing by to assist with your residential, hospital, or commercial furniture needs.</p>
         </div>
     </section>
 
@@ -114,7 +114,7 @@ include 'header.php';
                         <i class="fa-solid fa-envelope" style="font-size: 1.5rem; color: #FFC229; margin-top: 0.2rem;"></i>
                         <div>
                             <h4 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--color-text); margin-bottom: 0.4rem;">Digital Inquiries</h4>
-                            <a href="mailto:nayannitinpatel@gmail.com" style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">nayannitinpatel@gmail.com</a>
+                            <a href="mailto:info@khodiyarsteel.com" style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">info@khodiyarsteel.com</a>
                         </div>
                     </div>
 
@@ -124,8 +124,9 @@ include 'header.php';
                             <i class="fa-solid fa-phone-volume"></i>
                         </div>
                         <div class="aiero-phone-details">
-                            <span class="aiero-phone-label">Reservation / Sales</span>
-                            <a href="tel:9825186385" class="aiero-phone-num">98251 86385</a>
+                            <span class="aiero-phone-label">Enquiries &amp; Calling</span>
+                            <a href="tel:9099999266" class="aiero-phone-num">90999 99266</a>
+                            <a href="tel:7359840800" class="aiero-phone-num">73598 40800</a>
                         </div>
                     </div>
                 </div>
@@ -206,7 +207,7 @@ include 'header.php';
                 </button>
                 <div class="aiero-faq-panel">
                     <div class="aiero-faq-content">
-                        You can easily submit custom dimensions, quantities, or specific color requests through our Inquiry Form. Alternatively, email your layout drawings directly to nayannitinpatel@gmail.com. Our pricing division will return a formal commercial quotation within 24 hours.
+                        You can easily submit custom dimensions, quantities, or specific color requests through our Inquiry Form. Alternatively, email your layout drawings directly to info@khodiyarsteel.com. Our pricing division will return a formal commercial quotation within 24 hours.
                     </div>
                 </div>
             </div>

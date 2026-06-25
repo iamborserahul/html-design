@@ -11,9 +11,8 @@
                 <!-- Column 1: About -->
                 <div class="aiero-footer-col">
                     <span class="aiero-footer-col-title">About Khodiyar Steel</span>
-                    <p class="aiero-footer-about-text">Khodiyar Steel - manufacturing excellence in high-end luxury
-                        steel furniture, modern storage solutions, and precision structural metal fabrication since
-                        1998.</p>
+                    <p class="aiero-footer-about-text">Khodiyar Steel - manufacturing excellence in high-end steel
+                        furniture and modern storage solutions since 1998.</p>
                     <div class="aiero-lang-selector">
                         <i class="fa-solid fa-globe"></i>
                         <span>English</span>
@@ -42,13 +41,16 @@
                             <i class="fa-solid fa-location-dot"></i>
                             <span>Block no 9, Rd No. 5, Udhana GIDC, Surat, Gujarat 394210</span>
                         </div>
-                        <div class="aiero-footer-contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <a href="tel:9825186385">98251 86385</a>
+                        <div class="aiero-footer-contact-item" style="display: flex; gap: 0.8rem; align-items: flex-start;">
+                            <i class="fa-solid fa-phone" style="margin-top: 0.35rem;"></i>
+                            <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+                                <a href="tel:9099999266">90999 99266</a>
+                                <a href="tel:7359840800" style="font-size: 0.85rem; opacity: 0.8;">73598 40800</a>
+                            </div>
                         </div>
                          <div class="aiero-footer-contact-item">
                             <i class="fa-solid fa-envelope"></i>
-                            <a href="mailto:nayannitinpatel@gmail.com">nayannitinpatel@gmail.com</a>
+                            <a href="mailto:info@khodiyarsteel.com">info@khodiyarsteel.com</a>
                         </div>
                     </div>
                     <!-- Premium social icon rows -->
