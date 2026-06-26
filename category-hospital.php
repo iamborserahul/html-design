@@ -36,7 +36,7 @@ include 'header.php';
             </div>
 
             <!-- Category Image Panel -->
-            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/hero.jpg') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
+            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/icu-fowler-bed-01.webp') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
         </div>
     </section>
 
@@ -52,10 +52,10 @@ include 'header.php';
                 <!-- Card 1 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=icu-bed" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">ICU FOWLER BED KH-01</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">ICU FOWLER BED</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Multi-position mechanical cranks with collapsing side railings and locking caster grids.</p>
                         </div>
                     </a>
@@ -64,10 +64,10 @@ include 'header.php';
                 <!-- Card 2 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=semi-fowler" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/semi-fowler-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">SEMI-FOWLER BED KH-02</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">SEMI-FOWLER BED</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Single-crank backrest adjustability, heavy carbon-steel frame with epoxy finish.</p>
                         </div>
                     </a>
@@ -76,10 +76,10 @@ include 'header.php';
                 <!-- Card 3 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=ward-bed" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/ward-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">WARD PLAIN BED KH-03</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">WARD PLAIN BED</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Durable flat metal mesh top hospital bed. Heavy-duty pipes built for bulk ward setups.</p>
                         </div>
                     </a>
@@ -88,10 +88,10 @@ include 'header.php';
                 <!-- Card 4 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=bedside-locker" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/bedside-locker-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">BEDSIDE CABINET KH-44</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">BEDSIDE LOCKER CABINET</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Stainless steel bedside locker cupboard with single drawer, cabinet, and secure latches.</p>
                         </div>
                     </a>
@@ -100,10 +100,10 @@ include 'header.php';
                 <!-- Card 5 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=saline-stand" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/saline-stand-03.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">IV SALINE STAND KH-55</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">IV SALINE STAND</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Height adjustable chrome-plated steel stand with 4 hook hooks and rolling base wheels.</p>
                         </div>
                     </a>
@@ -112,10 +112,10 @@ include 'header.php';
                 <!-- Card 6 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=stretcher" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/stretcher-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">TRANSPORT STRETCHER KH-77</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">PATIENT TRANSPORT STRETCHER</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Removable stretcher top on strong tubular steel rolling trolley with safety bumper guides.</p>
                         </div>
                     </a>

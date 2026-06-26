@@ -20,7 +20,7 @@ include 'header.php';
                 </div>
                 <!-- VR Card Bottom-Right -->
                 <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/project1.jpg');">
+                    <div class="aiero-video-thumbnail" style="background-image: url('assets/metal-bed-7201-01.webp');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
                     <div class="aiero-video-info">
@@ -265,12 +265,12 @@ include 'header.php';
             <div class="aiero-about-images">
                 <div class="aiero-about-img-wrapper animate-img-left">
                     <div class="aiero-about-img-box aiero-float-left">
-                        <img src="assets/project1.jpg" alt="Premium steel lounge structure design">
+                        <img src="assets/metal-bed-7201-01.webp" alt="Premium steel lounge structure design">
                     </div>
                 </div>
                 <div class="aiero-about-img-wrapper shifted animate-img-right">
                     <div class="aiero-about-img-box aiero-float-right">
-                        <img src="assets/project4.jpg" alt="Modern sensory bedroom sanctuary space">
+                        <img src="assets/origami-bunk-bed-02.webp" alt="Modern sensory bedroom sanctuary space">
                     </div>
                 </div>
             </div>
@@ -543,7 +543,7 @@ include 'header.php';
                 <div class="showcase-card" id="card-1">
                     <div class="card-inner">
                         <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="card-bg-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
                         <!-- Gradient Overlay for Legibility -->
                         <div class="card-gradient-overlay"></div>
 
@@ -590,7 +590,7 @@ include 'header.php';
                 <div class="showcase-card" id="card-2">
                     <div class="card-inner">
                         <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/project2.jpg');"></div>
+                        <div class="card-bg-img" style="background-image: url('assets/dining-set-ds301-021.webp');"></div>
                         <!-- Gradient Overlay for Legibility -->
                         <div class="card-gradient-overlay"></div>
 
@@ -637,7 +637,7 @@ include 'header.php';
                 <div class="showcase-card" id="card-3">
                     <div class="card-inner">
                         <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/project3.jpg');"></div>
+                        <div class="card-bg-img" style="background-image: url('assets/main-entrance-gate-012.webp');"></div>
                         <!-- Gradient Overlay for Legibility -->
                         <div class="card-gradient-overlay"></div>
 
@@ -684,7 +684,7 @@ include 'header.php';
                 <div class="showcase-card" id="card-4">
                     <div class="card-inner">
                         <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="card-bg-img" style="background-image: url('assets/household-wardrobe-021.webp');"></div>
                         <!-- Gradient Overlay for Legibility -->
                         <div class="card-gradient-overlay"></div>
 
@@ -745,71 +745,71 @@ include 'header.php';
                 <div class="aiero-gallery-row">
                     <div class="aiero-gallery-track aiero-gallery-track--top">
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project1.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
                                     Bedstead</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project4.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
                                     Doors</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/hero.jpg');"></div>
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
                                     Suite</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project2.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
                                     System</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project5.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
                                     Structure</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project3.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
                                     Set</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project1.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
                                     Bedstead</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project4.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
                                     Doors</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/hero.jpg');"></div>
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
                                     Suite</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project2.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
                                     System</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project5.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
                                     Structure</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project3.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
                                     Set</span></div>
@@ -819,71 +819,71 @@ include 'header.php';
                 <div class="aiero-gallery-row">
                     <div class="aiero-gallery-track aiero-gallery-track--bottom">
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project2.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
                                     System</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/hero.jpg');"></div>
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
                                     Suite</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project5.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
                                     Structure</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project3.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
                                     Set</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project1.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
                                     Bedstead</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project4.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
                                     Doors</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project2.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
                                     System</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/hero.jpg');"></div>
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
                                     Suite</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project5.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
                                     Structure</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project3.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
                                     Set</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project1.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
                                     Bedstead</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/project4.jpg');">
+                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
                             </div>
                             <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
                                     Doors</span></div>

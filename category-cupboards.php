@@ -36,7 +36,7 @@ include 'header.php';
             </div>
 
             <!-- Category Image Panel -->
-            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/project2.jpg') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
+            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/household-wardrobe-02.webp') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
         </div>
     </section>
 
@@ -52,7 +52,7 @@ include 'header.php';
                 <!-- Card 1 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=wardrobe" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/household-wardrobe-02.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">HOUSEHOLD WARDROBE</span>
@@ -64,7 +64,7 @@ include 'header.php';
                 <!-- Card 2 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=sliding-almirah" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/sliding-almirah-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">SLIDING MODULAR ALMIRAH</span>
@@ -76,7 +76,7 @@ include 'header.php';
                 <!-- Card 3 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=office-locker" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/office-locker-cabinet-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">SECURE OFFICE LOCKER</span>
@@ -88,7 +88,7 @@ include 'header.php';
                 <!-- Card 4 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=tool-cabinet" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">INDUSTRIAL TOOL CABINET</span>

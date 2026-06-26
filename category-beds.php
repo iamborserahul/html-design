@@ -46,7 +46,7 @@ include 'header.php';
             </div>
 
             <!-- Category Image Panel -->
-            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/project1.jpg') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
+            <div style="border-radius: 20px; overflow: hidden; min-height: 400px; background: url('assets/metal-bed-7201-01.webp') center center / cover no-repeat; border: 1px solid rgba(255,255,255,0.06);"></div>
         </div>
     </section>
 
@@ -64,10 +64,10 @@ include 'header.php';
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=bed7201" class="aiero-creation-card card-float-1"
                         style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">WOOD METAL BED 7201</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">WOOD METAL BED</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Grooved
                                 headboard panel with adjustable screw-cap leg support. Height: 16 inches.</p>
                         </div>
@@ -78,10 +78,10 @@ include 'header.php';
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=bed7202" class="aiero-creation-card card-float-2"
                         style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7202-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">TUBE METAL BED 7202</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">TUBE METAL BED</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Heavy-gauge
                                 tube stead structure with double weight extender rails. Height: 16 inches.</p>
                         </div>
@@ -92,7 +92,7 @@ include 'header.php';
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-3"
                         style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/origami-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">ORIGAMI BUNK BED</span>
@@ -106,7 +106,7 @@ include 'header.php';
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=bunk6114" class="aiero-creation-card card-float-1"
                         style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/nature-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">NATURE BUNK BED</span>
@@ -120,7 +120,7 @@ include 'header.php';
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=sofabunk6094" class="aiero-creation-card card-float-2"
                         style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/bucharest-sofa-bunk-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">BUCHAREST SOFA BUNK</span>
@@ -134,7 +134,7 @@ include 'header.php';
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=bunk6095" class="aiero-creation-card card-float-3"
                         style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/vladivostok-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">VLADIVOSTOK BUNK</span>

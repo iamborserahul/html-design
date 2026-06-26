@@ -8,7 +8,7 @@ $page = isset($page) ? $page : "home";
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $current_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $project_dir = str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-$og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/project1.jpg";
+$og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/metal-bed-7201-01.webp";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +87,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/proje
     <!-- FontAwesome Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS Style Sheets -->
-    <link rel="stylesheet" href="style.css?v=1.4">
+    <link rel="stylesheet" href="style.css?v=1.5">
 </head>
 
 <body>

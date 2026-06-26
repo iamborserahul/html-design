@@ -25,77 +25,39 @@ include 'header.php';
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Luxury Metal Bed</span>
+                    <a href="product-details?id=bed7201" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">WOOD METAL BED</span>
                             <p class="aiero-creation-desc">Bespoke luxury headboard and structural bedframe finish.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Designer Headboard Frame</span>
+                    <a href="product-details?id=bed7202" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7202-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">TUBE METAL BED</span>
                             <p class="aiero-creation-desc">Modern designer headboard with premium steel frame construction.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/service_br01.png');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Adjustable King Bed</span>
+                    <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/origami-bunk-bed-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">ORIGAMI BUNK BED</span>
                             <p class="aiero-creation-desc">Full-size adjustable king bed with powder-coated finish.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- ═══ HOSPITAL ═══ -->
-        <div style="margin-bottom: 5rem;">
-            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 3rem; padding-left: 0.5rem; border-left: 3px solid #FFC229;">
-                <span class="aiero-creations-tagline">CATEGORY</span>
-                <h2 class="aiero-creations-title" style="font-size: 32px;">Hospital Beds &amp; Equipment</h2>
-            </div>
-            <div class="aiero-creations-grid">
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Fowler ICU Medical Bed</span>
-                            <p class="aiero-creation-desc">Precision mechanical positioning Fowler hospital ward bed.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/service_bst01.png');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Semi-Fowler Ward Bed</span>
-                            <p class="aiero-creation-desc">Semi-adjustable ward bed with side railings and IV stand mount.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/service_cr01.png');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Hospital Attendant Chair</span>
-                            <p class="aiero-creation-desc">Foldable attendant chair-cum-bed for hospital visitor use.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+         
 
         <!-- ═══ CUPBOARDS & STORAGE ═══ -->
         <div style="margin-bottom: 5rem;">
@@ -105,34 +67,34 @@ include 'header.php';
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
+                    <a href="product-details?id=wardrobe" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/household-wardrobe-02.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Modular Almirah Wardrobe</span>
                             <p class="aiero-creation-desc">Textured sliding metal cupboard with triple drawers and lockers.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/service_lt01.png');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
+                    <a href="product-details?id=office-locker" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/office-locker-cabinet-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Steel Locker Cabinet</span>
                             <p class="aiero-creation-desc">Multi-compartment steel locker for office and institutional use.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/service_th01.png');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Office Filing Cabinet</span>
+                    <a href="product-details?id=tool-cabinet" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">Industrial Tool Cabinet</span>
                             <p class="aiero-creation-desc">Heavy-duty filing cabinet with secure locking mechanism.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -145,34 +107,34 @@ include 'header.php';
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project3.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
+                    <a href="product-details?id=safety-door" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/fire-safety-door-03.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Plated Safety Door</span>
                             <p class="aiero-creation-desc">Double-plated soundproof safety door with secure multi-lock box.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
+                    <a href="product-details?id=entrance-gate" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/main-entrance-gate-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Double-Lock Security Gate</span>
                             <p class="aiero-creation-desc">Reinforced security gate with dual-bolt locking system.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Designer Entry Door</span>
+                    <a href="product-details?id=structural-frame" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/precision-metal-frame-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">Precision Metal Frame</span>
                             <p class="aiero-creation-desc">Premium designer entry door with custom metalwork patterns.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -185,34 +147,34 @@ include 'header.php';
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
+                    <a href="product-details?id=dining-set" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/dining-set-ds301-02.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Stainless Steel Dining Set</span>
                             <p class="aiero-creation-desc">6-seater premium steel dining table paired with high-back chairs.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">4-Seater Dining Table</span>
-                            <p class="aiero-creation-desc">Compact 4-seater dining table with sleek tubular steel legs.</p>
+                    <a href="product-details?id=vanity-cabinet" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/modular-vanity-cabinet-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">Modular Vanity Cabinet</span>
+                            <p class="aiero-creation-desc">Rust-proof and moisture-resistant stainless steel vanity cabinet.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Bathroom Vanity Rack</span>
-                            <p class="aiero-creation-desc">Wall-mount stainless steel bathroom organizer and towel rack.</p>
+                    <a href="product-details?id=mirror-frame" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/structural-mirror-frame-03.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">Structural Mirror Frame</span>
+                            <p class="aiero-creation-desc">Wall-mount stainless steel bathroom mirror frames.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -225,34 +187,34 @@ include 'header.php';
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
+                    <a href="product-details?id=gazebo" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Garden Gazebo Structure</span>
                             <p class="aiero-creation-desc">Heavy-duty structural outdoor gazebo pavilion with windproofing.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Poolside Swing Chair</span>
-                            <p class="aiero-creation-desc">Luxury poolside swing chair with weather-resistant coating.</p>
+                    <a href="product-details?id=poolside-recliner" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/poolside-recliner-chair-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">Poolside Recliner Chair</span>
+                            <p class="aiero-creation-desc">Luxury poolside recliner chair with weather-resistant coating.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project3.jpg');"></div>
-                        <div class="aiero-creation-view-more">ZOOM</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Pergola Canopy Frame</span>
-                            <p class="aiero-creation-desc">Structural steel pergola canopy for garden and terrace areas.</p>
+                    <a href="product-details?id=outdoor-swing" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/architectural-steel-swing-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">Architectural Steel Swing</span>
+                            <p class="aiero-creation-desc">Structural steel swing for garden and terrace areas.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

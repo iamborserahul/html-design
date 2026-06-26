@@ -22,7 +22,7 @@ include 'header.php';
                 <!-- Category 1: Beds -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="category-beds" class="aiero-creation-card card-float-1" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project1.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Metal Beds & Adjustable Beds</span>
@@ -34,7 +34,7 @@ include 'header.php';
                 <!-- Category 2: Hospital Beds -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="category-hospital" class="aiero-creation-card card-float-2" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/hero.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Hospital Equipment & Beds</span>
@@ -46,7 +46,7 @@ include 'header.php';
                 <!-- Category 3: Cupboards -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="category-cupboards" class="aiero-creation-card card-float-3" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project2.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/household-wardrobe-02.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Steel Cupboards & Storage</span>
@@ -58,7 +58,7 @@ include 'header.php';
                 <!-- Category 4: Doors -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="category-doors" class="aiero-creation-card card-float-1" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project3.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/fire-safety-door-03.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Metal Doors & Safety Gates</span>
@@ -70,7 +70,7 @@ include 'header.php';
                 <!-- Category 5: Dining & Bathroom -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="category-dining-bathroom" class="aiero-creation-card card-float-2" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project4.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/dining-set-ds301-02.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Dining Sets & Bathroom Cabinets</span>
@@ -82,7 +82,7 @@ include 'header.php';
                 <!-- Category 6: Outdoor -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="category-outdoor" class="aiero-creation-card card-float-3" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/project5.jpg');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Outdoor Metal Structures</span>

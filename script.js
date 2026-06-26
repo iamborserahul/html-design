@@ -634,9 +634,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDesktop = window.innerWidth > 1100;
         const cardsPerPage = isDesktop ? 2 : 1;
         const cardWidth = servicesCards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) || 
-                    parseFloat(window.getComputedStyle(servicesTrack).gap) || 
-                    32;
+        const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) ||
+            parseFloat(window.getComputedStyle(servicesTrack).gap) ||
+            32;
 
         const maxSlide = Math.max(0, (servicesCards.length - cardsPerPage) * (cardWidth + gap));
         const slideAmount = Math.min(pageIndex * cardsPerPage * (cardWidth + gap), maxSlide);
@@ -736,9 +736,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const totalPages = isDesktop ? Math.ceil(servicesCards.length / 2) : servicesCards.length;
             const cardsPerPage = isDesktop ? 2 : 1;
             const cardWidth = servicesCards[0].offsetWidth;
-            const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) || 
-                        parseFloat(window.getComputedStyle(servicesTrack).gap) || 
-                        32;
+            const gap = parseFloat(window.getComputedStyle(servicesTrack).columnGap) ||
+                parseFloat(window.getComputedStyle(servicesTrack).gap) ||
+                32;
             const maxSlide = Math.max(0, (servicesCards.length - cardsPerPage) * (cardWidth + gap));
 
             // Bounds constraints with elastic boundary resistance
@@ -788,7 +788,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('pointermove', moveDrag);
         window.addEventListener('pointerup', endDrag);
         window.addEventListener('pointercancel', endDrag);
-        
+
         // Let the browser handle vertical touch scroll, handle horizontal swipes natively
         servicesSliderCol.style.touchAction = 'pan-y';
     }
@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productDatabase = {
         // Bed Division
         "bed7201": {
-            title: "WOOD METAL BED 7201",
+            title: "WOOD METAL BED",
             category: "Metal Beds Division",
             shortDesc: "Water & fire proof design with elegant grooved wood color panels, premium emboss details, and an adjustable leg support screw system constructed for comfort and long structural life.",
             specs: {
@@ -962,14 +962,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Anti-rust pre-treatment survives humid and variable climates",
                 "Highly customizable width and panel alignments on request"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/metal-bed-7201-01.webp",
+            thumbs: ["assets/metal-bed-7201-01.webp", "assets/metal-bed-7201-02.webp", "assets/metal-bed-7201-03.webp"],
             pdf: "ksi/Bedframe.pdf",
             categoryPage: "category-beds",
             categoryLabel: "Metal Beds"
         },
         "bed7202": {
-            title: "TUBE METAL BED 7202",
+            title: "TUBE METAL BED",
             category: "Metal Beds Division",
             shortDesc: "Double-reinforced heavy tubular structural bedstead with width-extending rails, full flat sheet tops, and high load capacity, perfect for residential, commercial, or hostel projects.",
             specs: {
@@ -986,14 +986,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Non-skid base pads protect structural bedroom tile floors",
                 "Durable textured black powder coat prevents daily scratching"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/metal-bed-7202-01.webp",
+            thumbs: ["assets/metal-bed-7202-01.webp", "assets/metal-bed-7202-02.webp", "assets/metal-bed-7202-03.webp"],
             pdf: "ksi/Bedframe.pdf",
             categoryPage: "category-beds",
             categoryLabel: "Metal Beds"
         },
         "bunk6115": {
-            title: "ORIGAMI BUNK BED FK BB 6115",
+            title: "ORIGAMI BUNK BED",
             category: "Home & Bunk Beds Edition",
             shortDesc: "Beautiful double bunk bed inspired by paper planes and boats, specifically designed to spark the imagination of kids. Splits easily into two fully independent standard single beds.",
             specs: {
@@ -1010,14 +1010,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Completely fire-safe and odorless organic powder coatings",
                 "Flat-pack boxing ensures easy shipment and transport"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/origami-bunk-bed-01.webp",
+            thumbs: ["assets/origami-bunk-bed-01.webp", "assets/origami-bunk-bed-02.webp", "assets/origami-bunk-bed-03.webp"],
             pdf: "ksi/Bedroom.pdf",
             categoryPage: "category-beds",
             categoryLabel: "Metal Beds"
         },
         "bunk6114": {
-            title: "NATURE BUNK BED FK BB 6114",
+            title: "NATURE BUNK BED",
             category: "Home & Bunk Beds Edition",
             shortDesc: "Double decker bed inspired by scenic drawings, offering customized clouds or mountains pattern frames. Seamlessly separates into two single beds as children grow.",
             specs: {
@@ -1034,14 +1034,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Durable and completely scratch-proof enamel baked finishes",
                 "Engineered for easy assembly and dismantling"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/nature-bunk-bed-01.webp",
+            thumbs: ["assets/nature-bunk-bed-01.webp", "assets/nature-bunk-bed-02.webp", "assets/nature-bunk-bed-03.webp"],
             pdf: "ksi/Bedroom.pdf",
             categoryPage: "category-beds",
             categoryLabel: "Metal Beds"
         },
         "sofabunk6094": {
-            title: "BUCHAREST SOFA BUNK FK BB 6094",
+            title: "BUCHAREST SOFA BUNK",
             category: "Home & Bunk Beds Edition",
             shortDesc: "The ultimate double agent furniture piece. High-end curvy modern double bunk bed that converts seamlessly into a large luxurious couch, perfect for dynamic space-saving.",
             specs: {
@@ -1058,14 +1058,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Perfect for modern penthouses and guest sleeping suites",
                 "Rigid locking safety locks ensure stable bed placement"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/bucharest-sofa-bunk-01.webp",
+            thumbs: ["assets/bucharest-sofa-bunk-01.webp", "assets/bucharest-sofa-bunk-02.webp", "assets/bucharest-sofa-bunk-03.webp"],
             pdf: "ksi/Bedroom.pdf",
             categoryPage: "category-beds",
             categoryLabel: "Metal Beds"
         },
         "bunk6095": {
-            title: "VLADIVOSTOK BUNK BED FK BB 6095",
+            title: "VLADIVOSTOK BUNK BED",
             category: "Home & Bunk Beds Edition",
             shortDesc: "Triple-capacity bunk bed built for ultimate durability. Perfect for energetic kids pillow fights and bulk hostel environments requiring maximum strength.",
             specs: {
@@ -1082,8 +1082,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Epoxy powder pre-treatments prevent paint cracking",
                 "Wide-step ladders prevent foot fatigue while climbing"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/vladivostok-bunk-bed-01.webp",
+            thumbs: ["assets/vladivostok-bunk-bed-01.webp", "assets/vladivostok-bunk-bed-02.webp", "assets/vladivostok-bunk-bed-03.webp"],
             pdf: "ksi/Bedroom.pdf",
             categoryPage: "category-beds",
             categoryLabel: "Metal Beds"
@@ -1091,7 +1091,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hospital Division
         "icu-bed": {
-            title: "ICU FOWLER BED KH-01",
+            title: "ICU FOWLER BED",
             category: "Hospital Equipment & Beds",
             shortDesc: "Rigid multi-position adjustable clinical ICU bed featuring independent hand cranks for backrest and knee rest, collapsing steel side railings, and medical locking wheel grids.",
             specs: {
@@ -1108,14 +1108,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Includes corner buffer wheels and telescoping IV stand mounts",
                 "Engineered to withstand heavy clinical ward loads up to 250kg"
             ],
-            mainImg: "assets/hero.jpg",
-            thumbs: ["assets/hero.jpg", "assets/project1.jpg"],
+            mainImg: "assets/icu-fowler-bed-01.webp",
+            thumbs: ["assets/icu-fowler-bed-01.webp"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
             categoryPage: "category-hospital",
             categoryLabel: "Hospital Beds"
         },
         "semi-fowler": {
-            title: "SEMI-FOWLER BED KH-02",
+            title: "SEMI-FOWLER BED",
             category: "Hospital Equipment & Beds",
             shortDesc: "Standard ward semi-fowler bed with single mechanical crank for smooth backrest adjustment, durable head and foot boards, and anti-corrosive powder finish.",
             specs: {
@@ -1132,14 +1132,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Smooth cranking mechanism prevents patient jarring during use",
                 "Laminated boards offer a clean aesthetic on hospital floors"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/semi-fowler-bed-01.webp",
+            thumbs: ["assets/semi-fowler-bed-01.webp"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
             categoryPage: "category-hospital",
             categoryLabel: "Hospital Beds"
         },
         "ward-bed": {
-            title: "WARD PLAIN BED KH-03",
+            title: "WARD PLAIN BED",
             category: "Hospital Equipment & Beds",
             shortDesc: "Basic plain hospital ward bed engineered with high-gauge steel pipes and flat steel mesh panels. Perfect for high-capacity medical setups and clinic wards.",
             specs: {
@@ -1156,14 +1156,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Strong tubular posts survive heavy usage without bending",
                 "Anti-rust pretreatment prevents damage under daily cleanings"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/ward-bed-01.webp",
+            thumbs: ["assets/ward-bed-01.webp"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
             categoryPage: "category-hospital",
             categoryLabel: "Hospital Beds"
         },
         "bedside-locker": {
-            title: "BEDSIDE locker CABINET KH-44",
+            title: "BEDSIDE LOCKER CABINET",
             category: "Hospital Equipment & Beds",
             shortDesc: "Rust-proof, high-durability medical bedside locker cupboard featuring a single drawer, spacious bottom cabinet, and integrated towel rails for patient convenience.",
             specs: {
@@ -1180,14 +1180,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Easy-clean interior panels with zero corner dust traps",
                 "Rigid locks protect clinical items and patient belongings"
             ],
-            mainImg: "assets/hero.jpg",
-            thumbs: ["assets/hero.jpg", "assets/project1.jpg"],
+            mainImg: "assets/bedside-locker-01.webp",
+            thumbs: ["assets/bedside-locker-01.webp"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
             categoryPage: "category-hospital",
             categoryLabel: "Hospital Beds"
         },
         "saline-stand": {
-            title: "IV SALINE STAND KH-55",
+            title: "IV SALINE STAND",
             category: "Hospital Equipment & Beds",
             shortDesc: "Height adjustable chrome-plated steel IV saline stand with four utility hooks, locking telescoping shafts, and rolling caster base wheels.",
             specs: {
@@ -1204,14 +1204,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Standard medical-grade chrome resists biological stains and rust",
                 "Nylon casters roll silently across hospital tile grids"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/saline-stand-03.webp",
+            thumbs: ["assets/saline-stand-03.webp"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
             categoryPage: "category-hospital",
             categoryLabel: "Hospital Beds"
         },
         "stretcher": {
-            title: "PATIENT TRANSPORT STRETCHER KH-77",
+            title: "PATIENT TRANSPORT STRETCHER",
             category: "Hospital Equipment & Beds",
             shortDesc: "High-grade patient transport trolley featuring a removable canvas or metal stretcher top, heavy steel support pipes, and rotating wheels with bumpers.",
             specs: {
@@ -1228,8 +1228,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "High-capacity trolley framework handles up to 180kg patient load",
                 "Polyester baked finish ensures chemical sterilization resistance"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/stretcher-01.webp",
+            thumbs: ["assets/stretcher-01.webp"],
             pdf: "ksi/Hospital Equipment and Furniture.pdf",
             categoryPage: "category-hospital",
             categoryLabel: "Hospital Beds"
@@ -1237,7 +1237,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Cupboard Division
         "wardrobe": {
-            title: "HOUSEHOLD WARDROBE WC-101",
+            title: "HOUSEHOLD WARDROBE",
             category: "Steel Cupboards & Storage",
             shortDesc: "Three-door luxury household steel wardrobe cupboard featuring multi-tier clothing sections, secure dual locking lockers, and high-gloss premium color panel layouts.",
             specs: {
@@ -1254,14 +1254,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Oven-baked phosphating treatment ensures lifetime rust protection",
                 "Integrated premium glass mirror pane on door face on request"
             ],
-            mainImg: "assets/project2.jpg",
-            thumbs: ["assets/project2.jpg", "assets/project5.jpg"],
+            mainImg: "assets/household-wardrobe-02.webp",
+            thumbs: ["assets/household-wardrobe-02.webp"],
             pdf: "ksi/Cupboard.pdf",
             categoryPage: "category-cupboards",
             categoryLabel: "Storage Cabinets"
         },
         "sliding-almirah": {
-            title: "SLIDING MODULAR ALMIRAH WC-102",
+            title: "SLIDING MODULAR ALMIRAH",
             category: "Steel Cupboards & Storage",
             shortDesc: "Premium sliding-door modular steel almirah featuring ultra-smooth ball-bearing tracks, space-saving layouts, and textured modern wood color panels.",
             specs: {
@@ -1278,14 +1278,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Fully adjustable shelf heights to arrange clothing sizes",
                 "Ultra-sleek modern handle profiles with premium safety latch"
             ],
-            mainImg: "assets/project5.jpg",
-            thumbs: ["assets/project5.jpg", "assets/project2.jpg"],
+            mainImg: "assets/sliding-almirah-01.webp",
+            thumbs: ["assets/sliding-almirah-01.webp"],
             pdf: "ksi/Cupboard.pdf",
             categoryPage: "category-cupboards",
             categoryLabel: "Storage Cabinets"
         },
         "office-locker": {
-            title: "SECURE OFFICE LOCKER WC-103",
+            title: "SECURE OFFICE LOCKER",
             category: "Steel Cupboards & Storage",
             shortDesc: "Heavy-duty multi-door steel office locker cabinet featuring individual secure key latches, index label slots, and modular space-saving designs.",
             specs: {
@@ -1302,14 +1302,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Air vents prevent internal moisture or odors from developing",
                 "Modular vertical grids stack seamlessly side-by-side"
             ],
-            mainImg: "assets/project2.jpg",
-            thumbs: ["assets/project2.jpg", "assets/project5.jpg"],
+            mainImg: "assets/office-locker-cabinet-01.webp",
+            thumbs: ["assets/office-locker-cabinet-01.webp"],
             pdf: "ksi/Cupboard.pdf",
             categoryPage: "category-cupboards",
             categoryLabel: "Storage Cabinets"
         },
         "tool-cabinet": {
-            title: "INDUSTRIAL TOOL CABINET WC-104",
+            title: "INDUSTRIAL TOOL CABINET",
             category: "Steel Cupboards & Storage",
             shortDesc: "High-load industrial tooling rack cabinet designed with reinforced door ribs, massive load capacities per shelf, and multi-latch mechanical lock handles.",
             specs: {
@@ -1326,8 +1326,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Industrial powder finishes are immune to engine oil or grease",
                 "Adjustable shelf sections adapt to variable storage sizes"
             ],
-            mainImg: "assets/project5.jpg",
-            thumbs: ["assets/project5.jpg", "assets/project2.jpg"],
+            mainImg: "assets/industrial-tool-cabinet-01.webp",
+            thumbs: ["assets/industrial-tool-cabinet-01.webp"],
             pdf: "ksi/Cupboard.pdf",
             categoryPage: "category-cupboards",
             categoryLabel: "Storage Cabinets"
@@ -1335,7 +1335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Doors Division
         "safety-door": {
-            title: "FIRE SAFETY DOOR DR-201",
+            title: "FIRE SAFETY DOOR",
             category: "Metal Doors & Safety Gates",
             shortDesc: "Heavy double-plated steel fire safety door designed with acoustic insulated mineral fills, solid structural steel frame rebated hinges, and multi-point secure lock systems.",
             specs: {
@@ -1352,14 +1352,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Reinforced strike panels prevent forced mechanical entry",
                 "Bespoke designs can be laser cut to fit specialized frame grids"
             ],
-            mainImg: "assets/project3.jpg",
-            thumbs: ["assets/project3.jpg", "assets/project1.jpg"],
+            mainImg: "assets/fire-safety-door-03.webp",
+            thumbs: ["assets/fire-safety-door-03.webp"],
             pdf: "ksi/Door.pdf",
             categoryPage: "category-doors",
             categoryLabel: "Metal Doors"
         },
         "entrance-gate": {
-            title: "MAIN ENTRANCE GATE DR-202",
+            title: "MAIN ENTRANCE GATE",
             category: "Metal Doors & Safety Gates",
             shortDesc: "Bespoke structural entrance security gates designed with gorgeous modern geometric grilles, heavy steel hollow sections, and custom weather-proof styling.",
             specs: {
@@ -1376,14 +1376,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Extremely tough fabrication resists physical impacts and wind",
                 "High weather-resistance survives intense monsoon and summer sun"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/main-entrance-gate-01.webp",
+            thumbs: ["assets/main-entrance-gate-01.webp", "assets/main-entrance-gate-02.webp", "assets/main-entrance-gate-03.webp"],
             pdf: "ksi/Door.pdf",
             categoryPage: "category-doors",
             categoryLabel: "Metal Doors"
         },
         "structural-frame": {
-            title: "PRECISION METAL FRAME DR-203",
+            title: "PRECISION METAL FRAME",
             category: "Metal Doors & Safety Gates",
             shortDesc: "Custom precision steel facade framing grids, security window bars, and structural iron grilles built to order for commercial or residential architectural layouts.",
             specs: {
@@ -1400,8 +1400,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Perfect for high-altitude architectural grilles and safety windows",
                 "Available with thermal rust-inhibitor galvanizing treatments"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/precision-metal-frame-01.webp",
+            thumbs: ["assets/precision-metal-frame-01.webp", "assets/precision-metal-frame-02.webp", "assets/precision-metal-frame-03.webp"],
             pdf: "ksi/Door.pdf",
             categoryPage: "category-doors",
             categoryLabel: "Metal Doors"
@@ -1409,7 +1409,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dining & Bathroom Division
         "dining-set": {
-            title: "STAINLESS STEEL DINING SET DS-301",
+            title: "STAINLESS STEEL DINING SET",
             category: "Dining & Bathroom Furniture",
             shortDesc: "High-end stainless steel dining set featuring premium mirror-polished tubes, 6 cushioned high-back steel chairs, and a heat-resistant tempered glass or marble top panel.",
             specs: {
@@ -1426,14 +1426,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Tempered glass top panel is completely heat and scratch resistant",
                 "Cushioned high-back steel chairs offer extreme seating comfort"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/dining-set-ds301-02.webp",
+            thumbs: ["assets/dining-set-ds301-02.webp", "assets/dining-set-ds301-01.webp", "assets/dining-set-ds301-03.webp"],
             pdf: "ksi/Dinning Set.pdf",
             categoryPage: "category-dining-bathroom",
             categoryLabel: "Dining & Bathroom"
         },
         "vanity-cabinet": {
-            title: "MODULAR VANITY CABINET BT-401",
+            title: "MODULAR VANITY CABINET",
             category: "Dining & Bathroom Furniture",
             shortDesc: "Rust-proof and moisture-resistant stainless steel under-basin bathroom vanity cabinet featuring soft-close hinges, modular shelving, and a sleek glossy finish.",
             specs: {
@@ -1450,14 +1450,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Integrated plumbing slot fits standard sink pipes cleanly",
                 "Polished steel surface rejects hard water stains and soap scale"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/modular-vanity-cabinet-01.webp",
+            thumbs: ["assets/modular-vanity-cabinet-01.webp", "assets/modular-vanity-cabinet-02.webp", "assets/modular-vanity-cabinet-03.webp"],
             pdf: "ksi/Bathroom Cabinet.pdf",
             categoryPage: "category-dining-bathroom",
             categoryLabel: "Dining & Bathroom"
         },
         "mirror-frame": {
-            title: "STRUCTURAL MIRROR FRAME BT-402",
+            title: "STRUCTURAL MIRROR FRAME",
             category: "Dining & Bathroom Furniture",
             shortDesc: "Elegant rust-proof stainless steel wall-mounted mirror frames. Perfect for premium hotel guest suites and luxury household bathroom decors.",
             specs: {
@@ -1474,8 +1474,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Integrated damp-proof backing prevents silvering damage on glass",
                 "Simple, strong keyhole brackets allow secure and level mounting"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/structural-mirror-frame-03.webp",
+            thumbs: ["assets/structural-mirror-frame-03.webp"],
             pdf: "ksi/Bathroom Cabinet.pdf",
             categoryPage: "category-dining-bathroom",
             categoryLabel: "Dining & Bathroom"
@@ -1483,7 +1483,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Outdoor Division
         "gazebo": {
-            title: "GARDEN STEEL GAZEBO GZ-501",
+            title: "GARDEN STEEL GAZEBO",
             category: "Outdoor Metal Structures",
             shortDesc: "Extra-heavy weather-resistant garden structural steel gazebo pavilion. Engineered with high wind tolerances, luxury columns, and modular canopy arches.",
             specs: {
@@ -1500,14 +1500,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Integrated bolt anchor foot plates secure gates directly to concrete",
                 "Canopy structure supports standard waterproof tensile fabrics"
             ],
-            mainImg: "assets/project5.jpg",
-            thumbs: ["assets/project5.jpg", "assets/project1.jpg"],
+            mainImg: "assets/garden-steel-gazebo-02.webp",
+            thumbs: ["assets/garden-steel-gazebo-02.webp", "assets/garden-steel-gazebo-03.webp"],
             pdf: "ksi/Gazebo.pdf",
             categoryPage: "category-outdoor",
             categoryLabel: "Outdoor Structures"
         },
         "poolside-recliner": {
-            title: "POOLSIDE RECLINER CHAIR PL-601",
+            title: "POOLSIDE RECLINER CHAIR",
             category: "Outdoor Metal Structures",
             shortDesc: "All-weather folding poolside recliner chair featuring multi-level backrest reclining angles, sturdy steel framing, and premium anti-rust styling overlays.",
             specs: {
@@ -1524,14 +1524,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Lightweight structural engineering allows easy deck moving",
                 "Folding post design stacks compactly for off-season storage"
             ],
-            mainImg: "assets/project1.jpg",
-            thumbs: ["assets/project1.jpg", "assets/project4.jpg"],
+            mainImg: "assets/poolside-recliner-chair-01.webp",
+            thumbs: ["assets/poolside-recliner-chair-01.webp", "assets/poolside-recliner-chair-02.webp", "assets/poolside-recliner-chair-03.webp"],
             pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
             categoryPage: "category-outdoor",
             categoryLabel: "Outdoor Structures"
         },
         "outdoor-swing": {
-            title: "ARCHITECTURAL STEEL SWING PL-602",
+            title: "ARCHITECTURAL STEEL SWING",
             category: "Outdoor Metal Structures",
             shortDesc: "Double-anchor structural garden swing set featuring robust rectangular tubing, comfortable wooden or steel swing bench, and high-strength pivot bearings.",
             specs: {
@@ -1548,8 +1548,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Textured powder coat layers prevent rust at joint friction points",
                 "bench features comfortable contoured lumbar angle support"
             ],
-            mainImg: "assets/project4.jpg",
-            thumbs: ["assets/project4.jpg", "assets/project1.jpg"],
+            mainImg: "assets/architectural-steel-swing-01.webp",
+            thumbs: ["assets/architectural-steel-swing-01.webp", "assets/architectural-steel-swing-02.webp", "assets/architectural-steel-swing-03.webp"],
             pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
             categoryPage: "category-outdoor",
             categoryLabel: "Outdoor Structures"
@@ -1920,7 +1920,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         card.style.transform = `scale(0.60) translateY(-50px)`;
                         card.style.opacity = 0; // Hide completely once fully covered to prevent visual layering conflicts
                         card.style.pointerEvents = 'none';
-                        
+
                         if (contentCol) {
                             contentCol.style.opacity = 0;
                             contentCol.style.transform = 'translateY(-15px)';

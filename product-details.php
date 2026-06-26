@@ -23,7 +23,7 @@ include 'header.php';
             <!-- Left Side: Interactive Image Gallery -->
             <div class="aiero-details-gallery">
                 <div class="aiero-gallery-main">
-                    <img id="details-main-img" src="assets/project1.jpg" alt="Selected model preview">
+                    <img id="details-main-img" src="assets/metal-bed-7201-01.webp" alt="Selected model preview">
                 </div>
                 <div class="aiero-gallery-thumbs" id="details-thumbs-row">
                     <!-- Populated dynamically -->
@@ -33,7 +33,7 @@ include 'header.php';
             <!-- Right Side: Model Specifications & Highlights -->
             <div class="aiero-about-content" style="gap: 1.5rem;">
                 <span class="aiero-about-tagline" id="details-category-tagline" style="color: #FFC229;">METAL BEDS DIVISION</span>
-                <h2 class="aiero-about-title" id="details-product-title" style="font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 1.25; margin-bottom: 0.5rem;">WOOD METAL BED 7201</h2>
+                <h2 class="aiero-about-title" id="details-product-title" style="font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 1.25; margin-bottom: 0.5rem;">WOOD METAL BED</h2>
                 
                 <p id="details-short-desc" style="opacity: 0.7; font-size: 1.02rem; line-height: 1.8;">Water & fire proof design with elegant groove design panels, premium emboss outlines, and an adjustable screw-cap leg support grid designed to maximize comfort and structural longevity.</p>
                 
