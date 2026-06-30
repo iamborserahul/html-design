@@ -2,7 +2,7 @@
 session_start();
 
 $title = "Contact Us | Khodiyar Steel";
-$description = "Get in touch with Khodiyar Steel in Surat, Gujarat. Submit an inquiry for premium metal wardrobes, custom steel safety doors, ICU ward equipment, or outdoor swings.";
+$description = "Get in touch with Khodiyar Steel in Surat, Gujarat. Submit an inquiry for premium metal wardrobes, custom steel safety doors, ICU ward equipment, or outdoor gazebos.";
 $page = "contact";
 
 // ── PHPMailer includes ──
@@ -165,7 +165,7 @@ include 'header.php';
                                 <option value="storage" style="background:#fff; color:#333;">Cupboards &amp; Storage Almirahs</option>
                                 <option value="doors" style="background:#fff; color:#333;">Safety Doors &amp; Fabrication</option>
                                 <option value="dining" style="background:#fff; color:#333;">Dining &amp; Bathroom Units</option>
-                                <option value="outdoor" style="background:#fff; color:#333;">Outdoor Swings &amp; Gazebos</option>
+                                <option value="outdoor" style="background:#fff; color:#333;">Outdoor Gazebos &amp; Recliners</option>
                             </select>
                         </div>
                     </div>

@@ -86,7 +86,7 @@ include 'header.php';
                         <div class="aiero-creation-view-more">ENTER</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Outdoor Metal Structures</span>
-                            <p class="aiero-creation-desc">Premium garden gazebos, poolside recliners, and outdoor swings.</p>
+                            <p class="aiero-creation-desc">Premium garden gazebos and poolside recliners.</p>
                         </div>
                     </a>
                 </div>

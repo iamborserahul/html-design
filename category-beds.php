@@ -39,7 +39,7 @@ include 'header.php';
                     </li>
                     <li style="display: flex; gap: 1rem; align-items: flex-start;">
                         <i class="fa-solid fa-umbrella-beach" style="color: #FFC229; margin-top: 0.3rem;"></i>
-                        <span><strong>Poolside Loungers & Swings</strong>: Heavy structural steel reclining loungers
+                        <span><strong>Poolside Loungers & Recliners</strong>: Heavy structural steel reclining loungers
                             with all-weather proof finishes.</span>
                     </li>
                 </ul>

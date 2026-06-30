@@ -58,9 +58,9 @@ include 'header.php';
 
                 <!-- Founder Card -->
                 <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
-                    <div class="aiero-founder-img-wrapper" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
+                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
                         <img src="assets/ceo.png" alt="Vimal Sakariya - Founder & MD of Khodiyar Steel"
-                            class="aiero-founder-img">
+                            class="aiero-founder-img aiero-founder-img--square">
                     </div>
                     <div class="aiero-founder-details">
                         <span class="aiero-founder-tag">FOUNDER &amp; MD</span>
@@ -71,8 +71,8 @@ include 'header.php';
 
                 <!-- CEO Card -->
                 <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
-                    <div class="aiero-founder-img-wrapper" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
-                        <img src="assets/manthan-sakariya-ceo.png" alt="CEO of Khodiyar Steel" class="aiero-founder-img">
+                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
+                        <img src="assets/manthan-sakariya-ceo.png" alt="CEO of Khodiyar Steel" class="aiero-founder-img aiero-founder-img--square">
                     </div>
                     <div class="aiero-founder-details">
                         <span class="aiero-founder-tag">CEO</span>
@@ -83,8 +83,8 @@ include 'header.php';
 
                 <!-- COO Card -->
                 <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
-                    <div class="aiero-founder-img-wrapper" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
-                        <img src="assets/nayan-patel-coo.png" alt="COO of Khodiyar Steel" class="aiero-founder-img">
+                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
+                        <img src="assets/nayan-patel-coo.png" alt="COO of Khodiyar Steel" class="aiero-founder-img aiero-founder-img--square">
                     </div>
                     <div class="aiero-founder-details">
                         <span class="aiero-founder-tag">COO</span>
@@ -277,7 +277,7 @@ include 'header.php';
                         </li>
                         <li style="display: flex; gap: 1rem; align-items: flex-start;">
                             <i class="fa-solid fa-circle-check" style="color: #FFC229; margin-top: 0.3rem;"></i>
-                            <span><strong>Custom Architectural Outlines</strong>: We manufacture outdoor products and swings in
+                            <span><strong>Custom Architectural Outlines</strong>: We manufacture outdoor gazebos and recliners in
                                 bespoke dimensional ratios for real estate developers.</span>
                         </li>
                     </ul>

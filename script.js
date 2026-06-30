@@ -1525,31 +1525,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Folding post design stacks compactly for off-season storage"
             ],
             mainImg: "assets/poolside-recliner-chair-01.webp",
-            thumbs: ["assets/poolside-recliner-chair-01.webp", "assets/poolside-recliner-chair-02.webp", "assets/poolside-recliner-chair-03.webp"],
-            pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
-            categoryPage: "category-outdoor",
-            categoryLabel: "Outdoor Structures"
-        },
-        "outdoor-swing": {
-            title: "ARCHITECTURAL STEEL SWING",
-            category: "Outdoor Metal Structures",
-            shortDesc: "Double-anchor structural garden swing set featuring robust rectangular tubing, comfortable wooden or steel swing bench, and high-strength pivot bearings.",
-            specs: {
-                "Dimensions": "200H x 180W x 120D cm standard",
-                "Swing Seat": "140cm width (Seats 3 adults comfortably)",
-                "Material": "Heavy-duty thick-wall steel hollow frame sections",
-                "Bearings": "Industrial low-noise heavy pivot bearings",
-                "Canopy Cover": "Standard structural metal canopy plate",
-                "Load Capacity": "Supports up to 300kg weight load safely"
-            },
-            features: [
-                "Heavy-gauge frame anchors stay perfectly stable without bolting",
-                "Precision low-noise bearings offer ultra-smooth silent swinging",
-                "Textured powder coat layers prevent rust at joint friction points",
-                "bench features comfortable contoured lumbar angle support"
-            ],
-            mainImg: "assets/architectural-steel-swing-01.webp",
-            thumbs: ["assets/architectural-steel-swing-01.webp", "assets/architectural-steel-swing-02.webp", "assets/architectural-steel-swing-03.webp"],
+            thumbs: ["assets/poolside-recliner-chair-01.webp"],
             pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
             categoryPage: "category-outdoor",
             categoryLabel: "Outdoor Structures"
@@ -1740,7 +1716,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     categorySelect.value = "doors";
                 } else if (prodLower.includes("dining") || prodLower.includes("vanity") || prodLower.includes("mirror")) {
                     categorySelect.value = "dining";
-                } else if (prodLower.includes("gazebo") || prodLower.includes("recliner") || prodLower.includes("swing")) {
+                } else if (prodLower.includes("gazebo") || prodLower.includes("recliner")) {
                     categorySelect.value = "outdoor";
                 }
             }

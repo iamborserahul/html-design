@@ -421,8 +421,8 @@ include 'header.php';
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-umbrella"></i></div>
                     <h3 class="aiero-category-card-title">Outdoor Furniture</h3>
-                    <p class="aiero-category-card-desc">Rust-protected all-weather park swings, garden loungers, and
-                        structural gazebos.</p>
+                    <p class="aiero-category-card-desc">Rust-protected all-weather garden gazebos, poolside recliners, and
+                        structural outdoor pavilions.</p>
                     <span class="aiero-category-link-btn">EXPLORE CATALOG <i
                             class="fa-solid fa-chevron-right"></i></span>
                 </a>
@@ -516,7 +516,7 @@ include 'header.php';
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
                             <span class="aiero-creation-label">Outdoor Metal Furniture & Structures</span>
-                            <p class="aiero-creation-desc">Premium all-weather garden chairs, swings, and commercial
+                            <p class="aiero-creation-desc">Premium all-weather garden gazebos, poolside recliners, and commercial
                                 landscape architectural steel models.</p>
                         </div>
                     </div>
@@ -1134,7 +1134,7 @@ include 'header.php';
                     <div class="aiero-faq-content">
                         Absolutely. Precision custom structural fabrication is one of our primary specialties. Our
                         engineering department accepts custom CAD blueprints, dimension sheets, or sketches for fire
-                        doors, safety gates, outdoor gazebos, and bespoke residential swing designs.
+                        doors, safety gates, outdoor gazebos, and bespoke residential furniture designs.
                     </div>
                 </div>
             </div>

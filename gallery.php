@@ -183,7 +183,7 @@ include 'header.php';
         <div style="margin-bottom: 5rem;">
             <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 3rem; padding-left: 0.5rem; border-left: 3px solid #FFC229;">
                 <span class="aiero-creations-tagline">CATEGORY</span>
-                <h2 class="aiero-creations-title" style="font-size: 32px;">Outdoor Swings &amp; Gazebos</h2>
+                <h2 class="aiero-creations-title" style="font-size: 32px;">Outdoor Gazebos &amp; Recliners</h2>
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
@@ -206,16 +206,7 @@ include 'header.php';
                         </div>
                     </a>
                 </div>
-                <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=outdoor-swing" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/architectural-steel-swing-01.webp');"></div>
-                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label">Architectural Steel Swing</span>
-                            <p class="aiero-creation-desc">Structural steel swing for garden and terrace areas.</p>
-                        </div>
-                    </a>
-                </div>
+
             </div>
         </div>
 

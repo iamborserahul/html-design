@@ -1,6 +1,6 @@
 <?php
 $title = "Outdoor Metal Furniture & Structures | Khodiyar Steel";
-$description = "Explore our high-end garden gazebos, heavy structural poolside loungers, patio swings, and landscape metal products manufactured by Khodiyar Steel.";
+$description = "Explore our high-end garden gazebos, heavy structural poolside loungers, and landscape metal products manufactured by Khodiyar Steel.";
 $page = "products";
 include 'header.php';
 ?>
@@ -10,7 +10,7 @@ include 'header.php';
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline">CATEGORY PROFILE</span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Outdoor Metal Structures</h1>
-            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Premium garden steel gazebos, heavy structural swings, poolside loungers, and custom outdoor architectural metal pavilions.</p>
+            <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Premium garden steel gazebos, poolside loungers, and custom outdoor architectural metal pavilions.</p>
         </div>
     </section>
 
@@ -30,7 +30,7 @@ include 'header.php';
                     </li>
                     <li style="display: flex; gap: 1rem; align-items: flex-start;">
                         <i class="fa-solid fa-chair" style="color: #FFC229; margin-top: 0.3rem;"></i>
-                        <span><strong>Poolside Recliners & Swings</strong>: Heavyward structural poolside metal recliners and double-anchor garden swing sets.</span>
+                        <span><strong>Poolside Recliners</strong>: Heavy structural poolside metal recliners with multi-level adjustment and weather-resistant coatings.</span>
                     </li>
                 </ul>
             </div>
@@ -45,10 +45,10 @@ include 'header.php';
         <div class="aiero-creations-container">
             <div class="aiero-creations-header">
                 <span class="aiero-creations-tagline">LANDSCAPE SELECTIONS</span>
-                <h2 class="aiero-creations-title" style="font-size: 34px;">Outdoor Structures & Swings</h2>
+                <h2 class="aiero-creations-title" style="font-size: 34px;">Outdoor Structures</h2>
             </div>
             
-            <div class="aiero-creations-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="aiero-creations-grid" style="grid-template-columns: repeat(2, 1fr);">
                 <!-- Card 1 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=gazebo" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
@@ -73,17 +73,7 @@ include 'header.php';
                     </a>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=outdoor-swing" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/architectural-steel-swing-01.webp');"></div>
-                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">ARCHITECTURAL SWING</span>
-                            <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Double-anchor heavy metal garden swing set with rust-resistant powder coatings.</p>
-                        </div>
-                    </a>
-                </div>
+
             </div>
         </div>
     </section>
@@ -94,7 +84,7 @@ include 'header.php';
             <div class="aiero-about-content" style="justify-content: center; gap: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 3rem; border-radius: 20px; text-align: center; align-items: center;">
                 <i class="fa-solid fa-file-pdf" style="font-size: 4rem; color: #ff3333; filter: drop-shadow(0 0 15px rgba(255,51,51,0.2));"></i>
                 <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--color-text);">Download Catalogues</h3>
-                <p style="opacity: 0.6; font-size: 0.92rem; line-height: 1.6; max-width: 320px;">Download our official drafted PDF catalogs containing structural gazebo sizing, poolside recliner specifications, and swinger models.</p>
+                <p style="opacity: 0.6; font-size: 0.92rem; line-height: 1.6; max-width: 320px;">Download our official drafted PDF catalogs containing structural gazebo sizing and poolside recliner specifications.</p>
                 
                 <div style="display: flex; flex-direction: column; gap: 1.2rem; width: 100%; max-width: 340px;">
                     <a href="ksi/Gazebo.pdf" download class="aiero-btn-discover" style="transform: none; opacity: 1; margin: 0 auto; width: 100%; justify-content: center; background: #FFC229; box-shadow: 0 10px 20px rgba(255, 194, 41, 0.25);">
