@@ -67,7 +67,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">WOOD METAL BED</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">Platform Metal Bed</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Grooved
                                 headboard panel with adjustable screw-cap leg support. Height: 16 inches.</p>
                         </div>
@@ -87,62 +87,20 @@ include 'header.php';
                         </div>
                     </a>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-3"
+                    <a href="category-bunkbeds" class="aiero-creation-card card-float-3"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/origami-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">ORIGAMI BUNK BED</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;"> BUNK BED</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Bunk bed
                                 inspired by paper planes and boats. Splits into two separate beds when kids outgrow.</p>
                         </div>
                     </a>
                 </div>
 
-                <!-- Card 4 -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6114" class="aiero-creation-card card-float-1"
-                        style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/nature-bunk-bed-01.webp');"></div>
-                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">NATURE BUNK BED</span>
-                            <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Double-bunk
-                                frame with customized clouds/mountains patterns and anti-slip steps.</p>
-                        </div>
-                    </a>
-                </div>
 
-                <!-- Card 5 -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=sofabunk6094" class="aiero-creation-card card-float-2"
-                        style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/bucharest-sofa-bunk-01.webp');"></div>
-                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">BUCHAREST SOFA BUNK</span>
-                            <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Curvy metallic
-                                double-agent design that converts seamlessly into a large sofa.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6095" class="aiero-creation-card card-float-3"
-                        style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/vladivostok-bunk-bed-01.webp');"></div>
-                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">VLADIVOSTOK BUNK</span>
-                            <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Sleeps three
-                                with super-strong structural reinforcement profiles. Perfect for hostels.</p>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </section>

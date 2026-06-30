@@ -29,7 +29,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label">WOOD METAL BED</span>
+                            <span class="aiero-creation-label">Platform Metal Bed</span>
                             <p class="aiero-creation-desc">Bespoke luxury headboard and structural bedframe finish.</p>
                         </div>
                     </a>
@@ -44,13 +44,53 @@ include 'header.php';
                         </div>
                     </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- ═══ BUNK BEDS ═══ -->
+        <div style="margin-bottom: 5rem;">
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 3rem; padding-left: 0.5rem; border-left: 3px solid #FFC229;">
+                <span class="aiero-creations-tagline">CATEGORY</span>
+                <h2 class="aiero-creations-title" style="font-size: 32px;">Bunk Beds</h2>
+            </div>
+            <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                    <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/origami-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">ORIGAMI BUNK BED</span>
-                            <p class="aiero-creation-desc">Full-size adjustable king bed with powder-coated finish.</p>
+                            <p class="aiero-creation-desc">Convertible dual bunk inspired by paper planes and boats.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="aiero-creation-card-wrapper">
+                    <a href="product-details?id=bunk6114" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/nature-bunk-bed-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">NATURE BUNK BED</span>
+                            <p class="aiero-creation-desc">Double-bunk with clouds/mountains patterns and anti-slip steps.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="aiero-creation-card-wrapper">
+                    <a href="product-details?id=sofabunk6094" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/bucharest-sofa-bunk-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">BUCHAREST SOFA BUNK</span>
+                            <p class="aiero-creation-desc">Curvy metallic design that converts into a large sofa.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="aiero-creation-card-wrapper">
+                    <a href="product-details?id=bunk6095" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                        <div class="aiero-creation-img" style="background-image: url('assets/vladivostok-bunk-bed-01.webp');"></div>
+                        <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                            <span class="aiero-creation-label">VLADIVOSTOK BUNK</span>
+                            <p class="aiero-creation-desc">Triple-capacity bunk with super-strong reinforcement. Perfect for hostels.</p>
                         </div>
                     </a>
                 </div>
@@ -78,7 +118,7 @@ include 'header.php';
                 </div>
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=office-locker" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/office-locker-cabinet-01.webp');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-new.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Steel Locker Cabinet</span>
@@ -88,7 +128,7 @@ include 'header.php';
                 </div>
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=tool-cabinet" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-01.webp');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-new.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label">Industrial Tool Cabinet</span>
@@ -131,7 +171,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/precision-metal-frame-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label">Precision Metal Frame</span>
+                            <span class="aiero-creation-label">Precision Metal Frame Door</span>
                             <p class="aiero-creation-desc">Premium designer entry door with custom metalwork patterns.</p>
                         </div>
                     </a>
@@ -151,7 +191,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/dining-set-ds301-02.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label">Stainless Steel Dining Set</span>
+                            <span class="aiero-creation-label">Dining Set</span>
                             <p class="aiero-creation-desc">6-seater premium steel dining table paired with high-back chairs.</p>
                         </div>
                     </a>
@@ -171,7 +211,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/structural-mirror-frame-03.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label">Structural Mirror Frame</span>
+                            <span class="aiero-creation-label">Bathroom Cabinet</span>
                             <p class="aiero-creation-desc">Wall-mount stainless steel bathroom mirror frames.</p>
                         </div>
                     </a>

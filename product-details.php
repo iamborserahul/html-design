@@ -33,7 +33,7 @@ include 'header.php';
             <!-- Right Side: Model Specifications & Highlights -->
             <div class="aiero-about-content" style="gap: 1.5rem;">
                 <span class="aiero-about-tagline" id="details-category-tagline" style="color: #FFC229;">METAL BEDS DIVISION</span>
-                <h2 class="aiero-about-title" id="details-product-title" style="font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 1.25; margin-bottom: 0.5rem;">WOOD METAL BED</h2>
+                <h2 class="aiero-about-title" id="details-product-title" style="font-size: clamp(2rem, 3.2vw, 2.6rem); line-height: 1.25; margin-bottom: 0.5rem;">Platform Metal Bed</h2>
                 
                 <p id="details-short-desc" style="opacity: 0.7; font-size: 1.02rem; line-height: 1.8;">Water & fire proof design with elegant groove design panels, premium emboss outlines, and an adjustable screw-cap leg support grid designed to maximize comfort and structural longevity.</p>
                 

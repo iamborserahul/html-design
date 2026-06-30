@@ -19,7 +19,7 @@ include 'header.php';
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
+                <?php /*<div class="aiero-video-card">
                     <div class="aiero-video-thumbnail" style="background-image: url('assets/metal-bed-7201-01.webp');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -27,7 +27,7 @@ include 'header.php';
                         <span class="aiero-video-stat">150+</span>
                         <span class="aiero-video-desc">PREMIUM WOOD & METAL BED COLLECTION</span>
                     </div>
-                </div>
+                </div>*/?>
             </div>
             <div class="aiero-slide-2d" data-index="1">
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/bathroom-slider.png');"></div>
@@ -39,7 +39,7 @@ include 'header.php';
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
+                <?php /* <div class="aiero-video-card">
                     <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/bathroom-slider.png');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -47,7 +47,7 @@ include 'header.php';
                         <span class="aiero-video-stat">95+</span>
                         <span class="aiero-video-desc">Luxury You Can See. Strength You Can Trust.</span>
                     </div>
-                </div>
+                </div> */ ?>
             </div>
 
             <div class="aiero-slide-2d" data-index="2">
@@ -60,7 +60,7 @@ include 'header.php';
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
+                <?php /*<div class="aiero-video-card">
                     <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/fwardrobe-slider.png');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -68,7 +68,7 @@ include 'header.php';
                         <span class="aiero-video-stat">80+</span>
                         <span class="aiero-video-desc"> Built to Last. Designed to Impress.</span>
                     </div>
-                </div>
+                </div>*/ ?>
             </div>
             <div class="aiero-slide-2d" data-index="3">
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/dining-slider.png');"></div>
@@ -80,7 +80,7 @@ include 'header.php';
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
+                <?php /*<div class="aiero-video-card">
                     <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/dining-slider.png');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -88,7 +88,7 @@ include 'header.php';
                         <span class="aiero-video-stat">120+</span>
                         <span class="aiero-video-desc">Elegance Behind Every Door</span>
                     </div>
-                </div>
+                </div>*/?>
             </div>
             <div class="aiero-slide-2d" data-index="4">
                 <div class="aiero-slide-img" style="background-image: url('assets/slider/gazebo-slider.png');"></div>
@@ -100,7 +100,7 @@ include 'header.php';
                             class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
+                <?php /*<div class="aiero-video-card">
                     <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/gazebo-slider.png');">
                         <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
                     </div>
@@ -108,7 +108,7 @@ include 'header.php';
                         <span class="aiero-video-stat">120+</span>
                         <span class="aiero-video-desc"> Luxury Outdoor Living Redefined</span>
                     </div>
-                </div>
+                </div> */ ?>
             </div>
             <?php /*
             <!-- Slide 1 -->
@@ -532,8 +532,8 @@ include 'header.php';
             <!-- Header -->
             <div class="showcase-header">
                 <span class="showcase-subtitle">SIGNATURE COLLECTION</span>
-                <h2 class="showcase-title">Premium Steel Masterpieces</h2>
-                <p class="showcase-desc-text">Explore our most premium creations, engineered with industrial-strength
+                <h2 class="showcase-title">Value for Money Steel Masterpieces</h2>
+                <p class="showcase-desc-text">Explore our best-value creations, engineered with industrial-strength
                     and designed for state-of-the-art visual aesthetics.</p>
             </div>
 
@@ -550,7 +550,7 @@ include 'header.php';
                         <!-- Top-Left Pill Tags -->
                         <div class="card-tags-overlay">
                             <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">PREMIUM BEDSTEAD</span>
+                            <span class="card-pill-tag">VALUE BEDSTEAD</span>
                         </div>
 
                         <!-- Right Circular Scroll Progress Indicator -->
@@ -566,18 +566,62 @@ include 'header.php';
 
                         <!-- Bottom Content Overlay -->
                         <div class="card-content-overlay">
-                            <span class="card-category">PREMIUM BEDS</span>
-                            <h3 class="card-title">The Aurelia Penthouse Bedstead</h3>
+                            <span class="card-category">VALUE BEDS</span>
+                            <h3 class="card-title">Platform Bed</h3>
                             <div class="card-rating">
                                 <span class="stars">★★★★★</span>
                                 <span class="rating-val">4.9 (124 reviews)</span>
                             </div>
-                            <p class="card-desc">Custom gold-accented steel frame with integrated adjustable sensory
-                                base, engineered for optimal posture support and lifetime durability.</p>
+                            <p class="card-desc">Water & fire proof design with elegant grooved wood color panels, high-quality emboss outlines, and an adjustable screw-cap leg support grid designed to maximize comfort and structural longevity.</p>
                             <div class="card-footer-row">
                                 <div class="card-price"></div>
                                 <div class="card-actions">
-                                    <a href="contact?product=Aurelia%20Penthouse%20Bedstead"
+                                    <a href="contact?product=Platform%20Bed"
+                                        class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                                    <a href="product-details?id=bed7201" class="btn-view-details">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="showcase-card" id="card-2">
+                    <div class="card-inner">
+                        <!-- Full Background Image -->
+                        <div class="card-bg-img" style="background-image: url('assets/adjustable-bad2.png');"></div>
+                        <!-- Gradient Overlay for Legibility -->
+                        <div class="card-gradient-overlay"></div>
+
+                        <!-- Top-Left Pill Tags -->
+                        <div class="card-tags-overlay">
+                            <span class="card-pill-tag">RESIDENTIAL</span>
+                            <span class="card-pill-tag">FOLDING FRAME</span>
+                        </div>
+
+                        <!-- Right Circular Scroll Progress Indicator -->
+                        <div class="card-scroll-indicator">
+                            <svg class="progress-ring" width="60" height="60">
+                                <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)"
+                                    stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
+                                <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2"
+                                    fill="transparent" r="24" cx="30" cy="30" />
+                            </svg>
+                            <span class="progress-val">0%</span>
+                        </div>
+
+                        <!-- Bottom Content Overlay -->
+                        <div class="card-content-overlay">
+                            <span class="card-category">VALUE BEDS</span>
+                            <h3 class="card-title">Adjustable Bed</h3>
+                            <div class="card-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-val">4.8 (95 reviews)</span>
+                            </div>
+                            <p class="card-desc">Heavy structural steel adjustable folding beds with high durability finishes and multi-level customizable resting positions.</p>
+                            <div class="card-footer-row">
+                                <div class="card-price"></div>
+                                <div class="card-actions">
+                                    <a href="contact?product=Adjustable%20Bed"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
                                     <a href="category-beds" class="btn-view-details">View Details</a>
                                 </div>
@@ -585,66 +629,18 @@ include 'header.php';
                         </div>
                     </div>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="showcase-card" id="card-2">
-                    <div class="card-inner">
-                        <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/dining-set-ds301-021.webp');"></div>
-                        <!-- Gradient Overlay for Legibility -->
-                        <div class="card-gradient-overlay"></div>
-
-                        <!-- Top-Left Pill Tags -->
-                        <div class="card-tags-overlay">
-                            <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">CULINARY KITCHEN</span>
-                        </div>
-
-                        <!-- Right Circular Scroll Progress Indicator -->
-                        <div class="card-scroll-indicator">
-                            <svg class="progress-ring" width="60" height="60">
-                                <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)"
-                                    stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
-                                <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2"
-                                    fill="transparent" r="24" cx="30" cy="30" />
-                            </svg>
-                            <span class="progress-val">0%</span>
-                        </div>
-
-                        <!-- Bottom Content Overlay -->
-                        <div class="card-content-overlay">
-                            <span class="card-category">PREMIUM DINING</span>
-                            <h3 class="card-title">The Obsidian Culinary Island</h3>
-                            <div class="card-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-val">5.0 (82 reviews)</span>
-                            </div>
-                            <p class="card-desc">Bespoke heavy-gauge marine stainless steel frame contrasted with
-                                luxurious slab marble, built-in components, and hidden structural elements.</p>
-                            <div class="card-footer-row">
-                                <div class="card-price"></div>
-                                <div class="card-actions">
-                                    <a href="contact?product=Obsidian%20Culinary%20Island"
-                                        class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-dining-bathroom" class="btn-view-details">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Card 3 -->
                 <div class="showcase-card" id="card-3">
                     <div class="card-inner">
                         <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/main-entrance-gate-012.webp');"></div>
+                        <div class="card-bg-img" style="background-image: url('assets/dining.png');"></div>
                         <!-- Gradient Overlay for Legibility -->
                         <div class="card-gradient-overlay"></div>
 
                         <!-- Top-Left Pill Tags -->
                         <div class="card-tags-overlay">
                             <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">SECURITY PORTAL</span>
+                            <span class="card-pill-tag">CULINARY SET</span>
                         </div>
 
                         <!-- Right Circular Scroll Progress Indicator -->
@@ -660,67 +656,19 @@ include 'header.php';
 
                         <!-- Bottom Content Overlay -->
                         <div class="card-content-overlay">
-                            <span class="card-category">BESPOKE GATES</span>
-                            <h3 class="card-title">The Chronos Security Portal</h3>
+                            <span class="card-category">VALUE DINING</span>
+                            <h3 class="card-title">Dining Set</h3>
                             <div class="card-rating">
                                 <span class="stars">★★★★★</span>
-                                <span class="rating-val">4.8 (95 reviews)</span>
+                                <span class="rating-val">5.0 (82 reviews)</span>
                             </div>
-                            <p class="card-desc">An elegant structural safety gate crafted with hand-welded art-deco
-                                bronze detailing and integrated biometric lock systems.</p>
+                            <p class="card-desc">Elegant steel dining table set pairing mirror-polished tubes with comfortable high-back chairs and durable, heat-resistant overlays.</p>
                             <div class="card-footer-row">
                                 <div class="card-price"></div>
                                 <div class="card-actions">
-                                    <a href="contact?product=Chronos%20Security%20Portal" class="btn-shop-now">Shop
-                                        Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-doors" class="btn-view-details">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="showcase-card" id="card-4">
-                    <div class="card-inner">
-                        <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/household-wardrobe-021.webp');"></div>
-                        <!-- Gradient Overlay for Legibility -->
-                        <div class="card-gradient-overlay"></div>
-
-                        <!-- Top-Left Pill Tags -->
-                        <div class="card-tags-overlay">
-                            <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">SECURE STORAGE</span>
-                        </div>
-
-                        <!-- Right Circular Scroll Progress Indicator -->
-                        <div class="card-scroll-indicator">
-                            <svg class="progress-ring" width="60" height="60">
-                                <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)"
-                                    stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
-                                <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2"
-                                    fill="transparent" r="24" cx="30" cy="30" />
-                            </svg>
-                            <span class="progress-val">0%</span>
-                        </div>
-
-                        <!-- Bottom Content Overlay -->
-                        <div class="card-content-overlay">
-                            <span class="card-category">PREMIUM STORAGE</span>
-                            <h3 class="card-title">The Sanctuary Almirah Wardrobe</h3>
-                            <div class="card-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-val">4.9 (140 reviews)</span>
-                            </div>
-                            <p class="card-desc">Ultra-secure steel wardrobe combining a heavy-gauge fire-resistant
-                                carcass, integrated biometric safe vaults, and velvet-lined compartments.</p>
-                            <div class="card-footer-row">
-                                <div class="card-price"></div>
-                                <div class="card-actions">
-                                    <a href="contact?product=Sanctuary%20Almirah%20Wardrobe"
+                                    <a href="contact?product=Dining%20Set"
                                         class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-cupboards" class="btn-view-details">View Details</a>
+                                    <a href="product-details?id=dining-set" class="btn-view-details">View Details</a>
                                 </div>
                             </div>
                         </div>

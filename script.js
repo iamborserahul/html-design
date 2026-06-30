@@ -945,7 +945,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productDatabase = {
         // Bed Division
         "bed7201": {
-            title: "WOOD METAL BED",
+            title: "Platform Metal Bed",
             category: "Metal Beds Division",
             shortDesc: "Water & fire proof design with elegant grooved wood color panels, premium emboss details, and an adjustable leg support screw system constructed for comfort and long structural life.",
             specs: {
@@ -1013,8 +1013,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/origami-bunk-bed-01.webp",
             thumbs: ["assets/origami-bunk-bed-01.webp", "assets/origami-bunk-bed-02.webp", "assets/origami-bunk-bed-03.webp"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds",
-            categoryLabel: "Metal Beds"
+            categoryPage: "category-bunkbeds",
+            categoryLabel: "Bunk Beds"
         },
         "bunk6114": {
             title: "NATURE BUNK BED",
@@ -1037,8 +1037,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/nature-bunk-bed-01.webp",
             thumbs: ["assets/nature-bunk-bed-01.webp", "assets/nature-bunk-bed-02.webp", "assets/nature-bunk-bed-03.webp"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds",
-            categoryLabel: "Metal Beds"
+            categoryPage: "category-bunkbeds",
+            categoryLabel: "Bunk Beds"
         },
         "sofabunk6094": {
             title: "BUCHAREST SOFA BUNK",
@@ -1061,8 +1061,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/bucharest-sofa-bunk-01.webp",
             thumbs: ["assets/bucharest-sofa-bunk-01.webp", "assets/bucharest-sofa-bunk-02.webp", "assets/bucharest-sofa-bunk-03.webp"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds",
-            categoryLabel: "Metal Beds"
+            categoryPage: "category-bunkbeds",
+            categoryLabel: "Bunk Beds"
         },
         "bunk6095": {
             title: "VLADIVOSTOK BUNK BED",
@@ -1085,8 +1085,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/vladivostok-bunk-bed-01.webp",
             thumbs: ["assets/vladivostok-bunk-bed-01.webp", "assets/vladivostok-bunk-bed-02.webp", "assets/vladivostok-bunk-bed-03.webp"],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-beds",
-            categoryLabel: "Metal Beds"
+            categoryPage: "category-bunkbeds",
+            categoryLabel: "Bunk Beds"
         },
 
         // Hospital Division
@@ -1326,8 +1326,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Industrial powder finishes are immune to engine oil or grease",
                 "Adjustable shelf sections adapt to variable storage sizes"
             ],
-            mainImg: "assets/industrial-tool-cabinet-01.webp",
-            thumbs: ["assets/industrial-tool-cabinet-01.webp"],
+            mainImg: "assets/industrial-tool-cabinet-new.jpg",
+            thumbs: ["assets/industrial-tool-cabinet-new.jpg"],
             pdf: "ksi/Cupboard.pdf",
             categoryPage: "category-cupboards",
             categoryLabel: "Storage Cabinets"
@@ -1383,7 +1383,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryLabel: "Metal Doors"
         },
         "structural-frame": {
-            title: "PRECISION METAL FRAME",
+            title: "PRECISION METAL FRAME DOOR",
             category: "Metal Doors & Safety Gates",
             shortDesc: "Custom precision steel facade framing grids, security window bars, and structural iron grilles built to order for commercial or residential architectural layouts.",
             specs: {
@@ -1409,7 +1409,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dining & Bathroom Division
         "dining-set": {
-            title: "STAINLESS STEEL DINING SET",
+            title: "DINING SET",
             category: "Dining & Bathroom Furniture",
             shortDesc: "High-end stainless steel dining set featuring premium mirror-polished tubes, 6 cushioned high-back steel chairs, and a heat-resistant tempered glass or marble top panel.",
             specs: {
@@ -1457,7 +1457,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categoryLabel: "Dining & Bathroom"
         },
         "mirror-frame": {
-            title: "STRUCTURAL MIRROR FRAME",
+            title: "BATHROOM CABINET",
             category: "Dining & Bathroom Furniture",
             shortDesc: "Elegant rust-proof stainless steel wall-mounted mirror frames. Perfect for premium hotel guest suites and luxury household bathroom decors.",
             specs: {

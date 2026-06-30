@@ -41,7 +41,7 @@ include 'header.php';
     </section>
 
     <!-- Product Catalog Grid -->
-    <section class="aiero-creations" id="products-list" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 7rem;">
+    <?php /*<section class="aiero-creations" id="products-list" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 7rem;">
         <div class="aiero-creations-container">
             <div class="aiero-creations-header">
                 <span class="aiero-creations-tagline">CLINICAL SELECTIONS</span>
@@ -122,7 +122,7 @@ include 'header.php';
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
 
     <!-- Download Catalogues Section -->
     <section class="aiero-about" style="padding: 4rem 8% 6rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
@@ -139,7 +139,7 @@ include 'header.php';
                 </div>
             </div>
         </div>
-    </section>
+    </section>*/?>
 
 <?php
 include 'footer.php';

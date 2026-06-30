@@ -32,7 +32,7 @@ include 'header.php';
                 </div>
 
                 <!-- Category 2: Hospital Beds -->
-                <div class="aiero-creation-card-wrapper">
+                <?php /*<div class="aiero-creation-card-wrapper">
                     <a href="category-hospital" class="aiero-creation-card card-float-2" style="display: block;">
                         <div class="aiero-creation-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">ENTER</div>
@@ -41,7 +41,7 @@ include 'header.php';
                             <p class="aiero-creation-desc">ICU Fowler beds, standard ward beds, medicine lockers, saline stands, and patient transport utilities.</p>
                         </div>
                     </a>
-                </div>
+                </div> */ ?>
 
                 <!-- Category 3: Cupboards -->
                 <div class="aiero-creation-card-wrapper">

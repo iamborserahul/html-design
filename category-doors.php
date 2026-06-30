@@ -79,7 +79,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/precision-metal-frame-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">PRECISION METAL FRAME</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">PRECISION METAL FRAME DOOR</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Custom structural iron grids, safety grilles, and building facade framing elements.</p>
                         </div>
                     </a>

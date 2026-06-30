@@ -29,7 +29,7 @@ include 'header.php';
                 <span class="aiero-about-tagline" style="color: #FFC229;">COMPANY HISTORY</span>
                 <h2 class="aiero-about-title" style="font-size: 38px;">About Khodiyar<br>Steel Industries</h2>
                 <div class="aiero-about-desc" style="font-size: 1.02rem; line-height: 1.8;">
-                    <p>Founded in 1998 by Vimal Sakariya, Khodiyar Steel Industries began with a clear vision: to
+                    <p>Founded in 1998 by Vimalbhai Sakariya, Khodiyar Steel Industries began with a clear vision: to
                         manufacture durable, high-quality steel furniture that customers could trust.</p>
                     <p>What started as a small manufacturing operation serving the Indian market has grown into an
                         established metal furniture manufacturer with more than 25 years of industry experience. In the
@@ -41,7 +41,7 @@ include 'header.php';
                         reliability.</p>
                     <p>Today, Khodiyar Steel Industries is a trusted manufacturing partner for distributors, importers,
                         retailers, institutions, and project buyers. We currently manufacture 6,000–8,000 metal beds per
-                        month, with production capacity of up to 10,000 beds per month through our expanded facilities.
+                        month, with production capacity of up to 20,000 beds per month through our expanded facilities.
                     </p>
                     <p
                         style="font-style: italic; color: #FFC229; font-weight: 600; border-left: 2px solid #FFC229; padding-left: 1rem; margin-top: 1.5rem;">
@@ -233,7 +233,7 @@ include 'header.php';
                         <div class="aiero-timeline-year">2024</div>
                         <h4 class="aiero-timeline-title">Expanded Capacity (10k/Month)</h4>
                         <p class="aiero-timeline-desc">Reached a manufacturing capacity of 6,000–8,000 metal beds per
-                            month, with full capabilities scaling up to 10,000 beds per month to serve distributors and
+                            month, with full capabilities scaling up to 20,000 beds per month to serve distributors and
                             project buyers.</p>
                     </div>
                 </div>

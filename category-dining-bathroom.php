@@ -55,7 +55,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/dining-set-ds301-02.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">STAINLESS STEEL DINING SET</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">DINING SET</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Luxury 6-seater dining set with premium mirror-polish tubes and glass/marble top panels.</p>
                         </div>
                     </a>
@@ -79,7 +79,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/structural-mirror-frame-03.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;">STRUCTURAL MIRROR FRAME</span>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">BATHROOM CABINET</span>
                             <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Elegant rust-proof stainless steel decorative frames for premium mirrors and bathroom styling.</p>
                         </div>
                     </a>

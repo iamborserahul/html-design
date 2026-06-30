@@ -88,7 +88,7 @@ include 'header.php';
                 <!-- Card 4 -->
                 <div class="aiero-creation-card-wrapper">
                     <a href="product-details?id=tool-cabinet" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-01.webp');"></div>
+                        <div class="aiero-creation-img" style="background-image: url('assets/industrial-tool-cabinet-new.jpg');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                             <span class="aiero-creation-label" style="font-size: 1.15rem;">INDUSTRIAL TOOL CABINET</span>
