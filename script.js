@@ -943,14 +943,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Dynamic Product Details Page Database & Router
     const productDatabase = {
-        // Bed Division
-        "bed7201": {
-            title: "Platform Metal Bed",
+
+        // Bed Frame (merged Platform + Tube Metal Bed)
+        "bed-frame": {
+            title: "BED FRAME",
             category: "Metal Beds Division",
-            shortDesc: "Water & fire proof design with elegant grooved wood color panels, premium emboss details, and an adjustable leg support screw system constructed for comfort and long structural life.",
+            shortDesc: "Heavy-gauge structural steel bed frames built for maximum load capacity, noise-free welding, and premium powder-coated finishes. Available in platform and tubular designs with adjustable leg support systems.",
             specs: {
                 "Bed Height": "16 inches standard",
-                "Material": "Heavy-gauge structural steel & grooved paneling",
+                "Material": "Heavy-gauge structural steel & grooved paneling / Heavy-wall circular and rectangular steel tubes",
                 "Weld Type": "Seamless anti-noise carbon dioxide welding",
                 "Surface Coating": "Electrostatic thermal powder-coated (7-tank pretreatment)",
                 "Support System": "Adjustable central legs with scratch-proof screw caps",
@@ -960,528 +961,65 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Water & fire proof panels styled in gorgeous wood-grain colors",
                 "Noise-free bedframe engineering prevents metal squeaking",
                 "Anti-rust pre-treatment survives humid and variable climates",
+                "Extremely rigid double-column tubular side posts for high load",
+                "Easy-assemble structure builds up in less than 20 minutes",
                 "Highly customizable width and panel alignments on request"
             ],
             mainImg: "assets/metal-bed-7201-01.webp",
-            thumbs: ["assets/metal-bed-7201-01.webp", "assets/metal-bed-7201-02.webp", "assets/metal-bed-7201-03.webp"],
-            pdf: "ksi/Bedframe.pdf",
-            categoryPage: "category-beds",
-            categoryLabel: "Metal Beds"
-        },
-        "bed7202": {
-            title: "TUBE METAL BED",
-            category: "Metal Beds Division",
-            shortDesc: "Double-reinforced heavy tubular structural bedstead with width-extending rails, full flat sheet tops, and high load capacity, perfect for residential, commercial, or hostel projects.",
-            specs: {
-                "Bed Height": "16 inches standard",
-                "Material": "Heavy-wall circular and rectangular steel tubes",
-                "Weld Type": "Fully welded rigid seam joints",
-                "Surface Coating": "Scratch-resistant textured powder finish",
-                "Top Board Support": "Supports heavy wood board or direct mattress placement",
-                "Extender Kit": "Includes 6-inch side edge wideners"
-            },
-            features: [
-                "Extremely rigid double-column tubular side posts for high load",
-                "Easy-assemble structure builds up in less than 20 minutes",
-                "Non-skid base pads protect structural bedroom tile floors",
-                "Durable textured black powder coat prevents daily scratching"
+            thumbs: [
+                "assets/metal-bed-7201-01.webp",
+                "assets/metal-bed-7201-02.webp",
+                "assets/metal-bed-7201-03.webp",
+                "assets/metal-bed-7202-01.webp",
+                "assets/metal-bed-7202-02.webp",
+                "assets/metal-bed-7202-03.webp"
             ],
-            mainImg: "assets/metal-bed-7202-01.webp",
-            thumbs: ["assets/metal-bed-7202-01.webp", "assets/metal-bed-7202-02.webp", "assets/metal-bed-7202-03.webp"],
             pdf: "ksi/Bedframe.pdf",
-            categoryPage: "category-beds",
-            categoryLabel: "Metal Beds"
+            categoryPage: "products",
+            categoryLabel: "Products"
         },
-        "bunk6115": {
-            title: "ORIGAMI BUNK BED",
-            category: "Home & Bunk Beds Edition",
-            shortDesc: "Beautiful double bunk bed inspired by paper planes and boats, specifically designed to spark the imagination of kids. Splits easily into two fully independent standard single beds.",
+
+        // Bunk Bed (all 4 models consolidated)
+        "bunk-bed": {
+            title: "BUNK BED",
+            category: "Metal Beds Division",
+            shortDesc: "Premium convertible double-decker bunk beds, themed kids designs, and heavy-duty triple sleepers constructed with rounded profiles, high safety rails, and dynamic space-saving configurations.",
             specs: {
-                "Dimensions": "198L x 98W x 175H cm",
-                "Material": "Premium sheet steel with curved safety posts",
+                "Dimensions": "198L x 98W x 175H cm standard (with double decker/triple decker options)",
+                "Material": "Premium sheet and tubular structural carbon steel",
                 "Theme Options": "Clouds, Mountains, Plane, or Boat designs",
-                "Standard Colors": "Paris Scarlet, Bumblebee Yellow, Pepsi Blue, Ivory White",
-                "Steps Guard": "Anti-slip ribbed steel flat stairs",
-                "Guard Rails": "High-altitude boundary safety bars on all sides"
+                "Standard Colors": "Paris Scarlet, Bumblebee Yellow, Pepsi Blue, Ivory White, Charcoal, Graphite, Mulberry, Cappuccino",
+                "Guard Rails": "High-altitude boundary safety bars on all sides",
+                "Versatility": "Converts easily to two independent single beds or sofa layout"
             },
             features: [
-                "Fully convertible dual-conversion bunk bed framework",
-                "No visible sharp bolts or joints to protect playful kids",
-                "Completely fire-safe and odorless organic powder coatings",
-                "Flat-pack boxing ensures easy shipment and transport"
+                "Child-Safe Construction: Rounded profiles and concealed joints to protect playing children",
+                "Convertible Framework: Splits seamlessly into two independent single beds as needs change",
+                "Sofa Bunk Conversion: Seamlessly transitions into a spacious couch in under 30 seconds",
+                "Triple Sleeper Layout: Super-reinforced frame built to support three adults safely",
+                "Odorless & Fire-Safe Organic Coatings: Electrostatic powder coat baked for maximum durability"
             ],
             mainImg: "assets/origami-bunk-bed-01.webp",
-            thumbs: ["assets/origami-bunk-bed-01.webp", "assets/origami-bunk-bed-02.webp", "assets/origami-bunk-bed-03.webp"],
+            thumbs: [
+                "assets/origami-bunk-bed-01.webp",
+                "assets/origami-bunk-bed-02.webp",
+                "assets/origami-bunk-bed-03.webp",
+                "assets/nature-bunk-bed-01.webp",
+                "assets/nature-bunk-bed-02.webp",
+                "assets/nature-bunk-bed-03.webp",
+                "assets/bucharest-sofa-bunk-01.webp",
+                "assets/bucharest-sofa-bunk-02.webp",
+                "assets/bucharest-sofa-bunk-03.webp",
+                "assets/vladivostok-bunk-bed-01.webp",
+                "assets/vladivostok-bunk-bed-02.webp",
+                "assets/vladivostok-bunk-bed-03.webp"
+            ],
             pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-bunkbeds",
-            categoryLabel: "Bunk Beds"
-        },
-        "bunk6114": {
-            title: "NATURE BUNK BED",
-            category: "Home & Bunk Beds Edition",
-            shortDesc: "Double decker bed inspired by scenic drawings, offering customized clouds or mountains pattern frames. Seamlessly separates into two single beds as children grow.",
-            specs: {
-                "Dimensions": "198L x 98W x 175H cm",
-                "Material": "High-strength seamless carbon steel profiles",
-                "Panels": "Acoustic insulated grooved decorative sheets",
-                "Available Shades": "Multi-shade pastel color palettes",
-                "Weld Class": "Zero-rattle structural joints",
-                "Ladder": "Integrated vertical structural steel ladder"
-            },
-            features: [
-                "Whimsical child-friendly patterns laser-etched onto side guards",
-                "Rigid heavy-post structure prevents structural shaking",
-                "Durable and completely scratch-proof enamel baked finishes",
-                "Engineered for easy assembly and dismantling"
-            ],
-            mainImg: "assets/nature-bunk-bed-01.webp",
-            thumbs: ["assets/nature-bunk-bed-01.webp", "assets/nature-bunk-bed-02.webp", "assets/nature-bunk-bed-03.webp"],
-            pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-bunkbeds",
-            categoryLabel: "Bunk Beds"
-        },
-        "sofabunk6094": {
-            title: "BUCHAREST SOFA BUNK",
-            category: "Home & Bunk Beds Edition",
-            shortDesc: "The ultimate double agent furniture piece. High-end curvy modern double bunk bed that converts seamlessly into a large luxurious couch, perfect for dynamic space-saving.",
-            specs: {
-                "Dimensions": "198L x 98W x 174H cm",
-                "Material": "Bending grade heavy steel tubes",
-                "Mechanism": "Premium hinge counterweight slider system",
-                "Mattress Fit": "Standard 4-inch padding compatibility",
-                "Load Capacity": "Up to 150kg on top deck, 220kg on lower sofa level",
-                "Coating": "Metallic charcoal, MULBERRY, or CAPPUCCINO colors"
-            },
-            features: [
-                "Converts from standard sofa to bunk bed in under 30 seconds",
-                "Curved side guards act as armrests in sofa configuration",
-                "Perfect for modern penthouses and guest sleeping suites",
-                "Rigid locking safety locks ensure stable bed placement"
-            ],
-            mainImg: "assets/bucharest-sofa-bunk-01.webp",
-            thumbs: ["assets/bucharest-sofa-bunk-01.webp", "assets/bucharest-sofa-bunk-02.webp", "assets/bucharest-sofa-bunk-03.webp"],
-            pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-bunkbeds",
-            categoryLabel: "Bunk Beds"
-        },
-        "bunk6095": {
-            title: "VLADIVOSTOK BUNK BED",
-            category: "Home & Bunk Beds Edition",
-            shortDesc: "Triple-capacity bunk bed built for ultimate durability. Perfect for energetic kids pillow fights and bulk hostel environments requiring maximum strength.",
-            specs: {
-                "Dimensions": "198L x 155W x 170H cm",
-                "Lower Deck Fit": "Standard double bed sizing (155cm width)",
-                "Upper Deck Fit": "Standard single bed sizing (98cm width)",
-                "Material": "Reinforced thick-wall steel tubing grid",
-                "Weight limit": "Supports three adults safely",
-                "Colors": "Charcoal Black, Graphite, Mulberry, Ivory"
-            },
-            features: [
-                "Bunk bed structure fits three sleeper capacities comfortably",
-                "Rigid double post anchors prevent shaking under heavy motion",
-                "Epoxy powder pre-treatments prevent paint cracking",
-                "Wide-step ladders prevent foot fatigue while climbing"
-            ],
-            mainImg: "assets/vladivostok-bunk-bed-01.webp",
-            thumbs: ["assets/vladivostok-bunk-bed-01.webp", "assets/vladivostok-bunk-bed-02.webp", "assets/vladivostok-bunk-bed-03.webp"],
-            pdf: "ksi/Bedroom.pdf",
-            categoryPage: "category-bunkbeds",
-            categoryLabel: "Bunk Beds"
+            categoryPage: "products",
+            categoryLabel: "Products"
         },
 
-        // Hospital Division
-        "icu-bed": {
-            title: "ICU FOWLER BED",
-            category: "Hospital Equipment & Beds",
-            shortDesc: "Rigid multi-position adjustable clinical ICU bed featuring independent hand cranks for backrest and knee rest, collapsing steel side railings, and medical locking wheel grids.",
-            specs: {
-                "Dimensions": "205L x 90W x 60H cm standard",
-                "Material": "Thick-walled seamless tubes & steel mesh top",
-                "Positioning": "Dual-crank fowler system (backrest 75°, knee-rest 45°)",
-                "Finishing": "Anti-microbial epoxy-polyester powder coating",
-                "Side Rails": "Collapsible heavy-duty side guard grills",
-                "Casters": "4 wheels, 125mm size with dual lock foot brakes"
-            },
-            features: [
-                "Anti-microbial surface treatment survives rigorous sanitization",
-                "Heavy cranking gears operate smoothly with minimum force",
-                "Includes corner buffer wheels and telescoping IV stand mounts",
-                "Engineered to withstand heavy clinical ward loads up to 250kg"
-            ],
-            mainImg: "assets/icu-fowler-bed-01.webp",
-            thumbs: ["assets/icu-fowler-bed-01.webp"],
-            pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital",
-            categoryLabel: "Hospital Beds"
-        },
-        "semi-fowler": {
-            title: "SEMI-FOWLER BED",
-            category: "Hospital Equipment & Beds",
-            shortDesc: "Standard ward semi-fowler bed with single mechanical crank for smooth backrest adjustment, durable head and foot boards, and anti-corrosive powder finish.",
-            specs: {
-                "Dimensions": "200L x 90W x 55H cm",
-                "Material": "Rectangular structural carbon steel section",
-                "Adjustment": "Single crank (backrest elevation up to 70°)",
-                "Panel Guards": "Bespoke laminated head/foot boards",
-                "Finish": "Oven-baked anti-microbial paint layer",
-                "Mounts": "Integrated IV pole insertion sockets"
-            },
-            features: [
-                "Extremely reliable and basic ward model with zero maintenance",
-                "High chemical resistance to clinical washing and disinfectants",
-                "Smooth cranking mechanism prevents patient jarring during use",
-                "Laminated boards offer a clean aesthetic on hospital floors"
-            ],
-            mainImg: "assets/semi-fowler-bed-01.webp",
-            thumbs: ["assets/semi-fowler-bed-01.webp"],
-            pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital",
-            categoryLabel: "Hospital Beds"
-        },
-        "ward-bed": {
-            title: "WARD PLAIN BED",
-            category: "Hospital Equipment & Beds",
-            shortDesc: "Basic plain hospital ward bed engineered with high-gauge steel pipes and flat steel mesh panels. Perfect for high-capacity medical setups and clinic wards.",
-            specs: {
-                "Dimensions": "195L x 90W x 50H cm",
-                "Material": "Seamless steel pipe outline",
-                "Deck Panel": "Four-section rigid steel mesh board",
-                "Load Capacity": "Supports up to 200kg static load",
-                "Coating": "Anti-static epoxy white powder finish",
-                "Assembly": "Knock-down configuration with fast hook locks"
-            },
-            features: [
-                "Designed for quick bulk ward deployment under flat-pack shipping",
-                "Zero mechanical components ensures unlimited service life",
-                "Strong tubular posts survive heavy usage without bending",
-                "Anti-rust pretreatment prevents damage under daily cleanings"
-            ],
-            mainImg: "assets/ward-bed-01.webp",
-            thumbs: ["assets/ward-bed-01.webp"],
-            pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital",
-            categoryLabel: "Hospital Beds"
-        },
-        "bedside-locker": {
-            title: "BEDSIDE LOCKER CABINET",
-            category: "Hospital Equipment & Beds",
-            shortDesc: "Rust-proof, high-durability medical bedside locker cupboard featuring a single drawer, spacious bottom cabinet, and integrated towel rails for patient convenience.",
-            specs: {
-                "Dimensions": "40L x 40W x 80H cm standard",
-                "Material": "Premium sheet metal with polished steel handles",
-                "Shelves": "Single top drawer and bottom cabinet with middle shelf",
-                "Accessories": "Dual side towel bars & secure lock keys",
-                "Finishing": "Anti-microbial chemical-resistant white powder coat",
-                "Base support": "Scratch-resistant thick rubber buffer feet"
-            },
-            features: [
-                "Provides bedside utility storage for medicine and patient records",
-                "Stainless steel cabinet top provides high hygiene surface",
-                "Easy-clean interior panels with zero corner dust traps",
-                "Rigid locks protect clinical items and patient belongings"
-            ],
-            mainImg: "assets/bedside-locker-01.webp",
-            thumbs: ["assets/bedside-locker-01.webp"],
-            pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital",
-            categoryLabel: "Hospital Beds"
-        },
-        "saline-stand": {
-            title: "IV SALINE STAND",
-            category: "Hospital Equipment & Beds",
-            shortDesc: "Height adjustable chrome-plated steel IV saline stand with four utility hooks, locking telescoping shafts, and rolling caster base wheels.",
-            specs: {
-                "Height Range": "135 cm to 230 cm adjustable",
-                "Material": "Chrome-plated stainless steel telescoping rod",
-                "Hooks": "4 anti-slip hanging loops",
-                "Lock System": "Ergonomic compression screw locking cap",
-                "Base Grid": "5-legged weighted rolling base caster wheels",
-                "Casters": "50mm high-grade nylon wheels"
-            },
-            features: [
-                "Smooth height sliding allows quick setups for medical staff",
-                "Weighted star-pattern base prevents tipping under heavy drip bag load",
-                "Standard medical-grade chrome resists biological stains and rust",
-                "Nylon casters roll silently across hospital tile grids"
-            ],
-            mainImg: "assets/saline-stand-03.webp",
-            thumbs: ["assets/saline-stand-03.webp"],
-            pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital",
-            categoryLabel: "Hospital Beds"
-        },
-        "stretcher": {
-            title: "PATIENT TRANSPORT STRETCHER",
-            category: "Hospital Equipment & Beds",
-            shortDesc: "High-grade patient transport trolley featuring a removable canvas or metal stretcher top, heavy steel support pipes, and rotating wheels with bumpers.",
-            specs: {
-                "Dimensions": "190L x 60W x 80H cm standard",
-                "Material": "Carbon-steel structural pipe trolley",
-                "Stretcher Top": "Removable steel sheet stretcher with carrying handles",
-                "Casters": "150mm rotating medical wheels (two brake lock)",
-                "Bumper": "Corner circular rubber protection bumper pads",
-                "Oxygen Mount": "Integrated cylinder holder ring at bottom"
-            },
-            features: [
-                "Removable stretcher allows quick and safe transport transfers",
-                "Thick bumper wheels protect hospital walls from mechanical impacts",
-                "High-capacity trolley framework handles up to 180kg patient load",
-                "Polyester baked finish ensures chemical sterilization resistance"
-            ],
-            mainImg: "assets/stretcher-01.webp",
-            thumbs: ["assets/stretcher-01.webp"],
-            pdf: "ksi/Hospital Equipment and Furniture.pdf",
-            categoryPage: "category-hospital",
-            categoryLabel: "Hospital Beds"
-        },
-
-        // Cupboard Division
-        "wardrobe": {
-            title: "HOUSEHOLD WARDROBE",
-            category: "Steel Cupboards & Storage",
-            shortDesc: "Three-door luxury household steel wardrobe cupboard featuring multi-tier clothing sections, secure dual locking lockers, and high-gloss premium color panel layouts.",
-            specs: {
-                "Dimensions": "195H x 120W x 50D cm standard",
-                "Material": "Cold-rolled high-strength sheet metal sheets",
-                "Shelves": "5 interior racks, hanging rod, and security locker",
-                "Lock System": "Three-way bullet locking bolt with key cylinders",
-                "Internal Safe": "Secret secondary digital drawer locker compatibility",
-                "Coating": "High-temperature baked textured enamel"
-            },
-            features: [
-                "Durable three-way latch locks protect high-value household items",
-                "Premium paint shades (Royal Blue, Chocolate, Ivory) available",
-                "Oven-baked phosphating treatment ensures lifetime rust protection",
-                "Integrated premium glass mirror pane on door face on request"
-            ],
-            mainImg: "assets/household-wardrobe-02.webp",
-            thumbs: ["assets/household-wardrobe-02.webp"],
-            pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards",
-            categoryLabel: "Storage Cabinets"
-        },
-        "sliding-almirah": {
-            title: "SLIDING MODULAR ALMIRAH",
-            category: "Steel Cupboards & Storage",
-            shortDesc: "Premium sliding-door modular steel almirah featuring ultra-smooth ball-bearing tracks, space-saving layouts, and textured modern wood color panels.",
-            specs: {
-                "Dimensions": "198H x 135W x 55D cm",
-                "Material": "High-gauge structural carbon steel framing sheets",
-                "Sliding Track": "High-precision dust-proof steel tracks",
-                "Drawer count": "3 internal utility drawers and locker",
-                "Hanger Rod": "Dual chrome-plated steel hanging pipes",
-                "Finishing": "Multi-shade textured styling overlays"
-            },
-            features: [
-                "Sliding door design maximizes usable floor room in bedrooms",
-                "Double-cushioned door edges prevent mechanical clattering noises",
-                "Fully adjustable shelf heights to arrange clothing sizes",
-                "Ultra-sleek modern handle profiles with premium safety latch"
-            ],
-            mainImg: "assets/sliding-almirah-01.webp",
-            thumbs: ["assets/sliding-almirah-01.webp"],
-            pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards",
-            categoryLabel: "Storage Cabinets"
-        },
-        "office-locker": {
-            title: "SECURE OFFICE LOCKER",
-            category: "Steel Cupboards & Storage",
-            shortDesc: "Heavy-duty multi-door steel office locker cabinet featuring individual secure key latches, index label slots, and modular space-saving designs.",
-            specs: {
-                "Dimensions": "180H x 90W x 45D cm standard",
-                "Locker doors": "6, 9, or 12 individual compartments",
-                "Lock Class": "Secure individual locks with duplicate master keys",
-                "Ventilation": "Laser-cut air ventilation louvers on doors",
-                "Label Slot": "Integrated plastic card naming plate holders",
-                "Coating": "Industrial scratch-proof light grey powder coat"
-            },
-            features: [
-                "Provides secure temporary storage for staff, students, or visitors",
-                "Durable structural steel doors stand up to millions of slams",
-                "Air vents prevent internal moisture or odors from developing",
-                "Modular vertical grids stack seamlessly side-by-side"
-            ],
-            mainImg: "assets/office-locker-cabinet-01.webp",
-            thumbs: ["assets/office-locker-cabinet-01.webp"],
-            pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards",
-            categoryLabel: "Storage Cabinets"
-        },
-        "tool-cabinet": {
-            title: "INDUSTRIAL TOOL CABINET",
-            category: "Steel Cupboards & Storage",
-            shortDesc: "High-load industrial tooling rack cabinet designed with reinforced door ribs, massive load capacities per shelf, and multi-latch mechanical lock handles.",
-            specs: {
-                "Dimensions": "185H x 100W x 50D cm",
-                "Sheet Gauge": "Thick 1.2mm structural steel sheets",
-                "Load per shelf": "Up to 120kg weight capacity per panel",
-                "Door reinforcement": "Welded internal double steel hat sections",
-                "Lock Mechanism": "Heavy-handle three-point rod locking grid",
-                "Finishing": "High-durability hammer-tone powder coating"
-            },
-            features: [
-                "Massive loading capacity safely stores heavy machine tools",
-                "Reinforced double-hat door bars prevent doors from warping",
-                "Industrial powder finishes are immune to engine oil or grease",
-                "Adjustable shelf sections adapt to variable storage sizes"
-            ],
-            mainImg: "assets/industrial-tool-cabinet-new.jpg",
-            thumbs: ["assets/industrial-tool-cabinet-new.jpg"],
-            pdf: "ksi/Cupboard.pdf",
-            categoryPage: "category-cupboards",
-            categoryLabel: "Storage Cabinets"
-        },
-
-        // Doors Division
-        "safety-door": {
-            title: "FIRE SAFETY DOOR",
-            category: "Metal Doors & Safety Gates",
-            shortDesc: "Heavy double-plated steel fire safety door designed with acoustic insulated mineral fills, solid structural steel frame rebated hinges, and multi-point secure lock systems.",
-            specs: {
-                "Standard Sizing": "210H x 95W cm (Customizable ratios)",
-                "Sheet Thickness": "1.2mm outer skin, 1.5mm inner frame steel",
-                "Core Infills": "Fire-resistant rockwool or mineral soundproof fill",
-                "Lock box": "Three-point mechanical safety locking system",
-                "Hinges": "Heavy-duty steel pivot hinges",
-                "Finish": "Industrial anti-corrosive prime baked paint"
-            },
-            features: [
-                "Double-plated construction ensures high fire and smoke seals",
-                "Soundproof acoustic core significantly deadens structural corridor noise",
-                "Reinforced strike panels prevent forced mechanical entry",
-                "Bespoke designs can be laser cut to fit specialized frame grids"
-            ],
-            mainImg: "assets/fire-safety-door-03.webp",
-            thumbs: ["assets/fire-safety-door-03.webp"],
-            pdf: "ksi/Door.pdf",
-            categoryPage: "category-doors",
-            categoryLabel: "Metal Doors"
-        },
-        "entrance-gate": {
-            title: "MAIN ENTRANCE GATE",
-            category: "Metal Doors & Safety Gates",
-            shortDesc: "Bespoke structural entrance security gates designed with gorgeous modern geometric grilles, heavy steel hollow sections, and custom weather-proof styling.",
-            specs: {
-                "Dimensions": "Custom fabricated to entrance layouts",
-                "Frame Material": "Extra-gauge square hollow steel tube profiles",
-                "Infill rods": "Laser-cut sheet grilles and steel panels",
-                "Hinge System": "Large industrial ball-bearing gate hinges",
-                "Lock Type": "Deadbolt locking box with secondary latch mount",
-                "Surface Coating": "Multi-stage epoxy primer + premium outer enamel"
-            },
-            features: [
-                "Custom visual outline matches modern architectural frontages",
-                "Industrial hinges ensure smooth opening swing with zero sag",
-                "Extremely tough fabrication resists physical impacts and wind",
-                "High weather-resistance survives intense monsoon and summer sun"
-            ],
-            mainImg: "assets/main-entrance-gate-01.webp",
-            thumbs: ["assets/main-entrance-gate-01.webp", "assets/main-entrance-gate-02.webp", "assets/main-entrance-gate-03.webp"],
-            pdf: "ksi/Door.pdf",
-            categoryPage: "category-doors",
-            categoryLabel: "Metal Doors"
-        },
-        "structural-frame": {
-            title: "PRECISION METAL FRAME DOOR",
-            category: "Metal Doors & Safety Gates",
-            shortDesc: "Custom precision steel facade framing grids, security window bars, and structural iron grilles built to order for commercial or residential architectural layouts.",
-            specs: {
-                "Sizing Limits": "Fabricated to builder cad blueprint values",
-                "Tube Grades": "Standard structural carbon steel tubes",
-                "Welding Standard": "Seamless full-penetration structural welds",
-                "Finish Option": "Hot-dip galvanizing or primer coating",
-                "Anchor Style": "Heavy anchor plates for concrete installation",
-                "Tensile Strength": "High load structural capacity certifications"
-            },
-            features: [
-                "Fabricated with extreme dimensional tolerances to fit building grids",
-                "Full-penetration welds guarantee unlimited load resistance",
-                "Perfect for high-altitude architectural grilles and safety windows",
-                "Available with thermal rust-inhibitor galvanizing treatments"
-            ],
-            mainImg: "assets/precision-metal-frame-01.webp",
-            thumbs: ["assets/precision-metal-frame-01.webp", "assets/precision-metal-frame-02.webp", "assets/precision-metal-frame-03.webp"],
-            pdf: "ksi/Door.pdf",
-            categoryPage: "category-doors",
-            categoryLabel: "Metal Doors"
-        },
-
-        // Dining & Bathroom Division
-        "dining-set": {
-            title: "DINING SET",
-            category: "Dining & Bathroom Furniture",
-            shortDesc: "High-end stainless steel dining set featuring premium mirror-polished tubes, 6 cushioned high-back steel chairs, and a heat-resistant tempered glass or marble top panel.",
-            specs: {
-                "Table Size": "180L x 90W x 75H cm (6-Seater standard)",
-                "Chair Sizing": "45W x 45D x 95H cm standard",
-                "Frame Material": "Grade 304 mirror-polished stainless steel tubes",
-                "Top Board": "12mm tempered safety glass or luxury white marble",
-                "Chair Padding": "High-density foam with leatherette upholstery",
-                "Feet Pads": "Non-marking plastic floor gliding guides"
-            },
-            features: [
-                "Grade 304 stainless steel frame ensures zero rust and lifetime polish",
-                "Mirror-finish steel creates a luxurious, premium dining room aesthetic",
-                "Tempered glass top panel is completely heat and scratch resistant",
-                "Cushioned high-back steel chairs offer extreme seating comfort"
-            ],
-            mainImg: "assets/dining-set-ds301-02.webp",
-            thumbs: ["assets/dining-set-ds301-02.webp", "assets/dining-set-ds301-01.webp", "assets/dining-set-ds301-03.webp"],
-            pdf: "ksi/Dinning Set.pdf",
-            categoryPage: "category-dining-bathroom",
-            categoryLabel: "Dining & Bathroom"
-        },
-        "vanity-cabinet": {
-            title: "MODULAR VANITY CABINET",
-            category: "Dining & Bathroom Furniture",
-            shortDesc: "Rust-proof and moisture-resistant stainless steel under-basin bathroom vanity cabinet featuring soft-close hinges, modular shelving, and a sleek glossy finish.",
-            specs: {
-                "Dimensions": "80W x 50D x 60H cm (Custom sizing)",
-                "Material": "Rust-proof sheet stainless steel with powder finish",
-                "Door Hinges": "Premium hydraulic soft-close damping hinges",
-                "Internal Rack": "Modular storage shelf with plumbing passage cut",
-                "Coating": "Damp-proof polyester white/grey paint layers",
-                "Handle Type": "Integrated invisible finger-pull grooves"
-            },
-            features: [
-                "Specially engineered to resist high humidity and direct splashing",
-                "Soft-close damping hinges prevent doors from slamming in wet areas",
-                "Integrated plumbing slot fits standard sink pipes cleanly",
-                "Polished steel surface rejects hard water stains and soap scale"
-            ],
-            mainImg: "assets/modular-vanity-cabinet-01.webp",
-            thumbs: ["assets/modular-vanity-cabinet-01.webp", "assets/modular-vanity-cabinet-02.webp", "assets/modular-vanity-cabinet-03.webp"],
-            pdf: "ksi/Bathroom Cabinet.pdf",
-            categoryPage: "category-dining-bathroom",
-            categoryLabel: "Dining & Bathroom"
-        },
-        "mirror-frame": {
-            title: "BATHROOM CABINET",
-            category: "Dining & Bathroom Furniture",
-            shortDesc: "Elegant rust-proof stainless steel wall-mounted mirror frames. Perfect for premium hotel guest suites and luxury household bathroom decors.",
-            specs: {
-                "Dimensions": "75 cm diameter or 80 x 60 cm rectangular",
-                "Frame Width": "5 cm standard rim",
-                "Material": "Mirror-polish or brush-finished stainless steel rim",
-                "Mirror type": "High-clarity 5mm silver backing glass",
-                "Mounting": "Heavy wall-hanging keyhole anchor tabs",
-                "Rust Proof": "Standard moisture barrier backing sheets"
-            },
-            features: [
-                "Provides a beautiful sleek metal outline around bathroom mirrors",
-                "Grade 304 steel guarantees zero rust spots behind vanity sinks",
-                "Integrated damp-proof backing prevents silvering damage on glass",
-                "Simple, strong keyhole brackets allow secure and level mounting"
-            ],
-            mainImg: "assets/structural-mirror-frame-03.webp",
-            thumbs: ["assets/structural-mirror-frame-03.webp"],
-            pdf: "ksi/Bathroom Cabinet.pdf",
-            categoryPage: "category-dining-bathroom",
-            categoryLabel: "Dining & Bathroom"
-        },
-
-        // Outdoor Division
+        // Gazebo
         "gazebo": {
             title: "GARDEN STEEL GAZEBO",
             category: "Outdoor Metal Structures",
@@ -1503,32 +1041,86 @@ document.addEventListener('DOMContentLoaded', () => {
             mainImg: "assets/garden-steel-gazebo-02.webp",
             thumbs: ["assets/garden-steel-gazebo-02.webp", "assets/garden-steel-gazebo-03.webp"],
             pdf: "ksi/Gazebo.pdf",
-            categoryPage: "category-outdoor",
-            categoryLabel: "Outdoor Structures"
+            categoryPage: "products",
+            categoryLabel: "Products"
         },
-        "poolside-recliner": {
-            title: "POOLSIDE RECLINER CHAIR",
-            category: "Outdoor Metal Structures",
-            shortDesc: "All-weather folding poolside recliner chair featuring multi-level backrest reclining angles, sturdy steel framing, and premium anti-rust styling overlays.",
+
+        // Locker
+        "locker": {
+            title: "STEEL LOCKER",
+            category: "Steel Cupboards & Storage",
+            shortDesc: "Heavy-duty multi-door steel office locker cabinet featuring individual secure key latches, index label slots, ventilation louvers, and modular space-saving designs for offices, schools, and institutions.",
             specs: {
-                "Dimensions": "185L x 60W x 35H cm standard",
-                "Material": "High-gauge structural hollow steel profiles",
-                "Reclining angles": "4 adjustable reclining slots",
-                "Weight limit": "Supports up to 160kg safely",
-                "Coating": "Thermoset high-weather polyester powder coating",
-                "Mesh Fit": "Supports structural waterproof mesh fabric panels"
+                "Dimensions": "180H x 90W x 45D cm standard",
+                "Locker doors": "6, 9, or 12 individual compartments",
+                "Lock Class": "Secure individual locks with duplicate master keys",
+                "Ventilation": "Laser-cut air ventilation louvers on doors",
+                "Label Slot": "Integrated plastic card naming plate holders",
+                "Coating": "Industrial scratch-proof light grey powder coat"
             },
             features: [
-                "Multi-level back adjustability allows relaxing resting poses",
-                "Rust-proof powder finishes survive chlorinated pool splasings",
-                "Lightweight structural engineering allows easy deck moving",
-                "Folding post design stacks compactly for off-season storage"
+                "Provides secure temporary storage for staff, students, or visitors",
+                "Durable structural steel doors stand up to millions of slams",
+                "Air vents prevent internal moisture or odors from developing",
+                "Modular vertical grids stack seamlessly side-by-side"
             ],
-            mainImg: "assets/poolside-recliner-chair-01.webp",
-            thumbs: ["assets/poolside-recliner-chair-01.webp"],
-            pdf: "ksi/Adjustable Bed & Poolside Chair.pdf",
-            categoryPage: "category-outdoor",
-            categoryLabel: "Outdoor Structures"
+            mainImg: "assets/office-locker-cabinet-01.webp",
+            thumbs: ["assets/office-locker-cabinet-01.webp"],
+            pdf: "ksi/Cupboard.pdf",
+            categoryPage: "products",
+            categoryLabel: "Products"
+        },
+
+        // Dining Set
+        "dining-set": {
+            title: "DINING SET",
+            category: "Dining & Bathroom Furniture",
+            shortDesc: "High-end stainless steel dining set featuring premium mirror-polished tubes, 6 cushioned high-back steel chairs, and a heat-resistant tempered glass or marble top panel.",
+            specs: {
+                "Table Size": "180L x 90W x 75H cm (6-Seater standard)",
+                "Chair Sizing": "45W x 45D x 95H cm standard",
+                "Frame Material": "Grade 304 mirror-polished stainless steel tubes",
+                "Top Board": "12mm tempered safety glass or luxury white marble",
+                "Chair Padding": "High-density foam with leatherette upholstery",
+                "Feet Pads": "Non-marking plastic floor gliding guides"
+            },
+            features: [
+                "Grade 304 stainless steel frame ensures zero rust and lifetime polish",
+                "Mirror-finish steel creates a luxurious, premium dining room aesthetic",
+                "Tempered glass top panel is completely heat and scratch resistant",
+                "Cushioned high-back steel chairs offer extreme seating comfort"
+            ],
+            mainImg: "assets/dining-set-ds301-02.webp",
+            thumbs: ["assets/dining-set-ds301-02.webp", "assets/dining-set-ds301-01.webp", "assets/dining-set-ds301-03.webp"],
+            pdf: "ksi/Dinning Set.pdf",
+            categoryPage: "products",
+            categoryLabel: "Products"
+        },
+
+        // Wardrobe
+        "wardrobe": {
+            title: "HOUSEHOLD WARDROBE",
+            category: "Steel Cupboards & Storage",
+            shortDesc: "Three-door luxury household steel wardrobe cupboard featuring multi-tier clothing sections, secure dual locking lockers, and high-gloss premium color panel layouts.",
+            specs: {
+                "Dimensions": "195H x 120W x 50D cm standard",
+                "Material": "Cold-rolled high-strength sheet metal sheets",
+                "Shelves": "5 interior racks, hanging rod, and security locker",
+                "Lock System": "Three-way bullet locking bolt with key cylinders",
+                "Internal Safe": "Secret secondary digital drawer locker compatibility",
+                "Coating": "High-temperature baked textured enamel"
+            },
+            features: [
+                "Durable three-way latch locks protect high-value household items",
+                "Premium paint shades (Royal Blue, Chocolate, Ivory) available",
+                "Oven-baked phosphating treatment ensures lifetime rust protection",
+                "Integrated premium glass mirror pane on door face on request"
+            ],
+            mainImg: "assets/household-wardrobe-02.webp",
+            thumbs: ["assets/household-wardrobe-02.webp"],
+            pdf: "ksi/Cupboard.pdf",
+            categoryPage: "products",
+            categoryLabel: "Products"
         }
     };
 

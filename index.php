@@ -447,7 +447,7 @@ include 'header.php';
                         <div class="aiero-creation-img" style="background-image: url('assets/images/bad.png');"></div>
                         <div class="aiero-creation-view-more">VIEW MORE</div>
                         <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Metal Beds & Adjustable Beds</span>
+                            <span class="aiero-creation-label">Metal Bed Frames</span>
                             <p class="aiero-creation-desc">Durable and comfortable steel beds designed for homes,
                                 hostels,
                                 hospitals, and commercial sectors.</p>

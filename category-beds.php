@@ -1,5 +1,5 @@
 <?php
-$title = "Metal Beds & Adjustable Beds | Khodiyar Steel";
+$title = "Metal Bed Frames | Khodiyar Steel";
 $description = "Explore our high-end luxury steel beds, heavy-duty structural bedframes, poolside loungers, and bedroom almirahs manufactured by Khodiyar Steel.";
 $page = "products";
 include 'header.php';
@@ -11,7 +11,7 @@ include 'header.php';
         <div class="aiero-slide-content"
             style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline">CATEGORY PROFILE</span>
-            <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Metal Beds & Adjustable Beds</h1>
+            <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Metal Bed Frames</h1>
             <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;">Luxury
                 structural steel beds, folding adjustable mechanisms, poolside chairs, and bedroom styling sets
                 constructed for maximum comfort and durability.</p>
@@ -23,7 +23,7 @@ include 'header.php';
         <div class="aiero-about-container" style="grid-template-columns: 1fr 1fr; gap: 5rem;">
             <div class="aiero-about-content">
                 <span class="aiero-about-tagline" style="color: #FFC229;">PRODUCT FEATURES</span>
-                <h2 class="aiero-about-title" style="font-size: 36px;">Premium Metal Beds & Frames</h2>
+                <h2 class="aiero-about-title" style="font-size: 36px;">Premium Metal Bed Frames</h2>
                 <p style="opacity: 0.7; font-size: 1.02rem; line-height: 1.8;">Our luxury metal beds feature heavy-gauge
                     pipes, high-quality seamless welding, custom headboard designs, and standard powder-coated finishes
                     that protect them from rust and mechanical scratches.</p>
@@ -88,14 +88,13 @@ include 'header.php';
                     </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <a href="category-bunkbeds" class="aiero-creation-card card-float-3"
+                    <a href="product-details?id=bunk-bed" class="aiero-creation-card card-float-3"
                         style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/origami-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                            <span class="aiero-creation-label" style="font-size: 1.15rem;"> BUNK BED</span>
-                            <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Bunk bed
-                                inspired by paper planes and boats. Splits into two separate beds when kids outgrow.</p>
+                            <span class="aiero-creation-label" style="font-size: 1.15rem;">BUNK BED</span>
+                            <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">Premium double-decker and convertible bunk beds, kids themed designs, and heavy-duty triple sleepers.</p>
                         </div>
                     </a>
                 </div>

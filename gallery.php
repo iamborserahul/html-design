@@ -55,7 +55,7 @@ include 'header.php';
             </div>
             <div class="aiero-creations-grid">
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6115" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                    <a href="product-details?id=bunk-bed" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/origami-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
@@ -65,7 +65,7 @@ include 'header.php';
                     </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6114" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
+                    <a href="product-details?id=bunk-bed" class="aiero-creation-card card-float-2" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/nature-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
@@ -75,7 +75,7 @@ include 'header.php';
                     </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=sofabunk6094" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
+                    <a href="product-details?id=bunk-bed" class="aiero-creation-card card-float-3" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/bucharest-sofa-bunk-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
@@ -85,7 +85,7 @@ include 'header.php';
                     </a>
                 </div>
                 <div class="aiero-creation-card-wrapper">
-                    <a href="product-details?id=bunk6095" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
+                    <a href="product-details?id=bunk-bed" class="aiero-creation-card card-float-1" style="display: block; height: 380px;">
                         <div class="aiero-creation-img" style="background-image: url('assets/vladivostok-bunk-bed-01.webp');"></div>
                         <div class="aiero-creation-view-more">VIEW DETAILS</div>
                         <div class="aiero-creation-content" style="background: none; padding: 2rem;">
