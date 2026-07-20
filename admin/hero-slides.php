@@ -6,7 +6,7 @@ require_once __DIR__ . '/includes/header.php';
 $errors = [];
 $success = '';
 
-$upload_path = __DIR__ . '/uploads/hero-slides/';
+$upload_path = SLIDER_PATH;
 if (!is_dir($upload_path)) {
     mkdir($upload_path, 0755, true);
 }
@@ -55,10 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             if ($old && $old['image']) {
                                 delete_image($old['image'], $upload_path);
                             }
-                            $stmt = $db->prepare("UPDATE hero_slides SET title=?, subtitle=?, description=?, image=?, button_text=?, button_link=?, sort_order=?, status=? WHERE id=?");
+                            $stmt = $db->prepare("UPDATE hero_slides SET title=?, subtitle=?, description=?, image=?, btn_text=?, btn_link=?, sort_order=?, status=? WHERE id=?");
                             $stmt->execute([$title, $subtitle, $description, $image_filename, $button_text, $button_link, $sort_order, $status, $slide_id]);
                         } else {
-                            $stmt = $db->prepare("UPDATE hero_slides SET title=?, subtitle=?, description=?, button_text=?, button_link=?, sort_order=?, status=? WHERE id=?");
+                            $stmt = $db->prepare("UPDATE hero_slides SET title=?, subtitle=?, description=?, btn_text=?, btn_link=?, sort_order=?, status=? WHERE id=?");
                             $stmt->execute([$title, $subtitle, $description, $button_text, $button_link, $sort_order, $status, $slide_id]);
                         }
                         $success = 'Slide updated successfully.';
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if (!$image_filename) {
                             $errors[] = 'Image is required.';
                         } else {
-                            $stmt = $db->prepare("INSERT INTO hero_slides (title, subtitle, description, image, button_text, button_link, sort_order, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                            $stmt = $db->prepare("INSERT INTO hero_slides (title, subtitle, description, image, btn_text, btn_link, sort_order, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                             $stmt->execute([$title, $subtitle, $description, $image_filename, $button_text, $button_link, $sort_order, $status]);
                             $success = 'Slide created successfully.';
                             $_POST = []; // clear form
@@ -287,11 +287,11 @@ select.form-control { cursor: pointer; }
                     <div class="form-row-2">
                         <div class="form-group">
                             <label>Button Text</label>
-                            <input type="text" name="button_text" class="form-control" value="<?= htmlspecialchars($slide['button_text'] ?? $_POST['button_text'] ?? '') ?>">
+                            <input type="text" name="button_text" class="form-control" value="<?= htmlspecialchars($slide['btn_text'] ?? $_POST['button_text'] ?? '') ?>">
                         </div>
                         <div class="form-group">
                             <label>Button Link</label>
-                            <input type="text" name="button_link" class="form-control" value="<?= htmlspecialchars($slide['button_link'] ?? $_POST['button_link'] ?? '') ?>">
+                            <input type="text" name="button_link" class="form-control" value="<?= htmlspecialchars($slide['btn_link'] ?? $_POST['button_link'] ?? '') ?>">
                         </div>
                     </div>
 
@@ -302,7 +302,7 @@ select.form-control { cursor: pointer; }
                             <div class="form-hint">Allowed: jpg, jpeg, png, gif, webp, svg</div>
                             <div class="image-preview" id="imagePreview">
                                 <?php if ($slide && $slide['image']): ?>
-                                    <img src="uploads/hero-slides/<?= htmlspecialchars($slide['image']) ?>" alt="Preview">
+                                    <img src="<?= MEDIA_URL ?>slider/<?= htmlspecialchars($slide['image']) ?>" alt="Preview">
                                 <?php else: ?>
                                     <i class="fa-solid fa-image placeholder-icon"></i>
                                 <?php endif; ?>
@@ -405,7 +405,7 @@ select.form-control { cursor: pointer; }
                                     </td>
                                     <td>
                                         <?php if ($s['image']): ?>
-                                            <img src="uploads/hero-slides/<?= htmlspecialchars($s['image']) ?>" alt="" class="hero-thumb">
+                                            <img src="<?= MEDIA_URL ?>slider/<?= htmlspecialchars($s['image']) ?>" alt="" class="hero-thumb">
                                         <?php else: ?>
                                             <div class="hero-thumb-placeholder"><i class="fa-solid fa-image"></i></div>
                                         <?php endif; ?>

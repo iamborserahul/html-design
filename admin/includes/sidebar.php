@@ -40,7 +40,7 @@ $mobile_tabs = ['dashboard', 'products', 'hero-slides', 'gallery', 'inquiries'];
                 <i class="fas fa-industry"></i>
             </div>
             <div class="sidebar-logo-text">
-                <span class="sidebar-logo-title">Khodiyar Steel</span>
+                <span class="sidebar-logo-title"><?= htmlspecialchars($site_name ?? 'Khodiyar Steel') ?></span>
                 <span class="sidebar-logo-subtitle">Admin Panel</span>
             </div>
         </a>

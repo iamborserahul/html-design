@@ -67,18 +67,6 @@ function delete_image($filename, $path) {
     return false;
 }
 
-function get_setting($key) {
-    try {
-        $db = getDB();
-        $stmt = $db->prepare("SELECT `value` FROM site_settings WHERE `key` = ? LIMIT 1");
-        $stmt->execute([$key]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row ? $row['value'] : null;
-    } catch (PDOException $e) {
-        return null;
-    }
-}
-
 function time_ago($timestamp) {
     if (!$timestamp) return 'N/A';
 

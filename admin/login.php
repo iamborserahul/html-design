@@ -7,7 +7,9 @@ if (isset($_SESSION['admin_id'])) {
 }
 
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/app.php';
 
+$site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Khodiyar Steel Industries</title>
+    <title>Admin Login | <?= htmlspecialchars($site_name ?? 'Khodiyar Steel Industries') ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
@@ -278,7 +280,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="login-card">
             <div class="login-logo">
                 <div class="logo-icon">KS</div>
-                <h1>Khodiyar Steel</h1>
+                <h1><?= htmlspecialchars($site_name ?? 'Khodiyar Steel') ?></h1>
                 <p>Admin Panel Login</p>
             </div>
 
@@ -317,7 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="brand-bottom">
-                &copy; <?= date('Y') ?> <a href="../">Khodiyar Steel Industries</a>
+                &copy; <?= date('Y') ?> <a href="../"><?= htmlspecialchars($site_name ?? 'Khodiyar Steel Industries') ?></a>
             </div>
         </div>
     </div>

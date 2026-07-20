@@ -32,15 +32,11 @@ foreach ($seederFiles as $file) {
     $filename = basename($file);
 
     if ($fresh) {
-        // Extract table name from seeder filename pattern
         $tableName = getTableNameFromSeeder($filename);
-        if ($tableName) {
+        if ($tableName !== null) {
             echo "[TRUNCATE] Truncating table: $tableName\n";
             $pdo->exec("TRUNCATE TABLE `$tableName`");
         }
-
-        // For the main seed runner, truncate ALL tables referenced by seeders
-        // This is handled by the --fresh flag doing a blanket truncate approach
     }
 }
 
@@ -101,7 +97,7 @@ function getClassNameFromSeeder(string $filename): string {
     return $name;
 }
 
-function getTableNameFromSeeder(string $filename): string {
+function getTableNameFromSeeder(string $filename): ?string {
     $className = getClassNameFromSeeder($filename);
     $tableMap = [
         'UserSeeder' => 'users',
@@ -115,5 +111,5 @@ function getTableNameFromSeeder(string $filename): string {
         'SiteSettingSeeder' => 'site_settings',
         'InquirySeeder' => 'inquiries',
     ];
-    return $tableMap[$className] ?? null;
+    return $tableMap[$className] ?? null; // return null for ProductSeeder (multi-table)
 }

@@ -1,18 +1,30 @@
+<?php
+$footer_about = get_setting('footer_about_text') ?: 'Khodiyar Steel - manufacturing excellence in high-end steel furniture and modern storage solutions since 1998.';
+$footer_copyright = get_setting('footer_copyright_text') ?: '© Copyright 2026 by Khodiyar Steel. All Rights Reserved.';
+$site_email = get_setting('site_email') ?: 'info@khodiyarsteel.com';
+$site_phone = get_setting('site_phone') ?: '+91 90999 99266';
+$site_phone2 = get_setting('site_phone_secondary') ?: '+91 73598 40800';
+$site_address = get_setting('site_address') ?: 'Block no 9, Rd No. 5, Udhana GIDC, Surat, Gujarat 394210';
+$site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
+$fb_url = get_setting('facebook_url') ?: '#';
+$ig_url = get_setting('instagram_url') ?: '#';
+$tw_url = get_setting('twitter_url') ?: '#';
+$yt_url = get_setting('youtube_url') ?: '#';
+$tk_url = get_setting('tiktok_url') ?: '#';
+$phone_digits = preg_replace('/\D/', '', $site_phone);
+$phone2_digits = preg_replace('/\D/', '', $site_phone2);
+?>
     <!-- Premium Styled & Unique Footer Section -->
     <footer class="aiero-footer" id="footer">
-        <!-- Giant outline background watermark -->
         <div class="aiero-footer-bg-text">KHODIYAR</div>
-        <!-- Ambient corner glow -->
         <div class="aiero-footer-glow"></div>
 
         <div class="aiero-footer-container">
             <div class="aiero-footer-grid">
 
-                <!-- Column 1: About -->
                 <div class="aiero-footer-col">
-                    <span class="aiero-footer-col-title">About Khodiyar Steel</span>
-                    <p class="aiero-footer-about-text">Khodiyar Steel - manufacturing excellence in high-end steel
-                        furniture and modern storage solutions since 1998.</p>
+                    <span class="aiero-footer-col-title">About <?= htmlspecialchars($site_name) ?></span>
+                    <p class="aiero-footer-about-text"><?= htmlspecialchars($footer_about) ?></p>
                     <div class="aiero-lang-selector">
                         <i class="fa-solid fa-globe"></i>
                         <span>English</span>
@@ -20,7 +32,6 @@
                     </div>
                 </div>
 
-                <!-- Column 2: Explore -->
                 <div class="aiero-footer-col">
                     <span class="aiero-footer-col-title">Explore</span>
                     <ul class="aiero-footer-links">
@@ -33,50 +44,41 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Contact & Socials -->
                 <div class="aiero-footer-col">
                     <span class="aiero-footer-col-title">Contact</span>
                     <div class="aiero-footer-contact-items">
                         <div class="aiero-footer-contact-item">
                             <i class="fa-solid fa-location-dot"></i>
-                            <span>Block no 9, Rd No. 5, Udhana GIDC, Surat, Gujarat 394210</span>
+                            <span><?= htmlspecialchars($site_address) ?></span>
                         </div>
                         <div class="aiero-footer-contact-item" style="display: flex; gap: 0.8rem; align-items: flex-start;">
                             <i class="fa-solid fa-phone" style="margin-top: 0.35rem;"></i>
                             <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-                                <a href="tel:9099999266">90999 99266</a>
-                                <a href="tel:7359840800" style="font-size: 0.85rem; opacity: 0.8;">73598 40800</a>
+                                <a href="tel:<?= $phone_digits ?>"><?= htmlspecialchars($site_phone) ?></a>
+                                <a href="tel:<?= $phone2_digits ?>" style="font-size: 0.85rem; opacity: 0.8;"><?= htmlspecialchars($site_phone2) ?></a>
                             </div>
                         </div>
                          <div class="aiero-footer-contact-item">
                             <i class="fa-solid fa-envelope"></i>
-                            <a href="mailto:info@khodiyarsteel.com">info@khodiyarsteel.com</a>
+                            <a href="mailto:<?= htmlspecialchars($site_email) ?>"><?= htmlspecialchars($site_email) ?></a>
                         </div>
                     </div>
-                    <!-- Premium social icon rows -->
                     <div class="aiero-footer-socials">
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Instagram"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Twitter X"><i
-                                class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="YouTube"><i
-                                class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="Facebook"><i
-                                class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="aiero-footer-social-btn" aria-label="TikTok"><i
-                                class="fa-brands fa-tiktok"></i></a>
+                        <a href="<?= htmlspecialchars($ig_url) ?>" class="aiero-footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="<?= htmlspecialchars($tw_url) ?>" class="aiero-footer-social-btn" aria-label="Twitter X"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="<?= htmlspecialchars($yt_url) ?>" class="aiero-footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="<?= htmlspecialchars($fb_url) ?>" class="aiero-footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="<?= htmlspecialchars($tk_url) ?>" class="aiero-footer-social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- Separator gradient line -->
             <div class="aiero-footer-line"></div>
 
-            <!-- Bottom Row: Copyright & Back to Top -->
             <div class="aiero-footer-bottom">
-                <span class="aiero-footer-copy">© Copyright 2026 by Khodiyar Steel. All Rights Reserved. | Powered By <a href="https://s2rash-technology.vercel.app/" target="_blank" rel="noopener" style="color: var(--color-primary-light); text-decoration: none; font-weight: 600;">S2Rash Technology</a></span>
+                <span class="aiero-footer-copy"><?= htmlspecialchars($footer_copyright) ?> | Powered By <a href="https://s2rash-technology.vercel.app/" target="_blank" rel="noopener" style="color: var(--color-primary-light); text-decoration: none; font-weight: 600;">S2Rash Technology</a></span>
                 <button class="aiero-back-to-top" aria-label="Back to top" title="Back to Top">
                     <i class="fa-solid fa-arrow-up"></i>
                 </button>

@@ -2,207 +2,36 @@
 $title = "Khodiyar Steel – High-End Steel Furniture & Precision Metal Products";
 $description = "Transforming spaces with high-end steel furniture and premium storage solutions.";
 $page = "home";
+require_once __DIR__ . '/config/database.php';
 include 'header.php';
+$hero_slides = [];
+try {
+    $db = getDB();
+    $stmt = $db->query("SELECT * FROM hero_slides WHERE status = 1 ORDER BY sort_order ASC, id ASC");
+    $hero_slides = $stmt->fetchAll();
+} catch (Exception $e) {
+    $hero_slides = [];
+}
+$total_slides = count($hero_slides);
 ?>
 
 <!-- Full-Width 2D Image Slider Hero -->
     <section class="aiero-hero">
         <div class="aiero-slider-2d-container">
 
-            <div class="aiero-slide-2d active" data-index="0">
-                <div class="aiero-slide-img" style="background-image: url('assets/slider/bed-slider.png');"></div>
+<?php if (!empty($hero_slides)): ?>
+    <?php foreach ($hero_slides as $i => $slide): ?>
+            <div class="aiero-slide-2d<?= $i === 0 ? ' active' : '' ?>" data-index="<?= $i ?>">
+                <div class="aiero-slide-img" style="background-image: url('<?= SLIDER_URL ?>/<?= htmlspecialchars($slide['image']) ?>');"></div>
                 <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">PREMIUM WOOD & METAL BED COLLECTION</span>
-                    <h1 class="aiero-slide-title">Timeless Elegance. Unmatched Strength</h1>
-                    <p class="aiero-slide-desc">Engineered with premium materials and superior craftsmanship, these beds combine modern elegance with rock-solid strength to enhance every bedroom.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <?php /*<div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/metal-bed-7201-01.webp');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">150+</span>
-                        <span class="aiero-video-desc">PREMIUM WOOD & METAL BED COLLECTION</span>
-                    </div>
-                </div>*/?>
-            </div>
-            <div class="aiero-slide-2d" data-index="1">
-                <div class="aiero-slide-img" style="background-image: url('assets/slider/bathroom-slider.png');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">MODERN BATHROOM VANITIES</span>
-                    <h1 class="aiero-slide-title">Designed for Beautiful Living</h1>
-                    <p class="aiero-slide-desc">Exquisitely crafted vanities that bring elegance, durability, and modern sophistication to your bathroom.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <?php /* <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/bathroom-slider.png');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">95+</span>
-                        <span class="aiero-video-desc">Luxury You Can See. Strength You Can Trust.</span>
-                    </div>
-                </div> */ ?>
-            </div>
-
-            <div class="aiero-slide-2d" data-index="2">
-                <div class="aiero-slide-img" style="background-image: url('assets/slider/fwardrobe-slider.png');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">MODERN WARDROBES</span>
-                    <h1 class="aiero-slide-title">Wardrobes Designed for Every Style</h1>
-                    <p class="aiero-slide-desc">From sleek sliding doors to spacious hinged wardrobes, our collection combines premium aesthetics, smart organization, and durable construction to complement any bedroom style.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <?php /*<div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/fwardrobe-slider.png');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">80+</span>
-                        <span class="aiero-video-desc"> Built to Last. Designed to Impress.</span>
-                    </div>
-                </div>*/ ?>
-            </div>
-            <div class="aiero-slide-2d" data-index="3">
-                <div class="aiero-slide-img" style="background-image: url('assets/slider/dining-slider.png');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">MODERN DINING TABLES</span>
-                    <h1 class="aiero-slide-title">Where Style Meets Smart Storage</h1>
-                    <p class="aiero-slide-desc">Expertly crafted wardrobes featuring elegant designs, intelligent organization, and lasting durability to elevate every bedroom.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <?php /*<div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/dining-slider.png');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">120+</span>
-                        <span class="aiero-video-desc">Elegance Behind Every Door</span>
-                    </div>
-                </div>*/?>
-            </div>
-            <div class="aiero-slide-2d" data-index="4">
-                <div class="aiero-slide-img" style="background-image: url('assets/slider/gazebo-slider.png');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">MODERN GAZEBOS</span>
-                    <h1 class="aiero-slide-title">Where Comfort Meets Architectural Elegance</h1>
-                    <p class="aiero-slide-desc">Enhance your outdoor lifestyle with beautifully designed gazebos that offer style, shelter, and enduring performance.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <?php /*<div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/slider/gazebo-slider.png');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">120+</span>
-                        <span class="aiero-video-desc"> Luxury Outdoor Living Redefined</span>
-                    </div>
-                </div> */ ?>
-            </div>
-            <?php /*
-            <!-- Slide 1 -->
-            <div class="aiero-slide-2d active" data-index="0">
-                <div class="aiero-slide-img" style="background-image: url('assets/hero.jpg');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">STATION 01 / PORTAL</span>
-                    <h1 class="aiero-slide-title">Transforming spaces with<br>next-generation innovation</h1>
-                    <p class="aiero-slide-desc">We look at luxury interior architecture not as simple structures, but as
-                        a visual concerto of light, stone, shadow, and custom bronze accents.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/project1.jpg');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">150+</span>
-                        <span class="aiero-video-desc">Modern penthouse layouts styled by our design team</span>
-                    </div>
+                    <span class="aiero-slide-tagline"><?= htmlspecialchars($slide['subtitle'] ?? '') ?></span>
+                    <h1 class="aiero-slide-title"><?= htmlspecialchars($slide['title']) ?></h1>
+                    <p class="aiero-slide-desc"><?= htmlspecialchars($slide['description'] ?? '') ?></p>
+                    <a href="<?= htmlspecialchars($slide['btn_link'] ?? '#contact') ?>" class="aiero-btn-discover"><?= htmlspecialchars($slide['btn_text'] ?? 'Discover') ?> <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
-
-            <!-- Slide 2 -->
-            <div class="aiero-slide-2d" data-index="1">
-                <div class="aiero-slide-img" style="background-image: url('assets/project2.jpg');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">STATION 02 / OBSIDIAN</span>
-                    <h1 class="aiero-slide-title">Obsidian labs: the art of<br>culinary engineering</h1>
-                    <p class="aiero-slide-desc">High-performance Statuario marble contrasted against textured dark
-                        concrete and completely integrated invisible appliances.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/project2.jpg');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">95+</span>
-                        <span class="aiero-video-desc">Integrated modular kitchens engineered globally</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="aiero-slide-2d" data-index="2">
-                <div class="aiero-slide-img" style="background-image: url('assets/project3.jpg');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">STATION 03 / SANCTUARY</span>
-                    <h1 class="aiero-slide-title">Designing boundaries of<br>quiet architectural silence</h1>
-                    <p class="aiero-slide-desc">Textured bathroom volumes featuring minimal freestanding tubs and custom
-                        gold illuminated structural bronze outlines.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/project3.jpg');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">80+</span>
-                        <span class="aiero-video-desc">Exquisite sensory nooks custom built to order</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="aiero-slide-2d" data-index="3">
-                <div class="aiero-slide-img" style="background-image: url('assets/project4.jpg');"></div>
-                <div class="aiero-slide-content">
-                    <span class="aiero-slide-tagline">STATION 04 / DUSK</span>
-                    <h1 class="aiero-slide-title">Suspended platforms of<br>optimal sensory rest</h1>
-                    <p class="aiero-slide-desc">Floor-to-ceiling panoramic sleeping suites framed in acoustic ribbed
-                        back panels and custom ambient lighting presets.</p>
-                    <a href="#contact" class="aiero-btn-discover">Discover <i
-                            class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
-                <!-- VR Card Bottom-Right -->
-                <div class="aiero-video-card">
-                    <div class="aiero-video-thumbnail" style="background-image: url('assets/project4.jpg');">
-                        <div class="aiero-play-btn"><i class="fa-solid fa-play"></i></div>
-                    </div>
-                    <div class="aiero-video-info">
-                        <span class="aiero-video-stat">120+</span>
-                        <span class="aiero-video-desc">Private master sanctuaries deployed globally</span>
-                    </div>
-                </div>
-            </div>*/?>
-
+    <?php endforeach; ?>
+<?php endif; ?>
         </div>
 
         <!-- Progress Timeline Bar -->
@@ -218,15 +47,13 @@ include 'header.php';
 
         <!-- 2D Slider Pagination dots -->
         <div class="aiero-nav-controls">
-            <span class="aiero-nav-dot active" data-slide="0"></span>
-            <span class="aiero-nav-dot" data-slide="1"></span>
-            <span class="aiero-nav-dot" data-slide="2"></span>
-            <span class="aiero-nav-dot" data-slide="3"></span>
-            <span class="aiero-nav-dot" data-slide="4"></span>
+<?php if (!empty($hero_slides)): ?>
+    <?php foreach ($hero_slides as $i => $slide): ?>
+            <span class="aiero-nav-dot<?= $i === 0 ? ' active' : '' ?>" data-slide="<?= $i ?>"></span>
+    <?php endforeach; ?>
+<?php endif; ?>
         </div>
     </section>
-
-
 
     <!-- Premium Animated About Us Section -->
     <section class="aiero-about" id="about">

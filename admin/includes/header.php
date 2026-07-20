@@ -6,11 +6,12 @@ if (!isset($_SESSION['admin_id'])) {
 }
 $current_page = isset($current_page) ? $current_page : 'dashboard';
 $page_title = isset($page_title) ? $page_title : 'Dashboard';
-$site_name = 'Khodiyar Steel Industries';
 
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../config/app.php';
 require_once __DIR__ . '/functions.php';
 $db = getDB();
+$site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -322,7 +323,7 @@ $db = getDB();
     <div class="sidebar-brand">
         <div class="brand-icon">KS</div>
         <div class="brand-text">
-            Khodiyar Steel
+            <?= htmlspecialchars($site_name) ?>
             <small>Admin Panel</small>
         </div>
     </div>

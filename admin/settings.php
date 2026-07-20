@@ -6,7 +6,7 @@ require_once __DIR__ . '/includes/functions.php';
 
 $errors = [];
 $success = '';
-$uploads_dir = __DIR__ . '/uploads';
+$uploads_dir = LOGO_PATH;
 
 $tab_labels = [
     'general' => 'General',
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             if (isset($_FILES['site_logo']) && $_FILES['site_logo']['error'] === UPLOAD_ERR_OK) {
                 $filename = upload_image($_FILES['site_logo'], $uploads_dir);
                 if ($filename) {
-                    $_POST['site_logo'] = 'admin/uploads/' . $filename;
+                    $_POST['site_logo'] = LOGO_URL . '/' . $filename;
                     $old = get_setting('site_logo');
                     if ($old) {
                         $old_path = __DIR__ . '/../' . ltrim($old, '/');
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             if (isset($_FILES['site_favicon']) && $_FILES['site_favicon']['error'] === UPLOAD_ERR_OK) {
                 $filename = upload_image($_FILES['site_favicon'], $uploads_dir);
                 if ($filename) {
-                    $_POST['site_favicon'] = 'admin/uploads/' . $filename;
+                    $_POST['site_favicon'] = LOGO_URL . '/' . $filename;
                     $old = get_setting('site_favicon');
                     if ($old) {
                         $old_path = __DIR__ . '/../' . ltrim($old, '/');
@@ -385,7 +385,7 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
                 <div class="preview-box">
                     <?php $logo = $grouped['logo']['site_logo'] ?? ''; ?>
                     <?php if ($logo): ?>
-                        <img src="/<?= ltrim($logo, '/') ?>" alt="Current Logo">
+                        <img src="<?php MEDIA_URL ?>logo/<?= ltrim($logo, '/') ?>" alt="Current Logo">
                     <?php else: ?>
                         <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.75rem;border:1px dashed var(--border);border-radius:6px;margin:0 auto 0.5rem;">
                             No logo uploaded

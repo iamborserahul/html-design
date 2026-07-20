@@ -1,14 +1,21 @@
 <?php
-// Set default page variables if not defined
-$title = isset($title) ? $title : "Khodiyar Steel – High-End Steel Furniture & Precision Metal Products";
-$description = isset($description) ? $description : "Transforming spaces with high-end steel furniture and premium storage solutions.";
+require_once __DIR__ . '/config/app.php';
+
+$site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
+$meta_title = get_setting('meta_title') ?: 'Khodiyar Steel – High-End Steel Furniture & Precision Metal Products';
+$meta_desc = get_setting('meta_description') ?: 'Transforming spaces with high-end steel furniture and premium storage solutions.';
+$site_logo = get_setting('site_logo') ?: 'assets/logo.png';
+$site_favicon = get_setting('site_favicon') ?: 'assets/logo.png';
+$og_img = get_setting('og_image') ?: 'assets/metal-bed-7201-01.webp';
+
+$title = isset($title) ? $title : $meta_title;
+$description = isset($description) ? $description : $meta_desc;
 $page = isset($page) ? $page : "home";
 
-// Resolve dynamic URL helper variables for SEO tags
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $current_url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $project_dir = str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-$og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/metal-bed-7201-01.webp";
+$og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . $og_img;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +27,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/metal
     <meta name="description" content="<?php echo htmlspecialchars($description); ?>">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/logo.png" type="image/png">
+    <link rel="shortcut icon" href="<?= htmlspecialchars($site_favicon) ?>" type="image/png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -38,18 +45,32 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/metal
     <meta name="twitter:image" content="<?php echo htmlspecialchars($og_image_url); ?>">
 
     <!-- Schema.org JSON-LD Markup -->
+<?php
+$schema_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
+$schema_phone = get_setting('site_phone') ?: '+919099999266';
+$schema_address = get_setting('site_address') ?: 'Block no 9, Rd Number 5, Udhana GIDC, Surat, Gujarat 394210';
+$schema_hours = get_setting('working_hours') ?: 'Mon-Sat: 9:00 AM - 6:00 PM';
+$schema_fb = get_setting('facebook_url') ?: 'https://www.facebook.com/khodiyarsteel';
+$schema_ig = get_setting('instagram_url') ?: 'https://www.instagram.com/khodiyarsteel';
+preg_match('/\d{1,2}:\d{2}\s*(AM|PM)/i', $schema_hours, $opens_match);
+$opens_time = $opens_match[0] ?? '09:00 AM';
+preg_match('/\d{1,2}:\d{2}\s*(AM|PM)/i', substr($schema_hours, strpos($schema_hours, '-') + 1), $closes_match);
+$closes_time = $closes_match[0] ?? '06:00 PM';
+$opens_24 = date('H:i', strtotime($opens_time));
+$closes_24 = date('H:i', strtotime($closes_time));
+?>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Khodiyar Steel Industries",
-      "image": "<?php echo htmlspecialchars($og_image_url); ?>",
-      "@id": "<?php echo htmlspecialchars($current_url); ?>",
-      "url": "<?php echo htmlspecialchars($protocol . $_SERVER['HTTP_HOST'] . $project_dir); ?>",
-      "telephone": "+919099999266",
+      "name": "<?= htmlspecialchars($schema_name) ?>",
+      "image": "<?= htmlspecialchars($og_image_url) ?>",
+      "@id": "<?= htmlspecialchars($current_url) ?>",
+      "url": "<?= htmlspecialchars($protocol . $_SERVER['HTTP_HOST'] . $project_dir) ?>",
+      "telephone": "<?= htmlspecialchars($schema_phone) ?>",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Block no 9, Rd Number 5, Udhana GIDC, Udhna Udhyog Nagar, Udhana",
+        "streetAddress": "<?= htmlspecialchars($schema_address) ?>",
         "addressLocality": "Surat",
         "addressRegion": "Gujarat",
         "postalCode": "394210",
@@ -70,12 +91,12 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/metal
           "Friday",
           "Saturday"
         ],
-        "opens": "09:00",
-        "closes": "18:00"
+        "opens": "<?= $opens_24 ?>",
+        "closes": "<?= $closes_24 ?>"
       },
       "sameAs": [
-        "https://www.facebook.com/khodiyarsteel",
-        "https://www.instagram.com/khodiyarsteel"
+        "<?= htmlspecialchars($schema_fb) ?>",
+        "<?= htmlspecialchars($schema_ig) ?>"
       ]
     }
     </script>
@@ -116,7 +137,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . "assets/metal
     <nav class="aiero-nav">
         <div class="aiero-nav-container">
             <a href="./" class="aiero-logo">
-                <img src="assets/logo.png" alt="Khodiyar Steel Industries">
+                <img src="<?= htmlspecialchars($site_logo) ?>" alt="<?= htmlspecialchars($site_name) ?>">
             </a>
             <ul class="aiero-menu">
                 <li><a href="./" class="aiero-menu-link<?php echo ($page === 'home') ? ' active' : ''; ?>">Home</a></li>
