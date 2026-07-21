@@ -928,13 +928,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     toggleActions: 'play none none none'
                 },
                 onUpdate: function () {
-                    // Append formatting labels
-                    if (targetVal === 15000) {
-                        counter.textContent = Math.floor(counter.textContent).toLocaleString() + "+";
-                    } else if (targetVal === 500) {
-                        counter.textContent = Math.floor(counter.textContent) + "+";
-                    } else if (targetVal === 25) {
-                        counter.textContent = Math.floor(counter.textContent) + "+";
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const val = Math.floor(counter.textContent);
+                    if (val >= 1000) {
+                        counter.textContent = val.toLocaleString() + suffix;
+                    } else {
+                        counter.textContent = val + suffix;
                     }
                 }
             });
@@ -1124,59 +1123,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Router execution logic
+    // Router execution logic (PHP Dynamic details page)
     if (window.location.pathname.includes("product-details")) {
-        const urlParams = new URLSearchParams(window.location.search);
-        let productId = urlParams.get("id");
-
-        // Fallback default
-        if (!productId || !productDatabase[productId]) {
-            productId = "bed7201";
-        }
-
-        const data = productDatabase[productId];
-
-        // 1. Populate text and titles
-        document.title = `${data.title} | Khodiyar Steel`;
-        const categoryTag = document.getElementById("details-category-tagline");
-        const productTitle = document.getElementById("details-product-title");
-        const shortDesc = document.getElementById("details-short-desc");
-        const heroTitle = document.getElementById("details-hero-title");
-
-        if (categoryTag) categoryTag.textContent = data.category.toUpperCase();
-        if (productTitle) productTitle.textContent = data.title;
-        if (shortDesc) shortDesc.textContent = data.shortDesc;
-        if (heroTitle) heroTitle.textContent = data.title;
-
-        // 2. Populate Breadcrumbs
-        const breadcrumbs = document.getElementById("details-breadcrumbs");
-        if (breadcrumbs) {
-            breadcrumbs.innerHTML = `
-                <li class="aiero-breadcrumb-item"><a href="./">Home</a></li>
-                <li class="aiero-breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
-                <li class="aiero-breadcrumb-item"><a href="${data.categoryPage}">${data.categoryLabel}</a></li>
-                <li class="aiero-breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
-                <li class="aiero-breadcrumb-item active">${data.title}</li>
-            `;
-        }
-
-        // 3. Populate Gallery & Thumbs
+        // Attach thumbnail click handlers
         const mainImg = document.getElementById("details-main-img");
         const thumbsRow = document.getElementById("details-thumbs-row");
-
-        if (mainImg) mainImg.setAttribute("src", data.mainImg);
-
-        if (thumbsRow) {
-            thumbsRow.innerHTML = data.thumbs.map((thumbSrc, index) => {
-                const activeClass = index === 0 ? "active" : "";
-                return `
-                    <div class="aiero-gallery-thumb ${activeClass}" data-src="${thumbSrc}">
-                        <img src="${thumbSrc}" alt="Thumbnail preview">
-                    </div>
-                `;
-            }).join('');
-
-            // Attach thumbnail click handlers
+        if (thumbsRow && mainImg) {
             const thumbs = thumbsRow.querySelectorAll('.aiero-gallery-thumb');
             thumbs.forEach(thumb => {
                 thumb.addEventListener('click', () => {
@@ -1195,40 +1147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // 4. Populate Spec Table
-        const specBody = document.getElementById("details-spec-body");
-        if (specBody) {
-            specBody.innerHTML = Object.entries(data.specs).map(([key, val]) => {
-                return `
-                    <tr>
-                        <th>${key}</th>
-                        <td>${val}</td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        // 5. Populate Features tab list
-        const featuresList = document.getElementById("details-features-list");
-        if (featuresList) {
-            featuresList.innerHTML = data.features.map(feat => {
-                return `
-                    <li style="display: flex; gap: 0.8rem; align-items: flex-start;">
-                        <i class="fa-solid fa-circle-check" style="color: #FFC229; margin-top: 0.2rem; font-size: 0.9rem;"></i>
-                        <span>${feat}</span>
-                    </li>
-                `;
-            }).join('');
-        }
-
-        // 6. Hook up Download and Inquire buttons
-        const inquireBtn = document.getElementById("details-inquire-btn");
-        const downloadBtn = document.getElementById("details-download-btn");
-
-        if (inquireBtn) inquireBtn.setAttribute("href", `contact?product=${encodeURIComponent(data.title)}`);
-        if (downloadBtn) downloadBtn.setAttribute("href", data.pdf);
-
-        // 7. Tab Headers click switching handler
+        // Tab Headers click switching handler
         const tabHeaders = document.querySelectorAll('.aiero-tab-header');
         const tabPanels = document.querySelectorAll('.aiero-tab-panel');
 
@@ -1243,39 +1162,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById(targetTab).classList.add('active');
             });
         });
-
-        // 8. Populate Related Products Grid (Select 3 alternative models)
-        const relatedGrid = document.getElementById("details-related-grid");
-        if (relatedGrid) {
-            // Find products of same category excluding current
-            const siblings = Object.entries(productDatabase)
-                .filter(([id, sibling]) => sibling.category === data.category && id !== productId)
-                .slice(0, 3);
-
-            // Fallback to random products if siblings are sparse
-            if (siblings.length < 3) {
-                const extras = Object.entries(productDatabase)
-                    .filter(([id, sibling]) => id !== productId && !siblings.find(([sId]) => sId === id))
-                    .slice(0, 3 - siblings.length);
-                siblings.push(...extras);
-            }
-
-            relatedGrid.innerHTML = siblings.map(([id, sib], index) => {
-                const floatClass = `card-float-${(index % 3) + 1}`;
-                return `
-                    <div class="aiero-creation-card-wrapper">
-                        <a href="product-details?id=${id}" class="aiero-creation-card ${floatClass}" style="display: block; height: 380px;">
-                            <div class="aiero-creation-img" style="background-image: url('${sib.mainImg}');"></div>
-                            <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                            <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                                <span class="aiero-creation-label" style="font-size: 1.15rem;">${sib.title}</span>
-                                <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;">${sib.shortDesc.slice(0, 80)}...</p>
-                            </div>
-                        </a>
-                    </div>
-                `;
-            }).join('');
-        }
     }
 
     // 4. Contact Page Auto-fill Logic

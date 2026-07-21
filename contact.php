@@ -78,6 +78,14 @@ if (isset($_SESSION['statusMsg'])) {
 }
 
 include 'header.php';
+
+$faqs = [];
+try {
+    $db = getDB();
+    $faqs = $db->query("SELECT * FROM faqs WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+} catch (Exception $e) {
+    // Fallback
+}
 ?>
 
 <!-- Subpage Hero Section -->
@@ -200,41 +208,33 @@ include 'header.php';
                 <h2 class="aiero-creations-title" style="font-size: 36px; text-align: center;">Frequently Asked Questions</h2>
             </div>
             
-            <div class="aiero-faq-item">
-                <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">How can I request a quote for custom dimensional steel furniture?</span>
-                    <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
-                </button>
-                <div class="aiero-faq-panel">
-                    <div class="aiero-faq-content">
-                        You can easily submit custom dimensions, quantities, or specific color requests through our Inquiry Form. Alternatively, email your layout drawings directly to info@khodiyarsteel.com. Our pricing division will return a formal commercial quotation within 24 hours.
+            <?php if (!empty($faqs)): ?>
+                <?php foreach ($faqs as $faq): ?>
+                    <div class="aiero-faq-item">
+                        <button class="aiero-faq-trigger" aria-expanded="false">
+                            <span class="aiero-faq-question"><?= htmlspecialchars($faq['question']) ?></span>
+                            <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
+                        </button>
+                        <div class="aiero-faq-panel">
+                            <div class="aiero-faq-content">
+                                <?= nl2br(htmlspecialchars($faq['answer'])) ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="aiero-faq-item">
+                    <button class="aiero-faq-trigger" aria-expanded="false">
+                        <span class="aiero-faq-question">How can I request a quote for custom dimensional steel furniture?</span>
+                        <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
+                    </button>
+                    <div class="aiero-faq-panel">
+                        <div class="aiero-faq-content">
+                            You can easily submit custom dimensions, quantities, or specific color requests through our Inquiry Form. Alternatively, email your layout drawings directly to info@khodiyarsteel.com. Our pricing division will return a formal commercial quotation within 24 hours.
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="aiero-faq-item">
-                <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">Do you provide CAD shop drawings or architectural approval drawings?</span>
-                    <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
-                </button>
-                <div class="aiero-faq-panel">
-                    <div class="aiero-faq-content">
-                        No, we do not create or supply CAD shop drawings, architectural drawings, or engineering layouts. However, if you already have approved CAD drawings or design specifications from your architect, designer, or project consultant, we can review them and confirm whether the design is suitable for manufacturing and installation. This helps ensure the final product aligns with your project requirements, dimensions, and material specifications before production begins.
-                    </div>
-                </div>
-            </div>
-
-            <div class="aiero-faq-item">
-                <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">What are your logistical shipping ranges and freight configurations?</span>
-                    <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
-                </button>
-                <div class="aiero-faq-panel">
-                    <div class="aiero-faq-content">
-                        We ship nationwide across India. Catalog models (like beds, lockers, and wardrobes) are packed in heavy-duty knock-down forms with secure bubble wrapping and corrugated edge-protectors to prevent transit damage. Assembly instructions and fittings are fully included. Bulk institutional shipping is dispatched via specialized freight networks.
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 

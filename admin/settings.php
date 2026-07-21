@@ -25,6 +25,32 @@ $tab_icons = [
 ];
 
 // Handle save
+$key_to_group = [
+    'site_name' => 'general',
+    'site_tagline' => 'general',
+    'site_email' => 'general',
+    'site_phone' => 'general',
+    'site_phone_secondary' => 'general',
+    'working_hours' => 'general',
+    'site_address' => 'general',
+    'facebook_url' => 'social',
+    'instagram_url' => 'social',
+    'twitter_url' => 'social',
+    'youtube_url' => 'social',
+    'tiktok_url' => 'social',
+    'meta_title' => 'seo',
+    'meta_description' => 'seo',
+    'meta_keywords' => 'seo',
+    'footer_about_text' => 'footer',
+    'footer_copyright_text' => 'footer',
+    'site_logo' => 'logo',
+    'site_favicon' => 'logo',
+];
+
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $success = 'Settings saved successfully.';
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_settings') {
     if (!verify_csrf($_POST['csrf_token'] ?? '')) {
         $errors[] = 'Invalid security token. Please reload the page.';
@@ -67,9 +93,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
             foreach ($_POST as $key => $val) {
                 if (in_array($key, ['action', 'csrf_token', 'settings_tab'])) continue;
-                $upsert->execute([$key, $val, $tab]);
+                // Only save if the key belongs to the current tab
+                if (isset($key_to_group[$key]) && $key_to_group[$key] === $tab) {
+                    $upsert->execute([$key, $val, $tab]);
+                }
             }
-            $success = 'Settings saved successfully.';
+            header("Location: settings.php?tab=" . urlencode($tab) . "&success=1");
+            exit;
         }
     }
 }
@@ -247,7 +277,7 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
 <!-- Tabs -->
 <div class="tabs-nav" id="tabNav">
     <?php foreach ($tab_labels as $key => $label): ?>
-        <button class="tab-btn <?= $active_tab === $key ? 'active' : '' ?>" data-tab="<?= $key ?>">
+        <button type="button" class="tab-btn <?= $active_tab === $key ? 'active' : '' ?>" data-tab="<?= $key ?>">
             <i class="fa-solid <?= $tab_icons[$key] ?>"></i> <?= $label ?>
         </button>
     <?php endforeach; ?>
@@ -385,7 +415,7 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
                 <div class="preview-box">
                     <?php $logo = $grouped['logo']['site_logo'] ?? ''; ?>
                     <?php if ($logo): ?>
-                        <img src="<?php MEDIA_URL ?>logo/<?= ltrim($logo, '/') ?>" alt="Current Logo">
+                        <img src="../<?= ltrim($logo, '/') ?>" alt="Current Logo">
                     <?php else: ?>
                         <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.75rem;border:1px dashed var(--border);border-radius:6px;margin:0 auto 0.5rem;">
                             No logo uploaded
@@ -396,7 +426,7 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
                 <div class="preview-box favicon">
                     <?php $favicon = $grouped['logo']['site_favicon'] ?? ''; ?>
                     <?php if ($favicon): ?>
-                        <img src="/<?= ltrim($favicon, '/') ?>" alt="Current Favicon">
+                        <img src="../<?= ltrim($favicon, '/') ?>" alt="Current Favicon">
                     <?php else: ?>
                         <div style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.75rem;border:1px dashed var(--border);border-radius:6px;margin:0 auto 0.5rem;">
                             None
@@ -431,30 +461,35 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
 </form>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.tab-panel');
     const tabInput = document.getElementById('settingsTab');
 
     tabBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const tab = this.dataset.tab;
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const tab = this.getAttribute('data-tab');
             tabInput.value = tab;
-
+            alert(tab);
             tabBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
             panels.forEach(p => p.classList.remove('active'));
-            const panel = document.querySelector(`[data-panel="${tab}"]`);
+            const panel = document.querySelector('[data-panel="' + tab + '"]');
             if (panel) panel.classList.add('active');
 
             // Update URL without reload
-            const url = new URL(window.location);
-            url.searchParams.set('tab', tab);
-            window.history.replaceState({}, '', url);
+            try {
+                const url = new URL(window.location.href);
+                url.searchParams.set('tab', tab);
+                window.history.replaceState({}, '', url);
+            } catch (err) {
+                console.error(err);
+            }
         });
     });
-});
+})();
 </script>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

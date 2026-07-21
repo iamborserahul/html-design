@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($delete_id <= 0) {
                 $form_errors[] = 'Invalid category ID.';
             } else {
-                $stmt = $db->prepare("SELECT id, name, image FROM product_categories WHERE id = ?");
+                $stmt = $db->prepare("SELECT id, name, image, icon FROM product_categories WHERE id = ?");
                 $stmt->execute([$delete_id]);
                 $cat = $stmt->fetch();
                 if (!$cat) {
@@ -49,7 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $form_errors[] = "Cannot delete: {$prod_count} product(s) are linked to this category. Reassign or delete those products first.";
                     } else {
                         if ($cat['image']) {
-                            delete_image($cat['image'], __DIR__ . '/uploads/categories/');
+                            delete_image($cat['image'], CATEGORY_PATH);
+                        }
+                        if ($cat['icon'] && strpos($cat['icon'], 'fa-') !== 0) {
+                            delete_image($cat['icon'], CATEGORY_PATH);
                         }
                         $db->prepare("DELETE FROM product_categories WHERE id = ?")->execute([$delete_id]);
                         $form_success = "Category \"" . htmlspecialchars($cat['name']) . "\" deleted successfully.";
@@ -62,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = trim($_POST['name'] ?? '');
             $slug = trim($_POST['slug'] ?? '');
             $description = trim($_POST['description'] ?? '');
-            $icon = trim($_POST['icon'] ?? 'fa-tag');
             $sort_order = (int) ($_POST['sort_order'] ?? 0);
             $status = isset($_POST['status']) ? 1 : 0;
 
@@ -87,18 +89,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (empty($form_errors)) {
                 $image = null;
+                $icon = 'fa-tag';
                 if ($is_edit) {
-                    $st = $db->prepare("SELECT image FROM product_categories WHERE id = ?");
+                    $st = $db->prepare("SELECT image, icon FROM product_categories WHERE id = ?");
                     $st->execute([$id]);
                     $existing = $st->fetch();
                     $image = $existing ? $existing['image'] : null;
+                    $icon = $existing ? $existing['icon'] : 'fa-tag';
+                }
+
+                if (isset($_FILES['icon']) && $_FILES['icon']['error'] === UPLOAD_ERR_OK) {
+                    $uploaded_icon = upload_image($_FILES['icon'], CATEGORY_PATH);
+                    if ($uploaded_icon) {
+                        if ($icon && strpos($icon, 'fa-') !== 0) {
+                            delete_image($icon, CATEGORY_PATH);
+                        }
+                        $icon = $uploaded_icon;
+                    } else {
+                        $form_errors[] = 'Failed to upload icon. Allowed: jpg, jpeg, png, gif, webp, svg.';
+                    }
                 }
 
                 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-                    $uploaded = upload_image($_FILES['image'], __DIR__ . '/uploads/categories/');
+                    $uploaded = upload_image($_FILES['image'], CATEGORY_PATH);
                     if ($uploaded) {
                         if ($image) {
-                            delete_image($image, __DIR__ . '/uploads/categories/');
+                            delete_image($image, CATEGORY_PATH);
                         }
                         $image = $uploaded;
                     } else {
@@ -297,6 +313,7 @@ table.cat-table tbody tr:hover td { background: var(--gold-dim); }
                 <thead>
                     <tr>
                         <th>Icon</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Slug</th>
                         <th>Description</th>
@@ -321,8 +338,25 @@ table.cat-table tbody tr:hover td { background: var(--gold-dim); }
                         data-image="<?= htmlspecialchars($c['image'] ?? '', ENT_QUOTES) ?>"
                         data-count="<?= $pc ?>">
                         <td>
-                            <span class="cat-icon-box">
-                                <i class="fas <?= htmlspecialchars($c['icon'] ?: 'fa-tag') ?>"></i>
+                            <span class="cat-icon-box" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;overflow:hidden;border-radius:6px;background:rgba(255,255,255,0.03);">
+                                <?php if (!empty($c['icon'])): ?>
+                                    <?php if (strpos($c['icon'], 'fa-') === 0): ?>
+                                        <i class="fas <?= htmlspecialchars($c['icon']) ?>"></i>
+                                    <?php else: ?>
+                                        <img src="../uploads/categories/<?= htmlspecialchars($c['icon']) ?>" alt="" style="width:100%;height:100%;object-fit:contain;">
+                                    <?php endif; ?>
+                                <?php else: ?>
+                                    <i class="fas fa-tag"></i>
+                                <?php endif; ?>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="cat-icon-box" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;overflow:hidden;border-radius:6px;">
+                                <?php if (!empty($c['image'])): ?>
+                                    <img src="../uploads/categories/<?= htmlspecialchars($c['image']) ?>" alt="" style="width:100%;height:100%;object-fit:cover;">
+                                <?php else: ?>
+                                    <span style="font-size: 10px; color: var(--text-dim);">None</span>
+                                <?php endif; ?>
                             </span>
                         </td>
                         <td><span class="cat-name-cell"><?= htmlspecialchars($c['name']) ?></span></td>
@@ -387,9 +421,12 @@ table.cat-table tbody tr:hover td { background: var(--gold-dim); }
                         <div class="form-hint">Auto-generated from name if left empty.</div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Icon (Font Awesome class)</label>
-                        <input type="text" name="icon" id="fieldIcon" class="form-control" placeholder="fa-tag">
-                        <div class="form-hint">e.g. fa-industry, fa-tools, fa-fire</div>
+                        <label class="form-label">Icon (Image or SVG)</label>
+                        <input type="file" name="icon" id="fieldIcon" class="form-control" data-preview="#iconPreview" accept="image/*">
+                        <div class="form-hint">Allowed: svg, png, jpg, jpeg, webp.</div>
+                        <div class="image-preview" id="iconPreview" style="margin-top: 10px;">
+                            <div class="placeholder-icon"><i class="fas fa-tag"></i></div>
+                        </div>
                     </div>
                 </div>
 
@@ -483,12 +520,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('categoryId').value = '0';
         document.getElementById('fieldName').value = '';
         document.getElementById('fieldSlug').value = '';
-        document.getElementById('fieldIcon').value = 'fa-tag';
+        document.getElementById('fieldIcon').value = '';
         document.getElementById('fieldDescription').value = '';
         document.getElementById('fieldSortOrder').value = '0';
         document.getElementById('fieldStatus').checked = true;
         document.getElementById('modalTitle').textContent = 'Add Category';
         document.getElementById('submitLabel').textContent = 'Create Category';
+        document.getElementById('iconPreview').innerHTML = '<div class="placeholder-icon"><i class="fas fa-tag"></i></div>';
         document.getElementById('imagePreview').innerHTML = '<div class="placeholder-icon"><i class="fas fa-image"></i></div>';
         openModal();
     });
@@ -500,17 +538,29 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('categoryId').value = row.getAttribute('data-id');
             document.getElementById('fieldName').value = row.getAttribute('data-name');
             document.getElementById('fieldSlug').value = row.getAttribute('data-slug');
-            document.getElementById('fieldIcon').value = row.getAttribute('data-icon') || 'fa-tag';
+            document.getElementById('fieldIcon').value = ''; // file inputs cannot be preset with a file path value
             document.getElementById('fieldDescription').value = row.getAttribute('data-description') || '';
             document.getElementById('fieldSortOrder').value = row.getAttribute('data-sort') || '0';
             document.getElementById('fieldStatus').checked = row.getAttribute('data-status') === '1';
             document.getElementById('modalTitle').textContent = 'Edit Category';
             document.getElementById('submitLabel').textContent = 'Update Category';
 
+            var iconPreview = document.getElementById('iconPreview');
+            var iconVal = row.getAttribute('data-icon') || 'fa-tag';
+            if (iconVal) {
+                if (iconVal.indexOf('fa-') === 0) {
+                    iconPreview.innerHTML = '<div class="placeholder-icon"><i class="fas ' + iconVal + '"></i></div>';
+                } else {
+                    iconPreview.innerHTML = '<img src="../uploads/categories/' + encodeURIComponent(iconVal) + '" alt="Icon">';
+                }
+            } else {
+                iconPreview.innerHTML = '<div class="placeholder-icon"><i class="fas fa-tag"></i></div>';
+            }
+
             var imgPreview = document.getElementById('imagePreview');
             var imgFile = row.getAttribute('data-image');
             if (imgFile) {
-                imgPreview.innerHTML = '<img src="uploads/categories/' + encodeURIComponent(imgFile) + '" alt="Current">';
+                imgPreview.innerHTML = '<img src="../uploads/categories/' + encodeURIComponent(imgFile) + '" alt="Current">';
             } else {
                 imgPreview.innerHTML = '<div class="placeholder-icon"><i class="fas fa-image"></i></div>';
             }

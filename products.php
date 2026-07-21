@@ -3,6 +3,12 @@ $title = "Our Product Categories | Khodiyar Steel";
 $description = "Explore our extensive industrial range of metal beds, hospital equip, cupboards, modular almirahs, dining sets, safety doors, and outdoor steel structures.";
 $page = "products";
 include 'header.php';
+
+$categories = [];
+try {
+    $db = getDB();
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+} catch (Exception $e) {}
 ?>
 
 <!-- Subpage Hero Section -->
@@ -18,78 +24,46 @@ include 'header.php';
     <section class="aiero-creations" id="categories" style="padding: 6rem 8% 8rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="aiero-creations-container">
             <div class="aiero-creations-grid">
-
-                <!-- Category 1: Beds -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="category-beds" class="aiero-creation-card card-float-1" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
-                        <div class="aiero-creation-view-more">ENTER</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Metal Bed Frames</span>
-                            <p class="aiero-creation-desc">Premium bedroom furniture, customizable heavy-duty bedframes, and roadside poolside metal loungers.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Category 2: Hospital Beds -->
-                <?php /*<div class="aiero-creation-card-wrapper">
-                    <a href="category-hospital" class="aiero-creation-card card-float-2" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
-                        <div class="aiero-creation-view-more">ENTER</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Hospital Equipment & Beds</span>
-                            <p class="aiero-creation-desc">ICU Fowler beds, standard ward beds, medicine lockers, saline stands, and patient transport utilities.</p>
-                        </div>
-                    </a>
-                </div> */ ?>
-
-                <!-- Category 3: Cupboards -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="category-cupboards" class="aiero-creation-card card-float-3" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/household-wardrobe-02.webp');"></div>
-                        <div class="aiero-creation-view-more">ENTER</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Steel Cupboards & Storage</span>
-                            <p class="aiero-creation-desc">Premium household steel wardrobes, sliding modular almirahs, and secure office lockers.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Category 4: Doors -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="category-doors" class="aiero-creation-card card-float-1" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/fire-safety-door-03.webp');"></div>
-                        <div class="aiero-creation-view-more">ENTER</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Metal Doors & Safety Gates</span>
-                            <p class="aiero-creation-desc">Custom entrance safety gates, double-plated fire doors, and secure metal frames.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Category 5: Dining & Bathroom -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="category-dining-bathroom" class="aiero-creation-card card-float-2" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/dining-set-ds301-02.webp');"></div>
-                        <div class="aiero-creation-view-more">ENTER</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Dining Sets & Bathroom Cabinets</span>
-                            <p class="aiero-creation-desc">Modern stainless steel dining sets, modular wash basin vanity cabinets, and rust-proof mirrors.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Category 6: Outdoor -->
-                <div class="aiero-creation-card-wrapper">
-                    <a href="category-outdoor" class="aiero-creation-card card-float-3" style="display: block;">
-                        <div class="aiero-creation-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');"></div>
-                        <div class="aiero-creation-view-more">ENTER</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Outdoor Metal Structures</span>
-                            <p class="aiero-creation-desc">Premium garden gazebos and poolside recliners.</p>
-                        </div>
-                    </a>
-                </div>
+            <?php if (!empty($categories)): ?>
+                <?php foreach ($categories as $i => $cat): ?>
+                    <?php 
+                    $float_class = 'card-float-' . (($i % 3) + 1); 
+                    // Fetch category image or default fallback
+                    $cat_image = '';
+                    if (!empty($cat['image']) && file_exists(__DIR__ . '/uploads/categories/' . $cat['image'])) {
+                        $cat_image = 'uploads/categories/' . $cat['image'];
+                    } else {
+                        // Find first product of this category
+                        $stmt_first = $db->prepare("SELECT featured_image FROM products WHERE category_id = ? AND status = 1 LIMIT 1");
+                        $stmt_first->execute([$cat['id']]);
+                        $first_prod = $stmt_first->fetch();
+                        if (!empty($first_prod['featured_image'])) {
+                            $img_src = $first_prod['featured_image'];
+                            if (strpos($img_src, 'assets/') === 0) {
+                                $cat_image = $img_src;
+                            } else {
+                                $cat_image = 'uploads/' . $img_src;
+                            }
+                        } else {
+                            $cat_image = 'assets/metal-bed-7201-01.webp';
+                        }
+                    }
+                    ?>
+                    <div class="aiero-creation-card-wrapper">
+                        <a href="category?id=<?= htmlspecialchars($cat['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
+                            <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($cat_image) ?>');"></div>
+                            <div class="aiero-creation-view-more">ENTER</div>
+                            <div class="aiero-creation-content">
+                                <span class="aiero-creation-label"><?= htmlspecialchars($cat['name']) ?></span>
+                                <p class="aiero-creation-desc"><?= htmlspecialchars($cat['description']) ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <!-- Fallback if empty -->
+                <p style="opacity: 0.6; text-align: center; width: 100%;">No categories found.</p>
+            <?php endif; ?>
 
             </div>
         </div>

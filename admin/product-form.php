@@ -56,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($errors)) {
             $featured_image = $product['featured_image'] ?? null;
             if (isset($_FILES['featured_image']) && $_FILES['featured_image']['error'] === UPLOAD_ERR_OK) {
-                $uploaded = upload_image($_FILES['featured_image'], __DIR__ . '/uploads/');
+                $uploaded = upload_image($_FILES['featured_image'], __DIR__ . '/../uploads/');
                 if ($uploaded) {
-                    if ($featured_image) delete_image($featured_image, __DIR__ . '/uploads/');
+                    if ($featured_image) delete_image($featured_image, __DIR__ . '/../uploads/');
                     $featured_image = $uploaded;
                 } else {
                     $errors[] = 'Failed to upload image. Allowed: jpg, jpeg, png, gif, webp, svg.';
@@ -197,7 +197,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="img-preview-wrap">
                     <div id="featuredPreview" class="image-preview">
                         <?php if ($is_edit && !empty($product['featured_image'])): ?>
-                            <img src="../admin/uploads/<?= htmlspecialchars($product['featured_image']) ?>" alt="Featured">
+                            <?php 
+                            $img_src = htmlspecialchars($product['featured_image']);
+                            if (strpos($img_src, 'assets/') === 0) {
+                                $img = '../' . $img_src;
+                            } else {
+                                $img = '../uploads/' . $img_src;
+                            }
+                            ?>
+                            <img src="<?= $img ?>" alt="Featured">
                         <?php else: ?>
                             <i class="fas fa-image placeholder-icon"></i>
                         <?php endif; ?>

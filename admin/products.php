@@ -182,7 +182,12 @@ table.prod-table tbody tr:hover td { background: var(--gold-dim); }
                 <tbody>
                     <?php foreach ($products as $p): ?>
                         <?php
-                        $img = $p['featured_image'] ? '../admin/uploads/' . htmlspecialchars($p['featured_image']) : '';
+                        $img_src = htmlspecialchars($p['featured_image']);
+                        if (strpos($img_src, 'assets/') === 0) {
+                            $img = '../' . $img_src;
+                        } else {
+                            $img = $p['featured_image'] ? '../uploads/' . $img_src : '';
+                        }
                         $stock_class = $p['stock'] <= 0 ? 'out' : ($p['stock'] <= 5 ? 'low' : 'in');
                         ?>
                         <tr>

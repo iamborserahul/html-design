@@ -3,6 +3,14 @@ $title = "About Us | Khodiyar Steel – Manufacturing Excellence Since 1998";
 $description = "Read the story, journey, mission, and certifications of Khodiyar Steel, Surat's premier high-end steel furniture manufacturer.";
 $page = "about";
 include 'header.php';
+
+$team_members = [];
+try {
+    $db = getDB();
+    $team_members = $db->query("SELECT * FROM team_members WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+} catch (Exception $e) {
+    // Fallback
+}
 ?>
 
 <!-- Subpage Hero Section with Parallax Background -->
@@ -56,6 +64,27 @@ include 'header.php';
             <div class="aiero-about-img-wrapper animate-img-right"
                 style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; width: 100%; flex-wrap: wrap; margin-top: 2rem;">
 
+            <?php if (!empty($team_members)): ?>
+                <?php foreach ($team_members as $m): ?>
+                    <?php 
+                    $img_src = htmlspecialchars($m['image']);
+                    if (strpos($img_src, 'assets/') !== 0) {
+                        $img_src = 'uploads/team/' . $img_src;
+                    }
+                    ?>
+                    <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
+                        <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <img src="<?= $img_src ?>" alt="<?= htmlspecialchars($m['name']) ?>"
+                                class="aiero-founder-img aiero-founder-img--square" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="aiero-founder-details" style="margin-top: auto; display: flex; flex-direction: column; align-items: center; width: 100%;">
+                            <span class="aiero-founder-tag" style="display: inline-block; padding: 4px 12px; background: rgba(255,194,41,0.1); color: #FFC229; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;"><?= htmlspecialchars($m['designation']) ?></span>
+                            <h3 class="aiero-founder-name" style="font-size: 1.2rem; font-family: 'Cinzel', serif; color: #fff; margin-bottom: 0.5rem;"><?= htmlspecialchars($m['name']) ?></h3>
+                            <p class="aiero-founder-quote" style="font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; text-align: center;">"<?= htmlspecialchars($m['bio'] ?? '') ?>"</p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
                 <!-- Founder Card -->
                 <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
                     <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
@@ -92,7 +121,7 @@ include 'header.php';
                         <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Excellence in every operation."</p>
                     </div>
                 </div>
-
+            <?php endif; ?>
             </div>
         </div>
     </section>

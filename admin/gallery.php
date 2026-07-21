@@ -6,12 +6,18 @@ require_once __DIR__ . '/includes/header.php';
 $errors = [];
 $success = '';
 
-$upload_path = __DIR__ . '/uploads/gallery/';
+$upload_path = __DIR__ . '/../uploads/gallery/';
 if (!is_dir($upload_path)) {
     mkdir($upload_path, 0755, true);
 }
 
-$categories = ['Beds', 'Cupboards', 'Dining', 'Doors', 'Hospital', 'Outdoor'];
+$db = getDB();
+$categories = [];
+try {
+    $categories = $db->query("SELECT name FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll(PDO::FETCH_COLUMN);
+} catch (Exception $e) {
+    $categories = ['Beds', 'Cupboards', 'Dining', 'Doors', 'Hospital', 'Outdoor'];
+}
 
 $action = $_GET['action'] ?? 'list';
 $edit_id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
@@ -278,7 +284,7 @@ select.form-control { cursor: pointer; }
                             <div class="form-hint">Allowed: jpg, jpeg, png, gif, webp, svg</div>
                             <div class="image-preview" id="imagePreview">
                                 <?php if ($item && $item['image']): ?>
-                                    <img src="uploads/gallery/<?= htmlspecialchars($item['image']) ?>" alt="Preview">
+                                    <img src="../uploads/gallery/<?= htmlspecialchars($item['image']) ?>" alt="Preview">
                                 <?php else: ?>
                                     <i class="fa-solid fa-image placeholder-icon"></i>
                                 <?php endif; ?>
@@ -398,7 +404,7 @@ select.form-control { cursor: pointer; }
                                 <tr>
                                     <td>
                                         <?php if ($item['image']): ?>
-                                            <img src="uploads/gallery/<?= htmlspecialchars($item['image']) ?>" alt="" class="gal-thumb">
+                                            <img src="../uploads/gallery/<?= htmlspecialchars($item['image']) ?>" alt="" class="gal-thumb">
                                         <?php else: ?>
                                             <div class="gal-thumb-placeholder"><i class="fa-solid fa-image"></i></div>
                                         <?php endif; ?>

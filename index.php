@@ -5,12 +5,24 @@ $page = "home";
 require_once __DIR__ . '/config/database.php';
 include 'header.php';
 $hero_slides = [];
+$categories = [];
+$stats = [];
+$faqs = [];
+$gallery_items = [];
+$featured_products = [];
+$showcase_products = [];
+
 try {
     $db = getDB();
-    $stmt = $db->query("SELECT * FROM hero_slides WHERE status = 1 ORDER BY sort_order ASC, id ASC");
-    $hero_slides = $stmt->fetchAll();
+    $hero_slides = $db->query("SELECT * FROM hero_slides WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+    $stats = $db->query("SELECT * FROM stats_counters WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+    $faqs = $db->query("SELECT * FROM faqs WHERE status = 1 ORDER BY sort_order ASC, id ASC LIMIT 6")->fetchAll();
+    $gallery_items = $db->query("SELECT * FROM gallery_items WHERE status = 1 ORDER BY sort_order ASC, id DESC")->fetchAll();
+    $featured_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 6")->fetchAll();
+    $showcase_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.featured = 1 AND p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 3")->fetchAll();
 } catch (Exception $e) {
-    $hero_slides = [];
+    // Fallback
 }
 $total_slides = count($hero_slides);
 ?>
@@ -110,6 +122,15 @@ $total_slides = count($hero_slides);
         <div class="aiero-geom-shape shape-gold-sector"></div>
         <!-- 3D Spiral Helix - Right Side -->
         <div class="aiero-counters-grid">
+        <?php if (!empty($stats)): ?>
+            <?php foreach ($stats as $s): ?>
+                <div class="aiero-counter-card">
+                    <div class="aiero-counter-icon"><i class="fa-solid <?= htmlspecialchars($s['icon'] ?: 'fa-chart-simple') ?>"></i></div>
+                    <span class="aiero-counter-number" data-target="<?= (int) $s['value'] ?>" data-suffix="<?= htmlspecialchars($s['suffix']) ?>">0</span>
+                    <span class="aiero-counter-label"><?= htmlspecialchars($s['label']) ?></span>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
             <div class="aiero-counter-card">
                 <div class="aiero-counter-icon"><i class="fa-solid fa-calendar-check"></i></div>
                 <span class="aiero-counter-number" data-target="1998">0</span>
@@ -130,6 +151,7 @@ $total_slides = count($hero_slides);
                 <span class="aiero-counter-number" data-target="25">0</span>
                 <span class="aiero-counter-label">Years of manufacturing<br>excellence &amp; trust</span>
             </div>
+        <?php endif; ?>
         </div>
     </section>
     <!-- Interactive Product Categories Section -->
@@ -144,115 +166,57 @@ $total_slides = count($hero_slides);
             </div>
 
             <div class="aiero-categories-grid">
+            <?php
+            $slug_mapping = [
+                'metal-beds-bunks' => 'category-beds',
+                'steel-cupboards' => 'category-cupboards',
+                'dining-bathroom' => 'category-dining-bathroom',
+                'doors-security-gates' => 'category-doors',
+                'hospital-equipment' => 'category-hospital',
+                'outdoor-furniture' => 'category-outdoor',
+            ];
+            ?>
+            <?php if (!empty($categories)): ?>
+                <?php foreach ($categories as $c): ?>
+                    <?php 
+                    $link = 'category?id=' . urlencode($c['slug']);
+                    ?>
+                    <a href="<?= htmlspecialchars($link) ?>" class="aiero-category-card">
+                        <div class="aiero-category-card-border"></div>
+                        <div class="aiero-category-icon" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;">
+                            <?php if (!empty($c['icon'])): ?>
+                                <?php if (strpos($c['icon'], 'fa-') === 0): ?>
+                                    <i class="fa-solid <?= htmlspecialchars($c['icon']) ?>" style="font-size: 2rem;"></i>
+                                <?php else: ?>
+                                    <img src="uploads/categories/<?= htmlspecialchars($c['icon']) ?>" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <i class="fa-solid fa-tag" style="font-size: 2rem;"></i>
+                            <?php endif; ?>
+                        </div>
+                        <h3 class="aiero-category-card-title"><?= htmlspecialchars($c['name']) ?></h3>
+                        <p class="aiero-category-card-desc"><?= htmlspecialchars($c['description'] ?? '') ?></p>
+                        <span class="aiero-category-link-btn">EXPLORE CATALOG <i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                <?php endforeach; ?>
+            <?php else: ?>
                 <!-- Category 1 -->
-                <a href="category-beds" class="aiero-category-card">
+                <a href="category?id=metal-beds-bunks" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-couch"></i></div>
                     <h3 class="aiero-category-card-title">Metal Beds & Bunks</h3>
-                    <p class="aiero-category-card-desc">Heavy-duty elegant single, double, & kids bunk beds engineered
-                        for lifetime durability.</p>
-                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i
-                            class="fa-solid fa-chevron-right"></i></span>
+                    <p class="aiero-category-card-desc">Heavy-duty elegant single, double, & kids bunk beds engineered for lifetime durability.</p>
+                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i class="fa-solid fa-chevron-right"></i></span>
                 </a>
-
                 <!-- Category 2 -->
-                <a href="category-cupboards" class="aiero-category-card">
+                <a href="category?id=steel-cupboards" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
-                    <div class="aiero-category-icon"><svg xmlns="http://www.w3.org/2000/svg"
-     width="64"
-     height="64"
-     viewBox="0 0 64 64"
-     fill="none">
-
-    <!-- Cabinet Body -->
-    <rect x="14" y="10"
-          width="36"
-          height="40"
-          rx="2"
-          stroke="#F9B21D"
-          stroke-width="3"/>
-
-    <!-- Base -->
-    <line x1="18" y1="50" x2="46" y2="50"
-          stroke="#F9B21D"
-          stroke-width="3"/>
-
-    <!-- Legs -->
-    <line x1="18" y1="50" x2="18" y2="54"
-          stroke="#F9B21D"
-          stroke-width="3"/>
-
-    <line x1="46" y1="50" x2="46" y2="54"
-          stroke="#F9B21D"
-          stroke-width="3"/>
-
-    <!-- Divider -->
-    <line x1="32" y1="14" x2="32" y2="46"
-          stroke="#F9B21D"
-          stroke-width="3"/>
-
-    <!-- Left Handle -->
-    <line x1="26" y1="24" x2="26" y2="31"
-          stroke="#F9B21D"
-          stroke-width="3"
-          stroke-linecap="round"/>
-
-    <!-- Right Handle -->
-    <line x1="38" y1="24" x2="38" y2="31"
-          stroke="#F9B21D"
-          stroke-width="3"
-          stroke-linecap="round"/>
-</svg></div>
+                    <div class="aiero-category-icon"><i class="fa-solid fa-cabinet-filing"></i></div>
                     <h3 class="aiero-category-card-title">Steel Cupboards</h3>
-                    <p class="aiero-category-card-desc">Secure modular almirahs, wardrobe lockers, and premium dynamic
-                        storage cabinets.</p>
-                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i
-                            class="fa-solid fa-chevron-right"></i></span>
+                    <p class="aiero-category-card-desc">Secure modular almirahs, wardrobe lockers, and premium dynamic storage cabinets.</p>
+                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i class="fa-solid fa-chevron-right"></i></span>
                 </a>
-
-                <!-- Category 3 -->
-                <a href="category-dining-bathroom" class="aiero-category-card">
-                    <div class="aiero-category-card-border"></div>
-                    <div class="aiero-category-icon"><i class="fa-solid fa-utensils"></i></div>
-                    <h3 class="aiero-category-card-title">Dining & Bathroom</h3>
-                    <p class="aiero-category-card-desc">Minimalist, moisture-proof metallic dining sets, washstands, and
-                        sleek accessories.</p>
-                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i
-                            class="fa-solid fa-chevron-right"></i></span>
-                </a>
-
-                <!-- Category 4 -->
-                <a href="category-doors" class="aiero-category-card">
-                    <div class="aiero-category-card-border"></div>
-                    <div class="aiero-category-icon"><i class="fa-solid fa-door-closed"></i></div>
-                    <h3 class="aiero-category-card-title">Doors &amp; Security Gates</h3>
-                    <p class="aiero-category-card-desc">Bespoke heavy-gauge security safety gates, main entry doors, and
-                        secure metal frames.</p>
-                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i
-                            class="fa-solid fa-chevron-right"></i></span>
-                </a>
-
-                <!-- Category 5 -->
-                <a href="category-hospital" class="aiero-category-card">
-                    <div class="aiero-category-card-border"></div>
-                    <div class="aiero-category-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                    <h3 class="aiero-category-card-title">Hospital Equipment</h3>
-                    <p class="aiero-category-card-desc">Standard and semi-fowler clinical ward fowler beds, lockers,
-                        stands, and stretchers.</p>
-                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i
-                            class="fa-solid fa-chevron-right"></i></span>
-                </a>
-
-                <!-- Category 6 -->
-                <a href="category-outdoor" class="aiero-category-card">
-                    <div class="aiero-category-card-border"></div>
-                    <div class="aiero-category-icon"><i class="fa-solid fa-umbrella"></i></div>
-                    <h3 class="aiero-category-card-title">Outdoor Furniture</h3>
-                    <p class="aiero-category-card-desc">Rust-protected all-weather garden gazebos, poolside recliners, and
-                        structural outdoor pavilions.</p>
-                    <span class="aiero-category-link-btn">EXPLORE CATALOG <i
-                            class="fa-solid fa-chevron-right"></i></span>
-                </a>
+            <?php endif; ?>
             </div>
         </div>
     </section>
@@ -267,88 +231,29 @@ $total_slides = count($hero_slides);
 
             <!-- Staggered Card Grid -->
             <div class="aiero-creations-grid">
-
-                <!-- Card 1 -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/images/bad.png');"></div>
-                        <div class="aiero-creation-view-more">VIEW MORE</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Metal Bed Frames</span>
-                            <p class="aiero-creation-desc">Durable and comfortable steel beds designed for homes,
-                                hostels,
-                                hospitals, and commercial sectors.</p>
-                        </div>
+            <?php if (!empty($featured_products)): ?>
+                <?php foreach ($featured_products as $i => $prod): ?>
+                    <?php 
+                    $float_class = 'card-float-' . (($i % 3) + 1); 
+                    $img_src = htmlspecialchars($prod['featured_image']);
+                    if (strpos($img_src, 'assets/') !== 0) {
+                        $img_src = 'uploads/' . $img_src;
+                    }
+                    ?>
+                    <div class="aiero-creation-card-wrapper">
+                        <a href="product-details?id=<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
+                            <div class="aiero-creation-img" style="background-image: url('<?= $img_src ?>');"></div>
+                            <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                            <div class="aiero-creation-content">
+                                <span class="aiero-creation-label"><?= htmlspecialchars($prod['name']) ?></span>
+                                <p class="aiero-creation-desc"><?= htmlspecialchars($prod['short_description']) ?></p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/images/hospital-bed.png');"></div>
-                        <div class="aiero-creation-view-more">VIEW MORE</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Hospital Beds</span>
-                            <p class="aiero-creation-desc">Reliable hospital beds engineered for patient safety and
-                                comfort,
-                                built with heavy-duty materials.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/images/cabinate.png');"></div>
-                        <div class="aiero-creation-view-more">VIEW MORE</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Steel Cupboards & Storage Cabinets</span>
-                            <p class="aiero-creation-desc">Strong and secure storage solutions built for households,
-                                offices, schools, and industrial needs.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1">
-                        <div class="aiero-creation-img" style="background-image: url('assets/images/door.png');"></div>
-                        <div class="aiero-creation-view-more">VIEW MORE</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Metal Doors &amp; Security Gates</span>
-                            <p class="aiero-creation-desc">Custom metal doors and security gates designed to
-                                match
-                                specific size, safety, and architectural layout needs.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2">
-                        <div class="aiero-creation-img" style="background-image: url('assets/images/dinning.png');"></div>
-                        <div class="aiero-creation-view-more">VIEW MORE</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Dining Sets & Bathroom Furniture</span>
-                            <p class="aiero-creation-desc">Functional and elegant modern metal dining sets, stands, and
-                                damp-proof bathroom utilities.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3">
-                        <div class="aiero-creation-img" style="background-image: url('assets/images/outdoor.png');"></div>
-                        <div class="aiero-creation-view-more">VIEW MORE</div>
-                        <div class="aiero-creation-content">
-                            <span class="aiero-creation-label">Outdoor Metal Furniture & Structures</span>
-                            <p class="aiero-creation-desc">Premium all-weather garden gazebos, poolside recliners, and commercial
-                                landscape architectural steel models.</p>
-                        </div>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="opacity: 0.6; text-align: center; width: 100%;">No creations found.</p>
+            <?php endif; ?>
             </div>
         </div>
     </section>
@@ -366,141 +271,55 @@ $total_slides = count($hero_slides);
 
             <!-- Sticky Cards Stack -->
             <div class="showcase-stack">
-                <!-- Card 1 -->
-                <div class="showcase-card" id="card-1">
-                    <div class="card-inner">
-                        <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/metal-bed-7201-01.webp');"></div>
-                        <!-- Gradient Overlay for Legibility -->
-                        <div class="card-gradient-overlay"></div>
+            <?php if (!empty($showcase_products)): ?>
+                <?php foreach ($showcase_products as $idx => $prod): ?>
+                    <?php 
+                    $progress = $idx === 0 ? '100%' : '0%'; 
+                    $img_src = htmlspecialchars($prod['featured_image']);
+                    if (strpos($img_src, 'assets/') !== 0) {
+                        $img_src = 'uploads/' . $img_src;
+                    }
+                    ?>
+                    <div class="showcase-card" id="card-<?= ($idx + 1) ?>">
+                        <div class="card-inner">
+                            <div class="card-bg-img" style="background-image: url('<?= $img_src ?>');"></div>
+                            <div class="card-gradient-overlay"></div>
 
-                        <!-- Top-Left Pill Tags -->
-                        <div class="card-tags-overlay">
-                            <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">VALUE BEDSTEAD</span>
-                        </div>
-
-                        <!-- Right Circular Scroll Progress Indicator -->
-                        <div class="card-scroll-indicator">
-                            <svg class="progress-ring" width="60" height="60">
-                                <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)"
-                                    stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
-                                <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2"
-                                    fill="transparent" r="24" cx="30" cy="30" />
-                            </svg>
-                            <span class="progress-val">100%</span>
-                        </div>
-
-                        <!-- Bottom Content Overlay -->
-                        <div class="card-content-overlay">
-                            <span class="card-category">VALUE BEDS</span>
-                            <h3 class="card-title">Platform Bed</h3>
-                            <div class="card-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-val">4.9 (124 reviews)</span>
+                            <div class="card-tags-overlay">
+                                <span class="card-pill-tag">SIGNATURE</span>
+                                <span class="card-pill-tag"><?= htmlspecialchars(strtoupper($prod['category_name'] ?? 'Product')) ?></span>
                             </div>
-                            <p class="card-desc">Water & fire proof design with elegant grooved wood color panels, high-quality emboss outlines, and an adjustable screw-cap leg support grid designed to maximize comfort and structural longevity.</p>
-                            <div class="card-footer-row">
-                                <div class="card-price"></div>
-                                <div class="card-actions">
-                                    <a href="contact?product=Platform%20Bed"
-                                        class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="product-details?id=bed7201" class="btn-view-details">View Details</a>
+
+                            <div class="card-scroll-indicator">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
+                                    <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
+                                </svg>
+                                <span class="progress-val"><?= $progress ?></span>
+                            </div>
+
+                            <div class="card-content-overlay">
+                                <span class="card-category"><?= htmlspecialchars(strtoupper($prod['category_name'] ?? 'Product')) ?></span>
+                                <h3 class="card-title"><?= htmlspecialchars($prod['name']) ?></h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-val">5.0</span>
+                                </div>
+                                <p class="card-desc"><?= htmlspecialchars($prod['short_description']) ?></p>
+                                <div class="card-footer-row">
+                                    <div class="card-price"></div>
+                                    <div class="card-actions">
+                                        <a href="contact?product=<?= urlencode($prod['name']) ?>" class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                                        <a href="product-details?id=<?= htmlspecialchars($prod['slug']) ?>" class="btn-view-details">View Details</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="showcase-card" id="card-2">
-                    <div class="card-inner">
-                        <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/adjustable-bad2.png');"></div>
-                        <!-- Gradient Overlay for Legibility -->
-                        <div class="card-gradient-overlay"></div>
-
-                        <!-- Top-Left Pill Tags -->
-                        <div class="card-tags-overlay">
-                            <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">FOLDING FRAME</span>
-                        </div>
-
-                        <!-- Right Circular Scroll Progress Indicator -->
-                        <div class="card-scroll-indicator">
-                            <svg class="progress-ring" width="60" height="60">
-                                <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)"
-                                    stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
-                                <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2"
-                                    fill="transparent" r="24" cx="30" cy="30" />
-                            </svg>
-                            <span class="progress-val">0%</span>
-                        </div>
-
-                        <!-- Bottom Content Overlay -->
-                        <div class="card-content-overlay">
-                            <span class="card-category">VALUE BEDS</span>
-                            <h3 class="card-title">Adjustable Bed</h3>
-                            <div class="card-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-val">4.8 (95 reviews)</span>
-                            </div>
-                            <p class="card-desc">Heavy structural steel adjustable folding beds with high durability finishes and multi-level customizable resting positions.</p>
-                            <div class="card-footer-row">
-                                <div class="card-price"></div>
-                                <div class="card-actions">
-                                    <a href="contact?product=Adjustable%20Bed"
-                                        class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="category-beds" class="btn-view-details">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="showcase-card" id="card-3">
-                    <div class="card-inner">
-                        <!-- Full Background Image -->
-                        <div class="card-bg-img" style="background-image: url('assets/dining.png');"></div>
-                        <!-- Gradient Overlay for Legibility -->
-                        <div class="card-gradient-overlay"></div>
-
-                        <!-- Top-Left Pill Tags -->
-                        <div class="card-tags-overlay">
-                            <span class="card-pill-tag">RESIDENTIAL</span>
-                            <span class="card-pill-tag">CULINARY SET</span>
-                        </div>
-
-                        <!-- Right Circular Scroll Progress Indicator -->
-                        <div class="card-scroll-indicator">
-                            <svg class="progress-ring" width="60" height="60">
-                                <circle class="progress-ring__circle-bg" stroke="rgba(255, 255, 255, 0.15)"
-                                    stroke-width="2" fill="transparent" r="24" cx="30" cy="30" />
-                                <circle class="progress-ring__circle" stroke="var(--color-primary)" stroke-width="2"
-                                    fill="transparent" r="24" cx="30" cy="30" />
-                            </svg>
-                            <span class="progress-val">0%</span>
-                        </div>
-
-                        <!-- Bottom Content Overlay -->
-                        <div class="card-content-overlay">
-                            <span class="card-category">VALUE DINING</span>
-                            <h3 class="card-title">Dining Set</h3>
-                            <div class="card-rating">
-                                <span class="stars">★★★★★</span>
-                                <span class="rating-val">5.0 (82 reviews)</span>
-                            </div>
-                            <p class="card-desc">Elegant steel dining table set pairing mirror-polished tubes with comfortable high-back chairs and durable, heat-resistant overlays.</p>
-                            <div class="card-footer-row">
-                                <div class="card-price"></div>
-                                <div class="card-actions">
-                                    <a href="contact?product=Dining%20Set"
-                                        class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                    <a href="product-details?id=dining-set" class="btn-view-details">View Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="opacity: 0.6; text-align: center; width: 100%;">No showcase products found.</p>
+            <?php endif; ?>
             </div>
         </div>
     </section>
@@ -517,152 +336,103 @@ $total_slides = count($hero_slides);
                     engineered for industrial strength and designed for architectural elegance.</p>
             </div>
             <div class="aiero-gallery-rows">
+            <?php
+            $top_items = [];
+            $bottom_items = [];
+            if (!empty($gallery_items)) {
+                foreach ($gallery_items as $idx => $item) {
+                    if ($idx % 2 === 0) {
+                        $top_items[] = $item;
+                    } else {
+                        $bottom_items[] = $item;
+                    }
+                }
+            }
+            ?>
                 <div class="aiero-gallery-row">
                     <div class="aiero-gallery-track aiero-gallery-track--top">
+                    <?php if (!empty($top_items)): ?>
+                        <?php 
+                        $display_top = $top_items;
+                        while (count($display_top) < 8) {
+                            $display_top = array_merge($display_top, $top_items);
+                        }
+                        $sizes = ['lg', 'sm', 'md'];
+                        ?>
+                        <?php foreach ($display_top as $idx => $item): ?>
+                            <?php $size = $sizes[$idx % 3]; ?>
+                            <div class="aiero-gallery-card aiero-gallery-card--<?= $size ?>">
+                                <div class="aiero-gallery-card-img" style="background-image: url('uploads/gallery/<?= htmlspecialchars($item['image']) ?>');">
+                                </div>
+                                <div class="aiero-gallery-card-overlay">
+                                    <span class="aiero-gallery-card-label"><?= htmlspecialchars($item['title']) ?></span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
                             </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
-                                    Bedstead</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury Bedstead</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
                             </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
-                                    Doors</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel Doors</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
-                                    Suite</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital Suite</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
                             </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
-                                    System</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard System</span></div>
                         </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
-                                    Structure</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
-                                    Set</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
-                                    Bedstead</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
-                                    Doors</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
-                                    Suite</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
-                                    System</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
-                                    Structure</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
-                                    Set</span></div>
-                        </div>
+                    <?php endif; ?>
                     </div>
                 </div>
                 <div class="aiero-gallery-row">
                     <div class="aiero-gallery-track aiero-gallery-track--bottom">
+                    <?php if (!empty($bottom_items)): ?>
+                        <?php 
+                        $display_bottom = $bottom_items;
+                        while (count($display_bottom) < 8) {
+                            $display_bottom = array_merge($display_bottom, $bottom_items);
+                        }
+                        $sizes = ['md', 'lg', 'sm'];
+                        ?>
+                        <?php foreach ($display_bottom as $idx => $item): ?>
+                            <?php $size = $sizes[$idx % 3]; ?>
+                            <div class="aiero-gallery-card aiero-gallery-card--<?= $size ?>">
+                                <div class="aiero-gallery-card-img" style="background-image: url('uploads/gallery/<?= htmlspecialchars($item['image']) ?>');">
+                                </div>
+                                <div class="aiero-gallery-card-overlay">
+                                    <span class="aiero-gallery-card-label"><?= htmlspecialchars($item['title']) ?></span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         <div class="aiero-gallery-card aiero-gallery-card--md">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
                             </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
-                                    System</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard System</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
-                                    Suite</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital Suite</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--sm">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
                             </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
-                                    Structure</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor Structure</span></div>
                         </div>
                         <div class="aiero-gallery-card aiero-gallery-card--lg">
                             <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
                             </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
-                                    Set</span></div>
+                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining Set</span></div>
                         </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
-                                    Bedstead</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
-                                    Doors</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/household-wardrobe-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Cupboard
-                                    System</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/icu-fowler-bed-01.webp');"></div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Hospital
-                                    Suite</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/garden-steel-gazebo-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Outdoor
-                                    Structure</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--lg">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/dining-set-ds301-02.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Dining
-                                    Set</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--sm">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/metal-bed-7201-01.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Luxury
-                                    Bedstead</span></div>
-                        </div>
-                        <div class="aiero-gallery-card aiero-gallery-card--md">
-                            <div class="aiero-gallery-card-img" style="background-image: url('assets/fire-safety-door-03.webp');">
-                            </div>
-                            <div class="aiero-gallery-card-overlay"><span class="aiero-gallery-card-label">Steel
-                                    Doors</span></div>
-                        </div>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -885,49 +655,33 @@ $total_slides = count($hero_slides);
                     Questions</h2>
             </div>
 
-            <div class="aiero-faq-item">
-                <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">What structural raw materials does Khodiyar Steel utilize?</span>
-                    <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
-                </button>
-                <div class="aiero-faq-panel">
-                    <div class="aiero-faq-content">
-                        We utilize premium-grade structural steel, high-gauge carbon steel pipes, and durable stainless
-                        steel sections. Every piece of raw metal undergoes strict anti-rust treatments, phosphating
-                        chemical cleaning, and is finished with industrial-grade powder coating to guarantee load
-                        resistance and rust prevention.
+            <?php if (!empty($faqs)): ?>
+                <?php foreach ($faqs as $faq): ?>
+                    <div class="aiero-faq-item">
+                        <button class="aiero-faq-trigger" aria-expanded="false">
+                            <span class="aiero-faq-question"><?= htmlspecialchars($faq['question']) ?></span>
+                            <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
+                        </button>
+                        <div class="aiero-faq-panel">
+                            <div class="aiero-faq-content">
+                                <?= nl2br(htmlspecialchars($faq['answer'])) ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="aiero-faq-item">
+                    <button class="aiero-faq-trigger" aria-expanded="false">
+                        <span class="aiero-faq-question">What structural raw materials does Khodiyar Steel utilize?</span>
+                        <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
+                    </button>
+                    <div class="aiero-faq-panel">
+                        <div class="aiero-faq-content">
+                            We utilize premium-grade structural steel, high-gauge carbon steel pipes, and durable stainless steel sections. Every piece of raw metal undergoes strict anti-rust treatments, phosphating chemical cleaning, and is finished with industrial-grade powder coating to guarantee load resistance and rust prevention.
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="aiero-faq-item">
-                <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">Can I submit custom blueprint layouts for fabrication?</span>
-                    <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
-                </button>
-                <div class="aiero-faq-panel">
-                    <div class="aiero-faq-content">
-                        Absolutely. Precision custom structural fabrication is one of our primary specialties. Our
-                        engineering department accepts custom CAD blueprints, dimension sheets, or sketches for fire
-                        doors, safety gates, outdoor gazebos, and bespoke residential furniture designs.
-                    </div>
-                </div>
-            </div>
-
-            <div class="aiero-faq-item">
-                <button class="aiero-faq-trigger" aria-expanded="false">
-                    <span class="aiero-faq-question">What is the turnaround time for bulk or custom orders?</span>
-                    <i class="fa-solid fa-chevron-down aiero-faq-icon"></i>
-                </button>
-                <div class="aiero-faq-panel">
-                    <div class="aiero-faq-content">
-                        Turnaround times depend on the complexity and scale of the fabrication. Standard catalog orders
-                        (such as wardrobes, hospital lockers, or single beds) are processed immediately. Large-scale
-                        structural or bulk institutional orders typically range from 2 to 4 weeks, with clear timelines
-                        provided during the blueprint finalization stage.
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 

@@ -3,8 +3,8 @@ $current_page = 'team';
 $page_title = 'Team Members';
 require_once __DIR__ . '/includes/header.php';
 
-$upload_path = __DIR__ . '/uploads/team/';
-$upload_url = 'uploads/team/';
+$upload_path = __DIR__ . '/../uploads/team/';
+$upload_url = '../uploads/team/';
 $errors = [];
 $success = $_SESSION['flash_success'] ?? '';
 $error = $_SESSION['flash_error'] ?? '';

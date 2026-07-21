@@ -302,7 +302,7 @@ select.form-control { cursor: pointer; }
                             <div class="form-hint">Allowed: jpg, jpeg, png, gif, webp, svg</div>
                             <div class="image-preview" id="imagePreview">
                                 <?php if ($slide && $slide['image']): ?>
-                                    <img src="<?= MEDIA_URL ?>slider/<?= htmlspecialchars($slide['image']) ?>" alt="Preview">
+                                    <img src="../uploads/slider/<?= htmlspecialchars($slide['image']) ?>" alt="Preview">
                                 <?php else: ?>
                                     <i class="fa-solid fa-image placeholder-icon"></i>
                                 <?php endif; ?>
@@ -405,7 +405,7 @@ select.form-control { cursor: pointer; }
                                     </td>
                                     <td>
                                         <?php if ($s['image']): ?>
-                                            <img src="<?= MEDIA_URL ?>slider/<?= htmlspecialchars($s['image']) ?>" alt="" class="hero-thumb">
+                                            <img src="../uploads/slider/<?= htmlspecialchars($s['image']) ?>" alt="" class="hero-thumb">
                                         <?php else: ?>
                                             <div class="hero-thumb-placeholder"><i class="fa-solid fa-image"></i></div>
                                         <?php endif; ?>

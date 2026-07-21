@@ -26,7 +26,7 @@ if (isset($_GET['delete'])) {
         $stmt->execute([$img_id, $id]);
         $img = $stmt->fetch();
         if ($img) {
-            delete_image($img['image'], __DIR__ . '/uploads/');
+            delete_image($img['image'], __DIR__ . '/../uploads/');
             $db->prepare("DELETE FROM product_images WHERE id = ?")->execute([$img_id]);
         }
     }
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 'error' => $files['error'][$i],
                 'size' => $files['size'][$i],
             ];
-            $filename = upload_image($file, __DIR__ . '/uploads/');
+            $filename = upload_image($file, __DIR__ . '/../uploads/');
             if ($filename) {
                 $stmt->execute([$id, $filename, '', $max_order + $uploaded_count + 1]);
                 $uploaded_count++;
@@ -157,7 +157,15 @@ $images = $images->fetchAll();
             <?php foreach ($images as $img): ?>
                 <div class="image-card">
                     <div class="img-wrap">
-                        <img src="../admin/uploads/<?= htmlspecialchars($img['image']) ?>" alt="<?= htmlspecialchars($img['alt_text']) ?>">
+                        <?php 
+                        $img_src = htmlspecialchars($img['image']);
+                        if (strpos($img_src, 'assets/') === 0) {
+                            $img_path = '../' . $img_src;
+                        } else {
+                            $img_path = '../uploads/' . $img_src;
+                        }
+                        ?>
+                        <img src="<?= $img_path ?>" alt="<?= htmlspecialchars($img['alt_text']) ?>">
                     </div>
                     <div class="img-body">
                         <input type="text" name="items[<?= $img['id'] ?>][alt_text]" value="<?= htmlspecialchars($img['alt_text']) ?>" placeholder="Alt text">
