@@ -363,6 +363,9 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         <a href="partners.php" class="<?= $current_page === 'partners' ? 'active' : '' ?>">
             <i class="fa-solid fa-handshake"></i><span>Partners</span>
         </a>
+        <a href="extra-services.php" class="<?= $current_page === 'extra-services' ? 'active' : '' ?>">
+            <i class="fa-solid fa-gear"></i><span>Extra Services</span>
+        </a>
         <a href="settings.php" class="<?= $current_page === 'settings' ? 'active' : '' ?>">
             <i class="fa-solid fa-gear"></i><span>Settings</span>
         </a>

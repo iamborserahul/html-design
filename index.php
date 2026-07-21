@@ -12,6 +12,7 @@ $gallery_items = [];
 $featured_products = [];
 $showcase_products = [];
 $partners = [];
+$extra_services = [];
 
 try {
     $db = getDB();
@@ -23,6 +24,7 @@ try {
     $featured_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 6")->fetchAll();
     $showcase_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.featured = 1 AND p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 3")->fetchAll();
     $partners = $db->query("SELECT * FROM partners WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
+    $extra_services = $db->query("SELECT * FROM extra_services WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
 } catch (Exception $e) {
     // Fallback
 }
@@ -70,6 +72,15 @@ $total_slides = count($hero_slides);
     </section>
 
     <!-- Premium Animated About Us Section -->
+    <?php
+    $about_tagline = get_setting('about_tagline') ?: 'ABOUT US';
+    $about_title = get_setting('about_title') ?: 'Built on Strength.<br>Driven by Quality.';
+    $about_desc = get_setting('about_description') ?: '';
+    $about_img1 = get_setting('about_image_1') ?: 'assets/metal-bed-7201-01.webp';
+    $about_img2 = get_setting('about_image_2') ?: 'assets/origami-bunk-bed-02.webp';
+    $about_phone = get_setting('site_phone') ?: '90999 99266';
+    $about_phone_clean = preg_replace('/[^0-9]/', '', $about_phone);
+    ?>
     <section class="aiero-about" id="about">
         <!-- Purple Semi-Circle - Right Side -->
         <div class="aiero-geom-shape shape-purple"></div>
@@ -78,18 +89,12 @@ $total_slides = count($hero_slides);
         <div class="aiero-about-container">
             <!-- Left Column Content -->
             <div class="aiero-about-content">
-                <span class="aiero-about-tagline">ABOUT US</span>
+                <span class="aiero-about-tagline"><?= htmlspecialchars($about_tagline) ?></span>
                 <h2 class="aiero-about-title">
-                    Built on Strength.<br>Driven by Quality.
+                    <?= $about_title ?>
                 </h2>
                 <div class="aiero-about-desc">
-                    <p>Founded in 1998 by Vimal Sakariya, Khodiyar Steel Industries began with a clear vision: to
-                        manufacture durable, high-quality steel furniture that customers could trust. What started as a
-                        small manufacturing operation serving the Indian market has grown into an established metal
-                        furniture manufacturer with more than 25 years of industry experience.</p>
-                    <p>Today, Khodiyar Steel Industries is a trusted manufacturing partner for distributors, importers,
-                        retailers, institutions, and project buyers globally, with a production capacity of up to 10,000
-                        metal beds per month.</p>
+                    <?= $about_desc ?>
                 </div>
                 <div class="aiero-about-phone">
                     <div class="aiero-phone-icon">
@@ -97,7 +102,7 @@ $total_slides = count($hero_slides);
                     </div>
                     <div class="aiero-phone-details">
                         <span class="aiero-phone-label">Contact Us</span>
-                        <a href="tel:9099999266" class="aiero-phone-num">90999 99266</a>
+                        <a href="tel:<?= htmlspecialchars($about_phone_clean) ?>" class="aiero-phone-num"><?= htmlspecialchars($about_phone) ?></a>
                     </div>
                 </div>
             </div>
@@ -106,12 +111,12 @@ $total_slides = count($hero_slides);
             <div class="aiero-about-images">
                 <div class="aiero-about-img-wrapper animate-img-left">
                     <div class="aiero-about-img-box aiero-float-left">
-                        <img src="assets/metal-bed-7201-01.webp" alt="Premium steel lounge structure design">
+                        <img src="<?= htmlspecialchars($about_img1) ?>" alt="Premium steel lounge structure design">
                     </div>
                 </div>
                 <div class="aiero-about-img-wrapper shifted animate-img-right">
                     <div class="aiero-about-img-box aiero-float-right">
-                        <img src="assets/origami-bunk-bed-02.webp" alt="Modern sensory bedroom sanctuary space">
+                        <img src="<?= htmlspecialchars($about_img2) ?>" alt="Modern sensory bedroom sanctuary space">
                     </div>
                 </div>
             </div>
@@ -442,6 +447,17 @@ $total_slides = count($hero_slides);
     </section>
 
     <!-- Unique Pro "Extra Services" Section -->
+    <?php
+    // Fetch section settings
+    $svc_subtitle     = get_setting('services_subtitle')      ?: 'UTILITY RANGE';
+    $svc_title        = get_setting('services_title')         ?: 'Bathroom & Utility Metal Products';
+    $svc_desc         = get_setting('services_description')   ?: '';
+    $svc_catalogue    = get_setting('services_catalogue_url') ?: 'ksi/Khodiyar_Bathroom_Utility_Metal_Products_Catalogue.pdf';
+    $svc_contact_name = get_setting('services_contact_name')  ?: 'Mr. Manthan Sakariya (CEO)';
+    $svc_contact_ph   = get_setting('services_contact_phone') ?: '+91 73598 40800';
+    $svc_contact_em   = get_setting('services_contact_email') ?: 'info@khodiyarsteel.com';
+    $svc_phone_clean  = preg_replace('/[^0-9+]/', '', $svc_contact_ph);
+    ?>
     <section class="aiero-services-section" id="services">
         <!-- Pink Sector - Left Side -->
         <div class="aiero-geom-shape shape-pink-sector"></div>
@@ -452,32 +468,30 @@ $total_slides = count($hero_slides);
         <div class="aiero-services-container">
             <!-- Left Side: Elegant Text Details -->
             <div class="aiero-services-text-col">
-                <span class="aiero-services-subtitle">UTILITY RANGE</span>
-                <h2 class="aiero-services-title">Bathroom & Utility Metal Products</h2>
+                <span class="aiero-services-subtitle"><?= htmlspecialchars($svc_subtitle) ?></span>
+                <h2 class="aiero-services-title"><?= htmlspecialchars($svc_title) ?></h2>
                 <div class="aiero-services-desc">
-                    <p>A focused development catalogue for bathroom racks, towel hangers, luggage trolleys, bedside
-                        tables, and clothes racks manufactured by Khodiyar Steel Industries.</p>
-                    <p>Designed for bulk buyers, hotel projects, bathroom brands, furniture distributors, and
-                        OEM/private-label supply.</p>
+                    <?= $svc_desc ?>
                 </div>
+                <?php if ($svc_catalogue): ?>
                 <div style="margin-bottom: 2rem;">
-                    <a href="ksi/Khodiyar_Bathroom_Utility_Metal_Products_Catalogue.pdf" download
+                    <a href="<?= htmlspecialchars($svc_catalogue) ?>" download
                         class="aiero-btn-capsule" style="display: inline-flex; align-items: center; gap: 0.5rem;">
                         <i class="fa-solid fa-file-pdf"></i> Download Catalogue
                     </a>
                 </div>
+                <?php endif; ?>
                 <div class="aiero-services-contact-container"
                     style="display: flex; flex-direction: column; gap: 1.2rem;">
-                    <!-- Contact 1: Mr. Vimalbhai Sakariya -->
                     <div class="aiero-services-contact">
                         <div class="aiero-services-contact-icon">
                             <i class="fa-solid fa-phone-volume"></i>
                         </div>
                         <div class="aiero-services-contact-details">
-                            <span class="aiero-services-contact-label">Mr. Manthan Sakariya (CEO)</span>
-                            <a href="tel:+917359840800" class="aiero-services-contact-num">+91 73598 40800</a>
+                            <span class="aiero-services-contact-label"><?= htmlspecialchars($svc_contact_name) ?></span>
+                            <a href="tel:<?= htmlspecialchars($svc_phone_clean) ?>" class="aiero-services-contact-num"><?= htmlspecialchars($svc_contact_ph) ?></a>
                             <span class="aiero-services-contact-label"
-                                style="display: block; font-size: 0.75rem; opacity: 0.8; margin-top: 0.1rem; text-transform: lowercase;">info@khodiyarsteel.com</span>
+                                style="display: block; font-size: 0.75rem; opacity: 0.8; margin-top: 0.1rem; text-transform: lowercase;"><?= htmlspecialchars($svc_contact_em) ?></span>
                         </div>
                     </div>
                 </div>
@@ -487,155 +501,41 @@ $total_slides = count($hero_slides);
             <div class="aiero-services-slider-col">
                 <div class="aiero-services-slider-wrapper">
                     <div class="aiero-services-slider-track">
-                        <!-- Card 1: Bathroom Rack (BR-01) -->
-                        <div class="aiero-service-card">
-                            <div class="aiero-service-card-img-wrap">
-                                <div class="aiero-service-card-img"
-                                    style="background-image: url('assets/service_br01.png');">
+                        <?php if (!empty($extra_services)): ?>
+                            <?php foreach ($extra_services as $svc): ?>
+                            <div class="aiero-service-card">
+                                <div class="aiero-service-card-img-wrap">
+                                    <div class="aiero-service-card-img"
+                                        style="background-image: url('<?= htmlspecialchars($svc['image'] ?: 'assets/service_br01.png') ?>');">
+                                    </div>
+                                </div>
+                                <div class="aiero-service-card-content">
+                                    <h3 class="aiero-service-card-title"><?= htmlspecialchars($svc['title']) ?></h3>
+                                    <div class="aiero-service-card-price-row">
+                                        <span class="aiero-service-card-price"><?= htmlspecialchars($svc['prefix']) ?></span>
+                                        <span class="aiero-service-card-period">/ <?= htmlspecialchars($svc['subtitle']) ?></span>
+                                    </div>
+                                    <ul class="aiero-service-card-specs">
+                                        <?php foreach (['spec_1','spec_2','spec_3','spec_4'] as $spec): ?>
+                                            <?php if (!empty($svc[$spec])): ?>
+                                            <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
+                                                <span><?= htmlspecialchars($svc[$spec]) ?></span>
+                                            </li>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="aiero-service-card-content">
-                                <h3 class="aiero-service-card-title">Bathroom Rack</h3>
-                                <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">BR</span>
-                                    <span class="aiero-service-card-period">/ Utility Storage</span>
-                                </div>
-                                <ul class="aiero-service-card-specs">
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Wall-mounted & free-standing formats</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Mild steel or stainless steel tube</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Powder-coated & chrome-look finishes</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>KD or semi-KD export packing</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Card 2: Bathroom Towel Hanger (TH-01) -->
-                        <div class="aiero-service-card">
-                            <div class="aiero-service-card-img-wrap">
-                                <div class="aiero-service-card-img"
-                                    style="background-image: url('assets/service_th01.png');">
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Fallback: no cards in DB -->
+                            <div class="aiero-service-card">
+                                <div class="aiero-service-card-content" style="padding: 2rem; text-align: center; color: rgba(255,255,255,0.4);">
+                                    <i class="fa-solid fa-screwdriver-wrench" style="font-size:2rem;margin-bottom:0.75rem;display:block;"></i>
+                                    No service cards have been added yet.
                                 </div>
                             </div>
-                            <div class="aiero-service-card-content">
-                                <h3 class="aiero-service-card-title">Towel Hanger</h3>
-                                <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">TH</span>
-                                    <span class="aiero-service-card-period">/ Accessories</span>
-                                </div>
-                                <ul class="aiero-service-card-specs">
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Bars, rails, hooks & ladder formats</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Tube, rod & pressed plate build</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Concealed or bracket-mounted</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Sanitaryware & hotel spec options</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Luggage Trolley (LT-01) -->
-                        <div class="aiero-service-card">
-                            <div class="aiero-service-card-img-wrap">
-                                <div class="aiero-service-card-img"
-                                    style="background-image: url('assets/service_lt01.png');">
-                                </div>
-                            </div>
-                            <div class="aiero-service-card-content">
-                                <h3 class="aiero-service-card-title">Luggage Trolley</h3>
-                                <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">LT</span>
-                                    <span class="aiero-service-card-period">/ Hospitality</span>
-                                </div>
-                                <ul class="aiero-service-card-specs">
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Arched tubular steel/stainless frame</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Carpeted or rubber platform</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Heavy-duty casters with brakes</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Knock-down design for shipping</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Bed Side Table (BST-01) -->
-                        <div class="aiero-service-card">
-                            <div class="aiero-service-card-img-wrap">
-                                <div class="aiero-service-card-img"
-                                    style="background-image: url('assets/service_bst01.png');">
-                                </div>
-                            </div>
-                            <div class="aiero-service-card-content">
-                                <h3 class="aiero-service-card-title">Bed Side Table</h3>
-                                <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">BST</span>
-                                    <span class="aiero-service-card-period">/ Bedroom</span>
-                                </div>
-                                <ul class="aiero-service-card-specs">
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Steel tube frame with wood/glass tops</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Open shelf, drawer or cabinet setup</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Adjustable feet, casters or locks</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Hostel, home & project bedroom fit</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Card 5: Clothes Rack (CR-01) -->
-                        <div class="aiero-service-card">
-                            <div class="aiero-service-card-img-wrap">
-                                <div class="aiero-service-card-img"
-                                    style="background-image: url('assets/service_cr01.png');">
-                                </div>
-                            </div>
-                            <div class="aiero-service-card-content">
-                                <h3 class="aiero-service-card-title">Clothes Rack</h3>
-                                <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">CR</span>
-                                    <span class="aiero-service-card-period">/ Garment Rail</span>
-                                </div>
-                                <ul class="aiero-service-card-specs">
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Welded or bolt-together frame build</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Single/double rail with shoe shelf</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Load-rated rail for commercial use</span>
-                                    </li>
-                                    <li class="aiero-service-card-spec-item check"><i class="fa-solid fa-check"></i>
-                                        <span>Flat-pack export packing available</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 

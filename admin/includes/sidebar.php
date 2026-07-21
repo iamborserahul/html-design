@@ -6,28 +6,34 @@ $nav_items = [
         'icon' => 'fa-box',
         'file' => 'products.php',
         'children' => [
-            'products.php' => ['label' => 'All Products', 'icon' => 'fa-box'],
-            'categories.php' => ['label' => 'Categories', 'icon' => 'fa-tags'],
+            'products.php'   => ['label' => 'All Products', 'icon' => 'fa-box',  'slug' => 'products'],
+            'categories.php' => ['label' => 'Categories',   'icon' => 'fa-tags', 'slug' => 'categories'],
         ]
     ],
-    'hero-slides' => ['label' => 'Hero Slides', 'icon' => 'fa-images', 'file' => 'hero-slides.php'],
-    'gallery' => ['label' => 'Gallery', 'icon' => 'fa-photo-film', 'file' => 'gallery.php'],
-    'inquiries' => ['label' => 'Inquiries', 'icon' => 'fa-envelope', 'file' => 'inquiries.php'],
-    'testimonials' => ['label' => 'Testimonials', 'icon' => 'fa-quote-right', 'file' => 'testimonials.php'],
-    'faqs' => ['label' => 'FAQs', 'icon' => 'fa-question-circle', 'file' => 'faqs.php'],
-    'team' => ['label' => 'Team Members', 'icon' => 'fa-users', 'file' => 'team.php'],
-    'counters' => ['label' => 'Stats Counters', 'icon' => 'fa-chart-simple', 'file' => 'stats.php'],
-    'settings' => ['label' => 'Site Settings', 'icon' => 'fa-gear', 'file' => 'settings.php'],
+    'hero-slides'    => ['label' => 'Hero Slides',    'icon' => 'fa-images',          'file' => 'hero-slides.php'],
+    'gallery'        => ['label' => 'Gallery',         'icon' => 'fa-photo-film',      'file' => 'gallery.php'],
+    'inquiries'      => ['label' => 'Inquiries',       'icon' => 'fa-envelope',        'file' => 'inquiries.php'],
+    'testimonials'   => ['label' => 'Testimonials',    'icon' => 'fa-quote-right',     'file' => 'testimonials.php'],
+    'faqs'           => ['label' => 'FAQs',            'icon' => 'fa-question-circle', 'file' => 'faqs.php'],
+    'team'           => ['label' => 'Team Members',    'icon' => 'fa-users',           'file' => 'team.php'],
+    'stats'          => ['label' => 'Stats Counters',  'icon' => 'fa-chart-simple',    'file' => 'stats.php'],
+    'extra-services' => ['label' => 'Extra Services',  'icon' => 'fa-screwdriver-wrench', 'file' => 'extra-services.php'],
+    'partners'       => ['label' => 'Partners',        'icon' => 'fa-handshake',       'file' => 'partners.php'],
+    'settings'       => ['label' => 'Site Settings',   'icon' => 'fa-gear',            'file' => 'settings.php'],
 ];
 
-function is_active($file) {
+function is_active($slug) {
     global $current_page;
-    return $current_page === $file;
+    return $current_page === $slug;
 }
 
 function has_active_child($children) {
     global $current_page;
-    return isset($children[$current_page]);
+    foreach ($children as $child) {
+        $slug = $child['slug'] ?? '';
+        if ($slug && $current_page === $slug) return true;
+    }
+    return false;
 }
 
 $mobile_tabs = ['dashboard', 'products', 'hero-slides', 'gallery', 'inquiries'];
@@ -61,7 +67,7 @@ $mobile_tabs = ['dashboard', 'products', 'hero-slides', 'gallery', 'inquiries'];
                         </a>
                         <ul class="nav-children">
                             <?php foreach ($item['children'] as $child_file => $child): ?>
-                                <li class="nav-item <?= is_active($child_file) ? 'active' : '' ?>">
+                                <li class="nav-item <?= is_active($child['slug'] ?? '') ? 'active' : '' ?>">
                                     <a href="<?= $child_file ?>" class="nav-link">
                                         <span class="nav-icon"><i class="fas <?= $child['icon'] ?>"></i></span>
                                         <span class="nav-label"><?= $child['label'] ?></span>
@@ -71,7 +77,7 @@ $mobile_tabs = ['dashboard', 'products', 'hero-slides', 'gallery', 'inquiries'];
                         </ul>
                     </li>
                 <?php else: ?>
-                    <li class="nav-item <?= is_active($item['file']) ? 'active' : '' ?>">
+                    <li class="nav-item <?php echo $key;?> <?= is_active($key) ? 'active' : '' ?>">
                         <a href="<?= $item['file'] ?>" class="nav-link">
                             <span class="nav-icon"><i class="fas <?= $item['icon'] ?>"></i></span>
                             <span class="nav-label"><?= $item['label'] ?></span>
@@ -89,7 +95,7 @@ $mobile_tabs = ['dashboard', 'products', 'hero-slides', 'gallery', 'inquiries'];
 <nav class="bottom-tab-bar" id="bottomTabBar">
     <?php foreach ($mobile_tabs as $tab_key): ?>
         <?php $item = $nav_items[$tab_key]; ?>
-        <a href="<?= $item['file'] ?>" class="bottom-tab-item <?= is_active($item['file']) ? 'active' : '' ?>">
+        <a href="<?= $item['file'] ?>" class="bottom-tab-item <?= is_active($tab_key) ? 'active' : '' ?>">
             <span class="bottom-tab-icon"><i class="fas <?= $item['icon'] ?>"></i></span>
             <span class="bottom-tab-label"><?= $item['label'] ?></span>
         </a>

@@ -30,37 +30,60 @@ try {
         </div>
     </section>
 
-    <!-- Pinned Storytelling Section (Adapted from Landing Style) -->
+    <!-- Premium Animated About Us Section -->
+    <?php
+    $about_tagline = get_setting('about_tagline') ?: 'COMPANY HISTORY';
+    $about_title = get_setting('about_title') ?: 'About Khodiyar<br>Steel Industries';
+    $about_desc = get_setting('about_description') ?: '';
+    $about_img1 = get_setting('about_image_1') ?: 'assets/metal-bed-7201-01.webp';
+    $about_img2 = get_setting('about_image_2') ?: 'assets/origami-bunk-bed-02.webp';
+    $about_phone = get_setting('site_phone') ?: '90999 99266';
+    $about_phone_clean = preg_replace('/[^0-9]/', '', $about_phone);
+    ?>
     <section class="aiero-about" id="story" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 6rem;">
-        <div class="aiero-about-container" style="display: flex; flex-direction: column; gap: 4rem;">
-            <div class="aiero-about-content" style="max-width: 1000px; margin: 0 auto; width: 100%;">
-                <span class="aiero-about-tagline" style="color: #FFC229;">COMPANY HISTORY</span>
-                <h2 class="aiero-about-title" style="font-size: 38px;">About Khodiyar<br>Steel Industries</h2>
+        <!-- Purple Semi-Circle - Right Side -->
+        <div class="aiero-geom-shape shape-purple"></div>
+        <!-- Pink Circle - Bottom Right -->
+        <div class="aiero-geom-shape shape-pink-circle"></div>
+        
+        <div class="aiero-about-container">
+            <!-- Left Column Content -->
+            <div class="aiero-about-content">
+                <span class="aiero-about-tagline"><?= htmlspecialchars($about_tagline) ?></span>
+                <h2 class="aiero-about-title" style="font-size: 38px;">
+                    <?= $about_title ?>
+                </h2>
                 <div class="aiero-about-desc" style="font-size: 1.02rem; line-height: 1.8;">
-                    <p>Founded in 1998 by Vimalbhai Sakariya, Khodiyar Steel Industries began with a clear vision: to
-                        manufacture durable, high-quality steel furniture that customers could trust.</p>
-                    <p>What started as a small manufacturing operation serving the Indian market has grown into an
-                        established metal furniture manufacturer with more than 25 years of industry experience. In the
-                        early years, we focused on producing steel cupboards, metal beds, and other household furniture,
-                        earning a reputation for quality workmanship, durability, and customer satisfaction.</p>
-                    <p>As our capabilities expanded, so did our reach. In the early 2010s, Khodiyar Steel Industries
-                        entered international markets and began exporting to customers across the United States, Canada, UAE, Saudi Arabia, and other global regions. This expansion strengthened our manufacturing processes and reinforced
-                        our commitment to delivering products that meet international expectations for quality and
-                        reliability.</p>
-                    <p>Today, Khodiyar Steel Industries is a trusted manufacturing partner for distributors, importers,
-                        retailers, institutions, and project buyers. We currently manufacture 6,000–8,000 metal beds per
-                        month, with production capacity of up to 20,000 beds per month through our expanded facilities.
-                    </p>
-                    <p
-                        style="font-style: italic; color: #FFC229; font-weight: 600; border-left: 2px solid #FFC229; padding-left: 1rem; margin-top: 1.5rem;">
-                        "Our success has been built on a simple philosophy: Quality products create lasting
-                        relationships."</p>
-                    <p>This belief is reflected in the long-term partnerships we have developed over the years. Many of
-                        our customers continue to return to us because they know they can depend on our quality,
-                        consistency, and commitment to service.</p>
+                    <?= $about_desc ?>
+                </div>
+                <div class="aiero-about-phone" style="margin-top: 2rem;">
+                    <div class="aiero-phone-icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <div class="aiero-phone-details">
+                        <span class="aiero-phone-label">Contact Us</span>
+                        <a href="tel:<?= htmlspecialchars($about_phone_clean) ?>" class="aiero-phone-num"><?= htmlspecialchars($about_phone) ?></a>
+                    </div>
                 </div>
             </div>
-            <!-- Founders & Team Row (Single Row) -->
+
+            <!-- Right Column staggered images -->
+            <div class="aiero-about-images">
+                <div class="aiero-about-img-wrapper animate-img-left">
+                    <div class="aiero-about-img-box aiero-float-left">
+                        <img src="<?= htmlspecialchars($about_img1) ?>" alt="Premium steel lounge structure design">
+                    </div>
+                </div>
+                <div class="aiero-about-img-wrapper shifted animate-img-right">
+                    <div class="aiero-about-img-box aiero-float-right">
+                        <img src="<?= htmlspecialchars($about_img2) ?>" alt="Modern sensory bedroom sanctuary space">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Founders & Team Row (Single Row) -->
+        <div class="aiero-about-container" style="display: flex; flex-direction: column; gap: 4rem; margin-top: 4rem; width: 100%;">
             <div class="aiero-about-img-wrapper animate-img-right"
                 style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; width: 100%; flex-wrap: wrap; margin-top: 2rem;">
 

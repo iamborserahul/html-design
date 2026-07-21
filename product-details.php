@@ -146,7 +146,7 @@ $title = $product['name'] . " | Khodiyar Steel";
             
         </div>
     </section>
-
+<?php if (!empty($related)): ?>
     <!-- Related Products Carousel -->
     <section class="aiero-creations" id="related-products" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 7rem;">
         <div class="aiero-creations-container">
@@ -156,7 +156,7 @@ $title = $product['name'] . " | Khodiyar Steel";
             </div>
             
             <div class="aiero-creations-grid" id="details-related-grid">
-                <?php if (!empty($related)): ?>
+                
                     <?php foreach ($related as $i => $rel): ?>
                         <?php $float_class = 'card-float-' . (($i % 3) + 1); ?>
                         <div class="aiero-creation-card-wrapper">
@@ -170,10 +170,10 @@ $title = $product['name'] . " | Khodiyar Steel";
                             </a>
                         </div>
                     <?php endforeach; ?>
-                <?php endif; ?>
             </div>
         </div>
     </section>
+  <?php endif; ?>
 
 <?php
 include 'footer.php';

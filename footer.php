@@ -25,11 +25,6 @@ $phone2_digits = preg_replace('/\D/', '', $site_phone2);
                 <div class="aiero-footer-col">
                     <span class="aiero-footer-col-title">About <?= htmlspecialchars($site_name) ?></span>
                     <p class="aiero-footer-about-text"><?= htmlspecialchars($footer_about) ?></p>
-                    <div class="aiero-lang-selector">
-                        <i class="fa-solid fa-globe"></i>
-                        <span>English</span>
-                        <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; opacity: 0.6;"></i>
-                    </div>
                 </div>
 
                 <div class="aiero-footer-col">

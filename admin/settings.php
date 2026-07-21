@@ -14,6 +14,8 @@ $tab_labels = [
     'seo'     => 'SEO',
     'footer'  => 'Footer',
     'logo'    => 'Logo & Favicon',
+    'about'   => 'About Us',
+    'services' => 'Extra Services Info',
 ];
 
 $tab_icons = [
@@ -22,6 +24,8 @@ $tab_icons = [
     'seo'     => 'fa-magnifying-glass',
     'footer'  => 'fa-shoe-prints',
     'logo'    => 'fa-image',
+    'about'   => 'fa-info-circle',
+    'services' => 'fa-screwdriver-wrench',
 ];
 
 // Handle save
@@ -45,6 +49,18 @@ $key_to_group = [
     'footer_copyright_text' => 'footer',
     'site_logo' => 'logo',
     'site_favicon' => 'logo',
+    'about_tagline' => 'about',
+    'about_title' => 'about',
+    'about_description' => 'about',
+    'about_image_1' => 'about',
+    'about_image_2' => 'about',
+    'services_subtitle' => 'services',
+    'services_title' => 'services',
+    'services_description' => 'services',
+    'services_catalogue_url' => 'services',
+    'services_contact_name' => 'services',
+    'services_contact_phone' => 'services',
+    'services_contact_email' => 'services',
 ];
 
 if (isset($_GET['success']) && $_GET['success'] == 1) {
@@ -83,6 +99,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                     }
                 } else {
                     $errors[] = 'Failed to upload favicon. Allowed: jpg, jpeg, png, gif, webp, svg.';
+                }
+            }
+        }
+
+        // Handle about uploads
+        if ($tab === 'about') {
+            if (isset($_FILES['about_image_1']) && $_FILES['about_image_1']['error'] === UPLOAD_ERR_OK) {
+                $filename = upload_image($_FILES['about_image_1'], $uploads_dir);
+                if ($filename) {
+                    $_POST['about_image_1'] = LOGO_URL . '/' . $filename;
+                    $old = get_setting('about_image_1');
+                    if ($old && strpos($old, 'assets/') !== 0) {
+                        $old_path = __DIR__ . '/../' . ltrim($old, '/');
+                        if (file_exists($old_path)) @unlink($old_path);
+                    }
+                } else {
+                    $errors[] = 'Failed to upload About Image 1. Allowed: jpg, jpeg, png, gif, webp, svg.';
+                }
+            }
+            if (isset($_FILES['about_image_2']) && $_FILES['about_image_2']['error'] === UPLOAD_ERR_OK) {
+                $filename = upload_image($_FILES['about_image_2'], $uploads_dir);
+                if ($filename) {
+                    $_POST['about_image_2'] = LOGO_URL . '/' . $filename;
+                    $old = get_setting('about_image_2');
+                    if ($old && strpos($old, 'assets/') !== 0) {
+                        $old_path = __DIR__ . '/../' . ltrim($old, '/');
+                        if (file_exists($old_path)) @unlink($old_path);
+                    }
+                } else {
+                    $errors[] = 'Failed to upload About Image 2. Allowed: jpg, jpeg, png, gif, webp, svg.';
+                }
+            }
+        }
+
+        // Handle services catalogue upload
+        if ($tab === 'services') {
+            if (isset($_FILES['services_catalogue_file']) && $_FILES['services_catalogue_file']['error'] === UPLOAD_ERR_OK) {
+                $allowed = ['pdf'];
+                $ext = strtolower(pathinfo($_FILES['services_catalogue_file']['name'], PATHINFO_EXTENSION));
+                if (in_array($ext, $allowed)) {
+                    $path = __DIR__ . '/../ksi';
+                    if (!is_dir($path)) mkdir($path, 0755, true);
+                    $filename = 'Khodiyar_Bathroom_Utility_Metal_Products_Catalogue.pdf';
+                    $dest = $path . '/' . $filename;
+                    if (move_uploaded_file($_FILES['services_catalogue_file']['tmp_name'], $dest)) {
+                        $_POST['services_catalogue_url'] = 'ksi/' . $filename;
+                    } else {
+                        $errors[] = 'Failed to save catalogue PDF.';
+                    }
+                } else {
+                    $errors[] = 'Only PDF files are allowed for the catalogue.';
                 }
             }
         }
@@ -450,6 +517,126 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
                         <input type="file" id="site_favicon" name="site_favicon" accept="image/*">
                     </div>
                     <div class="hint">Recommended: PNG, 32x32px or 16x16px.</div>
+                </div>
+            </div>
+
+            <div style="margin-top:1rem;">
+                <button type="submit" class="btn btn-gold"><i class="fa-solid fa-save"></i> Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab: About Us -->
+    <div class="tab-panel <?= $active_tab === 'about' ? 'active' : '' ?>" data-panel="about">
+        <div class="settings-card">
+            <h3><i class="fa-solid fa-info-circle"></i> About Us Section</h3>
+
+            <div class="s-form-row">
+                <label for="about_tagline">About Us Tagline</label>
+                <input type="text" id="about_tagline" name="about_tagline" value="<?= htmlspecialchars($grouped['about']['about_tagline'] ?? '') ?>">
+            </div>
+
+            <div class="s-form-row">
+                <label for="about_title">About Us Title</label>
+                <input type="text" id="about_title" name="about_title" value="<?= htmlspecialchars($grouped['about']['about_title'] ?? '') ?>">
+            </div>
+
+            <div class="s-form-row">
+                <label for="about_description">About Us Description (HTML or text)</label>
+                <textarea id="about_description" name="about_description" rows="8"><?= htmlspecialchars($grouped['about']['about_description'] ?? '') ?></textarea>
+            </div>
+
+            <div class="logo-preview">
+                <div class="preview-box">
+                    <?php $img1 = $grouped['about']['about_image_1'] ?? ''; ?>
+                    <?php if ($img1): ?>
+                        <img src="../<?= ltrim($img1, '/') ?>" alt="About Image 1" style="max-height:120px; object-fit:contain;">
+                    <?php else: ?>
+                        <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.75rem;border:1px dashed var(--border);border-radius:6px;margin:0 auto 0.5rem;">
+                            No Image 1
+                        </div>
+                    <?php endif; ?>
+                    <div class="label">Current Image 1</div>
+                </div>
+                <div class="preview-box">
+                    <?php $img2 = $grouped['about']['about_image_2'] ?? ''; ?>
+                    <?php if ($img2): ?>
+                        <img src="../<?= ltrim($img2, '/') ?>" alt="About Image 2" style="max-height:120px; object-fit:contain;">
+                    <?php else: ?>
+                        <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:0.75rem;border:1px dashed var(--border);border-radius:6px;margin:0 auto 0.5rem;">
+                            No Image 2
+                        </div>
+                    <?php endif; ?>
+                    <div class="label">Current Image 2</div>
+                </div>
+            </div>
+
+            <div class="inline-grid-2">
+                <div class="s-form-row">
+                    <label for="about_image_1">Upload Image 1</label>
+                    <div class="file-input-wrap">
+                        <input type="file" id="about_image_1" name="about_image_1" accept="image/*">
+                    </div>
+                </div>
+                <div class="s-form-row">
+                    <label for="about_image_2">Upload Image 2</label>
+                    <div class="file-input-wrap">
+                        <input type="file" id="about_image_2" name="about_image_2" accept="image/*">
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:1rem;">
+                <button type="submit" class="btn btn-gold"><i class="fa-solid fa-save"></i> Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab: Extra Services Info -->
+    <div class="tab-panel <?= $active_tab === 'services' ? 'active' : '' ?>" data-panel="services">
+        <div class="settings-card">
+            <h3><i class="fa-solid fa-screwdriver-wrench"></i> Extra Services Header & Contact</h3>
+
+            <div class="s-form-row">
+                <label for="services_subtitle">Subtitle (e.g. UTILITY RANGE)</label>
+                <input type="text" id="services_subtitle" name="services_subtitle" value="<?= htmlspecialchars($grouped['services']['services_subtitle'] ?? '') ?>">
+            </div>
+
+            <div class="s-form-row">
+                <label for="services_title">Title (e.g. Bathroom & Utility Metal Products)</label>
+                <input type="text" id="services_title" name="services_title" value="<?= htmlspecialchars($grouped['services']['services_title'] ?? '') ?>">
+            </div>
+
+            <div class="s-form-row">
+                <label for="services_description">Description (HTML or plain text)</label>
+                <textarea id="services_description" name="services_description" rows="5"><?= htmlspecialchars($grouped['services']['services_description'] ?? '') ?></textarea>
+            </div>
+
+            <div class="s-form-row">
+                <label for="services_catalogue_file">Upload New Catalogue PDF</label>
+                <div class="file-input-wrap">
+                    <input type="file" id="services_catalogue_file" name="services_catalogue_file" accept=".pdf">
+                </div>
+                <?php $cat_url = $grouped['services']['services_catalogue_url'] ?? ''; ?>
+                <?php if ($cat_url): ?>
+                    <div class="hint" style="margin-top:0.4rem;">
+                        Current File: <a href="../<?= htmlspecialchars($cat_url) ?>" target="_blank" class="text-gold"><?= htmlspecialchars($cat_url) ?></a>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="inline-grid-3">
+                <div class="s-form-row">
+                    <label for="services_contact_name">Contact Person Name</label>
+                    <input type="text" id="services_contact_name" name="services_contact_name" value="<?= htmlspecialchars($grouped['services']['services_contact_name'] ?? '') ?>">
+                </div>
+                <div class="s-form-row">
+                    <label for="services_contact_phone">Contact Phone</label>
+                    <input type="text" id="services_contact_phone" name="services_contact_phone" value="<?= htmlspecialchars($grouped['services']['services_contact_phone'] ?? '') ?>">
+                </div>
+                <div class="s-form-row">
+                    <label for="services_contact_email">Contact Email</label>
+                    <input type="email" id="services_contact_email" name="services_contact_email" value="<?= htmlspecialchars($grouped['services']['services_contact_email'] ?? '') ?>">
                 </div>
             </div>
 
