@@ -11,6 +11,7 @@ $faqs = [];
 $gallery_items = [];
 $featured_products = [];
 $showcase_products = [];
+$partners = [];
 
 try {
     $db = getDB();
@@ -21,6 +22,7 @@ try {
     $gallery_items = $db->query("SELECT * FROM gallery_items WHERE status = 1 ORDER BY sort_order ASC, id DESC")->fetchAll();
     $featured_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 6")->fetchAll();
     $showcase_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.featured = 1 AND p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 3")->fetchAll();
+    $partners = $db->query("SELECT * FROM partners WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
 } catch (Exception $e) {
     // Fallback
 }
@@ -495,7 +497,7 @@ $total_slides = count($hero_slides);
                             <div class="aiero-service-card-content">
                                 <h3 class="aiero-service-card-title">Bathroom Rack</h3>
                                 <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">BR-01</span>
+                                    <span class="aiero-service-card-price">BR</span>
                                     <span class="aiero-service-card-period">/ Utility Storage</span>
                                 </div>
                                 <ul class="aiero-service-card-specs">
@@ -525,7 +527,7 @@ $total_slides = count($hero_slides);
                             <div class="aiero-service-card-content">
                                 <h3 class="aiero-service-card-title">Towel Hanger</h3>
                                 <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">TH-01</span>
+                                    <span class="aiero-service-card-price">TH</span>
                                     <span class="aiero-service-card-period">/ Accessories</span>
                                 </div>
                                 <ul class="aiero-service-card-specs">
@@ -555,7 +557,7 @@ $total_slides = count($hero_slides);
                             <div class="aiero-service-card-content">
                                 <h3 class="aiero-service-card-title">Luggage Trolley</h3>
                                 <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">LT-01</span>
+                                    <span class="aiero-service-card-price">LT</span>
                                     <span class="aiero-service-card-period">/ Hospitality</span>
                                 </div>
                                 <ul class="aiero-service-card-specs">
@@ -585,7 +587,7 @@ $total_slides = count($hero_slides);
                             <div class="aiero-service-card-content">
                                 <h3 class="aiero-service-card-title">Bed Side Table</h3>
                                 <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">BST-01</span>
+                                    <span class="aiero-service-card-price">BST</span>
                                     <span class="aiero-service-card-period">/ Bedroom</span>
                                 </div>
                                 <ul class="aiero-service-card-specs">
@@ -615,7 +617,7 @@ $total_slides = count($hero_slides);
                             <div class="aiero-service-card-content">
                                 <h3 class="aiero-service-card-title">Clothes Rack</h3>
                                 <div class="aiero-service-card-price-row">
-                                    <span class="aiero-service-card-price">CR-01</span>
+                                    <span class="aiero-service-card-price">CR</span>
                                     <span class="aiero-service-card-period">/ Garment Rail</span>
                                 </div>
                                 <ul class="aiero-service-card-specs">
@@ -693,20 +695,31 @@ $total_slides = count($hero_slides);
         </div>
         <div style="overflow: hidden; width: 100%;">
             <div class="aiero-marquee-track">
-                <!-- Set 1 -->
-                <div class="aiero-marquee-item"><i class="fa-solid fa-hospital"></i> Apex Hospital Group</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-hotel"></i> Royal Palace Hotels</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-building-shield"></i> Gujarat Infra Ltd</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-couch"></i> Luxury Living Co.</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-graduation-cap"></i> Elite Academy Group</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-warehouse"></i> Surat Steel Hub</div>
-                <!-- Set 2 (Duplicated for seamless loop) -->
-                <div class="aiero-marquee-item"><i class="fa-solid fa-hospital"></i> Apex Hospital Group</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-hotel"></i> Royal Palace Hotels</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-building-shield"></i> Gujarat Infra Ltd</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-couch"></i> Luxury Living Co.</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-graduation-cap"></i> Elite Academy Group</div>
-                <div class="aiero-marquee-item"><i class="fa-solid fa-warehouse"></i> Surat Steel Hub</div>
+                <?php if (!empty($partners)): ?>
+                    <!-- Set 1 -->
+                    <?php foreach ($partners as $partner): ?>
+                        <div class="aiero-marquee-item"><i class="<?= htmlspecialchars($partner['icon']) ?>"></i> <?= htmlspecialchars($partner['name']) ?></div>
+                    <?php endforeach; ?>
+                    <!-- Set 2 (Duplicated for seamless loop) -->
+                    <?php foreach ($partners as $partner): ?>
+                        <div class="aiero-marquee-item"><i class="<?= htmlspecialchars($partner['icon']) ?>"></i> <?= htmlspecialchars($partner['name']) ?></div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <!-- Set 1 -->
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-hospital"></i> Apex Hospital Group</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-hotel"></i> Royal Palace Hotels</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-building-shield"></i> Gujarat Infra Ltd</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-couch"></i> Luxury Living Co.</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-graduation-cap"></i> Elite Academy Group</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-warehouse"></i> Surat Steel Hub</div>
+                    <!-- Set 2 (Duplicated for seamless loop) -->
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-hospital"></i> Apex Hospital Group</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-hotel"></i> Royal Palace Hotels</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-building-shield"></i> Gujarat Infra Ltd</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-couch"></i> Luxury Living Co.</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-graduation-cap"></i> Elite Academy Group</div>
+                    <div class="aiero-marquee-item"><i class="fa-solid fa-warehouse"></i> Surat Steel Hub</div>
+                <?php endif; ?>
             </div>
         </div>
     </section>

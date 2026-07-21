@@ -22,7 +22,7 @@ function verify_csrf($token) {
 }
 
 function is_authenticated() {
-    return isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
+    return isset($_SESSION['admin_id']);
 }
 
 function require_auth() {

@@ -57,6 +57,7 @@ if ($fresh) {
         'site_settings',
         'inquiries',
         'gallery_items',
+        'partners',
     ];
     foreach ($tables as $table) {
         echo "[TRUNCATE] $table\n";

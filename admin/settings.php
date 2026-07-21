@@ -471,7 +471,6 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
             e.preventDefault();
             const tab = this.getAttribute('data-tab');
             tabInput.value = tab;
-            alert(tab);
             tabBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 

@@ -23,6 +23,7 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -358,6 +359,9 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         </a>
         <a href="stats.php" class="<?= $current_page === 'stats' ? 'active' : '' ?>">
             <i class="fa-solid fa-chart-simple"></i><span>Stats</span>
+        </a>
+        <a href="partners.php" class="<?= $current_page === 'partners' ? 'active' : '' ?>">
+            <i class="fa-solid fa-handshake"></i><span>Partners</span>
         </a>
         <a href="settings.php" class="<?= $current_page === 'settings' ? 'active' : '' ?>">
             <i class="fa-solid fa-gear"></i><span>Settings</span>
