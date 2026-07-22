@@ -21,6 +21,7 @@ $og_image_url = $protocol . $_SERVER['HTTP_HOST'] . $project_dir . $og_img;
 <html lang="en">
 
 <head>
+    <base href="<?= $project_dir ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($title); ?></title>

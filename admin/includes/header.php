@@ -357,6 +357,12 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         <a href="team.php" class="<?= $current_page === 'team' ? 'active' : '' ?>">
             <i class="fa-solid fa-users"></i><span>Team</span>
         </a>
+        <a href="about-sections.php" class="<?= $current_page === 'about-sections' ? 'active' : '' ?>">
+            <i class="fa-solid fa-bullseye"></i><span>Mission/Vision</span>
+        </a>
+        <a href="journey.php" class="<?= $current_page === 'journey' ? 'active' : '' ?>">
+            <i class="fa-solid fa-route"></i><span>Journey</span>
+        </a>
         <a href="stats.php" class="<?= $current_page === 'stats' ? 'active' : '' ?>">
             <i class="fa-solid fa-chart-simple"></i><span>Stats</span>
         </a>

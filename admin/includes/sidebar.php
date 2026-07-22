@@ -15,7 +15,18 @@ $nav_items = [
     'inquiries'      => ['label' => 'Inquiries',       'icon' => 'fa-envelope',        'file' => 'inquiries.php'],
     'testimonials'   => ['label' => 'Testimonials',    'icon' => 'fa-quote-right',     'file' => 'testimonials.php'],
     'faqs'           => ['label' => 'FAQs',            'icon' => 'fa-question-circle', 'file' => 'faqs.php'],
-    'team'           => ['label' => 'Team Members',    'icon' => 'fa-users',           'file' => 'team.php'],
+    'about'          => [
+        'label' => 'About Page',
+        'icon' => 'fa-id-card',
+        'file' => 'team.php',
+        'children' => [
+            'team.php'           => ['label' => 'Team Members',     'icon' => 'fa-users',          'slug' => 'team'],
+            'about-sections.php' => ['label' => 'Mission & Values', 'icon' => 'fa-bullseye',       'slug' => 'about-sections'],
+            'journey.php'        => ['label' => 'Journey Timeline', 'icon' => 'fa-timeline',       'slug' => 'journey'],
+            'why-choose-us.php'  => ['label' => 'Why Choose Us',    'icon' => 'fa-circle-check',   'slug' => 'why-choose-us'],
+            'certifications.php' => ['label' => 'Certifications',   'icon' => 'fa-certificate',    'slug' => 'certifications'],
+        ]
+    ],
     'stats'          => ['label' => 'Stats Counters',  'icon' => 'fa-chart-simple',    'file' => 'stats.php'],
     'extra-services' => ['label' => 'Extra Services',  'icon' => 'fa-screwdriver-wrench', 'file' => 'extra-services.php'],
     'partners'       => ['label' => 'Partners',        'icon' => 'fa-handshake',       'file' => 'partners.php'],

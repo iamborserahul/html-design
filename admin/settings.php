@@ -54,6 +54,11 @@ $key_to_group = [
     'about_description' => 'about',
     'about_image_1' => 'about',
     'about_image_2' => 'about',
+    'about_mission_title' => 'about',
+    'about_why_us_title' => 'about',
+    'about_why_us_description' => 'about',
+    'about_certifications_title' => 'about',
+    'about_certifications_description' => 'about',
     'services_subtitle' => 'services',
     'services_title' => 'services',
     'services_description' => 'services',
@@ -546,6 +551,34 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
                 <textarea id="about_description" name="about_description" rows="8"><?= htmlspecialchars($grouped['about']['about_description'] ?? '') ?></textarea>
             </div>
 
+            <h4 style="margin-top:2rem;margin-bottom:1rem;color:var(--gold);font-family:'Cinzel',serif;font-size:0.85rem;">Section Titles & Descriptions</h4>
+            <div class="s-form-row">
+                <label for="about_mission_title">Mission / Vision / Values Title</label>
+                <input type="text" id="about_mission_title" name="about_mission_title" value="<?= htmlspecialchars($grouped['about']['about_mission_title'] ?? 'Mission, Vision & Values') ?>">
+            </div>
+            
+            <div class="inline-grid-2">
+                <div class="s-form-row">
+                    <label for="about_why_us_title">Why Choose Us Title</label>
+                    <input type="text" id="about_why_us_title" name="about_why_us_title" value="<?= htmlspecialchars($grouped['about']['about_why_us_title'] ?? 'High-Precision Engineering') ?>">
+                </div>
+                <div class="s-form-row">
+                    <label for="about_why_us_description">Why Choose Us Description</label>
+                    <textarea id="about_why_us_description" name="about_why_us_description" rows="3"><?= htmlspecialchars($grouped['about']['about_why_us_description'] ?? '') ?></textarea>
+                </div>
+            </div>
+
+            <div class="inline-grid-2">
+                <div class="s-form-row">
+                    <label for="about_certifications_title">Certifications Title</label>
+                    <input type="text" id="about_certifications_title" name="about_certifications_title" value="<?= htmlspecialchars($grouped['about']['about_certifications_title'] ?? 'Certified Quality') ?>">
+                </div>
+                <div class="s-form-row">
+                    <label for="about_certifications_description">Certifications Description</label>
+                    <textarea id="about_certifications_description" name="about_certifications_description" rows="3"><?= htmlspecialchars($grouped['about']['about_certifications_description'] ?? '') ?></textarea>
+                </div>
+            </div>
+
             <div class="logo-preview">
                 <div class="preview-box">
                     <?php $img1 = $grouped['about']['about_image_1'] ?? ''; ?>
@@ -676,6 +709,30 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
         });
     });
 })();
+</script>
+
+<!-- TinyMCE CDN -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    tinymce.init({
+        selector: '#about_description',
+        height: 350,
+        menubar: false,
+        skin: 'oxide-dark',
+        content_css: 'dark',
+        plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | blocks | ' +
+            'bold italic forecolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px; color: #fff; background-color: #1a1a1a; }'
+    });
+});
 </script>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

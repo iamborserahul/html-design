@@ -1,16 +1,16 @@
 <?php
-$footer_about = get_setting('footer_about_text') ?: 'Khodiyar Steel - manufacturing excellence in high-end steel furniture and modern storage solutions since 1998.';
-$footer_copyright = get_setting('footer_copyright_text') ?: '© Copyright 2026 by Khodiyar Steel. All Rights Reserved.';
-$site_email = get_setting('site_email') ?: 'info@khodiyarsteel.com';
-$site_phone = get_setting('site_phone') ?: '+91 90999 99266';
-$site_phone2 = get_setting('site_phone_secondary') ?: '+91 73598 40800';
-$site_address = get_setting('site_address') ?: 'Block no 9, Rd No. 5, Udhana GIDC, Surat, Gujarat 394210';
+$footer_about = get_setting('footer_about_text') ?: '';
+$footer_copyright = get_setting('footer_copyright_text') ?: '';
+$site_email = get_setting('site_email') ?: '';
+$site_phone = get_setting('site_phone') ?: '';
+$site_phone2 = get_setting('site_phone_secondary') ?:'';
+$site_address = get_setting('site_address') ?: '';
 $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
-$fb_url = get_setting('facebook_url') ?: '#';
-$ig_url = get_setting('instagram_url') ?: '#';
-$tw_url = get_setting('twitter_url') ?: '#';
-$yt_url = get_setting('youtube_url') ?: '#';
-$tk_url = get_setting('tiktok_url') ?: '#';
+$fb_url = get_setting('facebook_url') ?: '';
+$ig_url = get_setting('instagram_url') ?: '';
+$tw_url = get_setting('twitter_url') ?: '';
+$yt_url = get_setting('youtube_url') ?: '';
+$tk_url = get_setting('tiktok_url') ?: '';
 $phone_digits = preg_replace('/\D/', '', $site_phone);
 $phone2_digits = preg_replace('/\D/', '', $site_phone2);
 ?>
@@ -58,13 +58,25 @@ $phone2_digits = preg_replace('/\D/', '', $site_phone2);
                             <a href="mailto:<?= htmlspecialchars($site_email) ?>"><?= htmlspecialchars($site_email) ?></a>
                         </div>
                     </div>
+                    <?php if(!empty($ig_url) || !empty($tw_url) || !empty($yt_url) || !empty($fb_url) || !empty($tk_url)){ ?>
                     <div class="aiero-footer-socials">
+                        <?php if(!empty($ig_url)){ ?>
                         <a href="<?= htmlspecialchars($ig_url) ?>" class="aiero-footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <?php } ?>
+                        <?php if(!empty($tw_url)){ ?>
                         <a href="<?= htmlspecialchars($tw_url) ?>" class="aiero-footer-social-btn" aria-label="Twitter X"><i class="fa-brands fa-twitter"></i></a>
+                        <?php } ?>
+                        <?php if(!empty($yt_url)){ ?>
                         <a href="<?= htmlspecialchars($yt_url) ?>" class="aiero-footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <?php } ?>
+                        <?php if(!empty($fb_url)){ ?>
                         <a href="<?= htmlspecialchars($fb_url) ?>" class="aiero-footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <?php } ?>
+                        <?php if(!empty($tk_url)){ ?>
                         <a href="<?= htmlspecialchars($tk_url) ?>" class="aiero-footer-social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <?php } ?>
                     </div>
+                    <?php } ?>
 
                 </div>
 

@@ -135,7 +135,7 @@ if ($slug === 'metal-beds-bunks') {
                         }
                         ?>
                         <div class="aiero-creation-card-wrapper">
-                            <a href="product-details?id=<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px;">
+                            <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px;">
                                 <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($prod_img) ?>');"></div>
                                 <div class="aiero-creation-view-more">VIEW DETAILS</div>
                                 <div class="aiero-creation-content" style="background: none; padding: 2rem;">

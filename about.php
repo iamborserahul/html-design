@@ -3,14 +3,6 @@ $title = "About Us | Khodiyar Steel – Manufacturing Excellence Since 1998";
 $description = "Read the story, journey, mission, and certifications of Khodiyar Steel, Surat's premier high-end steel furniture manufacturer.";
 $page = "about";
 include 'header.php';
-
-$team_members = [];
-try {
-    $db = getDB();
-    $team_members = $db->query("SELECT * FROM team_members WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
-} catch (Exception $e) {
-    // Fallback
-}
 ?>
 
 <!-- Subpage Hero Section with Parallax Background -->
@@ -30,121 +22,61 @@ try {
         </div>
     </section>
 
-    <!-- Premium Animated About Us Section -->
-    <?php
-    $about_tagline = get_setting('about_tagline') ?: 'COMPANY HISTORY';
-    $about_title = get_setting('about_title') ?: 'About Khodiyar<br>Steel Industries';
-    $about_desc = get_setting('about_description') ?: '';
-    $about_img1 = get_setting('about_image_1') ?: 'assets/metal-bed-7201-01.webp';
-    $about_img2 = get_setting('about_image_2') ?: 'assets/origami-bunk-bed-02.webp';
-    $about_phone = get_setting('site_phone') ?: '90999 99266';
-    $about_phone_clean = preg_replace('/[^0-9]/', '', $about_phone);
-    ?>
+    <!-- Pinned Storytelling Section (Adapted from Landing Style) -->
     <section class="aiero-about" id="story" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 6rem;">
-        <!-- Purple Semi-Circle - Right Side -->
-        <div class="aiero-geom-shape shape-purple"></div>
-        <!-- Pink Circle - Bottom Right -->
-        <div class="aiero-geom-shape shape-pink-circle"></div>
-        
-        <div class="aiero-about-container">
-            <!-- Left Column Content -->
-            <div class="aiero-about-content">
-                <span class="aiero-about-tagline"><?= htmlspecialchars($about_tagline) ?></span>
-                <h2 class="aiero-about-title" style="font-size: 38px;">
-                    <?= $about_title ?>
-                </h2>
+        <div class="aiero-about-container" style="display: flex; flex-direction: column; gap: 4rem;">
+            <div class="aiero-about-content" style="max-width: 1000px; margin: 0 auto; width: 100%;">
+                <span class="aiero-about-tagline" style="color: #FFC229;">COMPANY HISTORY</span>
+                <h2 class="aiero-about-title" style="font-size: 38px;">About Khodiyar<br>Steel Industries</h2>
                 <div class="aiero-about-desc" style="font-size: 1.02rem; line-height: 1.8;">
-                    <?= $about_desc ?>
-                </div>
-                <div class="aiero-about-phone" style="margin-top: 2rem;">
-                    <div class="aiero-phone-icon">
-                        <i class="fa-solid fa-phone-volume"></i>
-                    </div>
-                    <div class="aiero-phone-details">
-                        <span class="aiero-phone-label">Contact Us</span>
-                        <a href="tel:<?= htmlspecialchars($about_phone_clean) ?>" class="aiero-phone-num"><?= htmlspecialchars($about_phone) ?></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column staggered images -->
-            <div class="aiero-about-images">
-                <div class="aiero-about-img-wrapper animate-img-left">
-                    <div class="aiero-about-img-box aiero-float-left">
-                        <img src="<?= htmlspecialchars($about_img1) ?>" alt="Premium steel lounge structure design">
-                    </div>
-                </div>
-                <div class="aiero-about-img-wrapper shifted animate-img-right">
-                    <div class="aiero-about-img-box aiero-float-right">
-                        <img src="<?= htmlspecialchars($about_img2) ?>" alt="Modern sensory bedroom sanctuary space">
-                    </div>
+                    <p>Founded in 1998 by Vimal Sakariya, Khodiyar Steel Industries began with a clear vision: to
+                        manufacture durable, high-quality steel furniture that customers could trust.</p>
+                    <p>What started as a small manufacturing operation serving the Indian market has grown into an
+                        established metal furniture manufacturer with more than <?php echo date('Y') - 1998; ?> years of industry experience. In the
+                        early years, we focused on producing steel cupboards, metal beds, and other household furniture,
+                        earning a reputation for quality workmanship, durability, and customer satisfaction.</p>
+                    <p>As our capabilities expanded, so did our reach. In the early 2010s, Khodiyar Steel Industries
+                        entered international markets and began exporting to customers across the United States, Canada, UAE, Saudi Arabia, and other global regions. This expansion strengthened our manufacturing processes and reinforced
+                        our commitment to delivering products that meet international expectations for quality and
+                        reliability.</p>
+                    <p>Today, Khodiyar Steel Industries is a trusted manufacturing partner for distributors, importers,
+                        retailers, institutions, and project buyers. We currently manufacture 6,000–8,000 metal beds per
+                        month, with production capacity of up to 10,000 beds per month through our expanded facilities.
+                    </p>
+                    <p
+                        style="font-style: italic; color: #FFC229; font-weight: 600; border-left: 2px solid #FFC229; padding-left: 1rem; margin-top: 1.5rem;">
+                        "Our success has been built on a simple philosophy: Quality products create lasting
+                        relationships."</p>
+                    <p>This belief is reflected in the long-term partnerships we have developed over the years. Many of
+                        our customers continue to return to us because they know they can depend on our quality,
+                        consistency, and commitment to service.</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Founders & Team Row (Single Row) -->
-        <div class="aiero-about-container" style="display: flex; flex-direction: column; gap: 4rem; margin-top: 4rem; width: 100%;">
+            <!-- Founders & Team Row (Single Row) -->
             <div class="aiero-about-img-wrapper animate-img-right"
                 style="display: flex; gap: 2rem; justify-content: center; align-items: stretch; width: 100%; flex-wrap: wrap; margin-top: 2rem;">
 
-            <?php if (!empty($team_members)): ?>
-                <?php foreach ($team_members as $m): ?>
-                    <?php 
-                    $img_src = htmlspecialchars($m['image']);
-                    if (strpos($img_src, 'assets/') !== 0) {
-                        $img_src = 'uploads/team/' . $img_src;
-                    }
-                    ?>
-                    <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem; display: flex; flex-direction: column; align-items: center;">
-                        <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                            <img src="<?= $img_src ?>" alt="<?= htmlspecialchars($m['name']) ?>"
-                                class="aiero-founder-img aiero-founder-img--square" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="aiero-founder-details" style="margin-top: auto; display: flex; flex-direction: column; align-items: center; width: 100%;">
-                            <span class="aiero-founder-tag" style="display: inline-block; padding: 4px 12px; background: rgba(255,194,41,0.1); color: #FFC229; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;"><?= htmlspecialchars($m['designation']) ?></span>
-                            <h3 class="aiero-founder-name" style="font-size: 1.2rem; font-family: 'Cinzel', serif; color: #fff; margin-bottom: 0.5rem;"><?= htmlspecialchars($m['name']) ?></h3>
-                            <p class="aiero-founder-quote" style="font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; text-align: center;">"<?= htmlspecialchars($m['bio'] ?? '') ?>"</p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <!-- Founder Card -->
+                <?php
+                $db = getDB();
+                $team_stmt = $db->query("SELECT * FROM team_members WHERE status = 1 ORDER BY sort_order ASC, id DESC");
+                $team_members = $team_stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                foreach ($team_members as $member) {
+                    $img_src = !empty($member['image']) ? TEAM_URL . '/' . $member['image'] : 'assets/placeholder-user.png';
+                ?>
                 <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
                     <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
-                        <img src="assets/ceo.png" alt="Vimal Sakariya - Founder & MD of Khodiyar Steel"
+                        <img src="<?php echo htmlspecialchars($img_src); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>"
                             class="aiero-founder-img aiero-founder-img--square">
                     </div>
                     <div class="aiero-founder-details">
-                        <span class="aiero-founder-tag">FOUNDER &amp; MD</span>
-                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;">Mr. Vimalbhai Sakariya</h3>
-                        <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Manufacturing Quality. Building Trust. Since 1998."</p>
+                        <span class="aiero-founder-tag"><?php echo htmlspecialchars($member['designation']); ?></span>
+                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;"><?php echo htmlspecialchars($member['name']); ?></h3>
+                        <p class="aiero-founder-quote" style="font-size: 0.85rem;"><?php echo htmlspecialchars($member['bio']); ?></p>
                     </div>
                 </div>
+                <?php } ?>
 
-                <!-- CEO Card -->
-                <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
-                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
-                        <img src="assets/manthan-sakariya-ceo.png" alt="CEO of Khodiyar Steel" class="aiero-founder-img aiero-founder-img--square">
-                    </div>
-                    <div class="aiero-founder-details">
-                        <span class="aiero-founder-tag">CEO</span>
-                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;">Mr. Manthan Sakariya</h3>
-                        <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Technology drives our precision."</p>
-                    </div>
-                </div>
-
-                <!-- COO Card -->
-                <div class="aiero-founder-card text-center" style="flex: 1; min-width: 280px; max-width: 360px; padding: 2.2rem 1.5rem;">
-                    <div class="aiero-founder-img-wrapper aiero-founder-img-wrapper--square" style="width: 140px; height: 140px; margin-bottom: 1.5rem;">
-                        <img src="assets/nayan-patel-coo.png" alt="COO of Khodiyar Steel" class="aiero-founder-img aiero-founder-img--square">
-                    </div>
-                    <div class="aiero-founder-details">
-                        <span class="aiero-founder-tag">COO</span>
-                        <h3 class="aiero-founder-name" style="font-size: 1.2rem;">Mr. Nayan Patel</h3>
-                        <p class="aiero-founder-quote" style="font-size: 0.85rem;">"Excellence in every operation."</p>
-                    </div>
-                </div>
-            <?php endif; ?>
             </div>
         </div>
     </section>
@@ -161,62 +93,45 @@ try {
             </div>
 
             <div class="aiero-creations-grid">
-                <!-- Card 1: Mission -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-1" style="height: 380px;">
-                        <div class="aiero-creation-content"
-                            style="position: relative; padding: 2.5rem; background: none; justify-content: center; height: 100%;">
-                            <i class="fa-solid fa-bullseye"
-                                style="font-size: 2.5rem; color: #FFC229; margin-bottom: 1rem;"></i>
-                            <span class="aiero-creation-label" style="font-size: 1.3rem;">Our Mission</span>
-                            <p class="aiero-creation-desc"
-                                style="font-size: 0.9rem; line-height: 1.7; margin-top: 0.5rem;">To provide durable,
-                                affordable, and high-quality metal furniture products while building long-term
-                                partnerships based on trust, integrity, and customer satisfaction.</p>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $about_stmt = $db->query("SELECT * FROM about_sections WHERE status = 1 ORDER BY sort_order ASC, id ASC");
+                $about_sections = $about_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                <!-- Card 2: Vision -->
+                $delay = 1;
+                foreach ($about_sections as $section) {
+                ?>
                 <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-2" style="height: 380px;">
+                    <div class="aiero-creation-card card-float-<?php echo $delay; ?>" style="height: 380px;">
                         <div class="aiero-creation-content"
                             style="position: relative; padding: 2.5rem; background: none; justify-content: center; height: 100%;">
-                            <i class="fa-solid fa-eye"
+                            <i class="fa-solid <?php echo htmlspecialchars($section['icon']); ?>"
                                 style="font-size: 2.5rem; color: #FFC229; margin-bottom: 1rem;"></i>
-                            <span class="aiero-creation-label" style="font-size: 1.3rem;">Our Vision</span>
-                            <p class="aiero-creation-desc"
-                                style="font-size: 0.9rem; line-height: 1.7; margin-top: 0.5rem;">To become a globally
-                                recognized manufacturer of metal furniture by delivering exceptional quality, dependable
-                                service, and innovative manufacturing solutions to customers worldwide.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Core Values -->
-                <div class="aiero-creation-card-wrapper">
-                    <div class="aiero-creation-card card-float-3" style="height: 380px;">
-                        <div class="aiero-creation-content"
-                            style="position: relative; padding: 2.5rem; background: none; justify-content: center; height: 100%;">
-                            <i class="fa-solid fa-handshake"
-                                style="font-size: 2.5rem; color: #FFC229; margin-bottom: 1rem;"></i>
-                            <span class="aiero-creation-label" style="font-size: 1.3rem;">What We Stand For</span>
+                            <span class="aiero-creation-label" style="font-size: 1.3rem;"><?php echo htmlspecialchars($section['title']); ?></span>
+                            
+                            <?php if ($section['type'] === 'values'): ?>
                             <ul class="aiero-creation-desc"
                                 style="font-size: 0.85rem; line-height: 1.6; margin-top: 0.5rem; list-style-type: none; text-align: left; padding: 0; display: flex; flex-direction: column; gap: 0.4rem;">
-                                <li><i class="fa-solid fa-check" style="color: #FFC229; margin-right: 0.5rem;"></i>
-                                    Quality without compromise</li>
-                                <li><i class="fa-solid fa-check" style="color: #FFC229; margin-right: 0.5rem;"></i>
-                                    Reliable and scalable manufacturing</li>
-                                <li><i class="fa-solid fa-check" style="color: #FFC229; margin-right: 0.5rem;"></i>
-                                    Long-term customer relationships</li>
-                                <li><i class="fa-solid fa-check" style="color: #FFC229; margin-right: 0.5rem;"></i>
-                                    Continuous improvement & innovation</li>
-                                <li><i class="fa-solid fa-check" style="color: #FFC229; margin-right: 0.5rem;"></i>
-                                    Ethical business practices</li>
+                                <?php
+                                $values_list = explode("\n", trim($section['content']));
+                                foreach ($values_list as $val) {
+                                    if (trim($val) !== '') {
+                                        echo '<li><i class="fa-solid fa-check" style="color: #FFC229; margin-right: 0.5rem;"></i> ' . htmlspecialchars(trim($val)) . '</li>';
+                                    }
+                                }
+                                ?>
                             </ul>
+                            <?php else: ?>
+                            <p class="aiero-creation-desc"
+                                style="font-size: 0.9rem; line-height: 1.7; margin-top: 0.5rem;"><?php echo nl2br(htmlspecialchars($section['content'])); ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
+                <?php
+                    $delay++;
+                    if ($delay > 3) $delay = 1;
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -231,78 +146,30 @@ try {
             </div>
 
             <div class="aiero-journey-timeline">
-                <!-- Milestone 1 -->
-                <div class="aiero-timeline-node">
-                    <div class="aiero-timeline-dot"></div>
-                    <div class="aiero-timeline-card">
-                        <div class="aiero-timeline-year">1998</div>
-                        <h4 class="aiero-timeline-title">Foundation & Core Vision</h4>
-                        <p class="aiero-timeline-desc">Founded by Vimal Sakariya with a clear vision: to manufacture
-                            durable, high-quality steel furniture that customers could trust, serving the Indian market.
-                        </p>
-                    </div>
-                </div>
+                <?php
+                $journey_stmt = $db->query("SELECT * FROM journey_milestones WHERE status = 1 ORDER BY sort_order ASC, id ASC");
+                $milestones = $journey_stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                <!-- Milestone 2 -->
-                <div class="aiero-timeline-node">
-                    <div class="aiero-timeline-dot"></div>
-                    <div class="aiero-timeline-card">
-                        <div class="aiero-timeline-year">2005</div>
-                        <h4 class="aiero-timeline-title">Earning Reputation</h4>
-                        <p class="aiero-timeline-desc">Focused on producing high-durability steel cupboards, metal beds,
-                            and household furniture, earning a strong reputation for quality workmanship and customer
-                            satisfaction.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 3 -->
-                <div class="aiero-timeline-node">
-                    <div class="aiero-timeline-dot"></div>
-                    <div class="aiero-timeline-card">
-                        <div class="aiero-timeline-year">2012</div>
-                        <h4 class="aiero-timeline-title">Global Market Expansion</h4>
-                        <p class="aiero-timeline-desc">Entered international markets and began exporting products to
-                            buyers across the United States, Canada, UAE, Saudi Arabia, and other global regions, solidifying international
-                            expectations.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 4 -->
-                <div class="aiero-timeline-node">
-                    <div class="aiero-timeline-dot"></div>
-                    <div class="aiero-timeline-card">
-                        <div class="aiero-timeline-year">2018</div>
-                        <h4 class="aiero-timeline-title">CNC Precision & Advanced Capacity</h4>
-                        <p class="aiero-timeline-desc">Upgraded our facility with CNC bending and powder-coating
-                            technologies, aligning our capabilities with scalable manufacturing requirements.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 5 -->
-                <div class="aiero-timeline-node">
-                    <div class="aiero-timeline-dot"></div>
-                    <div class="aiero-timeline-card">
-                        <div class="aiero-timeline-year">2024</div>
-                        <h4 class="aiero-timeline-title">Expanded Capacity (10k/Month)</h4>
-                        <p class="aiero-timeline-desc">Reached a manufacturing capacity of 6,000–8,000 metal beds per
-                            month, with full capabilities scaling up to 20,000 beds per month to serve distributors and
-                            project buyers.</p>
-                    </div>
-                </div>
-
-                <!-- Milestone 6 -->
-                <div class="aiero-timeline-node aiero-timeline-node--active">
-                    <div class="aiero-timeline-dot aiero-timeline-dot--active"></div>
-                    <div class="aiero-timeline-card aiero-timeline-card--active">
-                        <div class="aiero-timeline-year" style="color: #FFC229;">2026</div>
-                        <h4 class="aiero-timeline-title">Digital Transformation &amp; New Verticals</h4>
-                        <p class="aiero-timeline-desc">Launched a full digital product catalogue and strengthened our
-                            online presence to connect directly with global buyers. Expanded our product range into
-                            premium hospital furniture, outdoor gazebos, and bespoke steel furniture — positioning
-                            Khodiyar Steel for the next decade of growth.</p>
+                foreach ($milestones as $milestone) {
+                    $is_active = $milestone['is_current'] == 1;
+                    $node_class = $is_active ? 'aiero-timeline-node aiero-timeline-node--active' : 'aiero-timeline-node';
+                    $dot_class = $is_active ? 'aiero-timeline-dot aiero-timeline-dot--active' : 'aiero-timeline-dot';
+                    $card_class = $is_active ? 'aiero-timeline-card aiero-timeline-card--active' : 'aiero-timeline-card';
+                ?>
+                <div class="<?php echo $node_class; ?>">
+                    <div class="<?php echo $dot_class; ?>"></div>
+                    <div class="<?php echo $card_class; ?>">
+                        <div class="aiero-timeline-year" <?php echo $is_active ? 'style="color: #FFC229;"' : ''; ?>>
+                            <?php echo htmlspecialchars($milestone['year']); ?>
+                        </div>
+                        <h4 class="aiero-timeline-title"><?php echo htmlspecialchars($milestone['title']); ?></h4>
+                        <p class="aiero-timeline-desc"><?php echo nl2br(htmlspecialchars($milestone['description'])); ?></p>
+                        <?php if ($is_active): ?>
                         <span style="display: inline-block; margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; color: #FFC229; text-transform: uppercase; background: rgba(255,194,41,0.1); border: 1px solid rgba(255,194,41,0.3); padding: 0.3rem 0.9rem; border-radius: 50px;"><i class="fa-solid fa-circle" style="font-size: 0.5rem; vertical-align: middle; margin-right: 0.4rem; animation: pulse-gold 1.5s infinite;"></i> Present Day</span>
+                        <?php endif; ?>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </section>
@@ -353,7 +220,7 @@ try {
                     <div
                         style="display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1.5rem 2rem; border-radius: 12px; width: 140px; text-align: center;">
                         <span
-                            style="font-size: 2.2rem; font-weight: 800; color: #FFC229; font-family: 'Cinzel', serif;">25+</span>
+                            style="font-size: 2.2rem; font-weight: 800; color: #FFC229; font-family: 'Cinzel', serif;"><?php echo (date('Y') - 1998); ?>+</span>
                         <span style="font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.6; margin-top: 0.3rem;">YEARS
                             EXP</span>
                     </div>

@@ -186,7 +186,7 @@ $total_slides = count($hero_slides);
             <?php if (!empty($categories)): ?>
                 <?php foreach ($categories as $c): ?>
                     <?php 
-                    $link = 'category?id=' . urlencode($c['slug']);
+                    $link = 'category/' . urlencode($c['slug']);
                     ?>
                     <a href="<?= htmlspecialchars($link) ?>" class="aiero-category-card">
                         <div class="aiero-category-card-border"></div>
@@ -208,7 +208,7 @@ $total_slides = count($hero_slides);
                 <?php endforeach; ?>
             <?php else: ?>
                 <!-- Category 1 -->
-                <a href="category?id=metal-beds-bunks" class="aiero-category-card">
+                <a href="category/metal-beds-bunks" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-couch"></i></div>
                     <h3 class="aiero-category-card-title">Metal Beds & Bunks</h3>
@@ -216,7 +216,7 @@ $total_slides = count($hero_slides);
                     <span class="aiero-category-link-btn">EXPLORE CATALOG <i class="fa-solid fa-chevron-right"></i></span>
                 </a>
                 <!-- Category 2 -->
-                <a href="category?id=steel-cupboards" class="aiero-category-card">
+                <a href="category/steel-cupboards" class="aiero-category-card">
                     <div class="aiero-category-card-border"></div>
                     <div class="aiero-category-icon"><i class="fa-solid fa-cabinet-filing"></i></div>
                     <h3 class="aiero-category-card-title">Steel Cupboards</h3>
@@ -248,7 +248,7 @@ $total_slides = count($hero_slides);
                     }
                     ?>
                     <div class="aiero-creation-card-wrapper">
-                        <a href="product-details?id=<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
+                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
                             <div class="aiero-creation-img" style="background-image: url('<?= $img_src ?>');"></div>
                             <div class="aiero-creation-view-more">VIEW DETAILS</div>
                             <div class="aiero-creation-content">
@@ -317,7 +317,7 @@ $total_slides = count($hero_slides);
                                     <div class="card-price"></div>
                                     <div class="card-actions">
                                         <a href="contact?product=<?= urlencode($prod['name']) ?>" class="btn-shop-now">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
-                                        <a href="product-details?id=<?= htmlspecialchars($prod['slug']) ?>" class="btn-view-details">View Details</a>
+                                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="btn-view-details">View Details</a>
                                     </div>
                                 </div>
                             </div>

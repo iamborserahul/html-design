@@ -76,13 +76,20 @@ $title = $product['name'] . " | Khodiyar Steel";
             
             <!-- Left Side: Interactive Image Gallery -->
             <div class="aiero-details-gallery">
+                <?php 
+                $main_img = $product['featured_image'];
+                if (strpos($main_img, 'assets/') !== 0) $main_img = 'uploads/' . $main_img;
+                ?>
                 <div class="aiero-gallery-main">
-                    <img id="details-main-img" src="uploads/<?= htmlspecialchars($product['featured_image']) ?>" alt="Selected model preview">
+                    <img id="details-main-img" src="<?= htmlspecialchars($main_img) ?>" alt="Selected model preview">
                 </div>
                 <div class="aiero-gallery-thumbs" id="details-thumbs-row">
-                    <?php foreach ($images as $idx => $img): ?>
-                        <div class="aiero-gallery-thumb <?= $idx === 0 ? 'active' : '' ?>" data-src="uploads/<?= htmlspecialchars($img['image']) ?>">
-                            <img src="uploads/<?= htmlspecialchars($img['image']) ?>" alt="<?= htmlspecialchars($img['alt_text'] ?? 'Preview') ?>">
+                    <?php foreach ($images as $idx => $img): 
+                        $thumb_img = $img['image'];
+                        if (strpos($thumb_img, 'assets/') !== 0) $thumb_img = 'uploads/' . $thumb_img;
+                    ?>
+                        <div class="aiero-gallery-thumb <?= $idx === 0 ? 'active' : '' ?>" data-src="<?= htmlspecialchars($thumb_img) ?>">
+                            <img src="<?= htmlspecialchars($thumb_img) ?>" alt="<?= htmlspecialchars($img['alt_text'] ?? 'Preview') ?>">
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -158,10 +165,14 @@ $title = $product['name'] . " | Khodiyar Steel";
             <div class="aiero-creations-grid" id="details-related-grid">
                 
                     <?php foreach ($related as $i => $rel): ?>
-                        <?php $float_class = 'card-float-' . (($i % 3) + 1); ?>
+                        <?php 
+                        $float_class = 'card-float-' . (($i % 3) + 1); 
+                        $rel_img = $rel['featured_image'];
+                        if (strpos($rel_img, 'assets/') !== 0) $rel_img = 'uploads/' . $rel_img;
+                        ?>
                         <div class="aiero-creation-card-wrapper">
-                            <a href="product-details?id=<?= htmlspecialchars($rel['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px;">
-                                <div class="aiero-creation-img" style="background-image: url('uploads/<?= htmlspecialchars($rel['featured_image']) ?>');"></div>
+                            <a href="product/<?= htmlspecialchars($rel['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px;">
+                                <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($rel_img) ?>');"></div>
                                 <div class="aiero-creation-view-more">VIEW DETAILS</div>
                                 <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                                     <span class="aiero-creation-label" style="font-size: 1.15rem;"><?= htmlspecialchars($rel['name']) ?></span>

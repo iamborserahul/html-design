@@ -79,11 +79,23 @@ if (isset($_SESSION['statusMsg'])) {
 
 include 'header.php';
 
+$site_email = get_setting('site_email') ?: '';
+$site_phone = get_setting('site_phone') ?: '';
+$site_phone2 = get_setting('site_phone_secondary') ?: '';
+$site_address = get_setting('site_address') ?: '';
+$google_map_url = get_setting('google_map_url') ?: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391.07629854968985!2d72.84733935547972!3d21.16967374995095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f835b331f5b%3A0x7a3f94eaced756c1!2sKhodiyar%20Steel%20Industries!5e0!3m2!1sen!2sin!4v1781706553496!5m2!1sen!2sin';
+
+// Strip non-numeric chars for tel: links
+$phone_digits = preg_replace('/\D/', '', $site_phone);
+$phone2_digits = preg_replace('/\D/', '', $site_phone2);
+
 $faqs = [];
+$categories = [];
 try {
     $db = getDB();
     $faqs = $db->query("SELECT * FROM faqs WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
-} catch (Exception $e) {
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC")->fetchAll();
+} catch (\Exception $e) {
     // Fallback
 }
 ?>
@@ -109,34 +121,44 @@ try {
                 
                 <div style="display: flex; flex-direction: column; gap: 1.8rem; margin-top: 1rem;">
                     <!-- Address Card -->
+                     <?php if($site_address) { ?>
                     <div class="aiero-contact-info-card">
                         <i class="fa-solid fa-location-dot" style="font-size: 1.5rem; color: #FFC229; margin-top: 0.2rem;"></i>
                         <div>
                             <h4 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--color-text); margin-bottom: 0.4rem;">Corporate Address</h4>
-                            <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">Khodiyar Steel Industries<br>Block no 9, Rd Number 5, Udhana GIDC,<br>Udhna Udhyog Nagar, Udhana,<br>Surat, Gujarat 394210</p>
+                            <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;"><?= nl2br(htmlspecialchars($site_address)) ?></p>
                         </div>
                     </div>
+                    <?php } ?>
 
                     <!-- Email & General Inquiries -->
+                    <?php if($site_email) { ?>
                     <div class="aiero-contact-info-card">
                         <i class="fa-solid fa-envelope" style="font-size: 1.5rem; color: #FFC229; margin-top: 0.2rem;"></i>
                         <div>
                             <h4 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--color-text); margin-bottom: 0.4rem;">Digital Inquiries</h4>
-                            <a href="mailto:info@khodiyarsteel.com" style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">info@khodiyarsteel.com</a>
+                            <a href="mailto:<?= htmlspecialchars($site_email) ?>" style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;"><?= htmlspecialchars($site_email) ?></a>
                         </div>
                     </div>
+                    <?php } ?>
 
                     <!-- Phone Active CTA -->
+                    <?php if($site_phone || $site_phone2) { ?>
                     <div class="aiero-about-phone" style="margin-top: 1rem;">
                         <div class="aiero-phone-icon">
                             <i class="fa-solid fa-phone-volume"></i>
                         </div>
                         <div class="aiero-phone-details">
                             <span class="aiero-phone-label">Enquiries &amp; Calling</span>
-                            <a href="tel:9099999266" class="aiero-phone-num">90999 99266</a>
-                            <a href="tel:7359840800" class="aiero-phone-num">73598 40800</a>
+                            <?php if($site_phone) { ?>
+                            <a href="tel:<?= $phone_digits ?>" class="aiero-phone-num"><?= htmlspecialchars($site_phone) ?></a>
+                            <?php } ?>
+                            <?php if($site_phone2) { ?>
+                            <a href="tel:<?= $phone2_digits ?>" class="aiero-phone-num"><?= htmlspecialchars($site_phone2) ?></a>
+                            <?php } ?>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
 
@@ -168,12 +190,9 @@ try {
                             <label for="category" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.8; font-weight: 600;">Product Category</label>
                             <select id="category" name="category" style="background: #fff; border: 1px solid rgba(0,0,0,0.1); color: #333; padding: 0.9rem 1.2rem; border-radius: 8px; font-family: inherit; font-size: 0.92rem; transition: border-color 0.3s; cursor: pointer;">
                                 <option value="" disabled selected style="background:#fff; color:#999;">Select category...</option>
-                                <option value="beds" style="background:#fff; color:#333;">Metal &amp; Adjustable Beds</option>
-                                <option value="hospital" style="background:#fff; color:#333;">Hospital Beds &amp; Equipment</option>
-                                <option value="storage" style="background:#fff; color:#333;">Cupboards &amp; Storage Almirahs</option>
-                                <option value="doors" style="background:#fff; color:#333;">Safety Doors &amp; Fabrication</option>
-                                <option value="dining" style="background:#fff; color:#333;">Dining &amp; Bathroom Units</option>
-                                <option value="outdoor" style="background:#fff; color:#333;">Outdoor Gazebos &amp; Recliners</option>
+                                <?php foreach ($categories as $cat): ?>
+                                    <option value="<?= htmlspecialchars($cat['name']) ?>" style="background:#fff; color:#333;"><?= htmlspecialchars($cat['name']) ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -195,7 +214,7 @@ try {
     <!-- Google Map Interactive Iframe Section -->
     <section id="map" style="padding: 0 8% 6rem; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
         <div style="max-width: 1400px; margin: 0 auto; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px rgba(0,0,0,0.3); height: 450px; background: rgba(255,255,255,0.01);">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391.07629854968985!2d72.84733935547972!3d21.16967374995095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f835b331f5b%3A0x7a3f94eaced756c1!2sKhodiyar%20Steel%20Industries!5e0!3m2!1sen!2sin!4v1781706553496!5m2!1sen!2sin" 
+            <iframe src="<?= htmlspecialchars($google_map_url) ?>" 
                 width="100%" height="100%"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0;"></iframe>
         </div>
     </section>

@@ -50,7 +50,7 @@ try {
                     }
                     ?>
                     <div class="aiero-creation-card-wrapper">
-                        <a href="category?id=<?= htmlspecialchars($cat['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
+                        <a href="category/<?= htmlspecialchars($cat['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
                             <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($cat_image) ?>');"></div>
                             <div class="aiero-creation-view-more">ENTER</div>
                             <div class="aiero-creation-content">
