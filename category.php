@@ -48,36 +48,23 @@ if (!empty($category['image']) && file_exists(__DIR__ . '/uploads/categories/' .
     $cat_image = 'assets/metal-bed-7201-01.webp';
 }
 
-// Map brochures
+// Fetch dynamic brochures from database
 $pdf_brochures = [];
-$slug = $category['slug'];
-if ($slug === 'metal-beds-bunks') {
-    $pdf_brochures = [
-        ['path' => 'ksi/Bedroom.pdf', 'name' => 'Bedroom Catalogue PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)'],
-        ['path' => 'ksi/Bedframe.pdf', 'name' => 'Bedframe Specs PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)'],
-        ['path' => 'ksi/Adjustable Bed & Poolside Chair.pdf', 'name' => 'Adjustable Bed PDF', 'bg' => '#e35a57', 'shadow' => 'rgba(227, 90, 87, 0.25)']
-    ];
-} elseif ($slug === 'steel-cupboards') {
-    $pdf_brochures = [
-        ['path' => 'ksi/Cupboard.pdf', 'name' => 'Cupboards Catalogue PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)']
-    ];
-} elseif ($slug === 'dining-bathroom') {
-    $pdf_brochures = [
-        ['path' => 'ksi/Dinning Set.pdf', 'name' => 'Dining Set Catalogue PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)']
-    ];
-} elseif ($slug === 'doors-security-gates') {
-    $pdf_brochures = [
-        ['path' => 'ksi/Door.pdf', 'name' => 'Doors Catalogue PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)']
-    ];
-} elseif ($slug === 'hospital-equipment') {
-    $pdf_brochures = [
-        ['path' => 'ksi/Hospital.pdf', 'name' => 'Hospital Equipment Catalogue PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)']
-    ];
-} elseif ($slug === 'outdoor-furniture') {
-    $pdf_brochures = [
-        ['path' => 'ksi/Adjustable Bed & Poolside Chair.pdf', 'name' => 'Poolside Chair Specs PDF', 'bg' => '#FFC229', 'shadow' => 'rgba(255, 194, 41, 0.25)'],
-        ['path' => 'ksi/Gazebo.pdf', 'name' => 'Gazebo Catalogue PDF', 'bg' => '#e35a57', 'shadow' => 'rgba(227, 90, 87, 0.25)']
-    ];
+try {
+    $stmt_brochures = $db->prepare("SELECT name, file_path as path, bg_color as bg FROM category_brochures WHERE category_id = ? ORDER BY sort_order ASC, id ASC");
+    $stmt_brochures->execute([$category['id']]);
+    $db_brochures = $stmt_brochures->fetchAll();
+    
+    foreach ($db_brochures as $b) {
+        $pdf_brochures[] = [
+            'name' => $b['name'],
+            'path' => 'uploads/brochures/' . $b['path'],
+            'bg' => $b['bg'],
+            'shadow' => 'rgba(0,0,0,0.2)' // Default fallback shadow
+        ];
+    }
+} catch (Exception $e) {
+    // Silent fallback
 }
 ?>
 

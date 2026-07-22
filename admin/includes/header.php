@@ -350,9 +350,9 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         <a href="inquiries.php" class="<?= $current_page === 'inquiries' ? 'active' : '' ?>">
             <i class="fa-solid fa-envelope"></i><span>Inquiries</span>
         </a>
-        <!-- <a href="testimonials.php" class="<?= $current_page === 'testimonials' ? 'active' : '' ?>">
-            <i class="fa-solid fa-star"></i><span>Testimonials</span>
-        </a> -->
+        <a href="brochures.php" class="<?= $current_page === 'brochures' ? 'active' : '' ?>">
+            <i class="fa-solid fa-file-pdf"></i><span>Brochures</span>
+        </a>
         <a href="faqs.php" class="<?= $current_page === 'faqs' ? 'active' : '' ?>">
             <i class="fa-solid fa-question-circle"></i><span>FAQs</span>
         </a>
