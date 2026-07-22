@@ -169,7 +169,7 @@ select.form-control { cursor: pointer; }
     <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">
         <i class="fa-solid fa-star"></i> Manage Testimonials
     </h2>
-    <a href="testimonials.php" class="btn btn-gold <?= !$edit_row ? '' : '' ?>">
+    <a href="?add=1" class="btn btn-gold <?= !$edit_row ? '' : '' ?>">
         <i class="fa-solid fa-plus"></i> Add New
     </a>
 </div>
@@ -246,7 +246,7 @@ select.form-control { cursor: pointer; }
 
         <div class="d-flex gap-1" style="margin-top:0.5rem;">
             <button type="submit" class="btn btn-gold"><i class="fa-solid fa-save"></i> <?= $edit_row ? 'Update' : 'Create' ?></button>
-            <a href="testimonials.php" class="btn btn-ghost"><i class="fa-solid fa-times"></i> Cancel</a>
+            <a href="?" class="btn btn-ghost"><i class="fa-solid fa-times"></i> Cancel</a>
         </div>
     </form>
 </div>

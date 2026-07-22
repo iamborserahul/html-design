@@ -312,12 +312,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </button>
             </form>
 
-            <div class="login-footer">
-                <a href="#">Forgot password?</a>
-                <span class="divider">|</span>
-                <a href="../">Back to Website</a>
-            </div>
-
             <div class="brand-bottom">
                 &copy; <?= date('Y') ?> <a href="../"><?= htmlspecialchars($site_name ?? 'Khodiyar Steel Industries') ?></a>
             </div>

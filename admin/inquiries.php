@@ -320,70 +320,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                     </div>
                                 </td>
                             </tr>
-
-                            <!-- View Modal -->
-                            <div class="modal-overlay" id="viewModal<?= $inq['id'] ?>">
-                                <div class="modal-box">
-                                    <div class="mhead">
-                                        <h3><i class="fa-regular fa-envelope" style="color:var(--accent);margin-right:8px;"></i> Inquiry from <?= htmlspecialchars($inq['name']) ?></h3>
-                                        <button class="mclose modal-close">&times;</button>
-                                    </div>
-                                    <div class="mbody">
-                                        <div class="detail-grid">
-                                            <div class="d-item">
-                                                <div class="d-label">Name</div>
-                                                <div class="d-value" style="font-weight:600;"><?= htmlspecialchars($inq['name']) ?></div>
-                                            </div>
-                                            <div class="d-item">
-                                                <div class="d-label">Email</div>
-                                                <div class="d-value"><a href="mailto:<?= htmlspecialchars($inq['email']) ?>" style="color:var(--accent);"><?= htmlspecialchars($inq['email']) ?></a></div>
-                                            </div>
-                                            <div class="d-item">
-                                                <div class="d-label">Phone</div>
-                                                <div class="d-value"><?= htmlspecialchars($inq['phone'] ?? '—') ?></div>
-                                            </div>
-                                            <div class="d-item">
-                                                <div class="d-label">Company</div>
-                                                <div class="d-value"><?= htmlspecialchars($inq['company'] ?? '—') ?></div>
-                                            </div>
-                                            <div class="d-item full">
-                                                <div class="d-label">Subject</div>
-                                                <div class="d-value" style="font-weight:600;"><?= htmlspecialchars($inq['subject'] ?? '—') ?></div>
-                                            </div>
-                                            <div class="d-item full">
-                                                <div class="d-label">Message</div>
-                                                <div class="msg-box"><?= htmlspecialchars($inq['message']) ?></div>
-                                            </div>
-                                            <div class="d-item">
-                                                <div class="d-label">Received</div>
-                                                <div class="d-value"><?= date('d M Y, h:i A', strtotime($inq['created_at'])) ?></div>
-                                            </div>
-                                            <div class="d-item">
-                                                <div class="d-label">Status</div>
-                                                <div class="d-value">
-                                                    <?php if ($inq['is_read']): ?>
-                                                        <span class="badge badge-muted"><i class="fa-regular fa-circle-check"></i> Read</span>
-                                                    <?php else: ?>
-                                                        <span class="badge badge-gold"><i class="fa-regular fa-envelope"></i> Unread</span>
-                                                    <?php endif; ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mfoot">
-                                        <a href="mailto:<?= htmlspecialchars($inq['email']) ?>?subject=Re: <?= urlencode($inq['subject'] ?? 'Inquiry') ?>" class="btn btn-gold" style="padding:9px 18px;border-radius:8px;font-size:13px;text-decoration:none;"><i class="fa-solid fa-reply"></i> Reply via Email</a>
-                                        <?php if (!$inq['is_read']): ?>
-                                            <form method="post" style="display:inline;">
-                                                <?= csrf_field() ?>
-                                                <input type="hidden" name="action" value="mark_read">
-                                                <input type="hidden" name="id" value="<?= $inq['id'] ?>">
-                                                <button type="submit" class="btn btn-ghost" style="padding:9px 16px;border-radius:8px;font-size:13px;"><i class="fa-solid fa-check"></i> Mark Read</button>
-                                            </form>
-                                        <?php endif; ?>
-                                        <button class="btn btn-ghost modal-close" style="padding:9px 16px;border-radius:8px;font-size:13px;">Close</button>
-                                    </div>
-                                </div>
-                            </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
@@ -391,5 +327,73 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </div>
 </div>
+
+<?php if (!empty($inquiries)): ?>
+    <?php foreach ($inquiries as $inq): ?>
+        <!-- View Modal -->
+        <div class="modal-overlay" id="viewModal<?= $inq['id'] ?>">
+            <div class="modal-box">
+                <div class="mhead">
+                    <h3><i class="fa-regular fa-envelope" style="color:var(--accent);margin-right:8px;"></i> Inquiry from <?= htmlspecialchars($inq['name']) ?></h3>
+                    <button class="mclose modal-close">&times;</button>
+                </div>
+                <div class="mbody">
+                    <div class="detail-grid">
+                        <div class="d-item">
+                            <div class="d-label">Name</div>
+                            <div class="d-value" style="font-weight:600;"><?= htmlspecialchars($inq['name']) ?></div>
+                        </div>
+                        <div class="d-item">
+                            <div class="d-label">Email</div>
+                            <div class="d-value"><a href="mailto:<?= htmlspecialchars($inq['email']) ?>" style="color:var(--accent);"><?= htmlspecialchars($inq['email']) ?></a></div>
+                        </div>
+                        <div class="d-item">
+                            <div class="d-label">Phone</div>
+                            <div class="d-value"><?= htmlspecialchars($inq['phone'] ?? '—') ?></div>
+                        </div>
+                        <div class="d-item">
+                            <div class="d-label">Company</div>
+                            <div class="d-value"><?= htmlspecialchars($inq['company'] ?? '—') ?></div>
+                        </div>
+                        <div class="d-item full">
+                            <div class="d-label">Subject</div>
+                            <div class="d-value" style="font-weight:600;"><?= htmlspecialchars($inq['subject'] ?? '—') ?></div>
+                        </div>
+                        <div class="d-item full">
+                            <div class="d-label">Message</div>
+                            <div class="msg-box"><?= htmlspecialchars($inq['message']) ?></div>
+                        </div>
+                        <div class="d-item">
+                            <div class="d-label">Received</div>
+                            <div class="d-value"><?= date('d M Y, h:i A', strtotime($inq['created_at'])) ?></div>
+                        </div>
+                        <div class="d-item">
+                            <div class="d-label">Status</div>
+                            <div class="d-value">
+                                <?php if ($inq['is_read']): ?>
+                                    <span class="badge badge-muted"><i class="fa-regular fa-circle-check"></i> Read</span>
+                                <?php else: ?>
+                                    <span class="badge badge-gold"><i class="fa-regular fa-envelope"></i> Unread</span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mfoot">
+                    <a href="mailto:<?= htmlspecialchars($inq['email']) ?>?subject=Re: <?= urlencode($inq['subject'] ?? 'Inquiry') ?>" class="btn btn-gold" style="padding:9px 18px;border-radius:8px;font-size:13px;text-decoration:none;"><i class="fa-solid fa-reply"></i> Reply via Email</a>
+                    <?php if (!$inq['is_read']): ?>
+                        <form method="post" style="display:inline;">
+                            <?= csrf_field() ?>
+                            <input type="hidden" name="action" value="mark_read">
+                            <input type="hidden" name="id" value="<?= $inq['id'] ?>">
+                            <button type="submit" class="btn btn-ghost" style="padding:9px 16px;border-radius:8px;font-size:13px;"><i class="fa-solid fa-check"></i> Mark Read</button>
+                        </form>
+                    <?php endif; ?>
+                    <button class="btn btn-ghost modal-close" style="padding:9px 16px;border-radius:8px;font-size:13px;">Close</button>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

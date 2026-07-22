@@ -16,6 +16,7 @@ $tab_labels = [
     'logo'    => 'Logo & Favicon',
     'about'   => 'About Us',
     'services' => 'Extra Services Info',
+    'account' => 'Admin Account',
 ];
 
 $tab_icons = [
@@ -26,6 +27,7 @@ $tab_icons = [
     'logo'    => 'fa-image',
     'about'   => 'fa-info-circle',
     'services' => 'fa-screwdriver-wrench',
+    'account' => 'fa-user-shield',
 ];
 
 // Handle save
@@ -70,12 +72,15 @@ $key_to_group = [
 
 if (isset($_GET['success']) && $_GET['success'] == 1) {
     $success = 'Settings saved successfully.';
+} elseif (isset($_GET['success']) && $_GET['success'] == 2) {
+    $success = 'Admin account updated successfully.';
 }
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_settings') {
+// echo "<pre>"; print_r($_POST); die;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+   
     if (!verify_csrf($_POST['csrf_token'] ?? '')) {
         $errors[] = 'Invalid security token. Please reload the page.';
-    } else {
+    } elseif ($_POST['action'] === 'save_settings') {
         $tab = $_POST['settings_tab'] ?? 'general';
 
         // Handle logo upload
@@ -171,6 +176,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 }
             }
             header("Location: settings.php?tab=" . urlencode($tab) . "&success=1");
+            exit;
+        }
+    } elseif ($_POST['action'] === 'update_account') {
+        $admin_id = $_SESSION['admin_id'];
+        $new_email = trim($_POST['admin_email'] ?? '');
+        $new_name = trim($_POST['admin_name'] ?? '');
+        $current_pass = $_POST['current_password'] ?? '';
+        $new_pass = $_POST['new_password'] ?? '';
+        
+        $stmt = $db->prepare("SELECT password FROM users WHERE id = ?");
+        $stmt->execute([$admin_id]);
+        $user = $stmt->fetch();
+        
+        file_put_contents('post_log.txt', print_r($_POST, true));
+        
+        if (!$user || !password_verify($current_pass, $user['password'])) {
+            $errors[] = 'Incorrect current password.';
+        } elseif (empty($new_email) || empty($new_name)) {
+            $errors[] = 'Name and Email are required.';
+        } else {
+            if (!empty($new_pass)) {
+                $hash = password_hash($new_pass, PASSWORD_DEFAULT);
+                $upd = $db->prepare("UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?");
+                $upd->execute([$new_name, $new_email, $hash, $admin_id]);
+            } else {
+                $upd = $db->prepare("UPDATE users SET name = ?, email = ? WHERE id = ?");
+                $upd->execute([$new_name, $new_email, $admin_id]);
+            }
+            $_SESSION['admin_name'] = $new_name; // update session name
+            header("Location: settings.php?tab=account&success=2");
             exit;
         }
     }
@@ -673,12 +708,61 @@ if (!isset($tab_labels[$active_tab])) $active_tab = 'general';
                 </div>
             </div>
 
-            <div style="margin-top:1rem;">
+        <div style="margin-top:1rem;">
                 <button type="submit" class="btn btn-gold"><i class="fa-solid fa-save"></i> Save Settings</button>
             </div>
         </div>
     </div>
 </form>
+
+<?php
+// Fetch admin user data for the account tab
+$stmt = $db->prepare("SELECT name, email FROM users WHERE id = ?");
+$stmt->execute([$_SESSION['admin_id'] ?? 0]);
+$admin_data = $stmt->fetch();
+?>
+<!-- Tab: Admin Account (Separate Form) -->
+<div class="tab-panel <?= $active_tab === 'account' ? 'active' : '' ?>" data-panel="account">
+    <div class="settings-card">
+        <h3><i class="fa-solid fa-user-shield"></i> Update Admin Credentials</h3>
+        <p class="text-dim fs-small" style="margin-bottom:1.5rem;">Update your display name, login email (Admin ID), or change your password.</p>
+        
+        <form method="POST" action="?tab=account">
+            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
+            <input type="hidden" name="action" value="update_account">
+            
+            <div class="inline-grid-2">
+                <div class="s-form-row">
+                    <label for="admin_name">Admin Name *</label>
+                    <input type="text" id="admin_name" name="admin_name" value="<?= htmlspecialchars($admin_data['name'] ?? '') ?>" autocomplete="name" required>
+                </div>
+                <div class="s-form-row">
+                    <label for="admin_email">Admin ID (Email) *</label>
+                    <input type="email" id="admin_email" name="admin_email" value="<?= htmlspecialchars($admin_data['email'] ?? '') ?>" autocomplete="email" required>
+                </div>
+            </div>
+
+            <hr style="border:0; border-top:1px solid var(--border); margin: 1.5rem 0;">
+            <h4 style="margin-bottom:1rem; font-family:'Cinzel', serif; color:var(--gold);">Change Password</h4>
+
+            <div class="s-form-row">
+                <label for="current_password">Current Password * (Required to apply changes)</label>
+                <input type="password" id="current_password" name="current_password" autocomplete="current-password" required>
+            </div>
+            
+            <div class="inline-grid-2">
+                <div class="s-form-row">
+                    <label for="new_password">New Password (leave blank to keep current)</label>
+                    <input type="password" id="new_password" name="new_password" autocomplete="new-password">
+                </div>
+            </div>
+
+            <div style="margin-top:1rem;">
+                <button type="submit" class="btn btn-gold"><i class="fa-solid fa-lock"></i> Update Account</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script>
 (function () {

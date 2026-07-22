@@ -22,6 +22,7 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/admin.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -303,16 +304,17 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.2); }
 
-        @media (max-width: 768px) {
-            .sidebar { width: 60px; }
-            .sidebar .brand-text, .sidebar-footer .user-info, .sidebar-nav a span { display: none; }
-            .sidebar-brand { padding: 1rem 0.75rem; justify-content: center; }
-            .sidebar-nav a { justify-content: center; padding: 0.65rem 0.75rem; }
-            .sidebar-nav a i { width: auto; }
-            .sidebar-footer { justify-content: center; padding: 0.75rem; }
-            .sidebar-footer .user-avatar { display: none; }
-            .sidebar-footer .logout-btn { font-size: 1.1rem; }
-            .main { margin-left: 60px; }
+        @media (max-width: 991.98px) {
+            .sidebar { 
+                transform: translateX(-100%); 
+                transition: transform 0.3s ease-in-out; 
+                width: 250px; 
+                position: fixed;
+                z-index: 1050; 
+                height: 100vh;
+            }
+            .sidebar.show { transform: translateX(0); }
+            .main { margin-left: 0; }
             .topbar { padding: 0 1rem; }
             .content { padding: 1rem; }
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
@@ -348,9 +350,9 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         <a href="inquiries.php" class="<?= $current_page === 'inquiries' ? 'active' : '' ?>">
             <i class="fa-solid fa-envelope"></i><span>Inquiries</span>
         </a>
-        <a href="testimonials.php" class="<?= $current_page === 'testimonials' ? 'active' : '' ?>">
+        <!-- <a href="testimonials.php" class="<?= $current_page === 'testimonials' ? 'active' : '' ?>">
             <i class="fa-solid fa-star"></i><span>Testimonials</span>
-        </a>
+        </a> -->
         <a href="faqs.php" class="<?= $current_page === 'faqs' ? 'active' : '' ?>">
             <i class="fa-solid fa-question-circle"></i><span>FAQs</span>
         </a>
@@ -388,7 +390,12 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
 
 <div class="main">
     <header class="topbar">
-        <h1><?= htmlspecialchars($page_title) ?></h1>
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-ghost d-lg-none" id="mobileMenuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <h1 class="mb-0"><?= htmlspecialchars($page_title) ?></h1>
+        </div>
         <div class="topbar-right">
             <span class="date-badge"><i class="fa-regular fa-calendar"></i> <?= date('d M Y') ?></span>
         </div>

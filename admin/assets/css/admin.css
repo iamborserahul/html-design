@@ -40,7 +40,9 @@
 }
 
 /* --- Reset & Base --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -235,13 +237,13 @@ ul {
     background: var(--accent-dim);
 }
 
-.nav-item.active > .nav-link {
+.nav-item.active>.nav-link {
     color: var(--accent);
     background: var(--accent-dim);
     font-weight: 500;
 }
 
-.nav-item.active > .nav-link::before {
+.nav-item.active>.nav-link::before {
     content: '';
     position: absolute;
     left: 0;
@@ -702,8 +704,13 @@ ul {
     gap: 4px;
 }
 
-.stat-change.up { color: var(--success); }
-.stat-change.down { color: var(--danger); }
+.stat-change.up {
+    color: var(--success);
+}
+
+.stat-change.down {
+    color: var(--danger);
+}
 
 /* ============================================================
    FORM STYLES
@@ -1188,14 +1195,37 @@ table .table-actions .btn {
     width: 3px;
 }
 
-.toast.success { border-left-color: var(--success); }
-.toast.success::before { background: var(--success); }
-.toast.error { border-left-color: var(--danger); }
-.toast.error::before { background: var(--danger); }
-.toast.warning { border-left-color: var(--warning); }
-.toast.warning::before { background: var(--warning); }
-.toast.info { border-left-color: var(--info); }
-.toast.info::before { background: var(--info); }
+.toast.success {
+    border-left-color: var(--success);
+}
+
+.toast.success::before {
+    background: var(--success);
+}
+
+.toast.error {
+    border-left-color: var(--danger);
+}
+
+.toast.error::before {
+    background: var(--danger);
+}
+
+.toast.warning {
+    border-left-color: var(--warning);
+}
+
+.toast.warning::before {
+    background: var(--warning);
+}
+
+.toast.info {
+    border-left-color: var(--info);
+}
+
+.toast.info::before {
+    background: var(--info);
+}
 
 .toast-icon {
     width: 22px;
@@ -1209,10 +1239,25 @@ table .table-actions .btn {
     margin-top: 1px;
 }
 
-.toast.success .toast-icon { background: var(--success-bg); color: var(--success); }
-.toast.error .toast-icon { background: var(--danger-bg); color: var(--danger); }
-.toast.warning .toast-icon { background: var(--warning-bg); color: var(--warning); }
-.toast.info .toast-icon { background: var(--info-bg); color: var(--info); }
+.toast.success .toast-icon {
+    background: var(--success-bg);
+    color: var(--success);
+}
+
+.toast.error .toast-icon {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+.toast.warning .toast-icon {
+    background: var(--warning-bg);
+    color: var(--warning);
+}
+
+.toast.info .toast-icon {
+    background: var(--info-bg);
+    color: var(--info);
+}
 
 .toast-content {
     flex: 1;
@@ -1256,6 +1301,7 @@ table .table-actions .btn {
         transform: translateX(120%) scale(0.9);
         opacity: 0;
     }
+
     to {
         transform: translateX(0) scale(1);
         opacity: 1;
@@ -1267,6 +1313,7 @@ table .table-actions .btn {
         transform: translateX(0) scale(1);
         opacity: 1;
     }
+
     to {
         transform: translateX(120%) scale(0.9);
         opacity: 0;
@@ -1306,8 +1353,13 @@ table .table-actions .btn {
     animation: modalFadeIn 0.3s ease;
 }
 
-.modal-lg { max-width: 720px; }
-.modal-sm { max-width: 400px; }
+.modal-lg {
+    max-width: 720px;
+}
+
+.modal-sm {
+    max-width: 400px;
+}
 
 .modal-header {
     display: flex;
@@ -1362,6 +1414,7 @@ table .table-actions .btn {
         opacity: 0;
         transform: scale(0.95) translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -1692,7 +1745,9 @@ table .table-actions .btn {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ============================================================
@@ -1717,7 +1772,7 @@ table .table-actions .btn {
     width: 200%;
     height: 200%;
     background: radial-gradient(circle at 30% 50%, rgba(255, 194, 41, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 50%, rgba(255, 194, 41, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 70% 50%, rgba(255, 194, 41, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -1779,50 +1834,149 @@ table .table-actions .btn {
 /* ============================================================
    UTILITY CLASSES
    ============================================================ */
-.text-center { text-align: center; }
-.text-right { text-align: right; }
-.text-left { text-align: left; }
+.text-center {
+    text-align: center;
+}
 
-.text-gold { color: var(--accent); }
-.text-danger { color: var(--danger); }
-.text-success { color: var(--success); }
-.text-warning { color: var(--warning); }
-.text-muted { color: var(--text-muted); }
-.text-secondary { color: var(--text-secondary); }
+.text-right {
+    text-align: right;
+}
 
-.fw-400 { font-weight: 400; }
-.fw-500 { font-weight: 500; }
-.fw-600 { font-weight: 600; }
-.fw-700 { font-weight: 700; }
+.text-left {
+    text-align: left;
+}
 
-.font-display { font-family: var(--font-display); }
+.text-gold {
+    color: var(--accent);
+}
 
-.mt-0 { margin-top: 0; }
-.mt-2 { margin-top: 8px; }
-.mt-4 { margin-top: 16px; }
-.mt-6 { margin-top: 24px; }
-.mt-8 { margin-top: 32px; }
+.text-danger {
+    color: var(--danger);
+}
 
-.mb-0 { margin-bottom: 0; }
-.mb-2 { margin-bottom: 8px; }
-.mb-4 { margin-bottom: 16px; }
-.mb-6 { margin-bottom: 24px; }
-.mb-8 { margin-bottom: 32px; }
+.text-success {
+    color: var(--success);
+}
 
-.gap-2 { gap: 8px; }
-.gap-4 { gap: 16px; }
+.text-warning {
+    color: var(--warning);
+}
 
-.d-flex { display: flex; }
-.d-flex-center { display: flex; align-items: center; justify-content: center; }
-.d-flex-between { display: flex; align-items: center; justify-content: space-between; }
-.flex-column { flex-direction: column; }
-.flex-wrap { flex-wrap: wrap; }
-.flex-1 { flex: 1; }
+.text-muted {
+    color: var(--text-muted);
+}
 
-.w-100 { width: 100%; }
+.text-secondary {
+    color: var(--text-secondary);
+}
 
-.position-relative { position: relative; }
-.overflow-hidden { overflow: hidden; }
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-2 {
+    margin-top: 8px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.mt-6 {
+    margin-top: 24px;
+}
+
+.mt-8 {
+    margin-top: 32px;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.mb-6 {
+    margin-bottom: 24px;
+}
+
+.mb-8 {
+    margin-bottom: 32px;
+}
+
+.gap-2 {
+    gap: 8px;
+}
+
+.gap-4 {
+    gap: 16px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.d-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
 
 /* ============================================================
    ANIMATIONS
@@ -1832,6 +1986,7 @@ table .table-actions .btn {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1843,6 +1998,7 @@ table .table-actions .btn {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1850,13 +2006,25 @@ table .table-actions .btn {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 .animate-fade-in {
@@ -1886,7 +2054,7 @@ table .table-actions .btn {
         transform: translateX(0);
     }
 
-    .sidebar.open + .sidebar-overlay {
+    .sidebar.open+.sidebar-overlay {
         display: block;
     }
 
@@ -2026,4 +2194,8 @@ table .table-actions .btn {
     .bottom-tab-icon {
         font-size: 20px;
     }
+}
+
+.tox.tox-silver-sink.tox-tinymce-aux {
+    display: none;
 }

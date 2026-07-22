@@ -156,55 +156,71 @@ try {
     }
 </style>
 
-<div class="stats-grid">
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-box"></i></div>
-        <div class="stat-number" data-count="<?= $counts['products'] ?>">0</div>
-        <div class="stat-label">Total Products</div>
+<div class="row g-3 mb-4">
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-box"></i></div>
+            <div class="stat-number" data-count="<?= $counts['products'] ?>">0</div>
+            <div class="stat-label">Total Products</div>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-tags"></i></div>
-        <div class="stat-number" data-count="<?= $counts['categories'] ?>">0</div>
-        <div class="stat-label">Total Categories</div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-tags"></i></div>
+            <div class="stat-number" data-count="<?= $counts['categories'] ?>">0</div>
+            <div class="stat-label">Total Categories</div>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-envelope"></i></div>
-        <div class="stat-number" data-count="<?= $counts['inquiries_total'] ?>">0</div>
-        <div class="stat-label">Total Inquiries</div>
-        <?php if ($counts['inquiries_unread'] > 0): ?>
-            <div class="stat-sub"><span class="highlight"><?= $counts['inquiries_unread'] ?> unread</span></div>
-        <?php endif; ?>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="stat-number" data-count="<?= $counts['inquiries_total'] ?>">0</div>
+            <div class="stat-label">Total Inquiries</div>
+            <?php if ($counts['inquiries_unread'] > 0): ?>
+                <div class="stat-sub"><span class="highlight"><?= $counts['inquiries_unread'] ?> unread</span></div>
+            <?php endif; ?>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-images"></i></div>
-        <div class="stat-number" data-count="<?= $counts['gallery'] ?>">0</div>
-        <div class="stat-label">Gallery Items</div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-images"></i></div>
+            <div class="stat-number" data-count="<?= $counts['gallery'] ?>">0</div>
+            <div class="stat-label">Gallery Items</div>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
-        <div class="stat-number" data-count="<?= $counts['testimonials'] ?>">0</div>
-        <div class="stat-label">Testimonials</div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="stat-number" data-count="<?= $counts['testimonials'] ?>">0</div>
+            <div class="stat-label">Testimonials</div>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-question-circle"></i></div>
-        <div class="stat-number" data-count="<?= $counts['faqs'] ?>">0</div>
-        <div class="stat-label">FAQs</div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-question-circle"></i></div>
+            <div class="stat-number" data-count="<?= $counts['faqs'] ?>">0</div>
+            <div class="stat-label">FAQs</div>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-        <div class="stat-number" data-count="<?= $counts['team'] ?>">0</div>
-        <div class="stat-label">Team Members</div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-number" data-count="<?= $counts['team'] ?>">0</div>
+            <div class="stat-label">Team Members</div>
+        </div>
     </div>
-    <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-sliders-h"></i></div>
-        <div class="stat-number" data-count="<?= $counts['hero_slides'] ?>">0</div>
-        <div class="stat-label">Hero Slides</div>
+    <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+        <div class="stat-card h-100">
+            <div class="stat-icon"><i class="fa-solid fa-sliders-h"></i></div>
+            <div class="stat-number" data-count="<?= $counts['hero_slides'] ?>">0</div>
+            <div class="stat-label">Hero Slides</div>
+        </div>
     </div>
 </div>
 
-<div class="grid-2">
-    <div>
-        <div class="glass-card mb-2">
+<div class="row g-4">
+    <div class="col-12 col-lg-8">
+        <div class="glass-card mb-4 h-auto">
             <div class="d-flex align-center justify-between mb-2">
                 <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Products per Category</h2>
             </div>
@@ -217,37 +233,37 @@ try {
                 <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Quick Actions</h2>
             </div>
             <div class="quick-actions">
-                <a href="pages/products.php?action=add" class="btn btn-gold"><i class="fa-solid fa-plus"></i> Add Product</a>
-                <a href="pages/inquiries.php" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> View Inquiries</a>
-                <a href="pages/gallery.php?action=add" class="btn btn-ghost"><i class="fa-solid fa-plus"></i> Add Gallery</a>
+                <a href="products.php?action=add" class="btn btn-gold"><i class="fa-solid fa-plus"></i> Add Product</a>
+                <a href="inquiries.php" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> View Inquiries</a>
+                <a href="gallery.php?action=add" class="btn btn-ghost"><i class="fa-solid fa-plus"></i> Add Gallery</a>
                 <a href="../" class="btn btn-ghost" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Site</a>
             </div>
         </div>
     </div>
 
-    <div class="glass-card">
-        <div class="d-flex align-center justify-between mb-2">
-            <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Recent Inquiries</h2>
-            <?php if ($counts['inquiries_unread'] > 0): ?>
-                <span class="badge badge-unread"><?= $counts['inquiries_unread'] ?> new</span>
-            <?php endif; ?>
-        </div>
-        <?php if (empty($recent_inquiries)): ?>
-            <p class="text-dim fs-small">No inquiries yet.</p>
-        <?php else: ?>
-            <?php foreach ($recent_inquiries as $inq): ?>
-                <div class="inquiry-item">
-                    <div class="inq-avatar"><?= strtoupper(substr($inq['name'], 0, 1)) ?></div>
-                    <div class="inq-body">
-                        <div class="inq-name"><?= htmlspecialchars($inq['name']) ?>
-                            <?php if (!$inq['is_read']): ?>
-                                <span class="badge badge-unread" style="margin-left:0.4rem;">New</span>
-                            <?php endif; ?>
+    <div class="col-12 col-lg-4">
+        <div class="glass-card h-100">
+            <div class="d-flex align-center justify-between mb-2">
+                <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Recent Inquiries</h2>
+                <?php if ($counts['inquiries_unread'] > 0): ?>
+                    <span class="badge badge-unread"><?= $counts['inquiries_unread'] ?> new</span>
+                <?php endif; ?>
+            </div>
+            <?php if (empty($recent_inquiries)): ?>
+                <p class="text-dim fs-small">No inquiries yet.</p>
+            <?php else: ?>
+                <?php foreach ($recent_inquiries as $inq): ?>
+                    <div class="inquiry-item">
+                        <div class="inq-avatar"><?= strtoupper(substr($inq['name'], 0, 1)) ?></div>
+                        <div class="inq-body">
+                            <div class="inq-name"><?= htmlspecialchars($inq['name']) ?>
+                                <?php if (!$inq['is_read']): ?>
+                                    <span class="badge badge-unread" style="margin-left:0.4rem;">New</span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="inq-subject"><?= htmlspecialchars($inq['subject'] ?: 'No Subject') ?></div>
+                            <div class="inq-time"><?= date('d M Y, h:i A', strtotime($inq['created_at'])) ?></div>
                         </div>
-                        <div class="inq-subject"><?= htmlspecialchars($inq['subject'] ?: 'No Subject') ?></div>
-                        <div class="inq-time"><?= date('d M Y, h:i A', strtotime($inq['created_at'])) ?></div>
-                    </div>
-                    <a href="pages/inquiries.php?id=<?= $inq['id'] ?>" style="color:var(--text-dim);font-size:0.85rem;" title="View"><i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>

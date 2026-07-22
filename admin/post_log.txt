@@ -1,0 +1,9 @@
+Array
+(
+    [csrf_token] => 6864c0786ff12213e7eb92605f9ca048abcf37679fc19568690f15c23ad53ed2
+    [action] => update_account
+    [admin_name] => Admin
+    [admin_email] => admin@khodiyarsteel.com
+    [current_password] => admin123
+    [new_password] => password@123
+)
