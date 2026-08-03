@@ -7,6 +7,7 @@ include 'header.php';
 $id = $_GET['id'] ?? '';
 $category = null;
 $products = [];
+$sub_categories = [];
 
 try {
     $db = getDB();
@@ -14,9 +15,14 @@ try {
     $stmt = $db->prepare("SELECT * FROM product_categories WHERE (slug = ? OR id = ?) AND status = 1");
     $stmt->execute([$id, $id]);
     $category = $stmt->fetch();
-    
+
     if ($category) {
-        // Fetch category products
+        // Check if this category has active sub-categories
+        $stmt_sub = $db->prepare("SELECT * FROM product_categories WHERE parent_id = ? AND status = 1 ORDER BY sort_order ASC, name ASC");
+        $stmt_sub->execute([$category['id']]);
+        $sub_categories = $stmt_sub->fetchAll();
+
+        // Always fetch direct products for this category
         $stmt_prod = $db->prepare("SELECT * FROM products WHERE category_id = ? AND status = 1 ORDER BY sort_order ASC, id DESC");
         $stmt_prod->execute([$category['id']]);
         $products = $stmt_prod->fetchAll();
@@ -33,10 +39,12 @@ if (!$category) {
 
 $title = $category['name'] . " | Khodiyar Steel";
 
-// Determine hero image
+// Determine hero image — also consider sub-category images as fallback
 $cat_image = '';
 if (!empty($category['image']) && file_exists(__DIR__ . '/uploads/categories/' . $category['image'])) {
     $cat_image = 'uploads/categories/' . $category['image'];
+} elseif (!empty($sub_categories[0]['image']) && file_exists(__DIR__ . '/uploads/categories/' . $sub_categories[0]['image'])) {
+    $cat_image = 'uploads/categories/' . $sub_categories[0]['image'];
 } elseif (!empty($products[0]['featured_image'])) {
     $img_src = $products[0]['featured_image'];
     if (strpos($img_src, 'assets/') === 0) {
@@ -54,13 +62,13 @@ try {
     $stmt_brochures = $db->prepare("SELECT name, file_path as path, bg_color as bg FROM category_brochures WHERE category_id = ? ORDER BY sort_order ASC, id ASC");
     $stmt_brochures->execute([$category['id']]);
     $db_brochures = $stmt_brochures->fetchAll();
-    
+
     foreach ($db_brochures as $b) {
         $pdf_brochures[] = [
-            'name' => $b['name'],
-            'path' => 'uploads/brochures/' . $b['path'],
-            'bg' => $b['bg'],
-            'shadow' => 'rgba(0,0,0,0.2)' // Default fallback shadow
+            'name'   => $b['name'],
+            'path'   => 'uploads/brochures/' . $b['path'],
+            'bg'     => $b['bg'],
+            'shadow' => 'rgba(0,0,0,0.2)'
         ];
     }
 } catch (Exception $e) {
@@ -71,7 +79,7 @@ try {
 <!-- Subpage Hero Section -->
     <section class="aiero-hero subpage-hero" style="height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center;">
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
-            <span class="aiero-slide-tagline">CATEGORY PROFILE</span>
+            <span class="aiero-slide-tagline"><?= !empty($sub_categories) ? 'PRODUCT RANGE' : 'CATEGORY PROFILE' ?></span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;"><?= htmlspecialchars($category['name']) ?></h1>
             <p class="aiero-slide-desc" style="transform: none; opacity: 1; max-width: 700px; margin: 0 auto;"><?= htmlspecialchars($category['description']) ?></p>
         </div>
@@ -103,6 +111,61 @@ try {
         </div>
     </section>
 
+<?php if (!empty($sub_categories)): ?>
+    <!-- ── SUB-CATEGORIES GRID ─────────────────────────────────────────────── -->
+    <section class="aiero-creations" id="sub-categories" style="padding: 6rem 8% 8rem; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="aiero-creations-container">
+            <div class="aiero-creations-header">
+                <span class="aiero-creations-tagline">Sub Categories</span>
+                <h2 class="aiero-creations-title" style="font-size: 34px;"><?= htmlspecialchars($category['name']) ?> Series</h2>
+                <!-- Breadcrumb back to all categories -->
+                <p style="opacity: 0.55; font-size: 0.9rem; margin-top: 0.5rem;">
+                    <a href="products" style="color: #FFC229; text-decoration: none;">All Categories</a>
+                    <span style="margin: 0 0.5rem; opacity: 0.5;">›</span>
+                    <?= htmlspecialchars($category['name']) ?>
+                </p>
+            </div>
+
+            <div class="aiero-creations-grid">
+                <?php foreach ($sub_categories as $i => $sub): ?>
+                    <?php
+                    $float_class = 'card-float-' . (($i % 3) + 1);
+                    // Resolve sub-category image
+                    $sub_image = '';
+                    if (!empty($sub['image']) && file_exists(__DIR__ . '/uploads/categories/' . $sub['image'])) {
+                        $sub_image = 'uploads/categories/' . $sub['image'];
+                    } else {
+                        // Fallback: first product image in this sub-category
+                        try {
+                            $stmt_fp = $db->prepare("SELECT featured_image FROM products WHERE category_id = ? AND status = 1 LIMIT 1");
+                            $stmt_fp->execute([$sub['id']]);
+                            $first_prod = $stmt_fp->fetch();
+                            if (!empty($first_prod['featured_image'])) {
+                                $fp_src = $first_prod['featured_image'];
+                                $sub_image = (strpos($fp_src, 'assets/') === 0) ? $fp_src : 'uploads/' . $fp_src;
+                            }
+                        } catch (Exception $e) {}
+                        if (!$sub_image) $sub_image = 'assets/metal-bed-7201-01.webp';
+                    }
+                    ?>
+                    <div class="aiero-creation-card-wrapper <?= $float_class ?>" data-href="category/<?= htmlspecialchars($sub['slug']) ?>" onclick="window.location.href = this.getAttribute('data-href')">
+                        <a href="category/<?= htmlspecialchars($sub['slug']) ?>" class="aiero-creation-card" style="display: block;">
+                            <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($sub_image) ?>');"></div>
+                            <div class="aiero-creation-view-more">ENTER</div>
+                            <div class="aiero-creation-content">
+                                <span class="aiero-creation-label"><?= htmlspecialchars($sub['name']) ?></span>
+                                <p class="aiero-creation-desc"><?= htmlspecialchars($sub['description']) ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+<?php endif; // end if sub_categories ?>
+
+<?php if (!empty($products)): ?>
     <!-- Product Catalog Grid -->
     <section class="aiero-creations" id="products-list" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 7rem;">
         <div class="aiero-creations-container">
@@ -112,32 +175,30 @@ try {
             </div>
 
             <div class="aiero-creations-grid">
-                <?php if (!empty($products)): ?>
-                    <?php foreach ($products as $i => $prod): ?>
-                        <?php 
-                        $float_class = 'card-float-' . (($i % 3) + 1); 
-                        $prod_img = $prod['featured_image'];
-                        if (strpos($prod_img, 'assets/') !== 0) {
-                            $prod_img = 'uploads/' . $prod_img;
-                        }
-                        ?>
-                        <div class="aiero-creation-card-wrapper">
-                            <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px;">
-                                <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($prod_img) ?>');"></div>
-                                <div class="aiero-creation-view-more">VIEW DETAILS</div>
-                                <div class="aiero-creation-content" style="background: none; padding: 2rem;">
-                                    <span class="aiero-creation-label" style="font-size: 1.15rem;"><?= htmlspecialchars($prod['name']) ?></span>
-                                    <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;"><?= htmlspecialchars($prod['short_description']) ?></p>
-                                </div>
-                            </a>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p style="opacity: 0.6; text-align: center; width: 100%;">No products found in this category.</p>
-                <?php endif; ?>
+                <?php foreach ($products as $i => $prod): ?>
+                    <?php
+                    $float_class = 'card-float-' . (($i % 3) + 1);
+                    $prod_img = $prod['featured_image'];
+                    if (strpos($prod_img, 'assets/') !== 0) {
+                        $prod_img = 'uploads/' . $prod_img;
+                    }
+                    ?>
+                    <div class="aiero-creation-card-wrapper <?= $float_class ?>">
+                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card" style="display: block; height: 380px;">
+                            <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($prod_img) ?>');"></div>
+                            <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                            <div class="aiero-creation-content" style="background: none; padding: 2rem;">
+                                <span class="aiero-creation-label" style="font-size: 1.15rem;"><?= htmlspecialchars($prod['name']) ?></span>
+                                <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;"><?= htmlspecialchars($prod['short_description']) ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
+    <?php endif; ?>
+
 
     <!-- Download Catalogues Section -->
     <?php if (!empty($pdf_brochures)): ?>

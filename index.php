@@ -17,7 +17,7 @@ $extra_services = [];
 try {
     $db = getDB();
     $hero_slides = $db->query("SELECT * FROM hero_slides WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
-    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 AND parent_id IS NULL ORDER BY sort_order ASC, name ASC")->fetchAll();
     $stats = $db->query("SELECT * FROM stats_counters WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
     $faqs = $db->query("SELECT * FROM faqs WHERE status = 1 ORDER BY sort_order ASC, id ASC LIMIT 6")->fetchAll();
     $gallery_items = $db->query("SELECT * FROM gallery_items WHERE status = 1 ORDER BY sort_order ASC, id DESC")->fetchAll();
@@ -247,8 +247,8 @@ $total_slides = count($hero_slides);
                         $img_src = 'uploads/' . $img_src;
                     }
                     ?>
-                    <div class="aiero-creation-card-wrapper">
-                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
+                    <div class="aiero-creation-card-wrapper <?= $float_class ?>">
+                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card" style="display: block;">
                             <div class="aiero-creation-img" style="background-image: url('<?= $img_src ?>');"></div>
                             <div class="aiero-creation-view-more">VIEW DETAILS</div>
                             <div class="aiero-creation-content">

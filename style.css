@@ -2157,8 +2157,12 @@ body.aiero-theme .aiero-phone-num {
 .aiero-creation-card-wrapper {
     position: relative;
     width: 100%;
-    perspective: 1200px;
-    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Pause float animation on hover so clicks always register cleanly */
+.aiero-creation-card-wrapper:hover {
+    animation-play-state: paused;
 }
 
 .aiero-creation-card {
@@ -2170,71 +2174,63 @@ body.aiero-theme .aiero-phone-num {
     background: #0a0a14;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    will-change: transform, opacity;
-    transform-style: preserve-3d;
+    will-change: transform;
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
 }
 
 .aiero-creation-card:hover {
-    transform: scale(1.03) translateZ(15px) !important;
-    box-shadow: 0 35px 70px rgba(255, 194, 41, 0.25) !important;
+    transform: scale(1.03);
+    box-shadow: 0 35px 70px rgba(255, 194, 41, 0.25);
     z-index: 10;
 }
 
 /* Creations Cards 3D Staggered Floating Keyframes */
-.card-float-1 {
+/* Float animations applied to the WRAPPER so the inner <a> card
+   always has a stable hit-box — prevents missed clicks during animation */
+.aiero-creation-card-wrapper.card-float-1 {
     animation: cardFloat3D1 10s ease-in-out infinite;
 }
 
-.card-float-2 {
+.aiero-creation-card-wrapper.card-float-2 {
     animation: cardFloat3D2 11s ease-in-out infinite;
     animation-delay: -3.5s;
 }
 
-.card-float-3 {
+.aiero-creation-card-wrapper.card-float-3 {
     animation: cardFloat3D3 10.5s ease-in-out infinite;
     animation-delay: -7s;
 }
 
 @keyframes cardFloat3D1 {
-
-    0%,
-    100% {
-        transform: translateY(0) rotateX(4deg) rotateY(-5deg) rotateZ(-0.5deg);
-        box-shadow: -5px 25px 50px rgba(0, 0, 0, 0.3);
+    0%, 100% {
+        transform: translateY(0px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
-
     50% {
-        transform: translateY(-12px) rotateX(-4deg) rotateY(5deg) rotateZ(0.5deg);
-        box-shadow: 5px 30px 60px rgba(255, 194, 41, 0.12);
+        transform: translateY(-12px);
+        box-shadow: 0 35px 60px rgba(255, 194, 41, 0.12);
     }
 }
 
 @keyframes cardFloat3D2 {
-
-    0%,
-    100% {
-        transform: translateY(0) rotateX(-5deg) rotateY(4deg) rotateZ(0.5deg);
-        box-shadow: 5px 25px 50px rgba(0, 0, 0, 0.3);
+    0%, 100% {
+        transform: translateY(0px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
-
     50% {
-        transform: translateY(12px) rotateX(5deg) rotateY(-4deg) rotateZ(-0.5deg);
-        box-shadow: -5px 30px 60px rgba(255, 194, 41, 0.12);
+        transform: translateY(12px);
+        box-shadow: 0 35px 60px rgba(255, 194, 41, 0.12);
     }
 }
 
 @keyframes cardFloat3D3 {
-
-    0%,
-    100% {
-        transform: translateY(0) rotateX(4deg) rotateY(5deg) rotateZ(-0.5deg);
-        box-shadow: 5px 25px 50px rgba(0, 0, 0, 0.3);
+    0%, 100% {
+        transform: translateY(0px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
-
     50% {
-        transform: translateY(-10px) rotateX(-4deg) rotateY(-5deg) rotateZ(0.5deg);
-        box-shadow: -5px 30px 60px rgba(255, 194, 41, 0.12);
+        transform: translateY(-10px);
+        box-shadow: 0 35px 60px rgba(255, 194, 41, 0.12);
     }
 }
 

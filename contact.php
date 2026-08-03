@@ -94,7 +94,7 @@ $categories = [];
 try {
     $db = getDB();
     $faqs = $db->query("SELECT * FROM faqs WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
-    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC")->fetchAll();
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 AND parent_id IS NULL ORDER BY sort_order ASC")->fetchAll();
 } catch (\Exception $e) {
     // Fallback
 }

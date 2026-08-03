@@ -18,7 +18,17 @@ if ($is_edit) {
     }
 }
 
-$categories = $db->query("SELECT id, name FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+$categories = $db->query("SELECT id, name, parent_id FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+// Build hierarchy: separate parent categories from sub-categories
+$parent_cats = [];
+$child_cats  = [];
+foreach ($categories as $cat) {
+    if ($cat['parent_id'] === null || $cat['parent_id'] == 0) {
+        $parent_cats[$cat['id']] = $cat;
+    } else {
+        $child_cats[$cat['parent_id']][] = $cat;
+    }
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['csrf_token'] ?? '';
@@ -459,9 +469,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label class="form-label">Category</label>
                         <select name="category_id" class="form-control">
                             <option value="">— Select Category —</option>
-                            <?php foreach ($categories as $cat): ?>
-                                <option value="<?= $cat['id'] ?>" <?= ((int) ($product['category_id'] ?? $_POST['category_id'] ?? 0)) === (int) $cat['id'] ? 'selected' : '' ?>><?= htmlspecialchars($cat['name']) ?></option>
+                            <?php
+                            $selected_cat_id = (int) ($product['category_id'] ?? $_POST['category_id'] ?? 0);
+                            // Parent cats with their sub-categories as optgroups
+                            foreach ($parent_cats as $pid => $pcat): ?>
+                                <?php if (!empty($child_cats[$pid])): ?>
+                                    <optgroup label="<?= htmlspecialchars($pcat['name']) ?>">
+                                        <option value="<?= $pid ?>" <?= $selected_cat_id === $pid ? 'selected' : '' ?>>
+                                            <?= htmlspecialchars($pcat['name']) ?> (All)
+                                        </option>
+                                        <?php foreach ($child_cats[$pid] as $sub): ?>
+                                            <option value="<?= $sub['id'] ?>" <?= $selected_cat_id === (int)$sub['id'] ? 'selected' : '' ?>>
+                                                &nbsp;&nbsp;↳ <?= htmlspecialchars($sub['name']) ?>
+                                            </option>
+                                        <?php endforeach; ?>
+                                    </optgroup>
+                                <?php else: ?>
+                                    <option value="<?= $pid ?>" <?= $selected_cat_id === $pid ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($pcat['name']) ?>
+                                    </option>
+                                <?php endif; ?>
                             <?php endforeach; ?>
+                            <?php
+                            // Orphaned sub-categories (parent not active/found) shown ungrouped
+                            foreach ($child_cats as $pid => $subs):
+                                if (isset($parent_cats[$pid])) continue;
+                                foreach ($subs as $sub): ?>
+                                    <option value="<?= $sub['id'] ?>" <?= $selected_cat_id === (int)$sub['id'] ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($sub['name']) ?>
+                                    </option>
+                            <?php endforeach; endforeach; ?>
                         </select>
                     </div>
                 </div>

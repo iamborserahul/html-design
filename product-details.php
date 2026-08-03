@@ -170,8 +170,8 @@ $title = $product['name'] . " | Khodiyar Steel";
                         $rel_img = $rel['featured_image'];
                         if (strpos($rel_img, 'assets/') !== 0) $rel_img = 'uploads/' . $rel_img;
                         ?>
-                        <div class="aiero-creation-card-wrapper">
-                            <a href="product/<?= htmlspecialchars($rel['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px;">
+                        <div class="aiero-creation-card-wrapper <?= $float_class ?>">
+                            <a href="product/<?= htmlspecialchars($rel['slug']) ?>" class="aiero-creation-card" style="display: block; height: 380px;">
                                 <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($rel_img) ?>');"></div>
                                 <div class="aiero-creation-view-more">VIEW DETAILS</div>
                                 <div class="aiero-creation-content" style="background: none; padding: 2rem;">

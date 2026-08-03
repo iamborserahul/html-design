@@ -463,6 +463,20 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out'
     }, "-=0.6");
 
+    // Make entire card wrapper clickable — redirects to the inner <a> href
+    // so clicking the div (outside <a> hit-box) still navigates correctly
+    document.querySelectorAll('.aiero-creation-card-wrapper').forEach(wrapper => {
+        const link = wrapper.querySelector('a.aiero-creation-card');
+        if (!link) return;
+        wrapper.style.cursor = 'pointer';
+        wrapper.addEventListener('click', (e) => {
+            // Only intercept if the click wasn't already on the <a> or its children
+            if (!e.target.closest('a')) {
+                window.location.href = link.href;
+            }
+        });
+    });
+
     // 8. Back to Top smooth scroll & floating visibility
     const backToTopBtn = document.querySelector('.aiero-back-to-top');
     if (backToTopBtn) {

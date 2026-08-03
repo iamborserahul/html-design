@@ -7,7 +7,7 @@ include 'header.php';
 $categories = [];
 try {
     $db = getDB();
-    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 AND parent_id IS NULL ORDER BY sort_order ASC, name ASC")->fetchAll();
 } catch (Exception $e) {}
 ?>
 
@@ -49,8 +49,8 @@ try {
                         }
                     }
                     ?>
-                    <div class="aiero-creation-card-wrapper">
-                        <a href="category/<?= htmlspecialchars($cat['slug']) ?>" class="aiero-creation-card <?= $float_class ?>" style="display: block;">
+                    <div class="aiero-creation-card-wrapper <?= $float_class ?>" data-href="category/<?= htmlspecialchars($cat['slug']) ?>" onclick="window.location.href = this.getAttribute('data-href')">
+                        <a href="category/<?= htmlspecialchars($cat['slug']) ?>" class="aiero-creation-card" style="display: block;">
                             <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($cat_image) ?>');"></div>
                             <div class="aiero-creation-view-more">ENTER</div>
                             <div class="aiero-creation-content">

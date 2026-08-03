@@ -98,7 +98,7 @@ $phone2_digits = preg_replace('/\D/', '', $site_phone2);
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script src="script.js?v=1.5"></script>
+    <script src="script.js?v=1.6"></script>
 </body>
 
 </html>

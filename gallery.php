@@ -8,7 +8,7 @@ $categories = [];
 $gallery_by_cat = [];
 try {
     $db = getDB();
-    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 ORDER BY sort_order ASC, name ASC")->fetchAll();
+    $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 AND parent_id IS NULL ORDER BY sort_order ASC, name ASC")->fetchAll();
     
     $gallery_items = $db->query("SELECT * FROM gallery_items WHERE status = 1 ORDER BY sort_order ASC, id DESC")->fetchAll();
     foreach ($gallery_items as $item) {
@@ -43,8 +43,8 @@ try {
                 <div class="aiero-creations-grid">
                     <?php foreach ($cat_items as $i => $item): ?>
                         <?php $float_class = 'card-float-' . (($i % 3) + 1); ?>
-                        <div class="aiero-creation-card-wrapper">
-                            <div class="aiero-creation-card <?= $float_class ?>" style="display: block; height: 380px; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;">
+                        <div class="aiero-creation-card-wrapper <?= $float_class ?>">
+                            <div class="aiero-creation-card" style="display: block; height: 380px; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;">
                                 <div class="aiero-creation-img" style="background-image: url('uploads/gallery/<?= htmlspecialchars($item['image']) ?>'); width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);"></div>
                                 <div class="aiero-creation-content" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end; height: 60%; pointer-events: none; z-index: 2;">
                                     <span class="aiero-creation-label" style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: #fff; text-transform: uppercase; font-weight: 500; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);"><?= htmlspecialchars($item['title']) ?></span>
