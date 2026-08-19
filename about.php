@@ -29,7 +29,7 @@ include 'header.php';
                 <span class="aiero-about-tagline" style="color: #FFC229;">COMPANY HISTORY</span>
                 <h2 class="aiero-about-title" style="font-size: 38px;">About Khodiyar<br>Steel Industries</h2>
                 <div class="aiero-about-desc" style="font-size: 1.02rem; line-height: 1.8;">
-                    <p>Founded in 1998 by Vimal Sakariya, Khodiyar Steel Industries began with a clear vision: to
+                    <p>Founded in 1998 by Mr. Vimalbhai Sakariya, Khodiyar Steel Industries began with a clear vision: to
                         manufacture durable, high-quality steel furniture that customers could trust.</p>
                     <p>What started as a small manufacturing operation serving the Indian market has grown into an
                         established metal furniture manufacturer with more than <?php echo date('Y') - 1998; ?> years of industry experience. In the

@@ -109,7 +109,7 @@ $closes_24 = date('H:i', strtotime($closes_time));
     <!-- FontAwesome Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- CSS Style Sheets -->
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <link rel="stylesheet" href="style.css?v=1.7">
 </head>
 
 <body>

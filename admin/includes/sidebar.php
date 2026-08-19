@@ -1,15 +1,15 @@
 <?php
 $nav_items = [
     'dashboard' => ['label' => 'Dashboard', 'icon' => 'fa-chart-pie', 'file' => 'index.php'],
-    'products' => [
-        'label' => 'Products',
-        'icon' => 'fa-box',
-        'file' => 'products.php',
-        'children' => [
-            'products.php'   => ['label' => 'All Products', 'icon' => 'fa-box',  'slug' => 'products'],
-            'categories.php' => ['label' => 'Categories',   'icon' => 'fa-tags', 'slug' => 'categories'],
-        ]
-    ],
+    // 'products' => [
+    //     'label' => 'Products',
+    //     'icon' => 'fa-box',
+    //     'file' => 'products.php',
+    //     'children' => [
+    //         'products.php'   => ['label' => 'All Products', 'icon' => 'fa-box',  'slug' => 'products'],
+    //         'categories.php' => ['label' => 'Categories',   'icon' => 'fa-tags', 'slug' => 'categories'],
+    //     ]
+    // ],
     'hero-slides'    => ['label' => 'Hero Slides',    'icon' => 'fa-images',          'file' => 'hero-slides.php'],
     'gallery'        => ['label' => 'Gallery',         'icon' => 'fa-photo-film',      'file' => 'gallery.php'],
     'inquiries'      => ['label' => 'Inquiries',       'icon' => 'fa-envelope',        'file' => 'inquiries.php'],
@@ -47,7 +47,7 @@ function has_active_child($children) {
     return false;
 }
 
-$mobile_tabs = ['dashboard', 'products', 'hero-slides', 'gallery', 'inquiries'];
+$mobile_tabs = ['dashboard', 'hero-slides', 'gallery', 'inquiries'];
 ?>
 
 <aside class="sidebar" id="sidebar">

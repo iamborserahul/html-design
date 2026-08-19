@@ -34,9 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $status = isset($_POST['status']) ? 1 : 0;
         $item_id = (int) ($_POST['item_id'] ?? 0);
 
-        if ($title === '') {
-            $errors[] = 'Title is required.';
-        }
         if ($category === '' || !in_array($category, $categories)) {
             $errors[] = 'Please select a valid category.';
         }
@@ -258,8 +255,8 @@ select.form-control { cursor: pointer; }
 
                     <div class="form-row-2">
                         <div class="form-group">
-                            <label>Title <span class="required">*</span></label>
-                            <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($item['title'] ?? $_POST['title'] ?? '') ?>" required>
+                            <label>Title</label>
+                            <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($item['title'] ?? $_POST['title'] ?? '') ?>">
                         </div>
                         <div class="form-group">
                             <label>Category <span class="required">*</span></label>

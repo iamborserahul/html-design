@@ -20,8 +20,18 @@ try {
     $categories = $db->query("SELECT * FROM product_categories WHERE status = 1 AND parent_id IS NULL ORDER BY sort_order ASC, name ASC")->fetchAll();
     $stats = $db->query("SELECT * FROM stats_counters WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
     $faqs = $db->query("SELECT * FROM faqs WHERE status = 1 ORDER BY sort_order ASC, id ASC LIMIT 6")->fetchAll();
-    $gallery_items = $db->query("SELECT * FROM gallery_items WHERE status = 1 ORDER BY sort_order ASC, id DESC")->fetchAll();
-    $featured_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 6")->fetchAll();
+    $gallery_items = $db->query("SELECT * FROM gallery_items WHERE status = 1 ORDER BY sort_order ASC, RAND()")->fetchAll();
+    $featured_products = $db->query("
+        SELECT g.title AS name, g.description AS short_description, g.image AS featured_image, g.category AS slug
+        FROM gallery_items g
+        INNER JOIN (
+            SELECT category, MIN(id) AS min_id
+            FROM gallery_items
+            WHERE status = 1 AND category IS NOT NULL AND category != ''
+            GROUP BY category
+        ) gmin ON g.id = gmin.min_id
+        ORDER BY g.sort_order ASC, RAND()
+    ")->fetchAll();
     $showcase_products = $db->query("SELECT p.*, c.name as category_name FROM products p LEFT JOIN product_categories c ON p.category_id = c.id WHERE p.featured = 1 AND p.status = 1 ORDER BY p.sort_order ASC, p.id DESC LIMIT 3")->fetchAll();
     $partners = $db->query("SELECT * FROM partners WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
     $extra_services = $db->query("SELECT * FROM extra_services WHERE status = 1 ORDER BY sort_order ASC, id ASC")->fetchAll();
@@ -190,7 +200,7 @@ $total_slides = count($hero_slides);
                     ?>
                     <a href="<?= htmlspecialchars($link) ?>" class="aiero-category-card">
                         <div class="aiero-category-card-border"></div>
-                        <div class="aiero-category-icon" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;">
+                        <?php /*if <div class="aiero-category-icon" style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;">
                             <?php if (!empty($c['icon'])): ?>
                                 <?php if (strpos($c['icon'], 'fa-') === 0): ?>
                                     <i class="fa-solid <?= htmlspecialchars($c['icon']) ?>" style="font-size: 2rem;"></i>
@@ -199,8 +209,8 @@ $total_slides = count($hero_slides);
                                 <?php endif; ?>
                             <?php else: ?>
                                 <i class="fa-solid fa-tag" style="font-size: 2rem;"></i>
-                            <?php endif; ?>
-                        </div>
+                            <?php endif;?>
+                        </div> */ ?>
                         <h3 class="aiero-category-card-title"><?= htmlspecialchars($c['name']) ?></h3>
                         <p class="aiero-category-card-desc"><?= htmlspecialchars($c['description'] ?? '') ?></p>
                         <span class="aiero-category-link-btn">EXPLORE CATALOG <i class="fa-solid fa-chevron-right"></i></span>
@@ -244,11 +254,11 @@ $total_slides = count($hero_slides);
                     $float_class = 'card-float-' . (($i % 3) + 1); 
                     $img_src = htmlspecialchars($prod['featured_image']);
                     if (strpos($img_src, 'assets/') !== 0) {
-                        $img_src = 'uploads/' . $img_src;
+                        $img_src = 'uploads/gallery/' . $img_src;
                     }
                     ?>
                     <div class="aiero-creation-card-wrapper <?= $float_class ?>">
-                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card" style="display: block;">
+                        <a href="gallery" class="aiero-creation-card" style="display: block;">
                             <div class="aiero-creation-img" style="background-image: url('<?= $img_src ?>');"></div>
                             <div class="aiero-creation-view-more">VIEW DETAILS</div>
                             <div class="aiero-creation-content">
@@ -265,7 +275,7 @@ $total_slides = count($hero_slides);
         </div>
     </section>
 
-    <!-- Stacked Sticky Product Showcase Section -->
+    <?php /* <!-- Stacked Sticky Product Showcase Section -->
     <section class="showcase-section" id="showcase">
         <div class="showcase-container">
             <!-- Header -->
@@ -329,7 +339,7 @@ $total_slides = count($hero_slides);
             <?php endif; ?>
             </div>
         </div>
-    </section>
+    </section> */?>
 
     <!-- Gallery Section -->
     <section class="aiero-gallery-section" id="gallery">

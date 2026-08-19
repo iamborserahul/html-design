@@ -335,9 +335,10 @@ $site_name = get_setting('site_name') ?: 'Khodiyar Steel Industries';
         <a href="index.php" class="<?= $current_page === 'dashboard' ? 'active' : '' ?>">
             <i class="fa-solid fa-chart-pie"></i><span>Dashboard</span>
         </a>
+        <?php /*
         <a href="products.php" class="<?= $current_page === 'products' ? 'active' : '' ?>">
             <i class="fa-solid fa-box"></i><span>Products</span>
-        </a>
+        </a>*/?>
         <a href="categories.php" class="<?= $current_page === 'categories' ? 'active' : '' ?>">
             <i class="fa-solid fa-tags"></i><span>Categories</span>
         </a>

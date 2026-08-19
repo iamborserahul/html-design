@@ -46,10 +46,12 @@ try {
                         <div class="aiero-creation-card-wrapper <?= $float_class ?>">
                             <div class="aiero-creation-card" style="display: block; height: 380px; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;">
                                 <div class="aiero-creation-img" style="background-image: url('uploads/gallery/<?= htmlspecialchars($item['image']) ?>'); width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);"></div>
+                                <?php if(!empty($item['title']) || !empty($item['description']) ){ ?>
                                 <div class="aiero-creation-content" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); padding: 2rem; display: flex; flex-direction: column; justify-content: flex-end; height: 60%; pointer-events: none; z-index: 2;">
                                     <span class="aiero-creation-label" style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: #fff; text-transform: uppercase; font-weight: 500; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);"><?= htmlspecialchars($item['title']) ?></span>
                                     <p class="aiero-creation-desc" style="font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.5);"><?= htmlspecialchars($item['description'] ?? '') ?></p>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

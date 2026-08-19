@@ -2158,6 +2158,7 @@ body.aiero-theme .aiero-phone-num {
     position: relative;
     width: 100%;
     will-change: transform;
+    border-radius: 15px;
 }
 
 /* Pause float animation on hover so clicks always register cleanly */
@@ -2202,10 +2203,13 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes cardFloat3D1 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         transform: translateY(-12px);
         box-shadow: 0 35px 60px rgba(255, 194, 41, 0.12);
@@ -2213,10 +2217,13 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes cardFloat3D2 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         transform: translateY(12px);
         box-shadow: 0 35px 60px rgba(255, 194, 41, 0.12);
@@ -2224,10 +2231,13 @@ body.aiero-theme .aiero-phone-num {
 }
 
 @keyframes cardFloat3D3 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         transform: translateY(-10px);
         box-shadow: 0 35px 60px rgba(255, 194, 41, 0.12);

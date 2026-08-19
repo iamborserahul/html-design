@@ -12,7 +12,7 @@ try {
 ?>
 
 <!-- Subpage Hero Section -->
-    <section class="aiero-hero subpage-hero" style="height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <section class="aiero-hero subpage-hero" style="height: 60vh; min-height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline">PRODUCT PORTFOLIO</span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;">Our Product Categories</h1>

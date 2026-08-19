@@ -6,8 +6,8 @@ require_once __DIR__ . '/includes/header.php';
 try {
     $counts = [];
 
-    $counts['products'] = (int) $db->query("SELECT COUNT(*) FROM products WHERE status = 1")->fetchColumn();
-    $counts['categories'] = (int) $db->query("SELECT COUNT(*) FROM product_categories WHERE status = 1")->fetchColumn();
+    // $counts['products'] = (int) $db->query("SELECT COUNT(*) FROM products WHERE status = 1")->fetchColumn();
+    // $counts['categories'] = (int) $db->query("SELECT COUNT(*) FROM product_categories WHERE status = 1")->fetchColumn();
     $counts['inquiries_total'] = (int) $db->query("SELECT COUNT(*) FROM inquiries")->fetchColumn();
     $counts['inquiries_unread'] = (int) $db->query("SELECT COUNT(*) FROM inquiries WHERE is_read = 0")->fetchColumn();
     $counts['gallery'] = (int) $db->query("SELECT COUNT(*) FROM gallery_items WHERE status = 1")->fetchColumn();
@@ -18,14 +18,15 @@ try {
 
     $recent_inquiries = $db->query("SELECT id, name, email, subject, is_read, created_at FROM inquiries ORDER BY created_at DESC LIMIT 5")->fetchAll();
 
-    $chart_data = $db->query("
-        SELECT c.name AS category, COUNT(p.id) AS total
-        FROM product_categories c
-        LEFT JOIN products p ON p.category_id = c.id AND p.status = 1
-        WHERE c.status = 1
-        GROUP BY c.id, c.name
-        ORDER BY c.sort_order ASC
-    ")->fetchAll();
+    // $chart_data = $db->query("
+    //     SELECT c.name AS category, COUNT(p.id) AS total
+    //     FROM product_categories c
+    //     LEFT JOIN products p ON p.category_id = c.id AND p.status = 1
+    //     WHERE c.status = 1
+    //     GROUP BY c.id, c.name
+    //     ORDER BY c.sort_order ASC
+    // ")->fetchAll();
+    $chart_data = [];
 
 } catch (PDOException $e) {
     $error = 'Database error: ' . $e->getMessage();
@@ -157,20 +158,23 @@ try {
 </style>
 
 <div class="row g-3 mb-4">
+    <!-- Products stat card hidden -->
+    <!--
     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
         <div class="stat-card h-100">
             <div class="stat-icon"><i class="fa-solid fa-box"></i></div>
-            <div class="stat-number" data-count="<?= $counts['products'] ?>">0</div>
+            <div class="stat-number" data-count="0">0</div>
             <div class="stat-label">Total Products</div>
         </div>
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
         <div class="stat-card h-100">
             <div class="stat-icon"><i class="fa-solid fa-tags"></i></div>
-            <div class="stat-number" data-count="<?= $counts['categories'] ?>">0</div>
+            <div class="stat-number" data-count="0">0</div>
             <div class="stat-label">Total Categories</div>
         </div>
     </div>
+    -->
     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
         <div class="stat-card h-100">
             <div class="stat-icon"><i class="fa-solid fa-envelope"></i></div>
@@ -202,6 +206,7 @@ try {
             <div class="stat-label">FAQs</div>
         </div>
     </div>
+    <?php /*
     <div class="col-12 col-sm-6 col-md-4 col-xl-3">
         <div class="stat-card h-100">
             <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
@@ -215,25 +220,28 @@ try {
             <div class="stat-number" data-count="<?= $counts['hero_slides'] ?>">0</div>
             <div class="stat-label">Hero Slides</div>
         </div>
-    </div>
+    </div> */?>
 </div>
 
 <div class="row g-4">
     <div class="col-12 col-lg-8">
-        <div class="glass-card mb-4 h-auto">
-            <div class="d-flex align-center justify-between mb-2">
-                <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Products per Category</h2>
-            </div>
-            <div class="chart-wrap">
-                <canvas id="categoryChart"></canvas>
-            </div>
+    <!-- Products per Category chart hidden -->
+    <!--
+    <div class="glass-card mb-4 h-auto">
+        <div class="d-flex align-center justify-between mb-2">
+            <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Products per Category</h2>
         </div>
+        <div class="chart-wrap">
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+    -->
         <div class="glass-card">
             <div class="d-flex align-center justify-between mb-2">
                 <h2 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);">Quick Actions</h2>
             </div>
             <div class="quick-actions">
-                <a href="products.php?action=add" class="btn btn-gold"><i class="fa-solid fa-plus"></i> Add Product</a>
+                <!-- <a href="products.php?action=add" class="btn btn-gold"><i class="fa-solid fa-plus"></i> Add Product</a> -->
                 <a href="inquiries.php" class="btn btn-ghost"><i class="fa-solid fa-envelope"></i> View Inquiries</a>
                 <a href="gallery.php?action=add" class="btn btn-ghost"><i class="fa-solid fa-plus"></i> Add Gallery</a>
                 <a href="../" class="btn btn-ghost" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Site</a>

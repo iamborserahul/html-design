@@ -22,9 +22,9 @@ try {
         $stmt_sub->execute([$category['id']]);
         $sub_categories = $stmt_sub->fetchAll();
 
-        // Always fetch direct products for this category
-        $stmt_prod = $db->prepare("SELECT * FROM products WHERE category_id = ? AND status = 1 ORDER BY sort_order ASC, id DESC");
-        $stmt_prod->execute([$category['id']]);
+        // Fetch gallery images matching this category name
+        $stmt_prod = $db->prepare("SELECT title AS name, description AS short_description, image AS featured_image, category AS slug FROM gallery_items WHERE category = ? AND status = 1 ORDER BY sort_order ASC, id DESC");
+        $stmt_prod->execute([$category['name']]);
         $products = $stmt_prod->fetchAll();
     }
 } catch (Exception $e) {
@@ -50,7 +50,7 @@ if (!empty($category['image']) && file_exists(__DIR__ . '/uploads/categories/' .
     if (strpos($img_src, 'assets/') === 0) {
         $cat_image = $img_src;
     } else {
-        $cat_image = 'uploads/' . $img_src;
+        $cat_image = 'uploads/gallery/' . $img_src;
     }
 } else {
     $cat_image = 'assets/metal-bed-7201-01.webp';
@@ -77,7 +77,7 @@ try {
 ?>
 
 <!-- Subpage Hero Section -->
-    <section class="aiero-hero subpage-hero" style="height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <section class="aiero-hero subpage-hero" style="height: 60vh; min-height: 500px; display: flex; align-items: center; justify-content: center; text-align: center;">
         <div class="aiero-slide-content" style="position: relative; margin: 0; padding: 0 4%; max-width: 1000px; text-align: center; align-items: center;">
             <span class="aiero-slide-tagline"><?= !empty($sub_categories) ? 'PRODUCT RANGE' : 'CATEGORY PROFILE' ?></span>
             <h1 class="aiero-slide-title" style="transform: none; opacity: 1;"><?= htmlspecialchars($category['name']) ?></h1>
@@ -135,14 +135,13 @@ try {
                     if (!empty($sub['image']) && file_exists(__DIR__ . '/uploads/categories/' . $sub['image'])) {
                         $sub_image = 'uploads/categories/' . $sub['image'];
                     } else {
-                        // Fallback: first product image in this sub-category
+                        // Fallback: first gallery image in this sub-category
                         try {
-                            $stmt_fp = $db->prepare("SELECT featured_image FROM products WHERE category_id = ? AND status = 1 LIMIT 1");
-                            $stmt_fp->execute([$sub['id']]);
-                            $first_prod = $stmt_fp->fetch();
-                            if (!empty($first_prod['featured_image'])) {
-                                $fp_src = $first_prod['featured_image'];
-                                $sub_image = (strpos($fp_src, 'assets/') === 0) ? $fp_src : 'uploads/' . $fp_src;
+                            $stmt_fp = $db->prepare("SELECT image FROM gallery_items WHERE category = ? AND status = 1 LIMIT 1");
+                            $stmt_fp->execute([$sub['name']]);
+                            $first_img = $stmt_fp->fetch();
+                            if (!empty($first_img['image'])) {
+                                $sub_image = 'uploads/gallery/' . $first_img['image'];
                             }
                         } catch (Exception $e) {}
                         if (!$sub_image) $sub_image = 'assets/metal-bed-7201-01.webp';
@@ -152,10 +151,12 @@ try {
                         <a href="category/<?= htmlspecialchars($sub['slug']) ?>" class="aiero-creation-card" style="display: block;">
                             <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($sub_image) ?>');"></div>
                             <div class="aiero-creation-view-more">ENTER</div>
+                            <?php if(!empty($sub['title']) || !empty($sub['description']) ){ ?>
                             <div class="aiero-creation-content">
                                 <span class="aiero-creation-label"><?= htmlspecialchars($sub['name']) ?></span>
                                 <p class="aiero-creation-desc"><?= htmlspecialchars($sub['description']) ?></p>
                             </div>
+                            <?php } ?>
                         </a>
                     </div>
                 <?php endforeach; ?>
@@ -180,18 +181,21 @@ try {
                     $float_class = 'card-float-' . (($i % 3) + 1);
                     $prod_img = $prod['featured_image'];
                     if (strpos($prod_img, 'assets/') !== 0) {
-                        $prod_img = 'uploads/' . $prod_img;
+                        $prod_img = 'uploads/gallery/' . $prod_img;
                     }
                     ?>
                     <div class="aiero-creation-card-wrapper <?= $float_class ?>">
-                        <a href="product/<?= htmlspecialchars($prod['slug']) ?>" class="aiero-creation-card" style="display: block; height: 380px;">
-                            <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($prod_img) ?>');"></div>
-                            <div class="aiero-creation-view-more">VIEW DETAILS</div>
+                        <div class="aiero-creation-card" style="display: block; height: 380px;">
+                            <div class="aiero-creation-img" style="background-image: url('<?= htmlspecialchars($prod_img) ?>');">
+                            </div>
+                            <?php if(!empty($prod['title']) || !empty($prod['description']) ){ ?>
                             <div class="aiero-creation-content" style="background: none; padding: 2rem;">
                                 <span class="aiero-creation-label" style="font-size: 1.15rem;"><?= htmlspecialchars($prod['name']) ?></span>
-                                <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;"><?= htmlspecialchars($prod['short_description']) ?></p>
+                                <p class="aiero-creation-desc" style="font-size: 0.85rem; line-height: 1.5;"><?= htmlspecialchars($prod['short_description'] ?? '') ?></p>
                             </div>
-                        </a>
+                            <?php } ?>
+
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
