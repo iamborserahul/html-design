@@ -550,7 +550,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label class="form-label" style="margin-top: 1rem;">Search Engine Result Preview</label>
                         <div class="seo-preview">
                             <div class="seo-url">
-                                <span>https://khodiyarsteel.com</span>
+                                <span>https://<?= htmlspecialchars(DOMAIN_NAME) ?></span>
                                 <i class="fas fa-chevron-right" style="font-size: 8px;"></i>
                                 <span>products</span>
                                 <i class="fas fa-chevron-right" style="font-size: 8px;"></i>

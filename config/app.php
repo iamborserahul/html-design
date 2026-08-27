@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/database.php';
 
+define('DOMAIN_NAME', getenv('DOMAIN_NAME') ?: 'khodiyarsteel.com');
+
+
 define('UPLOADS_PATH', __DIR__ . '/../uploads');
 define('UPLOADS_URL', 'uploads');
 
